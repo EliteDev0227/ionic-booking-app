@@ -1,0 +1,10 @@
+<ion-list>
+  <h4 ion-text color="primary">{{ 'SMS_VERIFICATION' |translate }}</h4>
+
+  <p>{{ "SMART_BEACH_WILL_SEND_YOU_AN_SMS_MESSAGE_TO_VERIFY_YOUR_PHONE_NUMBER" |translate }}</p>
+
+  <div class="buttons">
+    <button ion-button (click)="close()">{{ 'CANCEL'|translate }}</button>
+    <button ion-button (click)="gotoVerification()">{{ 'OK' |translate }}</button>
+  </div>
+</ion-list>

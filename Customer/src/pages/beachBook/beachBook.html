@@ -1,0 +1,159 @@
+<ion-header class="has-shadow">
+
+	<ion-navbar>
+		<ion-title>{{ title }}</ion-title>
+		<ion-buttons end>
+
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<ion-list>
+
+		<div class="sunbedContainer">
+			<!-- <P ion-text *ngIf="reservationStatus != 'change-request'" style="text-align: center;color: #fe5295">{{
+						'TAP_ON_SUNBED_YOU_WANT_TO_ORDER' | translate }}</P>
+			<P ion-text *ngIf="reservationStatus == 'change-request'" style="text-align: center;color: #fe5295">{{ 'YOUR_REQUEST_PENDING_MESSAGE'
+				| translate }}</P> -->
+			<ion-row class="sunbedHeading">
+				<ion-col col-5>
+					<ion-row>
+						<h2 margined blackDark>{{ 'NUMBER' | translate }}: {{ index }}</h2>
+					</ion-row>
+				</ion-col>
+				<ion-col col-7>{{ status.data.price | price }} {{ configuration.currency }}/{{ 'SUNBED' | translate }}</ion-col>
+			</ion-row>
+			<div class="sunbedBg">
+				<ion-row *ngIf="!singleSeat" class="top">
+					<ion-col col-3>
+						<div class="As">A</div>
+					</ion-col>
+					<ion-col col-6 style="color: #fe5295;font-weight: bold;text-align: center">{{'SELECT_SUNBEDS' | translate}}</ion-col>
+					<ion-col col-3>
+						<div class="As right">B</div>
+					</ion-col>
+				</ion-row>
+				<div class="sunbedHolder">
+					<beach-umbrella [ReceivedEvent]="umbrellaData" [ViewData]="data" (changes)="UpdateData($event)"></beach-umbrella>
+				</div>
+
+				<ion-row *ngIf="!singleSeat" class="bottom">
+					<ion-col>
+						<div class="seats">{{ available}} {{ 'SEATS' | translate }}</div>
+						<div class="availability">{{ 'AVAILABLE' | translate }}</div>
+					</ion-col>
+					<ion-col>
+						<div class="seats">{{ selected }} {{ 'SEATS' | translate }}</div>
+						<div class="availability blued">{{ 'SELECTED' | translate }}</div>
+					</ion-col>
+					<ion-col *ngIf="busy">
+						<div class="seats">{{ busy }} {{ 'SEATS' | translate }}</div>
+						<div class="availability red">{{ 'OCCUPIED' | translate }}</div>
+					</ion-col>
+
+				</ion-row>
+				<ion-row *ngIf="singleSeat" class="bottom">
+					<ion-col>
+						<div class="seats">{{ 'SIZE' | translate }}</div>
+						<div *ngIf="data.data.seats>1" class="availability persons">{{data.data.seats}} {{ 'PERSONS' | translate }}</div>
+						<div  *ngIf="!(data.data.seats>1)" class="availability persons">{{data.data.seats}} {{ 'PERSON' | translate }}</div>
+					</ion-col>
+				</ion-row>
+			</div>
+		</div>
+
+		<!--div class="sunbedContainer">
+			<ion-row class="sunbedHeading">
+				<ion-col col-7>
+					<ion-row>
+						<h2 margined blackDark>{{ 'NUMBER' | translate }}: {{ index }}</h2>
+					</ion-row>
+				</ion-col>
+				<ion-col col-5>{{ status.data.price | price }} {{ configuration.currency }}/{{ 'SUNBED' | translate }}</ion-col>
+			</ion-row>
+			<div class="sunbedBg">
+				<ion-row class="top">
+					<ion-col col-5>
+						<div class="As">A</div>
+					</ion-col>
+					<ion-col></ion-col>
+					<ion-col col-5>
+						<div class="As right">B</div>
+					</ion-col>
+				</ion-row>
+				<div class="sunbedHolder">
+					<beach-umbrella [ReceivedEvent]="umbrellaData" (changes)="UpdateData($event)"></beach-umbrella>
+				</div>
+
+				<ion-row class="bottom">
+					<ion-col>
+						<div class="seats">{{ status.icon - selected }} {{ 'SEATS' | translate }}</div>
+						<div class="availability">{{ 'AVAILABLE' | translate }}</div>
+					</ion-col>
+					<ion-col>
+						<div class="seats">{{ selected }} {{ 'SEATS' | translate }}</div>
+						<div class="availability blued">{{ 'SELECTED' | translate }}</div>
+					</ion-col>
+					<ion-col *ngIf="busy">
+						<div class="seats">{{ busy }} {{ 'SEATS' | translate }}</div>
+						<div class="availability red">{{ 'OCCUPIED' | translate }}</div>
+					</ion-col>
+
+				</ion-row>
+			</div>
+		</div-->
+
+		<ion-row *ngIf="avail_sunbed()>0 && reservationStatus != 'change-request'" class="extra-sunbeds">
+			<ion-col col-12>
+				<h4 no-margin ion-text class="additional" color="primary">{{ 'DO_YOU_WANT_ADDITIONAL_SUNBED' | translate }}</h4>
+			</ion-col>
+			<ion-col col-2 no-padding *ngFor="let extra of getExtraSunbedArr(); let i =index">
+				<button ion-button (click)="onChangeExtra(extra)" [disabled]="available" color="{{ sunbed==extra?'primary':'white' }}">{{
+					extra }}</button>
+			</ion-col>
+		</ion-row>
+
+		<!--  *ngIf="reservationStatus != 'change-request'" -->
+		<br/>
+		<br/>
+		<div class="TextContainers">
+
+			<ion-item class="terms-condition">
+				<ion-checkbox start [(ngModel)]="reservationBox" (ngModelChange)="check()"></ion-checkbox>
+				<ion-label class="terms-label">{{'ACCEPT' |translate}} <a href="#" item-content (click)="Agreement()">{{'TERMS_CONDITIONS'
+						|translate}}</a></ion-label>
+			</ion-item>
+			<ng-container *ngIf="reservationStatus != 'change-request'">
+				<h2 blackDark>{{ 'TOTAL' | translate }}: {{ getTotal() | price }} {{ configuration.currency }}</h2>
+
+				<!-- <div *ngIf="beach_settings.only_cc">
+					<button [disabled]="selected<1 || !reservationBox" ion-button round block color="primary" light (click)="onPay()">{{
+						'PAY' | translate
+						}}</button>
+				</div> -->
+				<ion-row *ngIf="!beach_settings.only_cc" style="margin-top: 10vm !important;">
+					<ng-container *ngIf="beach_settings.without_pay_reserve">
+						<ion-col>
+							<button id="my-button" [disabled]="(selected < 1 || !isReserveAvailable()) || !canReserve()" ion-button round
+							block color="white" class="reserve" (click)="completeReservation()">{{ 'RESERVE' | translate }} &nbsp; <span>({{
+									'FOR' | translate }} {{
+									beach_settings.booking_time_limit }} {{ 'MIN' | translate }})</span></button>
+						</ion-col>
+						<ion-col *ngIf="beach_settings.card">
+							<button [disabled]="selected<1 || !reservationBox" ion-button round block color="primary" light (click)="onPay()">{{
+								'PAY' | translate
+								}}</button>
+						</ion-col>
+					</ng-container>
+					<ng-container *ngIf="!beach_settings.without_pay_reserve">
+						<span>
+							{{payReserveMsg}}
+						</span>
+					</ng-container>
+				</ion-row>
+			</ng-container>
+		</div>
+	</ion-list>
+</ion-content>

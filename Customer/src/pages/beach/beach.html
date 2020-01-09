@@ -1,0 +1,113 @@
+<ng-template #Umbrella let-item>
+        <ng-container *ngIf="!(item.type=='umbrella' && item.item.sides>1)">
+            <img [ngClass]="(item.item.isFull || item.type=='static' || item.item.disabled)?'cursor-disabled '+item.item.status_class:'cursor-pointer '+item.item.status_class"
+                [src]="item.img+clearCache" (click)="item.item.isFull || item.item.disabled ||Proceed(item.type,item.item,item.item.number,'front')" />
+        </ng-container>
+        <div *ngIf="item.type=='umbrella' && item.item.sides>1">
+            <div id="drag-comb" class="draggable-element-div grid-elements {{item.item.status_class}}">
+                <div [ngClass]="(item.item.isFull || item.item.disabled)?'ele-merged-obj cursor-disabled':'ele-merged-obj cursor-pointer'"
+                    style="position:relative;"
+                    (click)="item.item.isFull || item.item.disabled || Proceed(item.type,item.item,item.item.number,'front')">
+                    <div class="ele-merged-div float-left position-relative"
+                        [ngStyle]="{} || {'width':item.info.widthPercentage+'%'}">
+                        <div class="ele-merged-sub left" [ngStyle]="{'width':item.info.pos.widthLeftOuter+'%'}">
+                            <div class="ele-merged-inner" [ngStyle]="{'width':item.info.pos.widthLeftInner+'%'}">
+                                <img id="drag-comb-left" class="ele-merged-img upside-down left-img" [src]="item.img+clearCache">
+                            </div>
+                        </div>
+                        <div class="ele-merged-sub right" [ngStyle]="{'width':item.info.pos.widthRightOuter+'%'}">
+                            <div class="ele-merged-inner right"
+                                [ngStyle]="{'width':item.info.pos.widthRightInner+'%','margin-left':item.info.pos.marginLeftOffset+'%'}">
+                                <img id="drag-comb-right" class="ele-merged-img upside-down right-img" [src]="item.img+clearCache">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="drag-comb-div" style="opacity:0;width:100%;height:100%;position:absolute;">&nbsp;</div>
+            </div>
+        </div>
+    
+    
+    </ng-template>
+    <ng-template #ZoneItems let-list>
+        <ng-container *ngFor="let item of list">
+            <div class="{{(item.disabled)?'disabled':'enabled'}}" [ngClass]="isFreeSeats(item) ? 'seat free' : 'seat'" [ngStyle]="item.style">
+                <ng-container
+                    *ngTemplateOutlet="Umbrella; context:{$implicit:{item:item, info:item.info.mapElement, img: item.img, type:item.type}}">
+                </ng-container>
+            </div>
+        </ng-container>
+    </ng-template>
+    <!--ng-container *ngTemplateOutlet="SunBed; context:{$implicit:{side:side, data: item, index: ind}}"></ng-container-->
+    
+    <ion-header class="has-shadow" #header>
+        <ion-navbar>
+            <ion-title>{{ title }}</ion-title>
+            <ion-buttons end>
+                <button ion-button icon-only (click)="showProducts()">
+                    <ion-icon name="paper"></ion-icon>
+                </button>
+            </ion-buttons>
+            <ion-buttons end>&nbsp;&nbsp;</ion-buttons>
+            <ion-buttons end>
+                <button ion-button icon-only (click)="showWaterMenu()">
+                    <ion-icon class="fa fa-thermometer-full"></ion-icon>
+                </button>
+            </ion-buttons>
+        </ion-navbar>
+    
+    </ion-header>
+    <ion-content no-bounce id="content">
+        <div class="container" id="container" [ngStyle]="containerStyle || getFullWidth()">
+            <div class="wave" *ngIf="!navParams.data.startD" #wave></div>
+    
+            <div class="wave-offset-div">
+                &nbsp;
+            </div>
+            <div class="grid-seat-div">
+                <ng-container *ngFor="let zone of ['front','middle','back']">
+                    <ng-container *ngTemplateOutlet="ZoneItems; context:{$implicit:grid[zone]}">
+                    </ng-container>
+                </ng-container>
+                <!--ng-container *ngFor="let item of grid.front">
+                    <div [ngClass]="isFreeSeats(item) ? 'seat free' : 'seat'" [ngStyle]="item.style">
+                        <ng-container
+                            *ngTemplateOutlet="Umbrella; context:{$implicit:{item:item, info:item.info.mapElement, img: item.img, type:item.type}}">
+                        </ng-container>
+                    </div>
+                </ng-container>
+                <ng-container *ngFor="let item of grid.middle">
+                    <div [ngClass]="isFreeSeats(item) ? 'seat free' : 'seat'" [ngStyle]="item.style">
+                        <ng-container
+                            *ngTemplateOutlet="Umbrella; context:{$implicit:{item:item, info:item.info.mapElement, img: item.img, type:item.type}}">
+                        </ng-container>
+                    </div>
+                </ng-container>
+                <ng-container *ngFor="let item of grid.back">
+                    <div [ngClass]="isFreeSeats(item) ? 'seat free' : 'seat'" [ngStyle]="item.style">
+                        <ng-container
+                            *ngTemplateOutlet="Umbrella; context:{$implicit:{item:item, info:item.info.mapElement, img: item.img, type:item.type}}">
+                        </ng-container>
+                    </div>
+                </ng-container-->
+            </div>
+            <div>
+                <ion-row class="sunbedLink" (click)="Proceed('sunbed',{},1)"
+                    *ngIf="beachsettings.extra_sunbeds>0 && SearchObj && SearchObj.seat_type=='sunbed'">
+                    <ion-col col-3>
+                        <img src="./assets/imgs/beaches/individual_sunbed_without_umbrella.png" />
+                    </ion-col>
+                    <ion-col col-6>
+                        <div class="text">{{ 'SUNBED_WITHOUT_UMBRELLA' | translate }}</div>
+                    </ion-col>
+                    <ion-col col-3>
+                        <img src="./assets/imgs/beaches/individual_sunbed_without_umbrella.png" />
+                    </ion-col>
+                </ion-row>
+            </div>
+    
+    
+    
+        </div>
+    
+    </ion-content>

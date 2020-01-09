@@ -1,0 +1,85 @@
+<!-- <ion-header>
+
+  <ion-navbar>
+      <ion-buttons right>
+          <button ion-button icon-only class="back-button" (click)="close()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+      </ion-buttons>
+      </ion-navbar>
+
+</ion-header> -->
+<ion-content padding class="main-content" (click)="close()">
+  <!-- <div class="head-div">
+    <p>{{title}}</p>
+  </div> -->
+  <div class="main-title">{{((weather =='Partly cloudy')||(weather =='Hailing')||(weather =='Cloudy')||(weather =='Foggy')||(weather =='Snow storm')||(weather =='Rain storm')||(weather =='Falling snow')||(weather =='Hail storm')||(weather =='Cloud with rain')||(weather =='Rainy')||(weather =='Sunny')||(weather =='Snowy')||(weather =='Windy')||(weather =='Stormy'))?weather:''}}</div>
+  <div class="main-div">
+    <div class="sub-div">
+      <!-- <button class="cloud-icon" ion-button icon-only>
+        <ion-icon name="cloudy"></ion-icon>
+      </button> -->
+      <img class= "weather-img" *ngIf="weather =='Partly cloudy'" src="https://img.icons8.com/dusk/64/000000/partly-cloudy-day.png">
+      <img class= "weather-img" *ngIf="weather =='Rainy'" src="https://img.icons8.com/ultraviolet/40/000000/rainy-weather.png">
+      <img class= "weather-img" *ngIf="weather =='Sunny'" src="https://img.icons8.com/dusk/64/000000/sun.png">
+      <img class= "weather-img" *ngIf="weather =='Snowy'" src="https://img.icons8.com/dusk/64/000000/snow.png">
+      <img class= "weather-img" *ngIf="weather =='Windy'" src="https://img.icons8.com/dusk/64/000000/windy-weather.png">
+      <img class= "weather-img" *ngIf="weather =='Stormy'" src="https://img.icons8.com/office/16/000000/chance-of-storm.png">
+      <img class= "weather-img" *ngIf="weather =='Cloud with rain'" src="https://img.icons8.com/dusk/64/000000/rain.png">
+      <img class= "weather-img" *ngIf="weather =='Hail storm'" src="https://img.icons8.com/ultraviolet/40/000000/cloud-lighting.png">
+      <img class= "weather-img" *ngIf="weather =='Falling snow'" src="https://img.icons8.com/dusk/64/000000/snow.png">
+      <img class= "weather-img" *ngIf="weather =='Rain storm'" src="https://img.icons8.com/dusk/64/000000/storm.png">
+      <img class= "weather-img" *ngIf="weather =='Snow storm'" src="https://img.icons8.com/dusk/64/000000/snow-storm.png">
+      <img class= "weather-img" *ngIf="weather =='Cloudy'" src="https://img.icons8.com/dusk/64/000000/clouds.png">
+      <img class= "weather-img" *ngIf="weather =='Foggy'" src="https://img.icons8.com/dusk/64/000000/foggy-night-1.png">
+      <img class= "weather-img" *ngIf="weather =='Hailing'" src="https://img.icons8.com/dusk/64/000000/hail.png">
+      <!-- <img class= "weather-img" *ngIf="!(weather=='Stormy') && !(weather == 'Cloudy') && !(weather=='Sunny') && !(weather=='Snowy') && !(weather=='Stormy') && !(weather=='Windy')" src="./assets/imgs/beaches/clouds.png"> -->
+      <h2>{{currtemp}}°</h2>
+    </div>
+  </div>
+
+  <!-- <ion-list class="languageHolder" (click)="close()" *ngIf="items">
+  <ion-item no-lines *ngFor="let item of items | ToArray:['description']; let i=index;">
+   <div class="tick" [ngClass]="item |key:true"></div> <div class="name">{{ "weather." + (item |key:true) | translate }} {{ item | key:false }}</div>
+  </ion-item>
+</ion-list> -->
+
+  <div class="sub-title">{{'HOURLY_TEXT' | translate}}</div>
+  <div class="wind-det">
+    <ion-col class="wind-cols" *ngFor="let item of items">
+      <div class="wind-items">
+        <div>{{item.orgtime}}</div>
+        <div class="each-weather">
+          <!-- <button class="weather-btns" ion-button icon-only >
+          <ion-icon name="cloudy"></ion-icon>
+        </button>  -->
+          <img class="image" src={{item.weatherIconUrl[0].value}} />
+          <div class="each-weather">{{item.tempC}}°</div>
+          <div class="dot"></div>
+          <div class="each-weather"><img src="./assets/imgs/waterdrop.png" /> <span>{{item.chanceofrain}}%</span> </div>
+        </div>
+
+
+
+        <div class="each-weather">
+          <img class="image" src="./assets/imgs/beaches/clouds.png" />
+          <div>{{item.cloudcover}}%</div>
+        </div>
+        <div class="each-weather">
+          <img class="image" src="./assets/imgs/beaches/wind.png" />
+          <div class="wind">{{item.WindGustMiles}}m/s</div>
+        </div>
+        <!-- <div class="each-weather">
+          <img class="image" src="./assets/imgs/weather/seatemp.png" />
+          <div class="wind">{{item.waterTemp_C}}°</div>
+        </div> -->
+        <div class="each-weather">
+          <img class="image" src="./assets/imgs/weather/uv.png" />
+          <div>{{item.uvIndex}}</div>
+        </div>
+
+      </div>
+
+    </ion-col>
+  </div>
+</ion-content>

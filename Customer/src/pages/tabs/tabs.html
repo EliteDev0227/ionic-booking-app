@@ -1,0 +1,92 @@
+<ion-tabs #myTabs [class.menu-shown]="isMenuShown" (ionChange)="tabEvents($event)">
+  <ion-tab [root]="tab1Root" tabIcon="search" tabTitle="{{ 'SEARCH' | translate }}"></ion-tab>
+  <ion-tab [root]="tab2Root"  tabIcon="beach-tab-calendar" tabTitle="{{ 'RESERVATION' | translate }}" enabled="true"></ion-tab>
+  <!-- <ion-tab [root]="tab5Root" [rootParams]="beachRootParam" [tabIcon]="isMenuShown?'close':'ios-paper'" tabTitle="{{ 'BEACH_MENU' | translate }}" (ionSelect)="toggleMenu()" enabled="{{ unlockReservation }}"></ion-tab> -->
+  <ion-tab [root]="tab3Root" tabIcon="ios-paper" tabTitle="{{ 'BEACH_MENU' | translate }}" enabled="true"></ion-tab>
+  <!-- <ion-tab [root]="tab4Root"  tabIcon="beach-tab-map" tabTitle="{{ 'BEACH_MAP' | translate }}" [enabled]="veiwMapState"></ion-tab> -->
+  <!-- <ion-toolbar class="menu">
+    <ion-buttons> -->
+
+      <!--<button ion-button>
+        <div>
+          <div class="icon-div">
+            <ion-icon name="settings" large></ion-icon>
+          </div>
+          Settings
+        </div>
+      </button>
+      <button ion-button>
+        <div>
+          <div class="icon-div">
+            <ion-icon name="share-alt"></ion-icon>
+          </div>
+          Give Reservation
+        </div>
+      </button>
+      <button ion-button>
+        <div>
+          <div class="icon-div">
+            <ion-icon name="share"></ion-icon>
+          </div>
+          Share App
+        </div>
+      </button>-->
+
+      <!-- <button ion-button (click)="openCart()">
+        <ion-badge>{{ badge.cart.count }}</ion-badge>
+
+        <div>
+          <div class="icon-div">
+            <ion-icon name="cart"></ion-icon>
+          </div>
+          cart
+        </div>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> -->
+  <!-- <div id="mask" (click)="toggleMenu()"></div> -->
+  <!-- <ion-tab  [root]="chatRoot" tabIcon="chatboxes" tabTitle="Chat" tabBadge="" enabled="true"></ion-tab> -->
+ 
+  <ion-tab  *ngIf="showquit" [root]="tab5Root" tabIcon="person" tabTitle="{{last_tab}}" tabBadge="{{unreceivedEvents}}" enabled="true"></ion-tab>
+  <ion-tab *ngIf="customer.tour || customer.guest" tabIcon="power" tabTitle="Quit" (ionSelect)="logoutapp()" enabled="true"></ion-tab>
+  
+  <!-- <ion-tab [root]="tab4Root" tabIcon="power" tabTitle="Logout" (ionSelect)=" logout()"></ion-tab> -->
+  <!-- <ion-tab [tabIcon]="isMenuShown ? 'close' : 'menu'" (ionSelect)="toggleMenu()"></ion-tab>
+<ion-toolbar class="menu">
+     <ion-buttons>
+       <button ion-button>
+         <div>
+           <div class="icon-div">
+             <ion-icon name="settings" large></ion-icon>
+           </div>
+           Settings
+         </div>
+       </button>
+       <button ion-button>
+         <div>
+           <div class="icon-div">
+             <ion-icon name="share-alt"></ion-icon>
+           </div>
+           Give Reservation
+         </div>
+       </button>
+       <button ion-button>
+         <div>
+           <div class="icon-div">
+             <ion-icon name="share"></ion-icon>
+           </div>
+           Share App
+         </div>
+       </button>
+       <button ion-button>
+         <div>
+           <div class="icon-div">
+             <ion-icon name="chatbubbles"></ion-icon>
+           </div>
+           Chat Online
+         </div>
+       </button>
+     </ion-buttons>
+   </ion-toolbar>
+  <div id="mask" (click)="toggleMenu()"></div>-->
+</ion-tabs>

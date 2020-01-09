@@ -1,0 +1,27 @@
+image-viewer {
+ 
+.scroll-content{
+  height: 482px;
+  overflow: hidden !important;
+}
+img{
+  height: 100%;
+  overflow: hidden !important;
+}
+.back-btn{
+  height: 25px !important;
+  width: 25px;    right: 2px;
+  position: absolute;
+  border-radius: 50%;
+}
+ion-popover {
+  ion-backdrop {
+    opacity: .3 !important;
+  }
+  div.popover-content {
+    box-shadow: 0 0 1rem rgb(68, 68, 68);
+  }
+}
+}
+
+

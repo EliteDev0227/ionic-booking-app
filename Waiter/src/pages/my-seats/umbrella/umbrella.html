@@ -1,0 +1,103 @@
+<!--
+  Generated template for the Umbrella4 page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar class="nav_background">
+        <ion-title class="sub-page-title">umbrella #{{ seat.number }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ng-container>
+        <div class="single_cont" *ngIf="single_content">
+            <div class="container {{activeAction}}">
+                <h1 class="title-left" [style.color]="color_left"></h1>
+                <ng-container *ngIf="reservation.left && reservation.left.status == 'active'">
+                    <button ion-button class="app_background" [ngClass]="activeState ? 'fcolor-black' : 'fcolor-white'" full (click)="onClickOrderList('single')">{{'LABELS.ORDERS' | translate}}</button>
+                    <ng-container *ngIf="activeState">
+                        <div class="top_arrow"></div>
+                        <div class="pop_cont order">
+                            <ion-item class="no-border right-btn">
+                                <button ion-button float-right (click)="onClickNew(reservation.left)">{{'LABELS.NEW' | translate}}</button>
+                            </ion-item>
+                            <div class="inner_cont">
+                                <ion-item class="order_cell border" [ngClass]="order.status == 'sent' ? 'new' : ''" *ngFor="let order of reservation.left.orders" (click)="onClickOrder(order)">
+                                    <p>
+                                        <span float-left>{{ 'LABELS.ORDER' | translate }} #{{order.number}}</span>
+                                        <span float-right>{{order.status == 'sent' ? 'New' : 'Old'}}</span>
+                                    </p>
+                                    <p>
+                                        <span float-left>{{order.updated}}</span>
+                                        <span float-right>{{ 'LABELS.TOTAL' | translate }}: {{order.data.amount}} {{currency}}</span>
+                                    </p>
+                                </ion-item>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+        <div class="split_pan {{activeAction}}" (swipe)="panSwipe($event)" *ngIf="!single_content">
+            <div class="sub_pan"> <!-- Left Panel -->
+                <div class="container {{activeAction}}">
+                    <h1 class="title-left" [style.color]="color_left">A</h1>
+                    <ng-container *ngIf="reservation.left && reservation.left.status == 'active'">
+                        <button ion-button class="app_background" [ngClass]="activeState ? 'fcolor-black' : 'fcolor-white'" full (click)="onClickOrderList('left')">{{'LABELS.ORDERS' | translate}}</button>
+                        <ng-container *ngIf="activeState && activeAction == 'left-active'">
+                            <div class="top_arrow"></div>
+                            <div class="pop_cont order">
+                                <ion-item class="no-border right-btn">
+                                    <button ion-button float-right (click)="onClickNew(reservation.left)">{{'LABELS.NEW' | translate}}</button>
+                                </ion-item>
+                                <div class="inner_cont" *ngIf="reservation.left.orders">
+                                    <ion-item class="order_cell border" [ngClass]="order.status == 'sent' ? 'new' : ''" *ngFor="let order of reservation.left.orders" (click)="onClickOrder(order)">
+                                        <p>
+                                            <span float-left>{{ 'LABELS.ORDER' | translate }} #{{order.number}}</span>
+                                            <span float-right>{{order.status == 'sent' ? 'New' : 'Old'}}</span>
+                                        </p>
+                                        <p>
+                                            <span float-left>{{order.updated}}</span>
+                                            <span float-right>{{ 'LABELS.TOTAL' | translate }}: {{order.data.amount}} {{currency}}</span>
+                                        </p>
+                                    </ion-item>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="sub_pan">   <!-- Right Panel -->
+                <div class="container {{activeAction}}">
+                    <h1 class="title-right" [style.color]="color_right">B</h1>
+                    <ng-container *ngIf="reservation.right && reservation.right.status == 'active'">
+                        <button ion-button class="app_background" [ngClass]="activeState ? 'fcolor-black' : 'fcolor-white'" full (click)="onClickOrderList('right')">Orders</button>
+                        <ng-container *ngIf="activeState && activeAction == 'right-active'">
+                            <div class="top_arrow"></div>
+                            <div class="pop_cont order">
+                                <ion-item class="no-border right-btn">
+                                    <button ion-button float-right (click)="onClickNew(reservation.right)">New</button>
+                                </ion-item>
+                                <div class="inner_cont">
+                                    <ion-item class="order_cell border" [ngClass]="order.status == 'sent' ? 'new' : ''" *ngFor="let order of reservation.right.orders" (click)="onClickOrder(order)">
+                                        <p>
+                                            <span float-left>Order #{{order.number}}</span>
+                                            <span float-right>{{order.status == 'sent' ? 'New' : 'Old'}}</span>
+                                        </p>
+                                        <p>
+                                            <span float-left>{{order.updated}}</span>
+                                            <span float-right>Total: {{order.data.amount}} {{currency}}</span>
+                                        </p>
+                                    </ion-item>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>    
+            </div>
+        </div>
+    </ng-container>
+</ion-content>

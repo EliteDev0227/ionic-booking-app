@@ -1,0 +1,9 @@
+<ion-calendar [(ngModel)]="dateRange"
+              [options]="optionsRange"
+              (onChange)="onChange($event)"
+              (change)="onChange($event)"
+              [type]="'moment'" #dateChange>
+</ion-calendar>
+<button ion-button clear block (click)="doClose()">{{ 'DONE' | translate }}</button>
+
+

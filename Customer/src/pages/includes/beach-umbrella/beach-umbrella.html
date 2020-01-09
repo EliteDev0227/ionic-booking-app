@@ -1,0 +1,51 @@
+<ng-template #SunBed let-sunbedData>
+  <div (click)="bookingStatus[side] || clickSunbed(sunbedData.data)" class="sunbed sunbed-{{sunbedData.side}} sunbed-seat-{{seatCount}}">
+    <img class="sunbed-img {{sunbedData.data.status}}" [src]="sunbedData.data.src">
+  </div>
+</ng-template>
+
+<div class="interactiveSelect">
+  <div class="selection-div">
+    <div class="umbrella-div" *ngIf="umbrella">
+      <div class="umbrella-inner-div">
+        <img [src]="umbrella.src" class="umbrella-img">
+      </div>
+    </div>
+
+    <div class="sunbed-div">
+      <div class="sunbed-inner-div">
+        <ng-container *ngFor="let side of sides;">
+          <div class="sunbed-div-{{side}} {{'booked-'+bookingStatus[side]}}" *ngIf="eleList[side] && eleList[side].length">
+            <ng-container *ngFor="let item of eleList[side];let ind=index;">
+              <ng-container *ngTemplateOutlet="SunBed; context:{$implicit:{side:side, data: item, index: ind}}"></ng-container>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+
+    </div>
+    <div class="clear-both"></div>
+  </div>
+</div>
+
+
+
+
+<!--
+
+  
+<div class="interactiveSelect">
+  <div class="umbrella " [ngClass]="umbrellaClass || getUmbrellaClass()">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div class="seats" *ngIf="umbrellaData">
+    <div class="column left" [ngClass]="umbrellaData.seats.first" (click)="Select('seats','first')"></div>
+    <div class="column left" [ngClass]="umbrellaData.seats.second" (click)="Select('seats','second')"></div>
+    <div class="column right" [ngClass]="umbrellaData.seats.third" (click)="Select('seats','third')"></div>
+    <div class="column right" [ngClass]="umbrellaData.seats.fourth" (click)="Select('seats','fourth')"></div>
+  </div>
+</div>
+
+
+-->

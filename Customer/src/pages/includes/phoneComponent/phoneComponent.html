@@ -1,0 +1,19 @@
+<div class="inputNumber country active" >
+  <div class="contentMain" (click)="$event.preventDefault()">
+  <!--  <ion-label>{{ type.model=='search'?configuration.translate.translate.instant('COUNTRY'):configuration.translate.translate.instant('PHONE_NUMBER')}}</ion-label>-->
+
+    <ion-item class="short">
+      <ion-label floating>{{'PREFIX'  | translate}}</ion-label>
+      <ion-input type="text" col-3 (ionFocus)="showSearch()"  (mousedown)="countryFocus.setFocus(); " [(ngModel)]="phoneNumber[type.model]" readonly #countryFocus></ion-input>
+    </ion-item>
+
+    <ion-item class="long"><ion-label floating>{{'PHONE_NUMBER'  | translate}}</ion-label>
+      <ion-input autocomplete="off" name="phonenumber" type="tel" col-9 [(ngModel)]="phoneNumber.suffix" (ngModelChange)="checkCorrect()" (ionFocus)="isFilledPrefix()" (ionChange)="isFilledPrefix()" (ionBlur)="completed()" #suffixFocus></ion-input>
+    </ion-item>
+  </div>
+  <ion-list class="searchResult" *ngIf="!type.selected && phoneNumber.search">
+    <ion-item no-lines *ngFor="let item of configurations| PhoneSort:phoneNumber.search:10:['country']  let i =index" (mousedown)="countryData(item); $event.preventDefault()">
+      {{ item.country }}
+    </ion-item>
+  </ion-list>
+</div>

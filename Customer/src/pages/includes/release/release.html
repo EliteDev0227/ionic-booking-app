@@ -1,0 +1,34 @@
+<ion-header >
+
+  <ion-navbar>
+    <ion-buttons start>
+<button ion-button clear></button>
+  </ion-buttons>
+    <ion-title *ngIf="details.seat">{{ details.seat.type}} #{{ details.seat.number }} {{ getSeatSlots(details.seat.slots) }}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only clear navPop><ion-icon name="ios-close-circle-outline"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div>
+      <p>{{ 'SELECT_THE_DAYS_WHICH_YOU_LIKE_TO_RELEASE_FROM_YOUR_RESERVATION'  | translate}}</p>
+      <ion-row>
+        <!-- <ion-col col-3 *ngFor="let item of dateRanges; let i =index"><button ion-button round color="white" [disabled]="isExclude(item)" (click)="add(item)">{{ item }}</button> </ion-col> -->
+        <!--<ion-col col-3 *ngFor="let item of dateRanges; let i =index"><button ion-button round [color]="item.disabled ? 'grey' : 'white'" [disabled]="item.disabled" (click)="add(item,i)">{{ item.date }}</button> </ion-col>-->
+        <ion-col col-3 *ngFor="let item of dateRanges; let i =index">
+          <button ion-button round [color]="item.disabled ? 'grey' : 'white'" (click)="add(item,i)">{{ item.date }}</button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-item no-lines>
+      <button ion-button round color="danger" [disabled]="!excludes" (click)="reserve()">{{ 'CONFIRM' | translate }}</button>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

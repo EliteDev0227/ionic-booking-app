@@ -1,0 +1,112 @@
+beachAgreement {
+    // why not?
+    .header {
+        box-shadow: 0 1px 12px #9E9E9E;
+        padding: 0 20px;
+    }
+
+    .footer {
+        box-shadow: 0px -1px 12px #9E9E9E;
+        padding: 0 20px;
+    }
+    
+    .agreement {
+        min-height: 98vh;
+        max-height: 98vh;
+        display: flex;
+        flex-direction: column;
+        .header {
+            h1 {
+                &[margined] {
+                    font-family: $font-family-base;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    font-size: 3vh;
+                    margin: 3vh auto !important;
+                }
+            }
+            h1,
+            h2,
+            h3,
+            h4 {
+                padding: 0 !important;
+            }
+            h3 {
+                font-weight: 600;
+                text-transform: capitalize;
+                font-size: 2.8vh;
+                margin: 1vh auto;
+            }
+            h4 {
+                margin: 0 auto 4vh;
+                font-weight: 900;
+                font-size: 2.5vh;
+            }
+
+        }
+        .contents {
+            margin: 1vh;
+            background: rgba(221, 221, 221, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            overflow: scroll;
+            height:100vh;
+            ul {
+                padding: 0 2rem;
+                li {
+                    font-size: 1.7rem;
+                    padding-bottom: 20px;
+                }
+                li:last-child{
+                    padding-bottom: 0;
+                }
+            }
+            p {
+                font-size: 2vh;
+                font-weight: 400;
+                margin-bottom: 4vh;
+                &.blued {
+                    color: map_get($colors, blued);
+                    font-weight: 600;
+                }
+                span {
+                    &[color] {
+                        font-weight: 900;
+                    }
+                }
+            }
+        }
+        .row {
+            padding-left: 1vh;
+            .abutton,
+            .cbutton {
+                div {
+                    text-align: center;
+                    height: 2rem;
+                    padding: 0;
+                    margin: 0;
+                    font-weight: 900;
+                }
+                button {
+                    padding-top: .5rem;
+                    border: 1px solid map_get($colors, primary);
+                    @include border-radius(5vh);
+                    max-height: 6vh;
+                    width: 85%;
+                    margin: 0;
+                    span {
+                        font-size: 2vh;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        color: map_get($colors, primary);
+                    }
+                }
+            }
+            .cbutton {
+                button {
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+}

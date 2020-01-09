@@ -1,0 +1,59 @@
+<ion-content [style.background-position]="'0 ' + shouldTop">
+
+    <button ion-button icon-only class="back-button" (click)="goBack()"><ion-icon name="ios-arrow-back"></ion-icon></button>
+
+    <langComponent [refresh]="toggleLanguage" [page]="'signup'" (pushLang)="onLanguageChanged($event)"></langComponent>
+
+
+    <h1 text-center margined>{{ 'SMART_BEACH' |translate }}</h1>
+    <div margined>
+
+        <form [formGroup]="SignupData" (submit)="doSignup()">
+            <div class="label-input">
+                <ion-item>
+                    <ion-label class="label-size" floating>{{ 'NAME'|translate }}</ion-label>
+                    <ion-input autocomplete="off" name="name" type="text" formControlName="name" [required]="true"></ion-input>
+                </ion-item>
+            </div>
+
+            <!-- <ion-input type="hidden" placeholder="+(40)722 222 222" formControlName="phone"></ion-input> -->
+
+            <phoneComponent (CompletedSelect)="updatePhone($event)"></phoneComponent>
+
+            <div class="passwordHolder">
+                <ion-item>
+                    <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+                    <ion-input autocomplete="new-password" name="password" *ngIf="!EyeShown" formControlName="password" type="password" [required]="true"></ion-input>
+                    <ion-input autocomplete="new-password" name="password2" *ngIf="EyeShown" type="text" formControlName="password" [required]="true"></ion-input>
+                </ion-item>
+                <button icon-only ion-button type="button" clear class="passwordEye" (click)="EyeShown=!EyeShown">
+                    <ion-icon name="ios-eye"></ion-icon>
+                </button>
+            </div>
+            <div class="photo-group">
+                <ion-avatar>
+                    <img [attr.src]="photo || 'assets/imgs/avatar.png'" />
+
+                </ion-avatar>
+                <div class="button-group">
+                    <button icon-only ion-button type="button" (click)="takePhoto(0)">{{'ADD_PHOTO' | translate}}</button>
+                    <button icon-only ion-button type="button" (click)="takePhoto(1)">{{ 'TAKE_PHOTO' | translate }}</button>
+                    <div class="photo-link">
+                        <span (click)="openWhyPhoto()">{{ 'WHY_PHOTO' | translate}}</span>
+                    </div>
+                </div>
+            </div>
+            <ion-item no-lines>
+                <ion-checkbox formControlName="terms"></ion-checkbox>
+                <ion-label>{{'AGREE_TO' | translate}}<span (click)="openTerms()">{{'TERMS_CONDITIONS' | translate}}</span> + <span (click)="openGDPR()">GDPR</span>.</ion-label>
+            </ion-item>
+            <button ion-button round full type="submit" pink-gradient class="signup-button">{{ 'REGISTER' |translate }}</button>
+        </form>
+
+    </div>
+    <!-- <div class="bottom-block should-hide" (click)="goLogin()">
+        <a>{{ 'ALREADY_HAVE_AN_ACCOUNT' |translate }}</a>
+        <span class="a-brother">{{ 'LOGIN' | translate }}</span>
+    </div> -->
+
+</ion-content>

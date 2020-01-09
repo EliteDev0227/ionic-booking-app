@@ -1,0 +1,198 @@
+<!--
+  Generated template for the AllBeachPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar color="primary">
+        <div class="check-item">
+            <single-toggle firstLabel="LABELS.ALL" secondLabel="LABELS.FREE" [checked]="false"
+                (clicked)="filterFreeClick($event)" [enabled]="true"></single-toggle>
+        </div>
+        <div class="check-item">
+            <single-toggle firstLabel="" secondLabel="" isImage="true" image1="assets/imgs/top-seat.png"
+                image2="assets/imgs/top-map.png" [checked]="false" [enabled]="true" (clicked)="seatAndMapClick($event)"
+                float-right></single-toggle>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding [ngClass]="(mapViewState && filterState.state) ? 'mask_bg' : ''">
+    <!-- Map View -->
+    <ng-container *ngIf="mapViewState">
+
+
+        <ng-template #SunBed let-sunbedData>
+            <div class="sunbed sunbed-{{sunbedData.side}}">
+                <img class="sunbed-img {{(sunbedData.data)?sunbedData.data.status:''}}" [src]="sunbedData.data.src">
+            </div>
+        </ng-template>
+        <ng-template #SunbedContainer let-data>
+            <div class="grid-sunbed-group-container">
+                <div class="grid-sunbed-group-list">
+                    <ng-container *ngFor="let side of ['left','center','right']">
+                        <ng-container *ngIf="isValidSideList(data,side)">
+                            <div class="grid-sunbed-list-inner grid-sunbed-list-{{side}}">
+                                <div class="grid-sunbed-group">
+                                    <ng-container *ngFor="let li of data.list[side];let liIndex = index">
+                                        <div class="grid-sunbed-div {{(data.item.style)?'style-avail':'style-not-avail'}}"
+                                            *ngIf="data.item.style || getItemStyle(data.item)"
+                                            [ngStyle]="{width: data.item.style.sunbedWidth, minWidth:data.item.style.sunbedMinWidth,maxWidth:data.item.style.sunbedMinWidth}">
+                                            <div class="grid-sunbed-inner">
+                                                <ng-container
+                                                    *ngIf="li.status_color && li.status_color.length ||setStatusColor(data,side,liIndex,li)">
+                                                    <div class="grid-inner-status bg{{status}}"
+                                                        *ngFor="let status of li.status_color"
+                                                        [ngStyle]="{background:status, height:(100/li.status_color.length)+'%'}">
+                                                    </div>
+                                                </ng-container>
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </ng-template>
+
+
+        <div class="seat_cont" [ngClass]="{ 'free': isFreeShowState }">
+            <ng-container *ngFor="let grid_side of grid_sides">
+                <ng-container *ngFor="let item of _grid[grid_side]">
+                    <div *ngIf="item.type!='static' && (item.style || getItemStyle(item))"
+                        class="side grid-seat content-type-{{item.type}} can-seat-{{item.can_seat && item.number!=changePosNumber}} sno-{{item.number}} seatGridWidth-{{item.info.mapElement.seatGridWidth}}"
+                        [ngClass]="getSeatClass(item)"
+                        (click)="(isFreeShowState && (item.can_seat && item.number!=changePosNumber) && showSeatDetail(item, grid_side) || !isFreeShowState && showSeatDetail(item, grid_side))"
+                        [ngStyle]="item.style" [style.background-color]="item?.waiter?.color">
+                        <div class="grid-sunbed-container" *ngIf="item.info || getItemInfo(item)"
+                            [ngStyle]="item.styleSunbedDiv">
+                            <ng-container
+                                *ngTemplateOutlet="SunbedContainer; context:{$implicit:{item:item, list:item.info.mapElement.list}}">
+                            </ng-container>
+
+                        </div>
+
+                        <div class="grid-text">
+                            {{item.number}}
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+
+
+        </div>
+
+
+
+
+
+        <!--div [ngClass]="isFreeShowState ? 'seat_cont free' : 'seat_cont'">
+            <ng-container *ngFor="let seat of allSeats">
+                <div class="seat" [ngClass]="getSeatClass(seat)" [style.background-color]="seat?.waiter?.color"
+                    [ngStyle]="getPosStyle(seat?.coords)" (click)="onClickSeat(seat)">
+                    <div [ngClass]="getShapeClass(seat)">
+                        <ng-container *ngIf="true ||seat.type != 'baldaquin'">
+                            <ng-container *ngFor="let seatSide of seat.statusList">
+                                <div class="side" *ngIf="seat.status[seatSide] && seat.status[seatSide].length > 0">
+                                    <ng-container *ngFor="let status of seat.status[seatSide]">
+                                        <div class="status" [style.backgroundColor]="status_color[status]"
+                                            [ngStyle]="getStatusHeight(seat.status[seatSide])"></div>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                    <p>{{ seat.number }}</p>
+                </div>
+            </ng-container>
+        </div-->
+
+
+
+    </ng-container>
+    <!-- Map- End -->
+    <ion-grid [ngClass]="isFreeShowState ? 'free-' : ''" no-padding *ngIf="!mapViewState">
+        <!-- Part of Beach Seat -->
+        <ion-row [ngClass]="{'visibility-hidden':!canDisplaySelectAll()}">
+            <ion-item>
+                <ion-label>Select All seats</ion-label>
+                <ion-checkbox slot="end" (ionChange)="allSeatsSelected($event)" [(ngModel)]="allSeatSelected"></ion-checkbox>
+            </ion-item>
+        </ion-row>
+
+        <ion-row>
+            <ng-container *ngFor="let seat of allSeats; let i = index;">
+                <ion-col *ngIf="!isFreeShowState || isFreeShowState && seat.freeSlot" class="beach-wrapper">
+                    <ng-container>
+                        <div class="beach-cell free-{{seat.freeSlot}}" [ngClass]="getSeatClass(seat)"
+                            (click)="onClickSeat(seat)" [style.background-color]="seat?.waiter?.color">
+                            <div [ngClass]="getShapeClass(seat)">
+                                <ng-container *ngFor="let seatSide of seat.statusList">
+                                    <div class="side" *ngIf="seat.status[seatSide].length > 0">
+                                        <ng-container *ngFor="let status of seat.status[seatSide]">
+                                            <div class="status"
+                                                [style.backgroundColor]="getStatusColor(seat.status[seatSide])"
+                                                [ngStyle]="getStatusHeight(seat.status[seatSide])"></div>
+                                        </ng-container>
+                                    </div>
+                                </ng-container>
+                                <!--ng-container *ngIf="seat.type != 'baldaquin'">
+                                    <div class="side" *ngIf="seat.status.a.length > 0">
+                                        <ng-container *ngFor="let status of seat.status.a">
+                                            <div class="status" [style.backgroundColor]="getStatusColor(seat.status.a)"
+                                                [ngStyle]="getStatusHeight(seat.status.a)"></div>
+                                        </ng-container>
+                                    </div>
+                                    <div class="side" *ngIf="seat.status?.b.length > 0">
+                                        <ng-container *ngFor="let status of seat.status.b">
+                                            <div class="status" [style.backgroundColor]="getStatusColor(seat.status.b)"
+                                                [ngStyle]="getStatusHeight(seat.status.b)"></div>
+                                        </ng-container>
+                                    </div>
+                                </ng-container-->
+                                <!--ng-container *ngIf="seat.type == 'baldaquin'">
+                                    <div class="side">
+                                        <div class="status" [style.backgroundColor]="status_color[seat.status]"
+                                            [ngStyle]="getStatusHeight(seat.status)"></div>
+                                    </div>
+                                </ng-container-->
+                            </div>
+                            <div [ngClass]="(seat.state == 0) ? 'number w-color' : 'number'">{{ seat.number }}</div>
+                        </div>
+                    </ng-container>
+                </ion-col>
+            </ng-container>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<!--ion-footer>
+    <ion-toolbar color="light" [ngClass]="isFreeShowState ? 'free' : ''">
+        <ion-scroll scrollX="true" class="seats">
+            <ion-row nowrap>
+                <ng-container *ngFor="let sunbed of allSunbeds">
+                    <ng-container>
+                        <div [ngClass]="sunbed.waiter ? 'sunbed disabled' : 'sunbed'" (click)="onClickSunbed(sunbed)">
+                            <img class="back" src="assets/imgs/seat-gray.png" />
+                            <div class="waiter-color" [ngClass]="getSeatClass(sunbed)" class="waiter-color"
+                                [style.background-color]="sunbed?.waiter?.color"></div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </ion-row>
+        </ion-scroll>
+    </ion-toolbar>
+</ion-footer-->
+
+<div class="confGroup" *ngIf="confirmState">
+    <div class="wrapper">
+        <button ion-button color="light-gray" (click)="onClickCancel()">
+            {{'ACTIONS.CANCEL' | translate}}
+        </button>
+        <button ion-button (click)="onClickConfirm()">{{'ACTIONS.CONFIRM' | translate}}</button>
+    </div>
+</div>

@@ -1,0 +1,665 @@
+page-beach {
+    ion-scroll {
+        height: 100% !important;
+    }
+
+    .toolbar.segments-toolbar {
+        min-height: 4.2rem;
+    }
+
+    .beach-overview {
+        background-color: #e5c082;
+        height: 100%;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .cursor-disabled {
+        cursor: disabled;
+    }
+
+    .scroll-content {
+        /* background-color: rgb(248, 219, 180);*/
+        background: #e5c082;
+        overflow-x: scroll;
+
+        #container {
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            -o-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+
+        .wave {
+            background: url(../assets/imgs/wave.png);
+            background-size: 100% 100%;
+            width: 100%;
+            height: 30px;
+            min-width: calc(100vw);
+        }
+
+        @keyframes example {
+            0% {
+                opacity: 1;
+                height: 0px;
+            }
+
+            100% {
+                opacity: 0.0;
+                height: 60px;
+            }
+        }
+
+        .wave-ani {
+            position: absolute;
+            animation-name: example;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        .wave-offset-div {
+            margin-top: -10px;
+            background: linear-gradient(0deg, #e5c082, transparent);
+            height: 10px;
+            min-width: calc(100vw);
+        }
+
+        .grid-seat-div {
+            position: relative;
+        }
+
+        .seat {
+            position: absolute;
+            width: 8vw;
+            height: calc(8vw / 1.42);
+            text-align: center; // border: solid .2vw white;
+
+            @media screen and (orientation: portrait) {
+                // width: 8vh;
+                // height: calc(8vh / 1.42);
+                // border: solid .2vh white;
+            }
+            &.disabled{
+                opacity:0.4;
+            }
+
+            img {
+                width: 100%;
+                // height: auto;
+                height: 100%;
+                display: block;
+            }
+
+            span {
+                display: block;
+                margin: 0 auto;
+                background-color: white;
+                line-height: 1.5;
+                width: 3vh;
+                height: 3vh;
+                border-radius: 50%;
+                font-size: 1.2rem;
+                position: relative;
+                margin-top: -2.5vh;
+                padding-top: .4vh;
+                font-weight: bold;
+            }
+        }
+
+        .seat.free {
+            opacity: .3;
+        }
+    }
+
+    .zoom {
+        margin-top: 40px;
+        width: 100% !important;
+        height: 100% !important;
+        position: fixed !important;
+        touch-action: none !important;
+
+        .ImgSection {
+            position: relative !important;
+
+            .row {
+                padding: 0;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                img {
+                    position: absolute !important;
+                    padding: 1px;
+                }
+            }
+        }
+    }
+
+    .beach-menu {
+        height: 100%;
+        background-color: #fafafa;
+        position: relative;
+        overflow-y: scroll;
+
+        .card {
+            padding: 1.5rem;
+            background-color: #fff;
+            transition: max-height 1s ease-in-out;
+
+            &.itemsShown {
+                position: static !important;
+
+                &.parentCard {
+                    padding-bottom: 0px;
+                }
+            }
+
+            .category {
+                font-size: 1.6rem;
+                display: flex;
+                justify-content: space-between;
+
+                .category-name {
+                    vertical-align: middle;
+                    line-height: 2rem;
+                }
+            }
+
+            .mainContent {
+                .ItemContents {
+                    position: relative !important;
+                    margin: 2rem auto;
+                    border-bottom: 1px solid map_get($colors, light);
+                    padding-bottom: 2rem;
+
+                    &:last-child {
+                        border-bottom: none;
+                        padding-bottom: 0;
+                    }
+
+                    .col {
+                        padding-right: 1rem;
+
+                        &:last-child {
+                            padding-right: 0;
+                        }
+                    }
+
+                    img {
+                        min-height: 8vh;
+                        width: 100%;
+                        border: 2px solid map_get($colors, grey);
+                    }
+
+                    .name {
+                        color: map_get($colors, primary);
+                        font-weight: 600;
+                        font-size: 1.6rem;
+                    }
+
+                    .description {
+                        font-weight: 600;
+                        font-size: 1.2rem;
+                    }
+
+                    .price {
+                        position: absolute;
+                        top: 1px;
+                        font-weight: bold;
+                        font-size: 1.5rem;
+                        right: 0;
+                        left: 0;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                    .addBtn {
+                        position: absolute;
+                        bottom: 1px;
+
+                        .button {
+                            -webkit-border-radius: 50px;
+                            -moz-border-radius: 50px;
+                            border-radius: 50px;
+                            max-height: 3rem;
+                            width: 6rem;
+                            text-align: center;
+
+                            span {
+                                font-size: 1rem;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .details {
+            .toppings {
+                div {
+                    width: 100%;
+                    margin-top: 1rem;
+
+                    .category-name {
+                        &:first-child {
+                            width: 20%;
+
+                            button {
+                                height: 20px;
+                                width: 20px;
+                                position: relative;
+                                top: -.7rem;
+                                background: map_get($colors, light);
+
+                                &.active {
+                                    background: map_get($colors, primary);
+                                }
+                            }
+                        }
+
+                        float:left;
+                        width:50%;
+                    }
+
+                    .category-price {
+                        float: left;
+                        width: 25%;
+                    }
+                }
+            }
+
+            .category {
+                font-size: 1.6rem;
+                display: flex;
+                font-weight: 600;
+                justify-content: space-between;
+
+                .top-image {
+                    img {
+                        width: 100%;
+                        min-height: 30vh;
+                        border: 2px solid map_get($colors, grey);
+                        margin: 1rem auto 2rem;
+                    }
+
+                    width:100vw;
+                    border-bottom:1px solid #eee;
+                    margin-bottom:1rem;
+                }
+
+                .category-name {
+                    vertical-align: middle;
+                    line-height: 2rem;
+                    width: 100%;
+                }
+
+                .category-description {
+                    clear: both;
+                    margin-top: .5rem;
+                    font-size: 1.2rem;
+                    width: 50%;
+                }
+
+                .category-price {
+                    width: 100%;
+                    text-align: right;
+                }
+
+                .category-main {
+                    width: 90%;
+
+                    .category-label {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .category-comment {
+                    ion-input {
+                        font-size: 1.4rem;
+
+                        input {
+                            &::placeholder {
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+
+                .category-quantity {
+                    width: 100%;
+                    overflow: hidden;
+                    text-align: center;
+                    @include border-radius(50px);
+                    border: 1px solid map_get($colors, light);
+                    margin: 2rem auto 0;
+
+                    .minus,
+                    .plus,
+                    .screen {
+                        display: inline-block;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .button {
+                        width: 14%;
+                        padding: 0 2rem;
+                        margin: 0;
+
+                        &.minus {
+                            border-right: 1px solid map_get($colors, light);
+
+                            span {
+                                position: relative;
+                                left: -.5rem;
+                            }
+                        }
+
+                        &.plus {
+                            border-left: 1px solid map_get($colors, light);
+
+                            span {
+                                position: relative;
+                                right: -.5rem;
+                            }
+                        }
+
+                        .icon {
+                            font-size: 2.5rem;
+                        }
+                    }
+
+                    .screen {
+                        width: 60%;
+                        text-align: center;
+
+                        span {
+                            position: relative;
+                            top: .5rem;
+                        }
+                    }
+                }
+            }
+
+            .addToCart {
+                width: 100%;
+                text-align: center;
+
+                .button {
+                    background: linear-gradient(to right, #fe5295, #f86d67);
+                    @include border-radius(50px);
+                    width: 60%;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .weatherSection {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        .thermometer {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            height: 30px;
+            top: 5px;
+            width: 8px;
+            border: 3px solid #fbfbfb;
+            @include border-radius(50px);
+
+            &:after {
+                content: "";
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                @include border-radius(100%);
+                z-index: 1000;
+                background: #fbfbfb;
+                bottom: -10px;
+                left: -7px;
+            }
+        }
+
+        .weatherWritings {
+            padding-top: 1rem;
+
+            .col {
+                font-size: 1rem;
+                font-weight: bold;
+                padding-left: 0;
+                padding-right: 0;
+                text-align: left;
+            }
+        }
+    }
+
+    .calenderSection {
+        position: absolute;
+        bottom: 1px;
+        height: 4.5rem;
+        background: white;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+
+        .slide-right {
+            text-align: right;
+        }
+
+        .slide-right,
+        .slide-left {
+            .icon {
+                font-size: 25px;
+            }
+        }
+
+        .slide-screen {
+            text-align: center;
+            font-size: 1rem;
+
+            .icon {
+                font-size: 25px;
+            }
+
+            .dateSection {
+                padding-top: 1rem;
+                font-weight: bold;
+                color: map_get($colors, dark);
+                font-size: 1.2rem;
+                margin-bottom: 2px;
+
+                span.currentDate {
+                    position: relative;
+                    left: .2rem;
+                }
+            }
+
+            .dateChangeSection,
+            .icon {
+                color: map_get($colors, primary);
+                font-weight: bold;
+            }
+        }
+    }
+
+    .sunbedLink {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        background: map_get($colors, white);
+
+        .col {
+            height: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            img {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            .text {
+                font-size: 1.2rem;
+            }
+
+            &:first-child {
+                direction: rtl;
+
+                img {
+                    float: right;
+                }
+            }
+
+            &:last-child {
+                img {
+                    float: left;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 320px) {
+
+        .toolbar-title {
+            font-size: 14px !important;
+        }
+
+        ion-navbar {
+
+            .back-button,
+            .bar-button,
+            .back-button-ios,
+            .back-button-md {
+                font-size: 14px !important;
+                padding: 0px !important;
+            }
+
+            button {
+                font-size: 14px !important;
+            }
+        }
+
+    }
+}
+
+
+.upside-down {
+    /* transform: rotate(180deg); */
+    /* height: 66px;*/
+}
+
+
+.ele-merged-div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* margin: 0 auto; */
+}
+
+.ele-merged-sub.left {
+
+    float: left;
+    /* background: red;*/
+    opacity: 1;
+    width: 50%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.ele-merged-sub.right {
+    /*background: yellow;*/
+    opacity: 1;
+    width: 50%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.left-full .ele-merged-sub.left {
+    filter: opacity(0.5);
+}
+
+.right-full .ele-merged-sub.right {
+    filter: opacity(0.5);
+}
+
+.ele-merged-inner {
+    width: 200%;
+    height: 100%;
+}
+
+.ele-merged-inner.right {
+    width: 200%;
+    height: 100%;
+    margin-left: -100%;
+}
+
+.ele-merged-img {
+    width: 100%;
+    height: 100%;
+}
+
+.relative-box {
+    float: left;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.relative-box img {
+    /* padding: 0px 0px;*/
+}
+
+.absolute-checkmark {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.ele-merged-div-bal {
+    height: 50px;
+    width: 50%;
+    text-align: left;
+    float: left;
+    transform: scale(0.8);
+    position: relative;
+}
+
+.ele-merged-div-bal.comb-col-3 {
+    width: 33%;
+}
+
+.ele-merged-div-bal img {
+    max-height: 100%;
+}
+
+.drag-img-static-ele {
+    max-height: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    max-width: 100%;
+}
+
+.comb-outer-div {
+    /* width: 50%; */
+    padding-right: 10%;
+}
+
+img.b_2,
+img.u_2,
+.u_1_2 .right-img,
+.u_2_1 .left-img,
+.u_2_2 .right-img,
+.u_2_2 .left-img {
+   /* opacity: 0.15;
+    -webkit-filter: blur(0.5px);*/
+    opacity: 0.35;
+    -webkit-filter: blur(0.9px) brightness(0.9);
+}

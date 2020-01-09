@@ -1,0 +1,299 @@
+beachBookBaldaquin {
+  .scroll-content {
+    background-image: url('../assets/imgs/beach_book_background.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: auto;
+    overflow: hidden;
+
+
+    h2 {
+      &[margined] {
+        &[color='white'] {
+          padding: 0.8vh 1.5vh;
+          width: 88vw;
+          background: rgba(255, 255, 255, 0.7);
+          border-radius: 5px;
+          margin: 1.5vh auto !important;
+          font-weight: 900;
+          font-size: 1.8vh;
+          text-align: center;
+          color: black;
+        }
+      }
+    }
+
+
+    .row {
+      .col {
+        h2 {
+          margin: 0;
+          width: 100%;
+          text-align: left;
+        }
+
+        h3 {
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
+
+    .list {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Iphone 5 */
+    @media (max-width: 320px) {
+      .additional {
+        font-size: 1.1em;
+      }
+    }
+
+    .sunbedContainer {
+      margin: 3vh auto 0;
+      padding: 10px 10px 30px;
+      width: 88vw;
+      position: relative;
+
+      .sunbedHeading {
+        .col {
+          text-align: right;
+          font-size: 2.4vh;
+          font-weight: Bold;
+        }
+
+        [margined] {
+          color: map_get($colors, dark);
+          margin: 0 !important;
+          font-size: 2.4vh;
+          font-weight: Bold;
+
+          &[blackdark] {
+            font-weight: Bold;
+            padding: 0;
+            text-align: left;
+            font-size: 2.4vh;
+
+          }
+        }
+      }
+
+      .sunbedBg {
+        background: url('../assets/imgs/beaches/individual_baldaquin.png') no-repeat center;
+        background-size: contain;
+        width: 100%;
+        margin-top: 5vw;
+        height: 30vw;
+
+
+        .remaining {
+          position: absolute;
+          text-align: center;
+          bottom: 1rem;
+          font-size: 2vh;
+          font-weight: bold;
+          left: 0;
+          right: 0;
+        }
+
+        .bottom {
+          position: absolute;
+          bottom: 5vh;
+          left: 0;
+          right: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          .lotsButton {
+
+            .button {
+              max-height: 2.5rem;
+              width: 2.5rem;
+              padding: 1rem;
+              font-size: 1.2rem;
+              font-weight: bold;
+              background: map_get($colors, secondary);
+              color: map_get($colors, light);
+              @include border-radius(5px);
+
+              &.active {
+                background: map_get($colors, primary);
+              }
+
+            }
+          }
+
+
+        }
+      }
+
+      background:rgba(map_get($colors, white), 0.7);
+      @include border-radius(5px);
+
+    }
+
+    .extra-sunbeds {
+      padding: 0 3vh;
+
+      .col button {
+        height: 8vw;
+        min-width: 8vw;
+        font-size: 1.5vh;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+    }
+
+    .TextContainers {
+      //bottom: 20px;
+      position: absolute;
+      left: 20px;
+      right: 20px;
+
+      .list-ios .item-block .item-inner {
+        border-bottom: 0px !important;
+      }
+
+      .item-ios.item-block .item-inner {
+        border-bottom: 0px !important;
+      }
+
+      /* Iphone 5 */
+      @media (max-width: 320px) {
+        h2 {
+          margin: 0;
+          font-size: 20px;
+        }
+
+        button {
+          height: 4rem;
+        }
+      }
+
+      .row .col h4 {
+        font-weight: 600;
+        font-size: 2.2vh;
+      }
+
+      .col {
+        padding: 0;
+        padding-right: 10px !important;
+
+
+        .button {
+          height: 8vw;
+          min-width: 8vw;
+          font-size: 1.5vh;
+          font-weight: bold;
+          border-radius: 40px;
+
+          &.reserve {
+            margin-right: 1rem;
+            text-transform: none;
+            color: map_get($colors, primary);
+            float: left;
+          }
+        }
+
+        h2[margined] {
+          padding: 0 !important;
+          text-align: left;
+          margin: 0 !important;
+
+          &[blackDark] {
+            font-size: 2.2vh;
+            font-weight: bold;
+            color: map_get($colors, dark);
+            margin: 0;
+            padding: 0;
+          }
+
+        }
+
+
+
+
+
+
+      }
+    }
+  }
+
+  @media only screen and (height: 812px) {
+
+    .scroll-content {
+      .sunbedContainer .sunbedHeading .col {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 18px !important;
+      }
+
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+
+    .toolbar-title {
+      font-size: 14px !important;
+    }
+
+  }
+
+  .baldaquin-img-div {
+    text-align: center;
+    height: 110px;
+    padding: 5px;
+
+
+    img {
+      width: 20%;
+      height: 100%;
+
+      &.type_1_3 {
+        width: 30%;
+      }
+
+      &.type_1_4 {
+        width: 40%;
+      }
+    }
+  }
+
+  .baldaquin-bottom-div {
+    width: 100%;
+
+    .seats,
+    .availability {
+      text-align: center;
+      margin: 0 auto;
+      width: 100%;
+      display: block;
+      font-size: 16px;
+    }
+
+    .availability {
+      color: map_get($colors, secondary);
+      font-weight: 600;
+
+      &.blued {
+        color: map_get($colors, blued);
+      }
+
+      &.red {
+        color: map_get($colors, danger);
+      }
+      &.persons{
+        color: #f95398;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,48 @@
+single-toggle {
+    display: block;
+    font-family: "Foxsans" !important;
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        button {
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0;
+            background-color: transparent;
+            display: flex;
+            .line {
+                height: 1.7vw;
+                margin: auto;
+                width: calc(100% - 3.6vw);
+                background-color: map-get($colors, main_txt);
+                margin-right: -1.8vw;
+                margin-left: -1.8vw;
+            }
+            .view-circle {
+                width: 3.6vw;
+                height: 3.6vw;
+                border-radius: 50%;
+            }
+        }
+        .visible {
+            background-color: map-get($colors, main_txt);
+            box-shadow: 0 0 0.4em rgba(156, 156, 156, 0.5);
+        }
+        .invisible {
+            background-color: transparent;
+            box-shadow: unset;
+        }
+        div.txt {
+            font-size: 1.7vw;
+            color: map-get($colors, main_txt);
+            margin-top: .5vw;
+        }
+        span[float-left] {
+            margin-left: -0.5em;
+        }
+        span[float-right] {
+            margin-right: -0.2em;
+        }
+    }
+}

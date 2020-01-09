@@ -1,0 +1,92 @@
+<ion-header class="has-shadow">
+
+	<ion-navbar>
+		<ion-title>{{ title }}</ion-title>
+		<ion-buttons end>
+
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<!-- <h2 margined ion-text color="white"></h2> -->
+
+		<div class="sunbedContainer">
+			<ion-row class="sunbedHeading">
+				<ion-col col-6>
+					<ion-row>
+						<h2 margined blackDark>{{ 'NUMBER' | translate }}: {{ index }}</h2>
+					</ion-row>
+				</ion-col>
+				<ion-col col-6>{{ getPrice() | price }} {{ configuration.currency }} / {{ 'BALDAQUIN' | translate }}</ion-col>
+			</ion-row>
+			<div class="baldaquin-img-div" *ngIf="item">
+				<img [src]="item.img" [ngClass]="'type_'+itemClass">
+
+			</div>
+			<div>
+				<ion-row class="baldaquin-bottom-div">
+					<ion-col>
+						<div class="seats">{{ 'SIZE' | translate }}</div>
+						<div *ngIf="item.seats>1" class="availability persons">{{item.seats}} {{ 'PERSONS' | translate }}</div>
+						<div *ngIf="!(item.seats>1)" class="availability persons">{{item.seats}} {{ 'PERSONS' | translate }}</div>
+					</ion-col>
+				</ion-row>
+			</div>
+		</div>
+
+		<ion-row *ngIf="(avail_sunbed()>0 && reservationStatus != 'change-request') && beach_settings.sunbeds_at_baldaquin" class="extra-sunbeds">
+			<ion-col col-12>
+				<h4 no-margin class="additional" ion-text color="primary">{{ 'DO_YOU_WANT_ADDITIONAL_SUNBED' | translate }}</h4>
+			</ion-col>
+			<ion-col col-2 no-padding *ngFor="let extra of getExtraSunbedArr(); let i =index">
+				<button ion-button (click)="onChangeExtra(extra)" [disabled]="(status.icon - selected)" color="{{ sunbed==extra?'primary':'white' }}">{{
+					extra }}</button>
+			</ion-col>
+			<ion-col col-6></ion-col>
+		</ion-row>
+
+		<div class="TextContainers">
+			<ion-item class="terms-condition">
+				<ion-checkbox start [(ngModel)]="reservationBox" (ngModelChange)="check()"></ion-checkbox>
+				<ion-label>{{'ACCEPT' |translate}} <a href="#" item-content (click)="Agreement()">{{'TERMS_CONDITIONS'
+						|translate}}</a>
+				</ion-label>
+			</ion-item>
+
+			<h2 blackDark>{{ 'TOTAL' | translate }}: {{ getTotalPrice() | price }} {{ configuration.currency }}</h2>
+			
+			<ng-container *ngIf="reservationStatus != 'change-request'">
+				<div *ngIf="beach_settings.only_cc">
+					<button [disabled]="!reservationBox" ion-button round block color="primary" light (click)="onPay()">{{
+						'PAY' |translate }}</button>
+				</div>
+
+			
+				<ion-row *ngIf="!beach_settings.only_cc">
+					<ng-container *ngIf="beach_settings.without_pay_reserve">
+					<ion-col>
+						<button ion-button [disabled]="(!reservationBox || !isReserveAvailable()) || !canReserve()" round block color="white"
+						 class="reserve" (click)="completeReservation()">{{ 'RESERVE' | translate }} ({{
+							'FOR' | translate }} {{ beach_settings.booking_time_limit }} {{ 'MIN' | translate }})</button>
+					</ion-col>
+					<ion-col *ngIf="beach_settings.card">
+						<button [disabled]="!reservationBox" ion-button round block color="primary" light (click)="onPay()">{{
+							'PAY' |translate }}</button>
+					</ion-col>
+				</ng-container>
+				<ng-container *ngIf="!beach_settings.without_pay_reserve">
+					<span>
+						{{payReserveMsg}}
+					</span>
+				</ng-container>
+				</ion-row>
+			</ng-container>
+
+		</div>
+	</ion-list>
+
+
+</ion-content>

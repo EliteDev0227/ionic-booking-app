@@ -1,0 +1,79 @@
+<ion-header class="has-shadow">
+
+  <ion-navbar>
+    <ion-title>Mamaia, Crazy Beach</ion-title>
+    <ion-buttons end>
+
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-padding class="segments-toolbar">
+    <ion-segment [(ngModel)]="beachSection">
+      <ion-segment-button value="overview" (click)="beach()">
+        Beach
+      </ion-segment-button>
+      <ion-segment-button value="menu">
+        Menu
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content [ngSwitch]="beachSection">
+
+  <div *ngSwitchCase="'overview'" class="beach-overview">
+  </div>
+
+  <div *ngSwitchCase="'menu'" class="beach-menu">
+    <div>
+      <ion-card>
+        <ion-row class="category">
+          <div ion-text text-capitalize color="primary" class="category-name">Prosciuto & funghi</div>
+          <div ion-text text-capitalize color="dark" class="category-description">30 cm, mozzarela, ham mushroom, tomato sauce</div>
+          <div ion-text text-capitalize color="primary" class="category-price" text-right>{{ 26 | currency }}</div>
+        </ion-row>
+      </ion-card>
+      <ion-card>
+        <ion-row class="category" (click)="itemsShown=!itemsShown">
+          <div class="category-main">
+            <span ion-text text-capitalize color="primary" class="category-title">Toppings </span>
+            <span ion-text color="dark" class="category-label">(optional)</span>
+          </div>
+
+          <ion-icon color="primary" [name]="itemsShown ? 'ios-arrow-up' : 'ios-arrow-down'"></ion-icon>
+        </ion-row>
+      </ion-card>
+      <ion-card>
+        <ion-row class="category">
+          <div class="category-main">
+            <span ion-text text-capitalize color="primary" class="category-title">Comment </span>
+            <span ion-text color="dark" class="category-label">(optional)</span>
+          </div>
+          <div class="category-comment">
+            <ion-input placeholder="Write Here"></ion-input>
+          </div>
+        </ion-row>
+      </ion-card>
+      <ion-card>
+        <ion-row class="category">
+          <div class="category-main">
+            <span ion-text text-capitalize color="primary" class="category-title">quantity </span>
+            <span ion-text color="dark" class="category-label">(optional)</span>
+          </div>
+          <div class="category-quantity">
+            <button ion-button icon-only clear class="minus" (click)="counter(-1)"><ion-icon name="remove"></ion-icon></button>
+            <div class="screen"><span text-capitalize ion-text color="primary">{{ quantity }}</span></div>
+            <button ion-button icon-only clear class="plus" (click)="counter(+1)"><ion-icon name="add"></ion-icon></button>
+          </div>
+        </ion-row>
+      </ion-card>
+
+      <div class="addToCart">
+        <button ion-button (click)="add()">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

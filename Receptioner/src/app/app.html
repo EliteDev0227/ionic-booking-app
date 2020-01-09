@@ -1,0 +1,89 @@
+<ion-nav [root]="rootPage"></ion-nav>
+
+<div class="recept_side_bar" *ngIf="!isAuthState">
+    <div class="bar_wrapper">
+
+        <button ion-button mode="ios" icon-only [ngClass]="activeTabNum == 2 ? 'active' : ''" (click)="tabAction(2)">
+            <ion-icon name="beach-notic"></ion-icon>
+            <ion-badge *ngIf="notifications > 0">{{ notifications }}</ion-badge>
+        </button>
+        <button ion-button mode="ios" icon-only [ngClass]="activeTabNum == 1 ? 'active' : ''" (click)="tabAction(1)">
+            <ion-icon name="beach-map"></ion-icon>
+        </button>
+
+        <button ion-button mode="ios" icon-only class="logout" (press)="onLogOut($event)">
+            <ion-icon name="beach-logout"></ion-icon>
+        </button>
+
+        <div *ngIf="!hideShowFree">
+            <div class="percent">{{percent}}%<p class="text">Occupied</p></div>
+            <button class="show_free" ion-button mode="ios"
+                (click)="onClickShowFree()">{{(isShowFree ? 'Buttons.SHOW_ALL' : 'Buttons.SHOW_FREE') | translate}}</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="recept_side_bar left" *ngIf="!isAuthState && activePage != 'notifications'">
+    <div class="bar_wrapper">
+        <div class="period_cont nobg">
+            <ng-container *ngIf="selDate.isToday">
+                <p>{{"Components.TODAY" | translate}}</p>
+                <p *ngIf="this.selDate.period > 0">-</p>
+                <div *ngIf="this.selDate.period > 0">
+                    <p>{{shortDate(selDate.to)}}</p>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!selDate.isToday">
+                <p>{{shortDate(selDate.from)}}</p>
+                <div *ngIf="selDate.from != selDate.to">
+                    <p>-</p>
+                    <p>{{shortDate(selDate.to)}}</p>
+                </div>
+            </ng-container>
+        </div>
+
+        <button ion-button mode="ios" icon-only [ngClass]="selectedDay == '0' ? 'active' : ''" (click)="openGridDay(0)">
+            <!-- <ion-icon name="beach-notic"></ion-icon> -->
+            <span class="icon today"></span>
+        </button>
+        <button ion-button mode="ios" icon-only [ngClass]="selectedDay == '1' ? 'active' : ''" (click)="openGridTomorrow(1)">
+            <span class="icon tomorrow"></span>
+        </button>
+        <button ion-button mode="ios" icon-only [ngClass]="selectedDay == '2' ? 'active' : ''" (click)="openPeriod(2)">
+            <span class="icon calendar"></span>
+        </button>
+        <button ion-button mode="ios" icon-only  class="setting" (click)="searchDevices()">
+            <!-- <ion-icon name="settings"></ion-icon> -->
+            <ion-icon name="bluetooth"></ion-icon>
+        </button>
+    </div>
+</div>
+
+<!-- 
+<div class="recept_side_bar horizontal" *ngIf="!isAuthState">
+    <div class="bar_wrapper">
+        <div class="period_cont" (click)="openPeriod()">
+            <p>{{selDate.isToday ? 'today' : selDate.from}}</p>
+            <div *ngIf="selDate.from != selDate.to">
+                <p>-</p>
+                <p>{{selDate.to}}</p>
+            </div>
+            <div *ngIf="selDate.from == selDate.to">
+                <p>-</p>
+                <p>{{selDate.from}}</p>
+            </div>
+        </div>
+
+        <button ion-button mode="ios" icon-only [ngClass]="activeTabNum == 1 ? 'active' : ''" (click)="tabAction(1)"><ion-icon name="beach-map"></ion-icon></button>
+        <button ion-button mode="ios" icon-only [ngClass]="activeTabNum == 2 ? 'active' : ''" (click)="tabAction(2)"><ion-icon name="beach-notic"></ion-icon><ion-badge *ngIf="notifications > 0">{{ notifications }}</ion-badge></button>
+        <button ion-button mode="ios" icon-only class="free-sunbeds" [ngClass]="activeTabNum == 3 ? 'active' : ''" (click)="tabAction(3)"><ion-icon name="beach-seat"></ion-icon>{{ freeSunbeds }} {{'Components.FREE' | translate}}</button>
+
+        <button ion-button mode="ios" icon-only class="logout" (press)="onLogOut($event)"><ion-icon name="beach-logout"></ion-icon></button>
+
+        <div *ngIf="!hideShowFree">
+            <button class="show_free" ion-button mode="ios" (click)="onClickShowFree()">{{(isShowFree ? 'Buttons.SHOW_ALL' : 'Buttons.SHOW_FREE') | translate}}</button>
+        </div>
+
+    </div>
+</div> -->

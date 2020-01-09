@@ -1,0 +1,160 @@
+page-login {
+    .scroll-content {
+        background-image: url("../assets/imgs/login-page-background.png");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 100vh;
+        overflow: hidden;
+        .back-button {
+            display: block;
+            position: absolute;
+            top: 14px;
+            
+            //left: 1rem;
+            background: none;
+            border: none;
+            .icon {
+                color: map_get($colors, danger);
+            }
+        }
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:active,
+    input:-webkit-autofill:focus {
+        background-color: #FFFFFF !important;
+    }
+    h1[margined] {}
+    @media only screen and (min-height: 500px) {
+        h1[margined] {
+            margin-bottom: 0em !important;
+            margin-top: 10rem !important;
+        }
+    }
+
+    
+    @media only screen and (max-height: 500px) {
+        h1[margined] {
+            margin-bottom: 10vh !important;
+            margin-top: 10vh !important;
+        }
+    }
+    @media only screen and (max-height: 460px) {
+        h1[margined] {
+            margin-bottom: 8vh !important;
+            margin-top: 8vh !important;
+        }
+    }
+    @media only screen and (max-height: 430px) {
+        h1[margined] {
+            margin-bottom: 1rem !important;
+            margin-top: 1rem !important;
+        }
+    }
+    @media only screen and (max-width: 320px) {
+        div[margined]{
+            margin-left: 45px !important;
+            margin-right: 45px !important;
+        }
+        h1[margined] {
+            span{
+                font-size: 23px;
+            }
+        }
+        .login-button{
+            height: 35px !important;
+            font-size: 16px;
+        }
+        ion-label{
+            font-size: 12px !important;
+        }
+        a{
+            font-size: 12px !important;
+        }
+        .scroll-content{
+            .back-button{
+                font-size: 16px;
+            }
+        }
+    }
+    @media only screen and (height: 812px)  {
+       
+        h1[margined] {
+            margin-top: 15rem !important;
+        }
+        .login-button{
+            margin-top: 6rem !important; 
+        }
+    }
+    #language {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        @include flags();
+    }
+    .login-button {
+        margin-top: 4rem;
+    }
+    .should-hide[margin-top] {
+        margin-top: 1rem !important;
+    }
+    .bottom-block {
+        /*position: absolute;*/
+        /*bottom: 3rem;*/
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+        line-height: 3rem;
+        vertical-align: middle;
+        font-size: 1.7rem;
+        span.a-brother {
+            color: map_get($colors, primary);
+            text-decoration: none;
+        }
+    }
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    .passwordHolder {
+        position: relative;
+        ion-label {
+            font-size: 1.4rem;
+        }
+        .item.item-block .item-inner {
+            border-bottom: 1px solid #ada6a6;
+        }
+        .item.item-input .item-inner {
+            border-bottom: 1px solid #ada6a6;
+        }
+        .item.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+            border-bottom-color: #ada6a6;
+            -webkit-box-shadow: inset 0 0px 0 0 #ada6a6;
+            box-shadow: inset 0 0px 0 0 #ada6a6;
+            // -webkit-box-shadow: inset 0 0px 0 0 #848181;
+            // box-shadow: inset 0 0px 0 0 #848181;
+        }
+        .item.item-input.item-input-has-focus .item-inner,
+        .item.item-input.input-has-focus .item-inner {
+            border-bottom-color: #fe5295;
+            // -webkit-box-shadow: inset 0 -1px 0 0 #fe5295;
+            // box-shadow: inset 0 -1px 0 0 #fe5295;
+        }
+        .passwordEye {
+            position: absolute;
+            right: -1.2rem;
+            bottom: -7px;
+            font-size: 1.5rem;
+        }
+    }
+    #country {
+        option {
+            width: 20px;
+            height: 20px;
+            background-size: 20px 20px;
+            @include flags();
+        }
+    }
+}

@@ -1,0 +1,143 @@
+app-main-guest-page {
+    *[margined] {
+        margin-left: 10% !important;
+        margin-right: 10% !important;
+    }
+    .scroll-content {
+        background-image: url("../assets/imgs/login-page-background.png");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        overflow: hidden;
+        padding-bottom: 0 !important;
+        .inner-body-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            ion-list {
+                width: 80%;
+                display: block;
+                margin: 0 auto;
+                margin-top: -20%;
+                hr {
+                    background: map_get($colors, lineColor);
+                    height: 1px !important;
+                    width: 100%;
+                    margin: 10vh 0 3vh 0;
+                }
+                .item {
+                    &.button-like {
+                        background: map_get($colors, primary);
+                        @include border-radius(64px);
+                        button {
+                            font-size: 2rem;
+                            text-transform: uppercase;
+                        }
+                        ion-input {
+                            height: 70%;
+                            background: map_get($colors, light);
+                            @include border-radius(64px);
+                            text-align: center;
+                            margin-left: 5%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            input {
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+            .slide-guest {
+                height: 50px;
+            }
+            ion-input {
+                transition: 0.5s;
+            }
+            .guestinput {
+                transition: all 0.5s ease;
+                width: 0% !important;
+                left: 50%;
+                /*Add this*/
+                transform: translate(-50%, 0);
+                /*Add this*/
+                &.active {
+                    transition: all 0.5s ease;
+                    width: 100% !important;
+                }
+            }
+            .guest-toggle {
+                text-transform: none !important;
+                transition: all 1s ease-in !important;
+                visibility: hidden;
+                z-index: -20;
+                position: absolute;
+                top: -4px;
+                pointer-events: none;
+                opacity: 0;
+                @include custom_transition(#{height 0.1s, width 0.1s});
+                &.active {
+                    visibility: visible;
+                    pointer-events: auto;
+                    z-index: 20;
+                    opacity: 1;
+                }
+            }
+            button {
+                &.text-dark {
+                    color: map_get($colors, dark);
+                }
+            }
+        }
+    }
+    @media only screen and (min-height: 500px) {
+        h1[margined] {
+            margin-bottom: 6rem !important;
+        }
+    }
+    @media only screen and (max-height: 500px) {
+        h1[margined] {
+            margin-bottom: 10vh !important;
+        }
+    }
+    @media only screen and (max-height: 460px) {
+        h1[margined] {
+            margin-bottom: 8vh !important;
+        }
+    }
+    @media only screen and (max-height: 430px) {
+        h1[margined] {
+            margin-bottom: 1rem !important;
+        }
+    }
+    @media only screen and (max-width: 320px) {
+       
+        h1[margined] {
+                font-size: 23px;
+        }
+        ion-list{
+            .button{
+                font-size: 16px;
+                height: 4rem !important;
+            }
+            .item{
+                &.button-like{
+                    button{
+                        font-size: 16px !important;
+                        height: 4rem !important;
+                    }
+                    
+                }
+            }
+        }
+        .slide-guest {
+            height:auto !important;
+        }
+        .guest-toggle {
+            top: -2px !important;
+        }
+    }
+}

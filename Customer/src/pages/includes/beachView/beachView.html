@@ -1,0 +1,17 @@
+<div>
+  <button ion-button clear icon-only right (click)="close()" class="close-btn"><ion-icon name="ios-close-outline"></ion-icon></button>
+
+  <h2>{{ details.beach.name }} &nbsp;</h2>
+  <div class="photo-holder">
+    <ion-slides #Slides>
+      <ion-slide *ngFor="let item of details.gallery">
+        <img [src]="item.url"/>
+      </ion-slide>
+    </ion-slides>
+    <button ion-button icon-only class="icon-left" (click)="prev()"><ion-icon name="ios-arrow-back"></ion-icon></button>
+    <button ion-button icon-only class="icon-right" (click)="next()"><ion-icon name="ios-arrow-forward"></ion-icon></button>
+  </div>
+  <h3>{{ 'ABOUT_US' | translate}}</h3>
+
+  <p>{{ details.beach.description}}</p>
+</div>

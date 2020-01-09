@@ -1,0 +1,90 @@
+page-my-seats {
+    ion-header {
+        ion-toolbar {
+            min-height: 7.5rem !important;
+            .toolbar-content {
+                display: flex !important;
+                .check-item:last-child {
+                    width: 50%;
+                    text-align: center;
+                    
+                }
+                .check-item:first-child {
+                    width: 50%;
+                    text-align: center;
+                    .wrapper {
+                        button{
+                            .view-circle.visible {
+                                background-color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ion-content {
+        .fixed-content {
+            margin-top: 7.5rem !important;
+        }
+        .scroll-content {
+            margin-top: 7.5rem !important;
+        }
+        background-color: map-get($colors, bg-subview) !important;
+    }
+    ion-row {
+        max-width: 100% !important;
+    }
+    .free-seat {
+        .beach-cell {
+            background-color: #c44c45;
+            img {
+                height: 6vw;
+                width: 9vw;
+            }
+            p {
+                color: white;
+                font-size: 3.6vw !important;
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+            p.count {
+                margin-top: 0 !important;
+            }
+            p.title {
+                margin-top: -1vw !important;
+            }
+        }
+    }
+    .trianglar {
+        display: block;
+        margin: 0 auto;
+        width: 3vh;
+        height: 3vh;
+        background-color: transparent;
+        border-style: solid;
+        border-left-width: 1.5vh;
+        border-right-width: 1.5vh;
+        border-bottom-width: 3vh;
+        border-top-width: 0;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        // border-bottom-color: rgb(255, 255, 255);
+        border-top-color: transparent;
+        align-items: center;
+    }
+    .trianglar.has-reservations {
+        background: transparent !important;
+        border-bottom-color: black;
+    }
+    .trianglar.has-new {
+        background: transparent !important;
+        border-bottom-color: orange;
+    }
+    .trianglar.empty {
+        background: transparent !important;
+        border-color: white;
+        border-left-color: transparent;
+        border-right-color: transparent;
+    }
+}

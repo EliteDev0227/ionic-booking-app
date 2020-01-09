@@ -1,0 +1,69 @@
+<ion-header class="has-shadow">
+
+    <ion-navbar>
+        <ion-title text-center  *ngIf="!is_guest">{{"MY_ACCOUNT" | translate}}</ion-title>
+        <ion-title text-center *ngIf="is_guest">{{"OPTIONS" | translate}}</ion-title>
+        <ion-buttons right>
+            <button ion-button (click)="logout()">
+                <div>
+                    <img src="assets/imgs/logout.png" class="logout-image">
+                    <div class="logout-label">{{"LOGOUT_LABEL" | translate}}</div>
+                </div>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div class="myprofile-main-layout">
+        <div class="myprofile-content-layout" *ngIf="!is_guest">
+            <div text-center>
+                <div text-left>
+                    <ion-item>
+                        <ion-label stacked>{{"NAME" | translate}}:</ion-label>
+                        <ion-input [(ngModel)]="newName" (ionBlur)="onUpdateName($event)"></ion-input>
+                    </ion-item>
+                    <br/>
+                    <ion-item>
+                        <ion-label stacked>{{"PHONE_NUMBER" | translate}}:</ion-label>
+                        <ion-input [(ngModel)]="phone" readonly></ion-input>
+                    </ion-item>
+                    <div class="photo-group">
+                        <ion-avatar>
+                            <img [attr.src]="photo || 'assets/imgs/avatar.png'" />
+                        </ion-avatar>
+                        <div class="button-group">
+                            <button icon-only ion-button type="button" (click)="takePhoto(0)">{{ 'CHANGE_PHOTO' | translate }}</button>
+                            <button icon-only ion-button type="button" (click)="takePhoto(1)">{{ 'TAKE_PHOTO' | translate }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="myprofile-button-layout">
+            <!-- <button ion-button round outline (click)="eventsThisWeek()">
+                <img src="assets/imgs/good_tick2.png" class="destroy-image">
+                <ion-badge *ngIf="unreceivedEvents" class="badge" color="danger">{{unreceivedEvents}}</ion-badge>
+                <div style="white-space: normal; flex: 1;">
+                    {{"EVENTS" | translate}}
+                </div>
+            </button> -->
+            <button ion-button round outline (click)="ResetPassword()" *ngIf="!is_guest">
+                <img src="assets/imgs/reset.png" class="reset-image">
+                <div style="white-space: normal; flex: 1;">
+                    {{"RESET_PASSWORD" | translate}}
+                </div>
+            </button>
+            <button ion-button round outline (click)="destroyAccount()" *ngIf="!is_guest">
+                <img src="assets/imgs/destroy.png" class="destroy-image">
+                <div style="white-space: normal; flex: 1;">
+                    {{"DESTROY" | translate}}
+                </div>
+            </button>
+            <button class="loyality" ion-button round full pink-gradient *ngIf="!is_guest" (click)="onLoyalityPoint()">{{ "ROYALTY_POINTS" | translate }}</button>
+        </div>
+    </div>
+</ion-content>

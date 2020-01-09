@@ -1,0 +1,21 @@
+{
+  "broker":"brokerInfo",
+  "login":"loginStore",
+  "period":"selectedPeriod",
+  "register":"registerStore",
+  "notifications":"notifications",
+  "AdditionalRegData":"LocationStore",
+  "smsValidation":"ValidationStore",
+  "lang":"LanguageStore",
+  "country":"CountriesStore",
+  "places":"placesStore",
+  "deviceInfo":"DeviceInfo",
+  "LangApi":"ApiLanguage",
+  "Filters":"FilterStore",
+  "beach_settings":"beach_settingsStore",
+  "weather":"WeatherStore",
+  "beach":"BeachStore",
+  "menu":"MenuStore",
+  "tab":"TabStore",
+  "reservation":"reserveStore"
+}

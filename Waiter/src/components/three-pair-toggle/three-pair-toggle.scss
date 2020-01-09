@@ -1,0 +1,81 @@
+three-pair-toggle {
+    font-family: "Foxsans" !important;
+    .wrapper {
+        display: block;
+        width: 16em;
+        height: 3em;
+        padding: 0.5em 0.5em;
+        text-align: center;
+        .bar-cont {
+            display: block;
+            margin: 0 auto;
+            width: 75%;
+        }
+        .bar {
+            display: inline-block;
+            position: relative;
+            margin-top: 0.74em;
+            height: 0.45em;
+            width: 31.5%;
+            background-color: white;
+            border-radius: 0.25em;
+        }
+        button {
+            position: relative;
+            width: 23.5%;
+            height: 1.9em;
+            top: -1.5em;
+            text-align: center;
+            padding: 0;
+            background-color: transparent;
+            .view-circle {
+                width: 1.8em;
+                height: 1.8em;
+                border-radius: 50%;
+            }
+        }
+        button div {
+            display: inline-block;
+        }
+        
+        .visible {
+            background-color: white;
+            box-shadow: 0 0 0.4em rgb(156, 156, 156);
+        }
+        .invisible {
+            background-color: transparent;
+            box-shadow: unset;
+        }
+        p {
+            font-size: 1rem;
+            color: white;
+            margin-top: -1.5em;
+            margin-bottom: 0 !important;
+            span {
+                display: inline-block;
+                font-size: 0.8rem;
+                width: 24%;
+            }
+            span:nth-of-type(2) {
+                text-align: center;
+            }
+            span:nth-of-type(3) {
+                text-align: center;
+            }
+            span:nth-of-type(4) {
+                text-align: center;
+                padding-right: 0.6em;
+            }
+            span.selected {
+                color: black;
+                font-weight: bold;
+            }
+        }
+        .color-order {
+            background-color: rgb(233, 154, 6);
+        }
+        .color-booked {
+            background-color: rgb(223, 0, 223);
+        }
+    }
+}

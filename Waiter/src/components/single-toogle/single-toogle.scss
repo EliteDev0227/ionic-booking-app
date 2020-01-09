@@ -1,0 +1,54 @@
+single-toggle {
+    font-family: "Foxsans" !important;
+    .wrapper {
+        display: inline-block;
+        width: 5em;
+        height: 2em;
+        padding: 0.5em;
+        .bar {
+            height: 0.45em;
+            width: 100%;
+            background-color: white;
+            border-radius: 0.25em;
+        }
+        button {
+            width: 50%;
+            height: 1.9em;
+            // border-radius: 50%;
+            margin-top: -1.3em;
+            text-align: center;
+            padding: 0;
+            background-color: transparent;
+            .view-circle {
+                width: 1.8em;
+                height: 1.8em;
+                border-radius: 50%;
+            }
+        }
+        .visible {
+            background-color: white;
+            box-shadow: 0 0 0.4em rgb(156, 156, 156);
+        }
+        .invisible {
+            background-color: transparent;
+            box-shadow: unset;
+        }
+        p {
+            font-size: 1rem;
+            color: white;
+            margin-top: 1.5em;
+            margin-bottom: 0 !important;
+            img {
+                width: 1.4em;
+                height: 1.4em;
+                margin-top: -0.1em;
+            }
+        }
+        span[float-left] {
+            margin-left: -0.5em;
+        }
+        span[float-right] {
+            margin-right: -0.2em;
+        }
+    }
+}

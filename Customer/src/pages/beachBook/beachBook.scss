@@ -1,0 +1,320 @@
+beachBook {
+  .scroll-content {
+    background-image: url('../assets/imgs/beach_book_background.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: auto;
+    overflow: hidden;
+
+    h2 {
+      &[margined] {
+        &[color='white'] {
+          padding: 0.8vh 1.5vh;
+          width: 88vw;
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 5px;
+          margin: 1.5vh auto !important;
+          font-weight: 900;
+          font-size: 14px;
+          text-align: center;
+          color: map_get($colors, primary);
+
+        }
+      }
+    }
+
+    .row {
+      .col {
+        h2 {
+          margin: 0;
+          width: 100%;
+          text-align: left;
+        }
+
+        h3 {
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
+
+    .list {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Iphone 5 */
+    @media (max-width: 320px) {
+      .sunbedContainer {
+        padding: 10px 10px 0px !important;
+      }
+
+      .additional {
+        font-size: 1.1em;
+      }
+    }
+
+    .sunbedContainer {
+      margin: 1vh auto 0;
+      padding: 10px 10px 10px;
+      width: 88vw;
+      position: relative;
+
+      .sunbedHeading {
+        .col {
+          text-align: right;
+          font-size: 14px;
+          font-weight: Bold;
+        }
+
+        [margined] {
+          color: map_get($colors, dark);
+          margin: 0 !important;
+          font-size: 14px;
+          font-weight: Bold;
+
+          &[blackdark] {
+            font-weight: Bold;
+            padding: 0;
+            text-align: left;
+            font-size: 14px;
+
+          }
+        }
+      }
+
+      .sunbedBg {
+        position: relative;
+
+        .top {
+          position: absolute;
+          width: 100%;
+
+          .As {
+            font-weight: bold;
+            color: map_get($colors, grey);
+            text-transform: uppercase;
+            font-size: 20px;
+
+            &.right {
+              text-align: right;
+            }
+          }
+        }
+
+        .sunbedHolder {
+          .interactiveSelect {
+            margin: 0 auto;
+          }
+        }
+
+        .bottom {
+          width: 100%;
+
+          .seats,
+          .availability {
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+            display: block;
+            font-size: 16px;
+          }
+
+          .availability {
+            color: map_get($colors, secondary);
+            font-weight: 600;
+
+            &.blued {
+              color: map_get($colors, blued);
+            }
+
+            &.red {
+              color: map_get($colors, danger);
+            }
+            &.persons{
+              color: #f95398;
+            }
+          }
+        }
+      }
+
+      background:rgba(map_get($colors, white), 0.7);
+      @include border-radius(5px);
+
+    }
+
+    .extra-sunbeds {
+      padding: 0 3vh;
+
+      .col button {
+        height: 8vw;
+        min-width: 8vw;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      h4 {
+        font-size: 18px;
+      }
+    }
+
+    .TextContainers {
+      // bottom: 20px;
+      position: absolute;
+      left: 20px;
+      right: 20px;
+
+      .terms-condition {
+        .terms-label {
+          font-size: 14px;
+        }
+
+      }
+
+      .list-ios .item-block .item-inner {
+        border-bottom: 0px !important;
+      }
+
+      .item-ios.item-block .item-inner {
+        border-bottom: 0px !important;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      /* Iphone 5 */
+      @media (max-width: 320px) {
+        h2 {
+          margin: 0;
+          font-size: 20px;
+        }
+
+        button {
+          height: 4rem;
+        }
+      }
+
+      /* S7 Edge */
+      @media (max-width: 360px) {
+        h2 {
+          margin: 0;
+        }
+      }
+
+      h4 {
+        margin: 1vh 0 0;
+        font-weight: 600;
+        font-size: 14px;
+
+        .button {
+          position: relative;
+
+          &.active {
+
+            span {
+              width: 4vw;
+              height: 4vw;
+              background: url('../assets/imgs/good_tick1.png') center no-repeat;
+              background-size: 15px 15px;
+            }
+
+
+          }
+        }
+      }
+
+      .row {
+        margin-top: 2vw;
+      }
+
+      .col {
+        padding: 0;
+        padding-right: 10px !important;
+
+        .button {
+          height: 8vw;
+          min-width: 8vw;
+          font-size: 14px;
+          font-weight: bold;
+          @include border-radius(40px);
+
+          span {
+            span {
+              font-size: 10px;
+            }
+
+          }
+
+        }
+
+        h2[margined] {
+          padding: 0 !important;
+          text-align: left;
+          margin: 0 !important;
+
+          &[blackDark] {
+            font-size: 2.2vh;
+            font-weight: bold;
+            color: map_get($colors, dark);
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+      }
+
+      .button[rounded] {
+        margin-top: .5rem;
+        width: 95%;
+        @include border-radius(5vw);
+        font-weight: 600;
+        margin-left: 0;
+        text-transform: uppercase;
+        float: right;
+
+        &.reserve {
+          margin-right: 1rem;
+          text-transform: none;
+          color: map_get($colors, primary);
+          float: left;
+        }
+      }
+
+    }
+  }
+
+  /* Iphone X */
+  // @media only screen and (height: 812px) {
+
+  //   .scroll-content{
+  //     h4{
+  //       font-size: 16px !important;
+  //     }
+
+
+  //   }
+
+  // }
+  @media only screen and (min-width: 360px) and (max-width: 640px) and (min-device-width:360px) {
+    .TextContainers {
+      .row {
+        margin-top: 57px !important;
+      }
+    }
+
+
+  }
+
+  @media only screen and (max-width: 320px) {
+
+    .toolbar-title {
+      font-size: 14px !important;
+    }
+
+  }
+
+}

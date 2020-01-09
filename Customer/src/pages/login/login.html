@@ -1,0 +1,37 @@
+<ion-content [style.background-position]="'0 ' + shouldTop">
+
+    <button ion-button icon-only class="back-button" (click)="goBack()">
+      <ion-icon name="ios-arrow-back"></ion-icon>
+    </button>
+    <langComponent [refresh]="toggleLanguage" [page]="'login'" (pushLang)="onLanguageChanged($event)"></langComponent>
+
+    <h1 text-center margined><span>{{ "SMART_BEACH" | translate }}</span></h1>
+    <div margined>
+        <form [formGroup]="FormData" (submit)="doLogin()">
+            <!-- <ion-input type="hidden" placeholder="+(40)722 222 222" formControlName="phone" required></ion-input> -->
+
+            <phoneComponent (CompletedSelect)="updatePhone($event)" [toggleData]="rand"></phoneComponent>
+
+            <div class="passwordHolder">
+                <ion-item>
+                    <ion-label floating>{{ "PASSWORD" | translate }}</ion-label>
+                    <ion-input autocomplete="new-password" name="password" *ngIf="!EyeShown" formControlName="password" type="password" required></ion-input>
+                    <ion-input autocomplete="new-password" name="password2" *ngIf="EyeShown" type="text" formControlName="password" required></ion-input>
+                </ion-item>
+                <button icon-only ion-button type="button" clear class="passwordEye" (click)="EyeShown = !EyeShown">
+          <ion-icon name="ios-eye"></ion-icon>
+        </button>
+            </div>
+            <div class="should-hide" margin-top text-right (click)="resetPassword()">
+                <a>{{ "FORGOT_PASSWORD" | translate }}</a>
+            </div>
+            <button ion-button type="submit" round full pink-gradient class="login-button" [disabled]="!FormData.valid">
+              {{ "SIGN_IN" | translate }}
+            </button>
+        </form>
+    </div>
+
+    <!-- <div class="bottom-block  should-hide" (click)="goSignup()">
+    <a>{{ 'NEW_ON_SMART_BEACH' | translate }}</a> <span class="a-brother">{{ 'REGISTER' | translate }}</span>
+  </div> -->
+</ion-content>

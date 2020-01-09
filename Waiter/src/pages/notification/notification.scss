@@ -1,0 +1,81 @@
+page-notification {
+    .scroll-content {
+        padding: 0 !important;
+    }
+    ion-list {
+        ion-item {
+            padding-left: 1.2rem !important;
+            border-bottom: 0.1rem solid rgb(209, 209, 209) !important;
+            .item-inner {
+                border-bottom: none !important;
+            }
+            .input-wrapper ion-label {
+                margin-top: 0.8rem;
+                margin-bottom: 0.8rem;
+            }
+            p[item-start] {
+                font-family: "Foxsans";
+                font-weight: bold;
+                font-size: 1.6rem;
+                color: map-get($colors, primary);
+                width: 5rem;
+                text-align: center;
+            }
+            .mid-wrapper {
+                border-left: 0.1rem solid rgb(207, 207, 207);
+                border-right: 0.1rem solid rgb(202, 202, 202);
+                padding: 0 1rem;
+                margin-left: 0.2rem;
+                h2 {
+                    text-transform: uppercase;
+                    font-family: "Foxsans";
+                    font-weight: bold;
+                    color: map-get($colors, primary);
+                }
+                p {
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    color: gray;
+                }
+            }
+            .item-inner .item-button {
+                font-size: 2rem;
+            }
+            .running::before {
+                content: ' ';
+                width: 24px;
+                height: 21px;
+                display: block;
+                background-image: url(../assets/imgs/running_off.png);
+                background-size: contain;
+                background-position: center;
+            }
+            .running.need::before {
+                background-image: url(../assets/imgs/running_on.png);
+            }        
+        }
+        ion-item.active {
+            background-color: map-get($colors, primary_sub);
+            p[item-start] {
+                color: black;
+            }
+            .mid-wrapper {
+                h2 {
+                    color: black;
+                }
+                p {
+                    color: gray;
+                }
+            }
+            .item-inner .item-button {
+                color: black;
+            }
+        }
+        ion-item-sliding {
+            // button[color='danger'] {
+            //     width: 12.8vw;
+            // }
+        }
+    }
+
+}

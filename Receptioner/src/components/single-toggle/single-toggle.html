@@ -1,0 +1,12 @@
+<!-- Generated template for the SingleToggleComponent component -->
+<div class="wrapper">
+    <!-- <div class="bar"></div> -->
+    <button (click)="toggleClick()"> <div [className]="checked ? 'view-circle invisible' : 'view-circle visible'"></div> <div class="line"></div> <div [className]="checked ? 'view-circle visible' : 'view-circle invisible'" float-right></div> </button>
+    <!-- <button float-right (click)="toggleClick()"> <div class="line left"></div>  </button> -->
+    <div class="txt">
+        <span float-left>{{ firstLabel }}</span>
+        <span float-right>{{ secondLabel }}</span>
+        <img src="{{ image1 }}" float-left *ngIf="isImage" />
+        <img src="{{ image2 }}" float-right *ngIf="isImage" />
+    </div>
+</div>

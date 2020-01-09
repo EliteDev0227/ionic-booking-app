@@ -1,0 +1,944 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+*[pink-gradient] {
+    background: linear-gradient(to right, #fe5295, #f86d67);
+}
+
+.segment-md .segment-button {
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    color: color($colors, dark);
+    font-weight: bold;
+
+    &.segment-activated {
+        color: color($colors, primary);
+    }
+}
+
+.button[check] {
+    color: #000;
+    text-transform: uppercase;
+
+    .icon {
+        height: 3rem;
+        width: 3rem;
+        background-color: color($colors, light);
+        -webkit-border-radius: 5px;
+        -o-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        border-radius: 5px;
+        margin-right: 1rem;
+    }
+
+    &[checked] {
+        color: color($colors, primary);
+
+        .icon {
+            background: linear-gradient(to right, #fe5295, #f86d67);
+        }
+    }
+}
+
+.item.item-input[rounded-input],
+.item.item-input.input[rounded-input] {
+    box-shadow: none !important;
+
+    .item-inner {
+        background-color: #e5e5e5;
+        border-radius: 3rem !important;
+        border: none;
+    }
+}
+
+.item.item-input .item-inner,
+.item.item-input.input .item-inner {
+    border-bottom-color: #eee;
+    box-shadow: inset 0 -1px 0 0 #eee;
+    padding-right: 0;
+
+    .text-input {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.row[no-side-padding]>.col {
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &:last-child {
+        padding-right: 0;
+    }
+}
+
+.bar-button {
+    text-transform: none;
+    color: color($colors, primary);
+}
+
+.label[stacked] {
+    font-size: 1.4rem;
+}
+
+.item {
+    padding-left: 0;
+}
+
+.button.button-default {
+    height: 5rem;
+}
+
+*[margined] {
+    margin-left: 60px !important;
+    margin-right: 60px !important;
+}
+
+*[no-top-margin] {
+    margin-top: 0 !important;
+}
+
+*[no-bottom-margin] {
+    margin-bottom: 0 !important;
+}
+
+*[no-top-padding] {
+    padding-top: 0 !important;
+}
+
+*[no-bottom-padding] {
+    padding-bottom: 0 !important;
+}
+
+ion-app.ios {
+    ion-fab[top] {
+        top: 25px;
+    }
+}
+
+ion-app.md {
+
+    .button,
+    .fab {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+}
+
+h1,
+h2 {
+    color: color($colors, primary);
+}
+
+h1 {
+    font-family: 'Honeymoon';
+}
+
+.item h3 {
+    font-size: 1.6rem;
+}
+
+*[text-small] {
+    font-size: 1rem;
+    color: color($colors, grey);
+}
+
+.tabs .tabbar {
+    background-color: #fff;
+}
+
+.toolbar-background {
+    border: none !important;
+}
+
+.header-md:not(.has-shadow)::after {
+    background-image: none;
+}
+
+.header-ios.has-shadow {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
+}
+
+.scroll-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 0 !important;
+}
+
+ion-popover {
+    ion-backdrop {
+        opacity: .5;
+    }
+}
+
+// Graphic and icons
+ion-icon {
+    &[class*="beach-"] {
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+    }
+
+    // customs
+    &[class*="beach-tab-calendar"] {
+        mask-image: url('../assets/imgs/tabs/tab-calendar.png');
+        width: 3rem;
+        height: 3rem;
+    }
+
+    &[class*="beach-tab-map"] {
+        mask-image: url('../assets/imgs/tabs/tab-map.png');
+        width: 3rem;
+        height: 3rem;
+    }
+
+    &[class*="beach-star-0"] {
+        mask-image: url('../assets/imgs/rating/star_0.png');
+        width: 4vw;
+        height: 4vw;
+    }
+
+    &[class*="beach-star-25"] {
+        mask-image: url('../assets/imgs/rating/star_25.png');
+        width: 4vw;
+        height: 4vw;
+    }
+
+    &[class*="beach-star-50"] {
+        mask-image: url('../assets/imgs/rating/star_50.png');
+        width: 4vw;
+        height: 4vw;
+    }
+
+    &[class*="beach-star-75"] {
+        mask-image: url('../assets/imgs/rating/star_75.png');
+        width: 4vw;
+        height: 4vw;
+    }
+
+    &[class*="beach-star-100"] {
+        mask-image: url('../assets/imgs/rating/star_100.png');
+        width: 4vw;
+        height: 4vw;
+    }
+}
+
+.or {
+    color: rgba(60, 60, 60, 0.7);
+    border: 1px solid rgba(60, 60, 60, 0.7);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin: 1rem auto;
+    line-height: 1.2rem;
+    text-align: center;
+}
+
+.icon[name=place-sunbed] {
+    background-image: url('../assets/imgs/place-icons/sunbed.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 2rem;
+    width: 2rem;
+}
+
+.icon[name=place-umbrella] {
+    background-image: url('../assets/imgs/place-icons/umbrella.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 2rem;
+    width: 2rem;
+}
+
+.icon[name=place-baldaquin] {
+    background-image: url('../assets/imgs/place-icons/baldaquin.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 2rem;
+    width: 2rem;
+}
+
+.icon[name=icon-review] {
+    background-image: url('../assets/imgs/review_icon.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 4rem;
+    width: 4rem;
+}
+
+.icon[name=option-baldaquin],
+.icon.ion-md-option-baldaquin,
+.icon.ion-ios-option-baldaquin {
+    &:not(.active) {
+        background-image: url('../assets/imgs/place-icons/baldaquin.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/place-icons/baldaquin-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-cash],
+.icon.ion-md-option-cash,
+.icon.ion-ios-option-cash {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/cash.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/cash-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-credit],
+.icon.ion-md-option-credit,
+.icon.ion-ios-option-credit {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/credit.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/credit-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-credit_card],
+.icon.ion-md-option-credit_card,
+.icon.ion-ios-option-credit_card {
+    background-image: url('../assets/imgs/option-icons/credit.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-bar],
+.icon.ion-md-option-bar,
+.icon.ion-ios-option-bar {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/bar.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/bar-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-food],
+.icon.ion-md-option-food,
+.icon.ion-ios-option-food {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/food.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/food-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-restaurant],
+.icon.ion-md-option-restaurant,
+.icon.ion-ios-option-restaurant {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/food.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/food-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-shower],
+.icon.ion-md-option-shower,
+.icon.ion-ios-option-shower {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/shower.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/shower-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-wifi],
+.icon.ion-md-option-wifi,
+.icon.ion-ios-option-wifi {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/wifi.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/wifi-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-order],
+.icon.ion-md-option-order,
+.icon.ion-ios-option-order {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/reorder.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/reorder-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-size],
+.icon.ion-md-option-size,
+.icon.ion-ios-option-size {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/size.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/size-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-kids],
+.icon.ion-md-option-kids,
+.icon.ion-ios-option-kids {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/kids.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/kids-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-massage],
+.icon.ion-md-option-massage,
+.icon.ion-ios-option-massage {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/massage.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/massage-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-games],
+.icon.ion-md-option-games,
+.icon.ion-ios-option-games {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/game.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/game-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-ski_jet],
+.icon.ion-md-option-ski_jet,
+.icon.ion-ios-option-ski_jet {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/jet-ski.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/jet-ski-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-music],
+.icon.ion-md-option-music,
+.icon.ion-ios-option-music {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/music.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/music-white.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon[name=option-blue_flag],
+.icon.ion-md-option-blue_flag,
+.icon.ion-ios-option-blue_flag {
+    &:not(.active) {
+        background-image: url('../assets/imgs/option-icons/blue-flag.png');
+    }
+
+    &.active {
+        background-image: url('../assets/imgs/option-icons/blue-flag.png');
+    }
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.hide {
+    display: none;
+}
+
+.popover-ios {
+    .popover-content {
+        top: unset !important;
+        left: unset !important;
+        transform: translate(-50%, -50%);
+    }
+}
+
+ion-popover {
+    &.languagePopOver {
+        .popover-content {
+            top: 20px !important;
+            right: 10px !important;
+            left: auto !important;
+            width: 180px;
+            height: auto !important;
+            max-height: 70vh;
+            -webkit-box-shadow: 1px 1px 9px map_get($colors, grey);
+            -moz-box-shadow: 1px 1px 9px map_get($colors, grey);
+            box-shadow: 1px 1px 9px map_get($colors, grey);
+            overflow: hidden;
+            transform: unset !important;
+        }
+    }
+
+    &.weather-popover {
+        .popover-content {
+            // top: 20px !important;
+            // right: 10px !important;
+            // left: auto !important;
+            // height: auto;
+            // min-width: 60vw;
+            // width: auto !important;
+            // -webkit-box-shadow: 1px 1px 9px map_get($colors, grey);
+            // -moz-box-shadow: 1px 1px 9px map_get($colors, grey);
+            // box-shadow: 1px 1px 9px map_get($colors, grey);
+            // overflow-x: hidden;
+            // overflow-y: scroll;
+            // transform: unset !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 94%;
+            height: 100%;
+        }
+    }
+
+    &.filterPopOver {
+        .popover-content {
+            left: 1% !important;
+            right: 1% !important;
+            top: 1vh !important;
+            bottom: 1vh;
+            min-height: 98vh;
+            width: 98%;
+            -webkit-box-shadow: 1px 1px 9px map_get($colors, grey);
+            -moz-box-shadow: 1px 1px 9px map_get($colors, grey);
+            box-shadow: 1px 1px 9px map_get($colors, grey);
+            overflow-x: hidden;
+            overflow-y: scroll;
+            transform: unset !important;
+        }
+    }
+
+    &.imgPop {
+        .popover-content {
+            left: 1% !important;
+            right: 1% !important;
+            top: 1vh !important;
+            bottom: 1vh;
+            min-height: 98vh;
+            width: 98%;
+            -webkit-box-shadow: 1px 1px 9px map_get($colors, grey);
+            -moz-box-shadow: 1px 1px 9px map_get($colors, grey);
+            box-shadow: 1px 1px 9px map_get($colors, grey);
+            overflow-x: hidden;
+            overflow-y: scroll;
+            transform: unset !important;
+        }
+    }
+
+    &.agreementPopOver,
+    &.menuPage {
+        .popover-content {
+            left: 1% !important;
+            right: 1% !important;
+            top: 1vh !important;
+            bottom: 1vh;
+            min-height: 98vh;
+            width: 98%;
+            -webkit-box-shadow: 1px 1px 9px map_get($colors, grey);
+            -moz-box-shadow: 1px 1px 9px map_get($colors, grey);
+            box-shadow: 1px 1px 9px map_get($colors, grey);
+            overflow-x: hidden;
+            overflow-y: scroll;
+            transform: unset !important;
+        }
+    }
+
+    &.weatherPopover {
+        .popover-content {
+            left: 1% !important;
+            right: 1% !important;
+            top: 1vh !important;
+            bottom: 1vh;
+            min-height: 98vh;
+            width: 98%;
+            -webkit-box-shadow: 1px 1px 9px map_get($colors, grey);
+            -moz-box-shadow: 1px 1px 9px map_get($colors, grey);
+            box-shadow: 1px 1px 9px map_get($colors, grey);
+            overflow-x: hidden;
+            overflow-y: hidden;
+            transform: unset !important;
+        }
+    }
+
+    &.Calendar {
+        .popover-content {
+            ion-buttons[start] {
+                order: 2;
+            }
+
+            .toolbar-title {
+                text-align: center;
+            }
+
+            .scroll-content {
+                height: 68vh;
+            }
+
+            height:70vh;
+            -webkit-box-shadow: 1px 1px 9px map_get($colors,
+            grey);
+            -moz-box-shadow: 1px 1px 9px map_get($colors,
+            grey);
+            box-shadow: 1px 1px 9px map_get($colors,
+            grey);
+            overflow-x: hidden;
+            overflow-y: scroll;
+            transform: unset !important;
+        }
+    }
+
+    &.eventsPopOver {
+        .popover-content {
+            min-width: 95vw !important;
+        }
+    }
+}
+
+.keyboard-is-open {
+    .scroll-content {
+        .push_up {
+            top: -3.5rem !important;
+            position: relative;
+        }
+    }
+
+    .should-hide {
+        display: none;
+    }
+
+    .tabbar.show-tabbar {
+        display: none;
+    }
+
+    .text-input:focus {
+        &::placeholder {
+            color: transparent;
+        }
+    }
+
+    page-beach {
+        .scroll-content {
+            position: absolute !important;
+            margin: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .beach-menu {
+            top: -100vh;
+            position: relative;
+            height: auto;
+        }
+    }
+}
+
+.clearfix {
+    clear: both !important;
+}
+
+ion-alert {
+    .alert-title {
+        text-transform: capitalize;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.IsOnBeach {
+    .ion-page.show-page {
+        .tabbar {
+            z-index: -1;
+        }
+
+        .show-tab {
+            ion-content {
+                height: auto;
+                bottom: 49px !important;
+            }
+        }
+    }
+}
+
+.has-icon .tab-badge {
+    right: calc(50% - 25px) !important;
+}
+
+.item {
+    &:not(.input-has-value) {
+        &:not(.input-has-focus) {
+            .label-md[floating] {
+                margin: 0 8px 13px 0 !important;
+            }
+        }
+    }
+}
+
+.counter {
+    .popover-content {
+        background: #efefef !important;
+        max-width: 13rem !important;
+        min-width: 13rem !important;
+        max-height: 13rem !important;
+        min-height: 13rem !important;
+
+        .popover-viewport {
+            min-height: 13rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+    }
+}
+
+.popover-viewport {
+    page-menu {
+        [padding] {
+            padding: 0 !important;
+
+            .scroll-content {
+                padding: 0 !important;
+                overflow: hidden !important;
+            }
+        }
+    }
+}
+
+ion-item {
+    &.terms-condition {
+        ion-label {
+            font-size: 1.2rem;
+            font-family: 'ProximaNova', sans-serif;
+            font-weight: 600;
+
+            a {
+                pointer-events: visible !important;
+
+                &.item {
+                    display: inline-block;
+                    min-height: unset;
+                    width: auto;
+                    color: map_get($colors, danger);
+                    height: auto;
+                    line-height: 1.2rem;
+                    padding: 0;
+
+                    .item-inner {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+
+        ion-checkbox {
+            .checkbox-icon {
+                border-color: map_get($colors, dark);
+                @include border-radius(0);
+            }
+        }
+
+        .item-cover {
+            display: none;
+        }
+    }
+}
+
+@font-face {
+    font-family: 'Perpetua';
+    src: url('/assets/fonts/per_____.ttf');
+}
+
+button.gradient {
+    border-radius: 100rem;
+    padding: 1rem;
+    font-size: 1rem;
+    padding: .5rem 3rem;
+    color: #000;
+    box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+    border: solid 3px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #fff inset;
+}
+
+button.gradient:hover {
+    box-shadow: none;
+    color: white;
+}
+
+tooltip-box {
+    width: 347px;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    border-radius: 12px;
+    background: #e8dbdb;
+    color: black;
+
+    &.hidden {
+        display: none !important;
+    }
+}
+
+.calender-modal {
+    @media only screen and (max-width: 320px) {
+        .modal-wrapper {
+            width: 256px !important;
+        }
+    }
+}

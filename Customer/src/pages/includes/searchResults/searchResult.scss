@@ -1,0 +1,218 @@
+searchResult{
+
+  .card {
+    padding: 10px;
+    background-color: #fff;
+    position:relative;
+    .closed-overlay{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      left: 0;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      .text{
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 2px;
+        padding: 1rem;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(254, 82, 149,0.9);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        .title{
+          color: white;
+          font-size: 2.8rem;
+          text-transform: uppercase;
+        }
+        .subtitle{
+          color: black;
+          font-size: 1.2rem;
+          text-transform: uppercase;       
+        }
+      }
+    }
+    .direction-btn-holder{
+      .button{
+        width:100%;
+        display:flex;
+        flex-direction:row;
+        margin:0;
+        padding:0;
+        height:5vh;
+        img{
+          height:4vh;
+          width:4vh;
+          margin-right:2vw;
+          margin-left:1vw;
+        }
+       .direction-text{
+          height:80%;
+          font-size:4vw;
+         white-space: pre-line;
+         text-align:left;
+         display:block;
+         font-weight:600;
+       }
+      }
+    }
+    .goto-map{
+      position:absolute;
+      height:calc(100% + 20px);
+      left:-10px;
+      padding:13px;
+      top:-10px;
+      width:calc(100% + 20px);
+      background:map_get($colors,light);
+      z-index:200;
+      h2{
+      font-weight:600;
+        margin-top:.5rem;
+      font-size:5vw;
+        text-align:center;
+        margin-bottom:.5rem;
+    }
+      p{
+        margin-top:.5rem;
+        text-align:center;
+      }
+      .close-icon{
+        background:none;
+        font-size:6vw;
+        position:absolute;
+        color:map_get($colors,dark);
+        right:0px;
+        top:15px;
+      }
+      .map-button-holder{
+        margin-top:10%;
+        .button{
+          width:40vw;
+          margin:0 auto;
+          padding:0;
+          display:block;
+          height:7vh;
+          font-weight:600;
+          span{
+            font-size:2.5vw;
+          }
+          .icon{
+            font-size:10vw;
+            padding-right:3vw;
+          }
+        }
+      }
+      .col{
+        &:last-child{
+          .button{
+            color:map_get($colors,primary);
+          }
+        }
+      }
+    }
+
+    .direction-location-text{
+      color:map_get($colors,primary);
+      text-align:center;
+      font-weight:600;
+      font-size:3vw;
+    }
+    .card-left {
+
+      .reviews {
+        font-size: 1.2rem;
+        color: map_get($colors,dark);
+        margin-bottom: 0;
+        margin-top: 4px;
+        position:absolute;
+        bottom:1.4rem;
+        left:0;
+        right:0;
+        text-align:center;
+      }
+
+      img{
+        min-height:45px;
+        //border:2px solid map_get($colors,grey);
+      }
+      .star-rating {
+        position:absolute;
+        bottom:0;
+        display: flex;
+        justify-content: center;
+        flex-direction:row;
+        .icon {
+          color: color($colors, light);
+          &.full {
+            color: color($colors, primary);
+          }
+        }
+      }
+    }
+
+    .card-right {
+      .col{
+        padding:0;
+      }
+      .title {
+        line-height: 1rem;
+        font-weight: bold;
+      }
+
+      .seats {
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .available {
+        padding: 0;
+        font-size: 3vw;
+
+        .item-inner {
+          padding: 0;
+          .input-wrapper ion-label.label {
+            font-size: 3vw;
+            span ion-icon {
+              margin-top: -.4rem;
+            }
+          }
+        }
+
+        .place {
+          color: color($colors, primary);
+          margin-left:1vw;
+          margin-right: 0;
+          line-height: 2rem;
+          vertical-align: middle;
+
+          .icon {
+            color: color($colors, light);
+            vertical-align: middle;
+
+          }
+        }
+      }
+
+      .options {
+        vertical-align: bottom;
+        display: flex;
+        justify-content: right;
+        float:right;
+        position:relative;
+        top:.5rem;
+        .icon {
+          margin-left: 0.4rem;
+        }
+      }
+    }
+  }
+
+
+}

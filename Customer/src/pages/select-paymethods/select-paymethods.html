@@ -1,0 +1,38 @@
+<!--
+  Generated template for the LoyaltyPointsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>{{ "PAY" | translate }}</ion-title>
+      <button ion-button clear icon-only right (click)="viewCtrl.dismiss()" class="close-btn"><ion-icon name="ios-close-outline"></ion-icon></button>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list radio-group [(ngModel)]="mPaymethod"> 
+
+    <ion-list-header no-lines>
+      {{ "SELECT_PAY_METHOD" | translate }}
+    </ion-list-header>
+      
+    <ion-item no-lines>
+      <ion-radio value="point" (ionSelect)="onSelectMethod()"></ion-radio>
+      <ion-label>Loiality Point ( {{ mPoints }} points )</ion-label>
+    </ion-item>
+    
+<!--   
+    <ion-item *ngIf='isCard' no-lines>
+      <ion-radio value="card" (ionSelect)="onSelectMethod()"></ion-radio>
+      <ion-label>Credit card</ion-label>
+    </ion-item> -->
+
+    <ion-item no-lines class="total_cont">
+      <h2>Total : {{mTotal}} ron</h2>
+    </ion-item>
+    <button ion-button round full pink-gradient [disabled]="!isConfirmable" (click)="onClickConfirm()">{{ "CONFIRM" | translate }}</button>
+  </ion-list>
+</ion-content>

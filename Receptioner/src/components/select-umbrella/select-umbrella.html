@@ -1,0 +1,17 @@
+<!-- Generated template for the SelectNumbrellaComponent component -->
+<div [ngClass]="seatNum == 2 ? 'wrapper two' : 'wrapper'">
+  <ng-container *ngIf="seatNum == 4">
+    <img [ngClass]="getSelectStyle('a',0)" src="assets/imgs/umbrella/umbrella_seat_left.png" (click)="selectSeat(0)">
+    <img [ngClass]="getSelectStyle('a',1)" src="assets/imgs/umbrella/umbrella_seat_left.png" (click)="selectSeat(1)">
+    <img [ngClass]="getSelectStyle('a',1)" src="assets/imgs/umbrella/umbrella_left.png" (click)="selectSeat(1)">
+    <img [ngClass]="getSelectStyle('b',2)" src="assets/imgs/umbrella/umbrella_right.png">
+    <img [ngClass]="getSelectStyle('b',2)" src="assets/imgs/umbrella/umbrella_seat_right.png" (click)="selectSeat(2)">
+    <img [ngClass]="getSelectStyle('b',3)" src="assets/imgs/umbrella/umbrella_seat_right.png" (click)="selectSeat(3)">
+  </ng-container>
+  <ng-container *ngIf="seatNum == 2">
+    <img [ngClass]="getSelectStyle('a',0)" src="assets/imgs/umbrella/umbrella_seat_left.png" (click)="selectSeat(0)">
+    <img [ngClass]="getSelectStyle('a',0)" src="assets/imgs/umbrella/umbrella_left.png" (click)="selectSeat(0)">
+    <img [ngClass]="getSelectStyle('b',1)" src="assets/imgs/umbrella/umbrella_right.png">
+    <img [ngClass]="getSelectStyle('b',1)" src="assets/imgs/umbrella/umbrella_seat_right.png" (click)="selectSeat(1)">
+  </ng-container>
+</div>

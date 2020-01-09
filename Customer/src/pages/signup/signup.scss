@@ -1,0 +1,242 @@
+page-signup {
+    *[margined] {
+        margin-left: 10% !important;
+        margin-right: 10% !important;
+    }
+    .label-size {
+        font-size: 1.4rem;
+    }
+    .label-input {
+        margin-top: -25px;
+        .item.item-block .item-inner {
+            border-bottom: 1px solid #ada6a6;
+        }
+        .item.item-input .item-inner {
+            border-bottom: 1px solid #ada6a6;
+        }
+        .item.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+            border-bottom-color: #ada6a6;
+            -webkit-box-shadow: inset 0 0px 0 0 #ada6a6;
+            box-shadow: inset 0 0px 0 0 #ada6a6;
+            // -webkit-box-shadow: inset 0 0px 0 0 #848181;
+            // box-shadow: inset 0 0px 0 0 #848181;
+        }
+        .item.item-input.item-input-has-focus .item-inner,
+        .item.item-input.input-has-focus .item-inner {
+            border-bottom-color: #fe5295;
+            // -webkit-box-shadow: inset 0 -1px 0 0 #fe5295;
+            // box-shadow: inset 0 -1px 0 0 #fe5295;
+        }
+    }
+    .scroll-content {
+        background-image: url('../assets/imgs/login-page-background.png');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+       // height: 100vh;
+       overflow: hidden;
+        .back-button {
+            display: block;
+            position: absolute;
+            top: 14px;
+            background: none;
+            border: none;
+            .icon {
+                color: map_get($colors, danger);
+            }
+        }
+    }
+    .photo-group {
+        display: flex;
+        margin-top: 15px;
+        ion-avatar {
+            flex: 1;
+            img {
+                // margin: auto;
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+            }
+        }
+        .button-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .button.button-default {
+                width: 70%;
+                height: 3rem !important;
+                align-self: center;
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-bottom: 0rem;
+            }
+        }
+    }
+    h1[margined] {}
+    @media only screen and (min-height:500px) {
+        h1[margined] {
+            margin-bottom: 2rem !important;
+            margin-top: 6rem !important;
+        }
+    }
+    @media only screen and (max-height:500px) {
+        h1[margined] {
+            margin-bottom: 10vh !important;
+            margin-top: 10vh !important;
+        }
+    }
+    @media only screen and (max-height:460px) {
+        h1[margined] {
+            margin-bottom: 8vh !important;
+            margin-top: 8vh !important;
+        }
+    }
+    @media only screen and (max-height:430px) {
+        h1[margined] {
+            margin-bottom: 0.5rem !important;
+            margin-top: 1rem !important;
+        }
+    }
+    @media only screen and (max-width: 320px) {
+       
+        h1[margined] {
+                font-size: 23px;
+                margin-bottom: 1rem !important;
+        }
+        .signup-button{
+            height: 35px !important;
+            font-size: 16px;
+            margin-top: 3vh !important;
+        }
+        ion-label{
+            font-size: 12px !important;
+        }
+        .photo-group{
+            ion-avatar{
+                img{
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            .button-group{
+                .button.button-default{
+                    height: 25px !important;
+                    font-size: 13px !important;
+                }
+            }
+        }
+        .photo-link{
+            span{
+                font-size: 13px;
+                font-weight: 600;
+            }
+        }
+        .scroll-content{
+            .back-button{
+                font-size: 16px;
+            }
+        }
+    }
+    @media only screen and (height: 812px)  {
+       
+        h1[margined] {
+            margin-bottom: 8rem !important;
+        }
+    }
+    ion-item.item-checkbox {
+        margin-top: 2rem;
+        ion-checkbox {
+            margin-right: .6rem !important;
+            button.item-cover {
+                display: none;
+            }
+            .checkbox-icon {
+                border-width: 2px;
+                border-color: #828282;
+            }
+            .checkbox-icon.checkbox-checked {
+                border-width: 1px;
+                border-color: transparent;
+            }
+        }
+        .item-inner {
+            padding-right: 0 !important;
+            .input-wrapper ion-label {
+                margin-right: 0;
+                font-size: 1.3rem;
+                white-space: pre-wrap;
+                span {
+                    font-weight: bold;
+                    color: #fe5295;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .photo-link {
+        text-align: center;
+        margin-top: 10px;
+        span {
+            font-weight: bold;
+            color: #fe5295;
+            text-decoration: underline;
+        }
+    }
+    .signup-button {
+        margin-top: 5vh;
+    }
+    .bottom-block {
+        /*position: absolute;*/
+        bottom: 6vh;
+        width: 100%;
+        margin-top: 1rem;
+        text-align: center;
+        line-height: 3rem;
+        vertical-align: middle;
+        font-size: 1.7rem;
+        span {
+            &.a-brother {
+                color: map_get($colors, primary);
+                text-decoration: none;
+            }
+        }
+    }
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    .passwordHolder {
+        position: relative;
+        ion-label {
+            font-size: 1.4rem;
+        }
+        .item.item-block .item-inner {
+            border-bottom: 1px solid #ada6a6;
+        }
+        .item.item-input .item-inner {
+            border-bottom: 1px solid #ada6a6;
+        }
+        .item.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+            border-bottom-color: #ada6a6;
+            -webkit-box-shadow: inset 0 0px 0 0 #ada6a6;
+            box-shadow: inset 0 0px 0 0 #ada6a6;
+            // -webkit-box-shadow: inset 0 0px 0 0 #848181;
+            // box-shadow: inset 0 0px 0 0 #848181;
+        }
+        .item.item-input.item-input-has-focus .item-inner,
+        .item.item-input.input-has-focus .item-inner {
+            border-bottom-color: #fe5295;
+            // -webkit-box-shadow: inset 0 -1px 0 0 #fe5295;
+            // box-shadow: inset 0 -1px 0 0 #fe5295;
+        }
+        .passwordEye {
+            position: absolute;
+            right: -1.2rem;
+            bottom: -7px;
+            font-size: 1.5rem;
+        }
+    }
+}

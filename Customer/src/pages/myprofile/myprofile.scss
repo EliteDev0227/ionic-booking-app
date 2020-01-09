@@ -1,0 +1,189 @@
+page-myprofile {
+    .profile-nav{
+        padding-top: 5vh !important;
+        
+       // min-height: 7vh;
+      //  background: red;
+    }
+    .scroll-content {
+        background: url("../assets/imgs/login-page-background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .myprofile-main-layout {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .myprofile-content-layout {
+        width: 80%;
+        display: inline-block;
+        margin-top: 2%;
+    }
+
+    .logout-image {
+        margin-top: 4px;
+        margin-bottom: 1px;
+        margin-left: 0.8vw;
+        min-width: 24px;
+        height: 20px;
+    }
+
+    .logout-label {
+        font-size: .8rem;
+        text-transform: uppercase;
+        color: black;
+    }
+
+    .photo-group {
+        display: flex;
+        padding-top: 20px;
+
+        ion-avatar {
+            flex: 1;
+
+            img {
+                margin: auto;
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        .button-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .button.button-default {
+                width: 70%;
+                text-transform: unset;
+                color: white;
+                height: 3rem !important;
+                align-self: center;
+               // font-size: 1.4rem;
+                //height: 35px !important;
+                font-size: 13px !important;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .myprofile-button-layout {
+        text-align: center;
+        margin-top: 10%;
+
+        .button:first-child {
+            margin: 1rem auto 1rem;
+            
+        }
+    }
+    .button[pink-gradient] {
+        //margin-top: 1rem !important;
+    }
+
+    .button {
+        width: 70vw;
+        margin-top: 0px !important;
+        margin: 1rem auto;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: grey;
+        //font-size: 1.5rem;
+        height: 35px !important;
+        font-size: 13px !important;
+    }
+
+    .destroy-image {
+        width: 25px;
+        height: 25px;
+    }
+
+    .reset-image {
+        width: 25px;
+        height: 25px;
+    }
+
+    @media only screen and (max-height:800px) {
+        .myprofile-button-layout {
+            text-align: center;
+            margin-top: 5%;
+        }
+    }
+
+    button[pink-gradient] {
+        margin-top: 3rem;
+        width: 70vw;
+
+        .button-inner {
+            color: white;
+        }
+    }
+
+    .badge {
+        right: 2vw !important;
+        padding: 3px 6px;
+        top: 1vw !important;
+    }
+
+    .toolbar-title {
+        font-weight: 500
+    }
+
+    @media only screen and (max-width: 320px) {
+
+        .toolbar-title {
+            font-size: 14px !important;
+            
+        }
+
+        ion-navbar {
+
+            .back-button,
+            .bar-button,
+            .back-button-ios,
+            .back-button-md {
+                font-size: 14px !important;
+                padding: 0px !important;
+            }
+
+            button {
+                font-size: 14px !important;
+            }
+        }
+
+        ion-label {
+            font-size: 12px !important;
+        }
+
+        .photo-group {
+            ion-avatar {
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+
+            .button-group {
+                .button.button-default {
+                    height: 25px !important;
+                    font-size: 13px !important;
+                }
+            }
+        }
+        .myprofile-button-layout{
+            margin-top: 1% !important;
+            .button {
+                height: 35px !important;
+                font-size: 12px !important;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,34 @@
+<ion-content [ngStyle]="{ height: height + 'px !important' }">
+  <langComponent [refresh]="toggleLanguage" [page]="'signup'" (pushLang)="onLanguageChanged($event)"></langComponent>
+
+  <div class="inner-body-content" (click)="eventHandler()">
+    <ion-list>
+      <h1 text-center margined>{{ "SMART_BEACH" | translate }}</h1>
+
+      <ion-item no-lines class="button-like slide-guest">
+        <button ion-button round full color="primary" class="guest-toggle" [ngClass]="guestCode ? '' : 'active'"
+          (click)="toggleGuest()">
+          Guest code
+        </button>
+        <ion-item no-lines class="button-like guest-toggle guestinput" [ngClass]="guestCode ? 'active' : ''">
+          <ion-input  type="number" (keyup.enter)="guestLogin(false)()" #guestInput></ion-input>
+          <button ion-button item-content color="primary" class="text-dark" (click)="guestLogin(false)">
+            Go
+          </button>
+        </ion-item>
+      </ion-item>
+
+      <button ion-button full round color="primary" (click)="goLogin()">
+        Sign in
+      </button>
+
+      <button ion-button round full color="primary" (click)="goSignup()">
+        Register
+      </button>
+
+      <button ion-button full color="primary" class="text-dark" round (click)="guestLogin(true)">
+        Make a tour
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,46 @@
+{
+    "MAIN": {
+        "TITLE": "Smart Beach",
+        "WAITER": "Waiter"
+    },
+    "ACTIONS": {
+        "CANCEL": "CANCEL",
+        "CONFIRM": "CONFIRM",
+        "NEXT": "NEXT",
+        "SIGN_IN": "SIGN IN",
+        "SIGN_UP": "SIGN UP",
+        "LOGIN": "LOGIN",
+        "DELETE": "DELETE",
+        "CLOSE": "Close"
+    },
+    "LABELS": {
+        "ERROR": "Error",
+        "TAB1": "ALL SEATS",
+        "TAB2": "MY SEATS",
+        "TAB3": "NOTIFICATIONS",
+        "ALL": "All",
+        "ALL_CAPS": "ALL",
+        "ONLINE": "Online",
+        "OFFLINE": "Offline",
+        "ORDERS_CAPS": "ORDERS",
+        "FREE_CAPS": "FREE",
+        "FREE": "Free",
+        "ORDER": "Order",
+        "ORDERS": "Orders",
+        "NEW": "New",
+        "OLD": "Old",
+        "TOTAL": "Total",
+        "TOPPINGS": "Toppings",
+        "MENTIONS": "Mentions",
+        "CALLED" : "Called"
+    },
+    "MESSAGES": {
+        "VALIDATE_PASSWORD": "* Required at least 6 letter",
+        "PASSWORD_NOTMATCH": "* Not Matched Password!!",
+        "VALIDATE_PHONE": "* Required at least 4 ~ 18 letter",
+        "NEW_ON_SMART_BEACH" : "New on Smart Beach?",
+        "ALREADY_HAVE_ACCOUNT" : "Already have an account?",
+        "PLEASE_WAIT" : "Please wait...",
+        "REACH_SERVER_ERROR": "Please try again later."
+    }
+}

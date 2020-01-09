@@ -1,0 +1,2382 @@
+{
+    "size": {
+        "width": 660,
+        "height": 912
+    },
+    "seats": {
+        "front": [
+            {
+                "type": "umbrella",
+                "number": 1,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 91,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 2,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 91,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 3,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 91,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ff0000"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 4,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 91,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 5,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 91,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 6,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 91,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 7,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 91,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 8,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 91,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 9,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 152,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 10,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 152,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 11,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 152,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 12,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 152,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 13,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 152,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 14,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 152,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 15,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 152,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 16,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 152,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            }
+        ],
+        "middle": [
+            {
+                "type": "umbrella",
+                "number": 17,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 343,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 18,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 343,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff",
+                        "#000000"
+                    ],
+                    "b": [
+                        "#ff0000"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 19,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 343,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 20,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 343,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 21,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 343,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 22,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 343,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 23,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 343,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 24,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 4,
+                "coords": {
+                    "y": 343,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "oval",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "baldaquin",
+                "number": 25,
+                "seats": 4,
+                "coords": {
+                    "y": 410,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff",
+                    "#ff0000",
+                    "#000000"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 26,
+                "seats": 4,
+                "coords": {
+                    "y": 410,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 27,
+                "seats": 4,
+                "coords": {
+                    "y": 410,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 28,
+                "seats": 4,
+                "coords": {
+                    "y": 410,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 29,
+                "seats": 4,
+                "coords": {
+                    "y": 410,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 30,
+                "seats": 4,
+                "coords": {
+                    "y": 410,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 31,
+                "seats": 4,
+                "coords": {
+                    "y": 410,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 32,
+                "seats": 4,
+                "coords": {
+                    "y": 410,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            }
+        ],
+        "back": [
+            {
+                "type": "baldaquin",
+                "number": 33,
+                "seats": 4,
+                "coords": {
+                    "y": 479,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 34,
+                "seats": 4,
+                "coords": {
+                    "y": 479,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 35,
+                "seats": 4,
+                "coords": {
+                    "y": 479,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 36,
+                "seats": 4,
+                "coords": {
+                    "y": 479,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 37,
+                "seats": 4,
+                "coords": {
+                    "y": 479,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 38,
+                "seats": 4,
+                "coords": {
+                    "y": 479,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 39,
+                "seats": 4,
+                "coords": {
+                    "y": 479,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 40,
+                "seats": 4,
+                "coords": {
+                    "y": 479,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 41,
+                "seats": 4,
+                "coords": {
+                    "y": 540,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 42,
+                "seats": 4,
+                "coords": {
+                    "y": 540,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 43,
+                "seats": 4,
+                "coords": {
+                    "y": 540,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 44,
+                "seats": 4,
+                "coords": {
+                    "y": 540,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 45,
+                "seats": 4,
+                "coords": {
+                    "y": 540,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 46,
+                "seats": 4,
+                "coords": {
+                    "y": 540,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 47,
+                "seats": 4,
+                "coords": {
+                    "y": 540,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "baldaquin",
+                "number": 48,
+                "seats": 4,
+                "coords": {
+                    "y": 540,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "status": [
+                    "available"
+                ],
+                "shape": "square",
+                "status_color": [
+                    "#ffffff"
+                ]
+            },
+            {
+                "type": "umbrella",
+                "number": 49,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 608,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 50,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 608,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 51,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 608,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 52,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 608,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 53,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 608,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 54,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 608,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 55,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 608,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 56,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 608,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 57,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 700.77,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 58,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 700.7700000000001,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 59,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 700.7700000000001,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 60,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 700.7700000000001,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 61,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 700.7700000000001,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 62,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 700.7700000000001,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 63,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 700.7700000000002,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 64,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 700.7700000000002,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 65,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 761.7700000000001,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 66,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 761.7700000000001,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 67,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 761.7700000000002,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 68,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 761.7700000000002,
+                    "x": 325
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 69,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 761.7700000000002,
+                    "x": 405
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 70,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 761.7700000000002,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 71,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 761.7700000000003,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 72,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 761.7700000000003,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 73,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 822.7700000000001,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 74,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 822.7700000000001,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 75,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 822.7700000000001,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 76,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 822.7700000000001,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 77,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 822.7700000000002,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 78,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 822.7700000000003,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 79,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 897.2497999999999,
+                    "x": 565
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 80,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 897.2498,
+                    "x": 485
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 81,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 897.2498,
+                    "x": 645
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 82,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 897.2498000000002,
+                    "x": 85
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 83,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 897.2498000000002,
+                    "x": 165
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            },
+            {
+                "type": "umbrella",
+                "number": 84,
+                "status": {
+                    "a": [
+                        "available"
+                    ],
+                    "b": [
+                        "available"
+                    ]
+                },
+                "seats": 2,
+                "coords": {
+                    "y": 897.2498000000002,
+                    "x": 245
+                },
+                "waiter": {
+                    "id": "adcde213-ae52-442c-88d2-a5e0f3f6c924",
+                    "color": "#982bac"
+                },
+                "broker_id": "24fc1f21-993d-49e9-9c94-0d1d60860925",
+                "shape": "circle",
+                "status_color": {
+                    "a": [
+                        "#ffffff"
+                    ],
+                    "b": [
+                        "#ffffff"
+                    ]
+                }
+            }
+        ]
+    },
+    "free_sunbeds": 30
+}

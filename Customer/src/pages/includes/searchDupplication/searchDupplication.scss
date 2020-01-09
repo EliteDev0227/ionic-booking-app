@@ -1,0 +1,48 @@
+search-dupplication {
+  padding-right: 2rem;
+  padding-left:2rem;
+  h4{
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+
+  }
+  p{
+    font-size:18px;
+    text-align:center;
+    font-weight:400;
+    width:90%;
+    margin:0 auto;
+    padding-bottom:3rem;
+    padding-top:1rem;
+  }
+
+
+  .buttons{
+    width:90%;
+    margin:0 auto;
+
+    .button{
+      background:linear-gradient(to right, #fe5295, #f86d67);
+      width:100%;
+      height: 35px !important;
+      font-size: 14px !important;
+      display:inline-block;
+      @include border-radius(50px);
+      // &:last-child{
+      //   float:right;
+      // }
+    }
+
+  }
+
+}
+ion-popover {
+  ion-backdrop {
+    opacity: .3 !important;
+  }
+  div.popover-content {
+    box-shadow: 0 0 1rem rgb(68, 68, 68);
+  }
+}
+

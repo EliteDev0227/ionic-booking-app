@@ -1,0 +1,199 @@
+<ion-header class="has-shadow">
+
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button icon-only (click)="openRating()">
+				<ion-icon name="icon-review"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title>{{ 'RESERVATION' | translate }}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="showWaterMenu()">
+				<ion-icon name="" class="fa fa-thermometer-full"></ion-icon>
+			</button>
+		</ion-buttons>
+		<!-- <ion-buttons end>
+      <button ion-button icon-only class="Cart" (click)="gotoCart()">
+        <span class="text" ion-text color="light" text-center>{{ quantity }}</span>
+      </button>
+    </ion-buttons> -->
+	</ion-navbar>
+
+</ion-header>
+<ion-content>
+	<div padding class="reservation-container" *ngIf="reservation.id" [ngClass]="reservation.status=='expired'?'inactive':'active'"
+	 (click)="blurEvent()">
+		<ion-row>
+			<ion-col col-5>
+				<h2 ion-text color="primary">{{ 'BEACH' | translate }} </h2>
+			</ion-col>
+			<ion-col col-7>
+				<h2 ion-text color="dark" class="lowercase"><i>{{ reservation.beach }}</i></h2>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="reservation.status != 'expired'">
+			<ion-col col-5>
+				<h2 ion-text color="primary">{{ 'STATUS' | translate }} </h2>
+			</ion-col>
+			<ion-col col-7>
+				<h2 ion-text color="primary">{{ reservation.status_text}} </h2>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-5>
+				<h2 ion-text color="dark">{{ 'AVAILABLE_FOR' | translate }} </h2>
+			</ion-col>
+			<ion-col col-7>
+				<h2 ion-text color="dark">{{ reservation.start_date | slice:0:10 }} - {{ reservation.end_date | slice:0:10 }}</h2>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-5>
+				<h2 ion-text color="dark">{{ 'RESERVATION' | translate }} </h2>
+			</ion-col>
+			<ion-col col-7>
+				<h2 ion-text color="dark" class="lowercase">{{ reservation.seat.type }} #{{ reservation.seat.number }}</h2>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-5>
+				<h2 ion-text color="dark">{{ 'SEATS' | translate }} </h2>
+			</ion-col>
+			<ion-col col-7>
+				<h2 ion-text color="dark">{{getSunbedCount(reservation.seat.slots, reservation.seat.extra_seats)}} </h2>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-5>
+				<h2 ion-text color="dark">{{ 'RESERVATION_NO' | translate }} </h2>
+			</ion-col>
+			<ion-col col-7>
+				<h2 ion-text color="dark" class="lowercase">{{ reservation.number }}</h2>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-5>
+				<h2 ion-text color="dark">{{ 'PRICE' | translate }} </h2>
+			</ion-col>
+			<ion-col col-7>
+				<h2 *ngIf="reservation.status ===  'active'" ion-text color="dark" class="lowercase">{{reservation.old_amount }} {{reservation.currency}} ({{ 'PAID' | translate }})</h2>
+				<h2 *ngIf="reservation.status !=  'active'" ion-text color="dark" class="lowercase">{{reservation.amount }} {{reservation.currency}}</h2>
+			</ion-col>
+		</ion-row>		
+
+		<div padding *ngIf="isOwner(reservation) && isActive(reservation)">
+			<form [formGroup]="FormData" *ngIf="reservation.show">
+				<ion-input type="hidden" placeholder="+(40)722 222 222" formControlName="phone" required></ion-input>
+				<phoneComponent (CompletedSelect)="updatePhone($event)" [toggleData]="111"></phoneComponent>
+				<button ion-button icon-only clear class="add-phone" (click)="shareReservation(reservation)">
+					<ion-icon name="ios-add-circle"></ion-icon>
+				</button>
+			</form>
+
+			<ion-list>
+				<ion-item *ngFor="let guest of reservation.guests; let i = index">
+					<!-- <ion-icon *ngIf="guest.status == 'pending'" name="" item-start class="far fa-clock fa-spin slow-spin"></ion-icon> -->
+					<!-- <ion-spinner *ngIf="guest.status == 'pending'" name="bubbles" icon="ripple"></ion-spinner> -->
+					<div *ngIf="guest.status == 'pending'">
+						<div class="clock"></div>
+					</div>
+					<ion-icon *ngIf="guest.status == 'accepted'" name="" item-start class="fa fa-check-circle"></ion-icon>
+					<span class="phone-number">{{guest.phone_number}}</span>
+					<button ion-button icon-only clear (click)="deletePhone(reservation, guest)" item-end>
+						<ion-icon name="ios-remove-circle"></ion-icon>
+					</button>
+				</ion-item>
+			</ion-list>
+
+			<!-- Share -->
+			<ion-row class="button-row">
+				<button ion-button round full pink-gradient (click)="showPhone(reservation)">{{ 'SHARE_RESERVATION' | translate}}</button>
+				<button ion-button icon-only (click)="tooltipClick()" class="info-button" hideOthers="true" duration="5000" tooltip="{{ 'TOOLTIP_FRIENDS' | translate}}"
+				 positionV="top" [arrow]="true" event="click">
+					<ion-icon name="information-circle-outline"></ion-icon>
+				</button>
+			</ion-row>
+
+			<ion-list *ngIf="reservation.give">
+				<ion-item>
+					<!-- <ion-icon *ngIf="reservation.give.status == 'pending'" name="" item-start class="fa fa-hourglass fa-spin slow-spin"></ion-icon> -->
+					<!-- <ion-spinner *ngIf="reservation.give.status == 'pending'" name="bubbles" icon="crescent"></ion-spinner> -->
+					<div *ngIf="reservation.give.status == 'pending'">
+						<div class="clock"></div>
+					</div>
+					<ion-icon *ngIf="reservation.give.status == 'accepted'" name="" item-start class="fa fa-check-circle"></ion-icon>
+					<!-- {{reservation.give.phone_number}} -->
+					<span class="phone-number">{{reservation.give.phone_number}}</span>
+					<button ion-button icon-only clear (click)="deleteGive(reservation)" item-end>
+						<ion-icon name="ios-remove-circle"></ion-icon>
+					</button>
+				</ion-item>
+			</ion-list>
+			<!-- Give -->
+			<form [formGroup]="FormData" *ngIf="reservation.show_give && !reservation.give" padding-top>
+				<ion-input type="hidden" placeholder="+(40)722 222 222" formControlName="phone" required></ion-input>
+				<phoneComponent (CompletedSelect)="updatePhone($event)" [toggleData]="111"></phoneComponent>
+				<button ion-button icon-only clear class="add-phone" (click)="transferReservation(reservation)">
+					<ion-icon name="ios-add-circle"></ion-icon>
+				</button>
+			</form>
+			<ion-row class="button-row">
+				<button ion-button round full pink-gradient (click)="showGive(reservation)">{{ 'GIVE_RESERVATION' | translate}}</button>
+				<button ion-button icon-only class="info-button" (click)="tooltipClick()" hideOthers="true" duration="5000" tooltip="{{ 'TOOLTIP_GIVERESERVATION' | translate}}"
+				 positionV="bottom" [arrow]="true" event="click">
+					<ion-icon name="information-circle-outline"></ion-icon>
+				</button>
+			</ion-row>
+		</div>
+
+		<div padding *ngIf="isFriend(reservation) && reservation.share_status == 'pending'">
+			<div padding text-center>
+				{{getInvitationMessage(reservation)}}
+			</div>
+			<ion-row>
+				<ion-col>
+					<button ion-button round full pink-gradient (click)="acceptInvitation(reservation)">{{ 'ACCEPT_INVITATION' |
+						translate}}</button>
+				</ion-col>
+				<ion-col>
+					<button ion-button round full pink-gradient (click)="rejectInvitation(reservation)">{{ 'REJECT_INVITATION' |
+						translate}}</button>
+				</ion-col>
+			</ion-row>
+		</div>
+
+		<div padding *ngIf="isFriend(reservation) && reservation.give_status == 'pending'">
+			<div padding text-center>
+				{{getTransferMessage(reservation)}}
+			</div>
+			<ion-row>
+				<ion-col>
+					<button ion-button round full pink-gradient (click)="acceptTransfer(reservation)">{{ 'ACCEPT_INVITATION' |
+						translate}}</button>
+				</ion-col>
+				<ion-col>
+					<button ion-button round full pink-gradient (click)="rejectTransfer(reservation)">{{ 'REJECT_INVITATION' |
+						translate}}</button>
+				</ion-col>
+			</ion-row>
+		</div>
+	</div>
+
+<ion-footer>
+	<ion-buttons *ngIf="reservation && reservation.id">
+			<button ion-button color="dark" block small *ngIf="isOwner(reservation) && ((reservation.status != 'booked' && reservation.status != 'pending') || reservation.status == 'paid')"
+			 (click)="release(reservation)">{{
+				'RELEASE' | translate }}</button>
+			<button ion-button color="dark" small block *ngIf="isOwner(reservation) && (reservation.status == 'booked' || reservation.status == 'pending')"
+			 (click)="delete(reservation.id)">{{ 'CANCEL' | translate }}</button>
+	
+			<button ion-button color="dark" small block *ngIf="isFriend(reservation) && reservation.share_status == 'accepted'"
+			 (click)="quitInvitation(reservation)">{{ 'QUIT' | translate }}</button>
+		</ion-buttons>
+	</ion-footer>
+</ion-content>
+
+
+
+	<!-- <ion-buttons [ngClass]="reserveIndex[i]?'active':''" (click)="reserveIndex[i]=!reserveIndex[i]"> -->
+

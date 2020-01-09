@@ -1,0 +1,51 @@
+popover_lang {
+    .languageHolder {
+        background: white;
+        max-height: 70vh;
+        overflow: auto !important;
+        .item {
+            height: 40px;
+            margin: 10px auto;
+            .tick,
+            .name,
+            .lang {
+                display: inline-block;
+            }
+            .tick {
+                margin: auto 6px;
+                top: -8px;
+                position: relative;
+                div {
+                    width: 20px;
+                    height: 20px;
+                }
+                .active {
+                    background: url('../assets/imgs/good_tick.png') center no-repeat;
+                    background-size: 20px 20px;
+                }
+            }
+            .name {
+                width: 70px;
+                position: relative;
+                top: -10px;
+                text-transform: capitalize;
+                color: map_get($colors, primary);
+                font: $font-family-base 1.3rem;
+                font-weight: 600;
+            }
+            button.lang {
+                max-height: 35px;
+                width: 35px;
+                position: relative;
+                &[lang] {
+                    background-size: 35px 35px;
+                }
+                @include flags();
+            }
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}

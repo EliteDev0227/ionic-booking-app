@@ -1,0 +1,29 @@
+<ion-header mode="ios">
+
+	<ion-navbar mode="ios">
+
+		<ion-title mode="ios">{{ mPage.type=='country' ? ('SELECT_COUNTRY' | translate) : ('CHOOSE_PLACE' | translate) }}</ion-title>
+		<button ion-button clear icon-only right (click)="viewCtrl.dismiss()" class="close-btn">
+			<ion-icon name="ios-close-outline"></ion-icon>
+		</button>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-list class="searchResult" *ngIf="mPage.type=='country'" no-padding no-margin>
+		<ion-item no-lines *ngFor="let item of countries | sort:'All':10:'country' let i =index" (mousedown)="getBeachId({id:item.id,name:item.country,beaches:item.beaches}); getPlaces();$event.preventDefault();">
+			<button ion-button round full pink-gradient [ngClass]="item.id == mPage.selected ? 'selected' : 'default'">
+				{{ item.country }} 
+			</button>
+		</ion-item>
+	</ion-list>
+
+	<ion-list class="searchResult" *ngIf="mPage.type=='place'">
+		<ion-item no-lines *ngFor="let item of getCountryPlaces() | sort:'All':10:'place' let i =index" (mousedown)="getBeachId(false,{id:item.id,name:item.place,beaches:item.beaches});getBeachSettings()">
+			<button ion-button round full pink-gradient (click)="viewCtrl.dismiss()" [ngClass]="item.id == mPage.selected ? 'selected' : 'default'">
+				{{ item.place }} 
+			</button>
+		</ion-item>
+	</ion-list>
+</ion-content>

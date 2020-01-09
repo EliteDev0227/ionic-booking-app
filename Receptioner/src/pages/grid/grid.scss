@@ -1,0 +1,402 @@
+page-grid {
+    ion-content.loading {
+        div.seat_cont {
+            opacity: 0;
+        }
+    }
+
+    ion-content {
+        div.seat_cont {
+            opacity: 1;
+        }
+    }
+
+    .dump {
+        display: none;
+    }
+
+    div.noGridData {
+        background-color: #e6c588;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 60vw;
+            height: auto;
+            background-color: #c4a874;
+            padding: 5vw;
+
+            p {
+                font-size: 3vw;
+                text-transform: uppercase;
+                margin: 0 0 5px 0;
+            }
+        }
+    }
+
+    div.seat_cont {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-x: auto;
+        overflow-y: auto;
+
+        .seat {
+            position: absolute;
+            width: 8vw;
+            height: calc(8vw / 1.42);
+            text-align: center;
+            border: solid 0.2vw white;
+
+            @media screen and (orientation: portrait) {
+                width: 8vh;
+                height: calc(8vh / 1.42);
+                border: solid 0.2vh white;
+            }
+
+            p {
+                margin: 0;
+                font-size: 2.2vw;
+                font-weight: bold;
+            }
+
+            .square {
+                width: map-get($constants, elementHeight);
+                height: map-get($constants, elementHeight);
+                margin: -0.7vw auto 0; // background-color: white;
+                display: table;
+            }
+
+            .circle {
+                width: map-get($constants, elementHeight);
+                height: map-get($constants, elementHeight);
+                border-radius: 50%;
+                margin: -0.7vw auto 0; // background-color: white;
+                display: table;
+                overflow: hidden;
+            }
+
+            .rectangle {
+                width: map-get($constants, elementWidth);
+                height: map-get($constants, elementHeight);
+                margin: -0.7vw auto 0; // background-color: white;
+                display: table;
+                overflow: hidden;
+            }
+
+            div.side {
+                height: 100%;
+                width: 50%;
+                display: table-cell;
+                position: relative;
+
+                .protocol,
+                .discount {
+                    position: absolute;
+                    top: 0px;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 2vw;
+                    line-height: 2vh;
+                    padding-top: 2vh;
+                    vertical-align: middle;
+                    color: white;
+                }
+            }
+
+            @media screen and (orientation: portrait) {
+                p {
+                    font-size: 2.2vh;
+                }
+
+                .square {
+                    width: map-get($constants, elementHeight_h);
+                    height: map-get($constants, elementHeight_h);
+                    margin: -0.7vh auto 0;
+                }
+
+                .circle {
+                    width: map-get($constants, elementHeight_h);
+                    height: map-get($constants, elementHeight_h);
+                    margin: -0.7vh auto 0;
+                }
+
+                .rectangle {
+                    width: map-get($constants, elementWidth_h);
+                    height: map-get($constants, elementHeight_h);
+                    margin: -0.7vh auto 0;
+                }
+            }
+        }
+    }
+
+    div.seat_cont.free {
+        background-color: rgba(0, 0, 0, 0.75);
+
+        p {
+            color: white;
+        }
+
+        .seat.free {
+            opacity: 0.3;
+        }
+        .can-seat-false{
+            filter: brightness(40%);       
+        }
+        .grid-text{
+            color:white;
+        }
+    }
+
+    ion-fab[right] {
+        right: 9vw !important;
+    }
+
+    div.grid-seat {
+        position: absolute;
+
+        border: solid 2px white;
+
+        .grid-sunbed-container {
+            margin-top: -1vh;
+
+            .grid-sunbed-group {
+                height: 100%;
+            }
+
+            .grid-sunbed-left {
+                float: left;
+                width: 50%;
+                height: 100%;
+                padding-right: 1px;
+
+                .grid-sunbed-group {
+                    float: right;
+                }
+
+                .grid-sunbed-div {
+                    float: left;
+                }
+            }
+
+            .grid-sunbed-right {
+                float: right;
+                width: 50%;
+                height: 100%;
+                padding-left: 1px;
+
+                .grid-sunbed-group {
+                    float: left;
+                }
+
+                .grid-sunbed-div {
+                    float: left;
+                }
+            }
+
+            .grid-sunbed-center {
+                width: 13px;
+                margin: 0 auto;
+                height: 100%;
+
+                .grid-sunbed-group {
+                    float: left;
+                }
+            }
+
+            .grid-sunbed-group-container {
+                height: 100%;
+
+                .grid-sunbed-group {
+                    width: max-content;
+                    margin: 0 auto;
+                }
+
+                .grid-sunbed-group-list {
+                    height: 100%;
+                }
+
+
+                .grid-sunbed-list-inner {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .grid-sunbed-list-right {
+                    float: right;
+                    width: 50%;
+                    height: 100%;
+                }
+
+                .grid-sunbed-list-left {
+                    float: left;
+                    width: 50%;
+                    height: 100%;
+                }
+
+            }
+
+            .grid-sunbed-div {
+                width: 13px;
+                height: 100%;
+                padding: 1px;
+                float: left;
+
+                .grid-sunbed-inner {
+                    width: auto;
+                    height: 100%;
+                    background: #e5c67e;
+                }
+
+                .status-pending {
+                    background: blue;
+                }
+
+                .status-booked {
+                    background: red;
+                }
+
+                .status-available {
+                    background: #e5c67e;
+                }
+            }
+
+        }
+
+        .grid-text {
+            text-align: center;
+            height: 10px;
+            font-size: 11px;
+            height: 1.5vw;
+            font-size: 2.2vh;
+        }
+    }
+    
+    .loading-bar {
+        position: fixed;
+        background: #efe2c4;
+        width: 70%;
+        /* height: 20px; */
+        border-radius: 19px;
+        left: 15%;
+        top: 40%;
+        padding: 10px;
+        box-shadow: 0px 5px 10px #84775b;
+
+        .loading-msg {
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            @-webkit-keyframes rotating /* Safari and Chrome */ {
+                from {
+                  -webkit-transform: rotate(0deg);
+                  -o-transform: rotate(0deg);
+                  transform: rotate(0deg);
+                }
+                to {
+                  -webkit-transform: rotate(360deg);
+                  -o-transform: rotate(360deg);
+                  transform: rotate(360deg);
+                }
+              }
+            @keyframes rotating {
+                from {
+                  -ms-transform: rotate(0deg);
+                  -moz-transform: rotate(0deg);
+                  -webkit-transform: rotate(0deg);
+                  -o-transform: rotate(0deg);
+                  transform: rotate(0deg);
+                }
+                to {
+                  -ms-transform: rotate(360deg);
+                  -moz-transform: rotate(360deg);
+                  -webkit-transform: rotate(360deg);
+                  -o-transform: rotate(360deg);
+                  transform: rotate(360deg);
+                }
+              }
+            .loading-spinner{
+                width: 20px;
+                height: 20px;
+                float: left;
+                padding: 1px 8px;
+                border-left: 2px solid #5d4c26;
+                border-top: 2px solid #5d4c26;
+                border-radius: 50%;
+                -webkit-animation: grdAiguille 0.3s linear infinite;
+			animation: grdAiguille 0.3s linear infinite;
+            }
+        }
+    }
+}
+
+
+.clock{
+	border-radius: 70px;
+	border: 3px solid #6b6868;
+	// position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin-left: -50px;
+  // margin-top: -50px;
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+.clock:after{
+	content: "";
+	position: absolute;
+	background-color: #6b6868;
+  top: 13px;
+  left: 11px;
+  height: 11px;
+	width: 4px;
+	border-radius: 5px;
+	-webkit-transform-origin: 50% 97%;
+			transform-origin: 50% 97%;
+	-webkit-animation: grdAiguille 2s linear infinite;
+			animation: grdAiguille 2s linear infinite;
+}
+
+@-webkit-keyframes grdAiguille{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+@keyframes grdAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+.clock:before{
+	content: "";
+	position: absolute;
+	background-color: #6b6868;
+  top: 13px;
+  left: 11px;
+  height: 11px;
+	width: 4px;
+	border-radius: 5px;
+	-webkit-transform-origin: 50% 94%;
+			transform-origin: 50% 94%;
+	-webkit-animation: ptAiguille 12s linear infinite;
+			animation: ptAiguille 12s linear infinite;
+}
+
+@-webkit-keyframes ptAiguille{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+@keyframes ptAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}

@@ -1,0 +1,8 @@
+1. UPDATE issue - on booked
+    -  create reservation, dont close modal, extend reservation by one seat and update
+        - amount comes 0 ( should be 600$). so price should update on amount (because the reservation is Booked)
+2. UPDATE issue - on occupied 
+    - a lot of refreshes on price ( i`ll show u that)
+3. No price should change on amount ( if is paid, what is between () should be displayed)
+4. 
+    

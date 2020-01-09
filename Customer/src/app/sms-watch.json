@@ -1,0 +1,33 @@
+[{
+  "delimiter" : "SmartBeach este:",
+  "length" : 4,
+  "origin" : "sms"
+},{
+  "delimiter" : "SmartBeach este:",
+  "length" : 4,
+  "origin" : "TLNET"
+},{
+  "delimiter" : "SmartBeach este:",
+  "length" : 4,
+  "origin" : "SMS"
+},{
+  "delimiter" : "SmartBeach este:",
+  "length" : 4,
+  "origin" : "InfoSMS"
+},{
+  "delimiter" : "SmartBeach app:",
+  "length" : 4,
+  "origin" : "TLNET"
+},{
+  "delimiter" : "SmartBeach app:",
+  "length" : 4,
+  "origin" : "SMS"
+},{
+  "delimiter" : "SmartBeach app:",
+  "length" : 4,
+  "origin" : "sms"
+},{
+  "delimiter" : "SmartBeach app:",
+  "length" : 4,
+  "origin" : "InfoSMS"
+}]

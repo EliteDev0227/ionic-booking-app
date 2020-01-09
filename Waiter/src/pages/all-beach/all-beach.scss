@@ -1,0 +1,453 @@
+page-all-beach {
+    ion-content.mask_bg {
+        .scroll-content {
+            // background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    ion-header {
+        ion-toolbar {
+            min-height: 7.5rem !important;
+
+            .toolbar-content {
+                display: flex !important;
+
+                .check-item {
+                    width: 50vw !important;
+                }
+            }
+        }
+    }
+
+    ion-footer {
+        ion-toolbar {
+            min-height: 4.2rem !important;
+            padding: 0 3.5vw 0 3vw !important;
+
+            .free-count {
+                width: 17vw;
+                height: 4.2rem;
+                float: right;
+                background-color: rgb(173, 173, 173);
+                text-align: center;
+
+                p {
+                    font-family: "Foxsans";
+                    color: white;
+                    font-size: 1.2rem;
+                    margin: -0.4rem auto !important;
+                }
+
+                img {
+                    margin-top: 0.2rem;
+                    height: 2.5rem;
+                    width: auto;
+                }
+            }
+
+            .seats {
+                float: left;
+                width: 100%;
+                height: 4.2rem;
+
+                img {
+                    margin-right: 0.3rem;
+                    height: 3rem;
+                    width: 3.65rem;
+                    min-height: 3rem;
+                    min-width: 3.65rem;
+                    -webkit-box-flex: 0;
+                    flex: 0 0 3.5vw;
+                }
+
+                .scroll-content {
+                    overflow-y: hidden;
+                    padding: 0.45rem 0 !important;
+                }
+            }
+
+            .sunbed {
+                position: relative;
+
+                img {
+                    margin-right: 0 !important;
+                }
+
+                .waiter-color {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0.5;
+                    width: 100%;
+                    height: 100%;
+                    mask-image: url(../assets/imgs/seat-gray.png);
+                    -webkit-mask-image: url(../assets/imgs/seat-gray.png);
+                    mask-size: contain;
+                    -webkit-mask-size: contain;
+                    mask-repeat: no-repeat;
+                    -webkit-mask-repeat: no-repeat;
+                }
+            }
+        }
+    }
+
+    ion-content {
+        .fixed-content {
+            margin-top: 7.5rem !important;
+            margin-bottom: calc(6rem + 4rem) !important;
+        }
+
+        .scroll-content {
+            margin-top: 7.5rem !important;
+            margin-bottom: calc(6rem + 4rem);
+        }
+    }
+
+    ion-row {
+        max-width: 100% !important;
+    }
+
+    .beach-map-wrapper {
+        text-align: center;
+        margin: 1.2vw 1vw;
+        -webkit-box-flex: 0;
+        flex: 0 0 7.72vw;
+        width: 7.72vw;
+        max-width: 7.72vw;
+
+        // Style for Map View Seat Cell
+        .beach-map-cell {
+            width: 7.72vw;
+            height: 7.72vw;
+            // margin: 1.2vh 0.85vw;
+            background-color: rgb(224, 224, 224);
+            padding-top: 1.7vw;
+
+            .map-number {
+                font-family: "Foxsans";
+                text-align: center;
+                font-weight: bolder;
+                font-size: 3.6vw;
+                margin: 0;
+            }
+        }
+
+        .beach-map-cell.circle {
+            border-radius: 48%;
+        }
+    }
+
+    .map-margin-top {
+        padding-top: 15vh;
+    }
+
+    .filter-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(95, 95, 95, 0.85);
+        z-index: 2;
+        margin-top: 7.5rem;
+        margin-bottom: calc(6rem + 4rem);
+        padding: 1.4vw;
+    }
+
+    .confGroup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        order: 4;
+        pointer-events: none;
+
+        .wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5.54rem;
+            order: 5;
+            pointer-events: visible !important;
+
+            button {
+                font-family: "Foxsans";
+                font-size: 1.7rem;
+                border-radius: 0 !important;
+                width: 50vw !important;
+                height: 100% !important;
+                border: none !important;
+                box-shadow: unset !important;
+                margin: 0 !important;
+                margin-right: -0.35rem !important;
+            }
+
+            button[color='light-gray'] {
+                color: map-get($colors, primary) !important;
+            }
+        }
+    }
+
+    // Map Styles
+    div.seat_cont {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-x: auto;
+        overflow-y: auto;
+        background-color: rgb(238, 202, 158);
+
+        .seat {
+            position: absolute;
+            width: 8vw;
+            height: calc(8vw / 1.42);
+            text-align: center;
+            border: solid .2vw white;
+
+            @media screen and (orientation: portrait) {
+                width: 8vh;
+                height: calc(8vh / 1.42);
+                border: solid .2vh white;
+            }
+
+            p {
+                margin: 0;
+                margin-top: .5vw;
+                font-size: 2.2vw;
+                font-weight: bold;
+            }
+
+            .square {
+                width: map-get($constants, elementHeight);
+                height: map-get($constants, elementHeight);
+                margin: -.7vw auto 0;
+                background-color: white;
+                display: table;
+            }
+
+            .circle {
+                width: map-get($constants, elementHeight);
+                height: map-get($constants, elementHeight);
+                border-radius: 50%;
+                margin: -.7vw auto 0;
+                background-color: white;
+                display: table;
+                overflow: hidden;
+            }
+
+            .ellipse {
+                width: map-get($constants, elementWidth);
+                height: map-get($constants, elementHeight);
+                border-radius: 1.5vw;
+                margin: -.7vw auto 0;
+                background-color: white;
+                display: table;
+                overflow: hidden;
+            }
+
+            div.side {
+                height: 100%;
+                width: 50%;
+                display: table-cell;
+            }
+
+            @media screen and (orientation:portrait) {
+                p {
+                    font-size: 2.2vh;
+                }
+
+                .square {
+                    width: map-get($constants, elementHeight_h);
+                    height: map-get($constants, elementHeight_h);
+                    margin: -.7vh auto 0;
+                }
+
+                .circle {
+                    width: map-get($constants, elementHeight_h);
+                    height: map-get($constants, elementHeight_h);
+                    margin: -.7vh auto 0;
+                }
+
+                .ellipse {
+                    width: map-get($constants, elementWidth_h);
+                    height: map-get($constants, elementHeight_h);
+                    border-radius: 1.5vh;
+                    margin: -.7vh auto 0;
+                }
+            }
+
+        }
+    }
+
+    div.seat_cont.free,
+    .grid.free {
+        background-color: rgba(0, 0, 0, 0.7);
+
+        .grid-text {
+            color: white;
+        }
+
+        .beach-cell {
+            opacity: 0.5;
+
+            &.free-true {
+                opacity: 1;
+            }
+
+        }
+
+        .disabled {
+            opacity: .1;
+        }
+    }
+
+    ion-footer .toolbar:last-child {
+        padding: 0 10px !important;
+    }
+
+    ion-footer .toolbar.free {
+        background-color: rgba(0, 0, 0, 0.7);
+
+        .toolbar-background {
+            background: unset;
+        }
+
+        .disabled {
+            opacity: .2;
+        }
+    }
+}
+
+
+div.grid-seat {
+    position: absolute;
+
+    border: solid 2px white;
+
+    &.unselected {
+        opacity: 0.5 !important;
+    }
+
+    &.preColor {
+        background-color: #32db64 !important;
+    }
+
+    .grid-sunbed-container {
+        margin-top: -1vh;
+
+        .grid-sunbed-group {
+            height: 100%;
+        }
+
+        .grid-sunbed-left {
+            float: left;
+            width: 50%;
+            height: 100%;
+            padding-right: 1px;
+
+            .grid-sunbed-group {
+                float: right;
+            }
+
+            .grid-sunbed-div {
+                float: left;
+            }
+        }
+
+        .grid-sunbed-right {
+            float: right;
+            width: 50%;
+            height: 100%;
+            padding-left: 1px;
+
+            .grid-sunbed-group {
+                float: left;
+            }
+
+            .grid-sunbed-div {
+                float: left;
+            }
+        }
+
+        .grid-sunbed-center {
+            width: 13px;
+            margin: 0 auto;
+            height: 100%;
+
+            .grid-sunbed-group {
+                float: left;
+            }
+        }
+
+        .grid-sunbed-group-container {
+            height: 100%;
+
+            .grid-sunbed-group {
+                width: max-content;
+                margin: 0 auto;
+            }
+
+            .grid-sunbed-group-list {
+                height: 100%;
+            }
+
+
+            .grid-sunbed-list-inner {
+                height: 100%;
+                width: 100%;
+            }
+
+            .grid-sunbed-list-right {
+                float: right;
+                width: 50%;
+                height: 100%;
+            }
+
+            .grid-sunbed-list-left {
+                float: left;
+                width: 50%;
+                height: 100%;
+            }
+
+        }
+
+        .grid-sunbed-div {
+            width: 13px;
+            height: 100%;
+            padding: 1px;
+            float: left;
+
+            .grid-sunbed-inner {
+                width: auto;
+                height: 100%;
+
+            }
+
+            .status-pending {
+                background: blue;
+            }
+
+            .status-booked {
+                background: red;
+            }
+
+            .status-available {
+                background: #eeca9e;
+            }
+        }
+
+    }
+
+    .grid-text {
+        text-align: center;
+        height: 10px;
+        font-size: 11px;
+        height: 1.5vw;
+        font-size: 2.2vh;
+    }
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}

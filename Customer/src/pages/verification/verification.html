@@ -1,0 +1,36 @@
+<ion-header class="has-shadow">
+
+  <ion-navbar>
+    <ion-title>{{ mobile }}</ion-title>
+    <ion-buttons end>
+      <button ion-button  (click)="finishVerification()">
+       {{ 'DONE' |translate }}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div class="textBody">
+      <p class="paragraphMargined margin top double">{{ "WE_HAVE_SENT_YOU_AN_SMS_WITH_A_CODE_TO_THE_NUMBER_ABOVE"|translate }}</p>
+      <p class="paragraphMargined margin top">{{ "TO_COMPLETE_YOUR_PHONE_VERIFICATION_PLEASE_ENTER_THE_4_DIGITS_ACTIVATION_CODE" |translate }}</p>
+    </div>
+    <form [formGroup]="verificationCode" (submit)="finishVerification()" name="verificationForm">
+      <div class="boxInput margin top">
+        <ion-input #input1 maxlength="1" type="number" formControlName="v1" (keyup)="setfocus($event)" required></ion-input>
+        <ion-input #input2 maxlength="1" type="number" formControlName="v2" (keyup)="setfocus($event)" required></ion-input>
+        <ion-input #input3 maxlength="1" type="number" formControlName="v3" (keyup)="setfocus($event)" required></ion-input>
+        <ion-input #input4 maxlength="1" type="number" formControlName="v4" (keyup)="setfocus($event)"></ion-input>
+      </div>
+      <button type="submit" [hidden]="true" ion-button [disabled]="!verificationCode.valid"></button>
+    </form>
+
+    <div class="clearfix"></div>
+    <div class="counterSection">
+      <p *ngIf="codeCounter.diff>0">{{ "YOU_CAN_RE_SEND_CODE_IN" |translate }} <span>{{ transformToString(codeCounter.d) }}:{{ transformToString(codeCounter.h) }}:{{ transformToString(codeCounter.m) }}:{{ transformToString(codeCounter.s) }}</span></p>
+      <p *ngIf="codeCounter.diff<=0" (click)="didntRecieve()">{{ "DIDNT_RECEIVED_THE_TEXT_MESSAGE"|translate }} <span>{{ "RESEND_VALIDATION_CODE" |translate }}</span></p>
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,23 @@
+<!-- Generated template for the LangToggleComponent component -->
+<div class="back_drop" *ngIf="show" (click)="show = !show"></div>
+<div class="wrapper">
+  <button ion-button icon-only class="lang_toggle" (click)="show = !show">
+    <img src="assets/imgs/lang/{{currentLang}}.png" />
+  </button>
+  <div *ngIf="show" class="drop_down">
+    <div class="drop_wrapper">
+      <ion-list>
+        <ion-item *ngFor="let lang of data" (click)="selectLang(lang.name)">
+          <div item-start>
+            <img *ngIf="currentLang==lang.name" src="assets/imgs/good_tick.png" />
+          </div>
+          <h2 translate>{{ lang.long_name }}</h2>
+          <div item-end>
+            <img src="assets/imgs/lang/{{lang.name}}.png" />
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>    
+</div>
+  

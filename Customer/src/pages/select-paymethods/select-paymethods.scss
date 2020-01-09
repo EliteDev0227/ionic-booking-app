@@ -1,0 +1,38 @@
+page-select-paymethods {
+    .no_items {
+        text-align: center;
+    }
+    ion-list {
+        padding: 0 9vw;
+        ion-list-header {
+            text-transform: capitalize !important;
+            ion-label.label {
+                font-size: 1.7rem;
+                font-weight: bold;
+                color: black;
+            }
+        }
+    }
+    ion-item.item {
+        min-height: 5.4rem;
+        padding-left: 0;
+        .item-inner {
+            padding-right: 0;
+        }
+        ion-label {
+            font-size: 1.7rem;
+        }
+    }
+    [padding] h2:first-child {
+        margin-top: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        text-transform: capitalize;
+        color: black;
+    }
+    .total_cont {
+        text-align: center;
+        margin-top: 16%;
+    }
+}

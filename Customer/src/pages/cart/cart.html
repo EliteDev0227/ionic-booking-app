@@ -1,0 +1,92 @@
+<ion-header class="has-shadow">
+
+  <ion-navbar>
+    <ion-buttons start>
+    </ion-buttons>
+    <ion-title align="center">{{ 'YOUR_CART' | translate }}</ion-title>
+    <ion-buttons right>
+      <button ion-button *ngIf="items && items[0]" (click)="toggleEdit()">
+        {{edit? configuration.translate.translate.instant('SAVE') : configuration.translate.translate.instant('EDIT')}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <p text-center *ngIf="items && items[0]">{{ items[0].beach }}</p>
+
+  <ion-list>
+    <ion-card>
+      <ion-row *ngFor="let item of items;let i =index" [class.shown]="edit">
+        <ion-col col-12> <h4 class="title">{{item.name}}</h4></ion-col>
+        <ion-col col-1 class="card-remove">
+          <ion-icon name="remove-circle" color="danger" (click)="remove(item.id,i)"></ion-icon>
+        </ion-col>
+        
+        <ion-col *ngIf="item.image" col-3 class="card-left">
+          <img [src]="item.image">
+        </ion-col>
+
+        <ion-col class="card-right">
+          
+          <ion-item class="quantity">
+            <ion-label>
+              <div class="quantityLabel">{{ 'QTY' | translate }}: </div>
+              <div class="qtyHolder">
+                <button  ion-button [disabled]="item.quantity<=1" icon-only clear  class="minus" (click)="QuantityMath(i,false)"><ion-icon color="primary" name="remove"></ion-icon></button>
+                <div class="screen">{{item.quantity}}</div>
+                <button ion-button icon-only clear class="plus" [disabled]="item.quantity>=20" (click)="QuantityMath(i,true)"><ion-icon color="primary" name="add"></ion-icon></button>
+              </div>
+            </ion-label>
+
+            <!-- TODO: implement custom number picker -->
+          </ion-item>
+          <ion-item class="quantity" *ngIf="item.toppings && item.toppings.length"><div class="toppingLabel">{{ 'TOPPINGS' | translate }}</div></ion-item>
+
+          <ion-item class="quantity" *ngFor="let item1 of item.toppings; let i =index">
+            <ion-label>
+              <div class="toppingLabel small">{{ item1.name }}: </div>
+              <div class="toppingValue small">{{ item1.price }} {{ currency }}</div>
+
+            </ion-label>
+          </ion-item>
+          
+          <ion-item>
+              <div class="price item-mention" *ngIf="item.mention">
+                  <span class="mention">{{ 'MENTION' | translate }}: </span> {{ item.mention }}
+                </div>
+          </ion-item>
+
+        </ion-col>
+
+        
+        <div class="price">
+            <span class="price-item">
+              {{ 'UNIT_PRICE' | translate }}: <b>{{item.price}} {{currency}}</b>
+            </span>
+          <span class="price-item">
+             {{ 'TOTAL_PRICE' | translate }}: <b>{{item.price*item.quantity}} {{currency}}</b>
+            </span>
+        </div>
+
+      </ion-row>
+    </ion-card>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <div class="total">
+    {{ 'TOTAL' | translate }}: <b>{{getPrice()}} {{currency}}</b>
+  </div>
+  <ion-row>
+    <ion-col>
+      <button ion-button outline round block small (click)="addProduct()">{{ 'ADD_PRODUCT' | translate }}</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button pink-gradient [disabled]="totalPrice<=0" round block small (click)="order()">{{ 'SEND' | translate }}</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

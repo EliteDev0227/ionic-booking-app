@@ -1,0 +1,48 @@
+page-loyalty-points {
+    .no_items {
+        text-align: center;
+    }
+    ion-list {
+        //padding: 0 9vw;
+    }
+    ion-item.item {
+        text-align: center;
+        min-height: 5.4rem;
+        padding-left: 1rem;
+        p:last-child {
+            margin-bottom: unset;
+            margin-top: 0;
+        }
+        h2 {
+            line-height: 2;
+            color: black;
+            span {
+                color: black;
+            }
+        }
+    }
+    [padding] h2:first-child {
+        margin-top: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 60%;
+        text-transform: capitalize;
+        color: map-get($colors, primary);
+    }
+
+    @media only screen and (max-width: 320px) {
+
+        ion-item.item {
+            h2 {
+                font-size: 13px !important;
+                span {
+                    color: black;
+                }
+            }
+        }
+    
+      
+    
+      }
+}

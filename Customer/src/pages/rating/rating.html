@@ -1,0 +1,81 @@
+<ion-header class="has-shadow">
+
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons end>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+  <ion-content>
+    <ion-card>
+      <div class=" {{ write?'rtHolder':'active' }}">
+        <div>
+          <h2 text-center margined color="dark" ion-text>{{ 'ENJOYING_THE_BEACH' | translate }}</h2>
+          <h3 text-center margined color="grey" ion-text>{{ 'PLEASE_USE_THE_STAR_TO_RATE_IT' | translate }}</h3>
+        </div>
+        <div class="star-rating big">
+          <ion-icon name="star" (click)="toggleRate(1)" [class.full]="myRate>=1"></ion-icon>
+          <ion-icon name="star" (click)="toggleRate(2)"  [class.full]="myRate>=2"></ion-icon>
+          <ion-icon name="star" (click)="toggleRate(3)"  [class.full]="myRate>=3"></ion-icon>
+          <ion-icon name="star" (click)="toggleRate(4)"  [class.full]="myRate>=4"></ion-icon>
+          <ion-icon name="star" (click)="toggleRate(5)"  [class.full]="myRate>=5"></ion-icon>
+        </div>
+        <div>
+          <button ion-button  clear center [disabled]="!myRate || (myRate && myRate<=0)" (click)="newRating()">{{ 'SUBMIT' | translate }}</button>
+        </div>
+      </div>
+      <div  class=" {{ write?'active':'rtHolder' }}">
+        <div>
+          <h2 text-center margined color="dark" ion-text>{{ 'WRITE_A_REVIEW' | translate }}</h2>
+          <h3 text-center margined color="grey" ion-text>{{ 'PLEASE_TELL_US_WHAT_YOU_THINK' | translate }}</h3>
+        </div>
+        <div class="reviewInput">
+          <ion-input type="text" name="review" [(ngModel)]="myReview" placeholder="Write Here"></ion-input>
+        </div>
+        <div>
+        <button ion-button clear center [disabled]="!myReview || (myReview && myReview.length<5)" (click)="newReview()">{{ 'SUBMIT' | translate }}</button>
+      </div>
+      </div>
+    </ion-card>
+    <div class="SecondRatingHolder">
+      <h2 class="NumberRating">{{ rating.rating }}</h2>
+      <div class="iconRating">
+        <div class="star-rating small">
+          <ion-icon name="star" [class.full]="rating.rating>=1"></ion-icon>
+          <ion-icon name="star" [class.full]="rating.rating>=2"></ion-icon>
+          <ion-icon name="star" [class.full]="rating.rating>=3"></ion-icon>
+          <ion-icon name="star" [class.full]="rating.rating>=4"></ion-icon>
+          <ion-icon name="star" [class.full]="rating.rating>=5"></ion-icon>
+        </div>
+        <p class="digit">{{ rating.count }}</p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <ion-row class="review" *ngFor="let item of review.items">
+      <ion-col col-12 class="name">{{ item.author }}</ion-col>
+      <ion-col col-12 class="star">
+        <ion-row>
+          <ion-col>
+            <div class="star-rating small">
+              <ion-icon name="star" [class.full]="item.vote>=1"></ion-icon>
+              <ion-icon name="star" [class.full]="item.vote>=2"></ion-icon>
+              <ion-icon name="star" [class.full]="item.vote>=3"></ion-icon>
+              <ion-icon name="star" [class.full]="item.vote>=4"></ion-icon>
+              <ion-icon name="star" [class.full]="item.vote>=5"></ion-icon>
+          </div>
+          </ion-col>
+          <ion-col class="date">{{ item.created_at | timeHelper }}</ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col col-12 class="description">{{ item.review }}
+      </ion-col>
+    </ion-row>
+
+
+    <ion-infinite-scroll (ionInfinite)="more($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </ion-content>

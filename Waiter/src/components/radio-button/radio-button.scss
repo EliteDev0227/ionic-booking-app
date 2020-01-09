@@ -1,0 +1,14 @@
+radio-button {
+    button {
+        color: map-get($colors, primary);
+        font-family: "Foxsans-regular";
+        height: 2.6rem !important;
+        background-color: transparent;
+        line-height: 1 !important;
+        span {
+            text-transform: capitalize !important;
+            font-size: 1.4rem;
+            margin-left: 0.5rem;
+        }
+    }
+}

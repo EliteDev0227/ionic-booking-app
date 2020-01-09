@@ -1,0 +1,88 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div id="type-block">
+    <h3>{{ 'SEAT_TYPE' | translate }}</h3>
+    <ion-list no-lines ion-row class="vertical-buttons">
+      <ion-item ion-col col-6 *ngFor="let type of types; let i=index;">
+        <!--<button *ngIf="type == 'UMBRELLA' && currentlang == 'en'" ion-button round block color="light" value="{{type}}" (click)="check('seat',i,true,type)"   [ngClass]="selected.seat[i]?'active':''" >Sunbeds<br>(at umbrella)</button>-->
+        <!--<button *ngIf="type == 'BALDAQUIN' && currentlang == 'en'" ion-button round block color="light" value="{{type}}" (click)="check('seat',i,true,type)"   [ngClass]="selected.seat[i]?'active':''" >{{type | translate}}</button>-->
+        <!--<button *ngIf="type == 'SUNBED' && currentlang == 'en'" ion-button round block color="light" value="{{type}}" (click)="check('seat',i,true,type)"   [ngClass]="selected.seat[i]?'active':''" >Sunbeds<br>(without umbrella)</button>-->
+
+        <!--<button *ngIf="type == 'UMBRELLA' && currentlang == 'ro'" ion-button round block color="light" value="{{type}}" (click)="check('seat',i,true,type)"   [ngClass]="selected.seat[i]?'active':''" >Sezlonguri<br>(at la umbrela)</button>-->
+        <!--<button *ngIf="type == 'BALDAQUIN' && currentlang == 'ro'" ion-button round block color="light" value="{{type}}" (click)="check('seat',i,true,type)"   [ngClass]="selected.seat[i]?'active':''" >{{type | translate}}</button>-->
+        <!--<button *ngIf="type == 'SUNBED' && currentlang == 'ro'" ion-button round block color="light" value="{{type}}" (click)="check('seat',i,true,type)"   [ngClass]="selected.seat[i]?'active':''" >Sezlonguri<br>(fara umbrela)</button>-->
+        <button ion-button round block color="light" value="{{type}}" (click)="check('seat',i,true,type)"   [ngClass]="selected.seat[i]?'active':''" >{{type+'_T' | translate}}<br> {{ type+i | translate}} </button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="false" id="zone-block">
+    <h3>{{ 'ZONE' | translate }}</h3>
+    <ion-list no-lines ion-row class="vertical-buttons">
+      <ion-item ion-col col-4 *ngFor="let zone of zones; let i=index">
+        <button ion-button round block color="light" value="{{zone}}"  (click)="check('zone',i,false,zone)" [ngClass]="selected.zone[i]?'active':''">{{zone | translate}}</button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div id="persons-block">
+    <h3>{{ 'HOW_MANY_PERSONS' | translate }}</h3>
+    <ion-list no-lines ion-row class="vertical-buttons persons">
+      <ion-item ion-col *ngFor="let person of persons; let i=index">
+        <button ion-button block color="light" value="{{person}}"  (click)="check('persons',i,true,person)" [ngClass]="selected.persons[i]?'active':''">{{person}}</button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div id="sunbeds-block" *ngIf="selected.seat[0] && selected.seat[0]=='UMBRELLA'">
+    <h3>{{ 'SUNBEDS_TO_BE_AT_THE_FREE_UMBRELLA' | translate }}</h3>
+    <ion-list no-lines ion-row class="vertical-buttons">
+      <ion-item ion-col col-3>
+        <button ion-button clear block icon-left check value="true" [ngClass]="selected.sunbed[0]?'checked':''" (click)="check('sunbed',0)">
+          <ion-icon name="check"></ion-icon>
+          {{ 'YES' | translate }}
+        </button>
+      </ion-item>
+      <ion-item ion-col col-3>
+        <button ion-button clear block icon-left check value="false"  [ngClass]="selected.sunbed[0]?'':'checked'"  (click)="check('sunbed',0)">
+          <ion-icon name="check"></ion-icon>
+          {{ 'NO' | translate }}
+        </button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!--
+  <div id="same-sunbeds-block">
+    <h3>During your stay do you want sunbeds booked to be the same every day?</h3>
+    <ion-list no-lines ion-row class="vertical-buttons">
+      <ion-item ion-col col-3>
+        <button ion-button clear block icon-left check value="true"  [ngClass]="selected.sunbedEveryday[0]?'checked':''"  (click)="check('sunbedEveryday',0)">
+          <ion-icon name="check"></ion-icon>
+          Yes
+        </button>
+      </ion-item>
+      <ion-item ion-col col-3>
+        <button ion-button clear block icon-left check value="false"  [ngClass]="selected.sunbedEveryday[0]?'':'checked'"  (click)="check('sunbedEveryday',0)">
+          <ion-icon name="check"></ion-icon>
+          No
+        </button>
+      </ion-item>
+    </ion-list>
+  </div>
+  -->
+
+  <ion-row margined>
+    <button ion-button round full pink-gradient (click)="SearchBeaches()" [disabled]="!shouldAllowSubmit()">{{ 'NEXT' | translate }}</button>
+  </ion-row>
+
+</ion-content>

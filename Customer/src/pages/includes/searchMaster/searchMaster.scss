@@ -1,0 +1,131 @@
+searchMaster {
+
+ 
+      .content{
+        .item.item-block .item-inner {
+          border-bottom: 1px solid #ada6a6;
+        }
+      
+        .item.item-input .item-inner {
+          border-bottom: 1px solid #ada6a6;
+        }
+      
+        .item.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+          border-bottom-color: #ada6a6;
+        }
+      
+        .item.item-input.item-input-has-focus .item-inner,
+        .item.item-input.input-has-focus .item-inner {
+          border-bottom-color: #fe5295;
+        }
+      }
+
+  .datetime-text {
+    font-size: 1.3rem;
+  }
+
+  .text-center{
+    text-align: center
+  }
+
+  .item-datetime-disabled {
+
+    &,
+    .datetime-disabled {
+      opacity: 1;
+    }
+
+    ion-label {
+      opacity: 1;
+    }
+  }
+
+  ion-col[col-6].end_date {
+    ion-item.item {
+      text-align: right;
+
+      .item-inner {
+        padding-right: 0;
+
+        ion-label {
+          margin-right: 0;
+        }
+
+        ion-datetime {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  .searchResult {
+    margin: .2rem 0rem;
+    position: absolute;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 200px;
+    background: map_get($colors, light);
+    @include border-radius(5px);
+    z-index: 400;
+
+    .item {
+      min-height: 3.5rem;
+      min-width: 100%;
+
+      .input-wrapper {
+        margin: 0;
+        padding: 0;
+
+        ion-label {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      padding:0 2rem;
+      font-family:$font-family-base;
+      font-weight:500;
+      cursor:pointer;
+      color:map_get($colors, primary);
+      font-size:1.3rem;
+
+      &.active {
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+      }
+
+    }
+  }
+  .button.button-default{
+    font-size: 14px;height: 35px !important;
+  }
+
+  @media only screen and (max-width: 320px) {
+
+    h2,h3 {
+      font-size: 13px;
+    }
+    ion-list[margined]{
+      margin-left: 40px !important;
+      margin-right: 40px !important;
+    }
+    ion-label{
+      font-size: 14px !important;
+  }
+
+    .next-btn{
+      height: 35px !important;
+      font-size: 16px;
+  }
+  .content{
+    margin-top: -20px !important;
+  }
+
+  
+
+  }
+}

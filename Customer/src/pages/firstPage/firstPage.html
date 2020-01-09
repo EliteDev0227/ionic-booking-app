@@ -1,0 +1,16 @@
+<ion-header class="has-shadow">
+
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons end>
+
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="relative">
+    <div class="absolute" *ngFor="let item of gridElement.front" [ngStyle]="{'-webkit-transform':'translate3d('+item.coords.x+'px,'+item.coords.y+'px,0)'}"><img src="./assets/imgs/beach-icons/{{ item.type }}/{{ item.icon }}"/></div>
+  </div>
+</ion-content>

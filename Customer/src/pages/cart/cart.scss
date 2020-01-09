@@ -1,0 +1,245 @@
+page-cart {
+
+  .content {
+    background-color: #fafafa;
+  }
+
+  .scroll-content {
+    overflow-y: auto;
+  }
+
+  .bar-buttons {
+    &[start] {
+      width: 30px;
+      order: 2;
+    }
+
+  }
+
+  .toolbar-title {
+    color: map_get($colors, primary);
+  }
+
+  .footer {
+    background-color: #fff;
+    height: 9rem;
+    padding: 2rem;
+
+    .total {
+      font-size: 1.2rem;
+      text-align: center;
+      width: 50vw;
+      margin-left: 40vw;
+    }
+
+
+    .row {
+      padding: 0;
+    }
+
+    .button {
+      text-transform: uppercase;
+      height: 4rem;
+    }
+  }
+
+  .row {
+    padding: 2rem 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid color($colors, light);
+    height: auto;
+
+    &.shown {
+      .col {
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    &:not(.shown) {
+
+      .card-remove {
+        display: none;
+      }
+
+      .card-left {
+        padding-left: 5px;
+      }
+    }
+
+    .title {
+      line-height: 1.5rem;
+      color: color($colors, primary);
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-remove {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        font-size: 3rem;
+      }
+    }
+
+    .card-left {
+      padding-left: 2rem;
+      display: flex;
+      align-items: center;
+
+      img {
+        //width: 100%;
+        //height:8vh;
+        //border:2px solid map_get($colors,grey);
+      }
+    }
+
+    .card-right {
+
+
+
+      .quantity {
+        font-size: 1.2rem;
+        height: 3vh;
+
+        .quantityLabel {
+          width: 10vw;
+          float: left;
+          padding-top: 1.5vh;
+          font-weight: bold;
+        }
+
+        .qtyHolder {
+          border-bottom: 1px solid map_get($colors, light);
+          border-top: 1px solid map_get($colors, light);
+
+          max-width: 32vw;
+          overflow: hidden;
+          @include border-radius(20vh);
+
+          * {
+            display: inline-block;
+          }
+
+          .button {
+            .icon {
+              font-size: 2.5vh;
+              padding-top: 1.4vh;
+
+            }
+          }
+
+          .minus,
+          .plus {
+            width: 10vw;
+            text-align: center;
+            max-height: 4vh;
+            margin: 0 !important;
+
+            background: #fbfbfb;
+
+            .icon {}
+
+          }
+
+          .minus {
+            @include border-radius(20vh 0 0 20vh);
+            border-right: 1px solid map_get($colors, light);
+            border-left: 1px solid map_get($colors, light);
+          }
+
+          .plus {
+            @include border-radius(0 20vh 20vh 0);
+            border-right: 1px solid map_get($colors, light);
+            border-left: 1px solid map_get($colors, light);
+
+
+          }
+
+          .screen {
+            width: 10vw;
+            color: map_get($colors, primary);
+            text-align: center;
+
+            position: relative;
+            top: .5vh;
+          }
+        }
+
+        &.item {
+          min-height: 3rem;
+        }
+
+        .label {
+          margin: 0 auto;
+        }
+
+        .toppingLabel {
+          width: 35vw;
+          float: left;
+          font-weight: bold;
+          position: static;
+
+          &.small {
+            font-weight: normal;
+          }
+        }
+
+        .toppingValue {
+          max-width: 10vw;
+          overflow: hidden;
+          color: map_get($colors, primary);
+          font-weight: bold;
+          text-align: right !important;
+        }
+      }
+
+
+    }
+
+    .price {
+      margin-top: .5vh;
+      font-size: 3vw;
+      text-align: right;
+      width: 100%;
+
+      .price-item {
+        margin-left: 2vw;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      .mention {
+        font-weight: bold !important;
+        text-align: initial !important;
+      }
+      &.item-mention{
+        text-align: initial !important;
+        white-space: initial !important;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+
+    ion-footer {
+      .button {
+        height: 32px !important;
+        font-size: 13px !important;
+        margin-top: 12px;
+      }
+    }
+
+  }
+
+}

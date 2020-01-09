@@ -1,0 +1,86 @@
+<p text-center *ngIf="SearchResult && SearchResult.length">{{SearchResult.length}} {{ 'BEACHES_FOUND_FOR_YOU' | translate }}</p>
+<!--<p text-center *ngIf="!SearchResult || !SearchResult.length">{{ 'NO_BEACH_FOUND_ON_YOUR_SEARCH' | translate }}</p>-->
+<div *ngIf="SearchResult">
+  <ion-card *ngFor="let beach of SearchResult |  slice:0:infiniteCount  let i =index ">
+    <!--<div class="goto-map" *ngIf="direction[i] && beach.geometrical_data">-->
+    <!--<button icon-only clear class="close-icon" (click)="direction[i]=!direction[i]">-->
+    <!--<ion-icon name="md-close-circle"></ion-icon>-->
+    <!--</button>-->
+    <!--<h2>{{ beach.name }}</h2>-->
+    <!--<ion-row class="map-button-holder">-->
+    <!--<ion-col col-6><button (click)="openNavigator(beach,'driving')" ion-button round color="primary" *ngIf="beach.geometrical_data.driving"><ion-icon name="md-car"></ion-icon>{{ beach.geometrical_data.driving.duration }} ({{ beach.geometrical_data.driving.distance}})</button></ion-col>-->
+    <!--<ion-col col-6><button (click)="openNavigator(beach,'walking')" ion-button round color="white" primary *ngIf="beach.geometrical_data.walking"><ion-icon name="ios-walk-outline"></ion-icon> {{ beach.geometrical_data.walking.duration }} ({{ beach.geometrical_data.walking.distance}})</button> </ion-col>-->
+    <!--</ion-row>-->
+    <!--<p>{{ 'PRESS_ONE_OF_THE_BUTTONS_TO_GET_DIRECTIONS_TO_THE_BEACH'  | translate}}</p>-->
+    <!--</div>-->
+    <ion-row class="closed-overlay" *ngIf="beach.closed">
+      <div class="text">
+        <div class="title">{{'BEACH_CLOSED_LABEL' | translate}}</div>
+        <div class="subtitle">{{('BEACH_CLOSED_MSG' | translate) + ": " + getBeachWorkingHours(beach.id).start + " - " + getBeachWorkingHours(beach.id).end}}</div>
+      </div>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col col-3 class="card-left">
+
+        <img [src]="beach.image" (click)="beachModal(beach.id)" />
+        <p text-center class="reviews" (click)="rating(beach.id)">({{beach.rating_count}})</p>
+
+        <div class="star-rating" (click)="rating(beach.id)">
+          <ion-icon [name]="getRating(beach.rating,1)" [class.full]="beach.rating>0"></ion-icon>
+          <ion-icon [name]="getRating(beach.rating,2)" [class.full]="beach.rating>1"></ion-icon>
+          <ion-icon [name]="getRating(beach.rating,3)" [class.full]="beach.rating>2"></ion-icon>
+          <ion-icon [name]="getRating(beach.rating,4)" [class.full]="beach.rating>3"></ion-icon>
+          <ion-icon [name]="getRating(beach.rating,5)" [class.full]="beach.rating>4"></ion-icon>
+        </div>
+
+      </ion-col>
+
+      <ion-col col-9 class="card-right">
+        <h4 class="title">{{beach.name}}</h4>
+
+        <ion-row>
+          <ion-col col-6 (click)="next(beach.id,beach.beach,beach.name)">
+            <p class="seats">{{beach.all_seats}} {{ 'SEATS' | translate }}</p>
+            <ion-item class="available" *ngIf="beach.available_seats" (click)="next(beach.id,beach,beach.name)" text-wrap>
+              {{ 'AVAILABLE' | translate }}:
+              <span class="place" *ngIf="beach.available_seats.type=='sunbed'">
+                {{beach.available_seats.total}}
+                <ion-icon name="place-sunbed"></ion-icon>
+              </span>
+              <span class="place" *ngIf="beach.available_seats.type=='umbrella'">
+                {{beach.available_seats.total}}
+                <ion-icon name="place-umbrella"></ion-icon>
+              </span>
+              <span class="place" *ngIf="beach.available_seats.type=='baldaquin'">
+                {{beach.available_seats.total}}
+                <ion-icon name="place-baldaquin"></ion-icon>
+              </span>
+            </ion-item>
+
+
+          </ion-col>
+          <ion-col col-6 (click)="next(beach.id,beach.available_seats,beach.name)">
+            <div class="direction-btn-holder" *ngIf="beach.geometrical_data && beach.geometrical_data.driving">
+              <button ion-button round (click)="openNavigator(beach,'driving')"><img class="direction-image" src="./assets/imgs/direction.png"><span class="direction-text">{{ 'GET_DIRECTION' |translate }}</span></button>
+            </div>
+            <div class="direction-location-text" *ngIf="beach.geometrical_data && beach.geometrical_data.driving">
+              {{ beach.geometrical_data.driving.duration }} ({{ beach.geometrical_data.driving.distance}})
+            </div>
+          </ion-col>
+        </ion-row>
+
+
+        <div class="options">
+          <ion-icon *ngFor="let option of beach.features" name="option-{{option}}"></ion-icon>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="more($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</div>

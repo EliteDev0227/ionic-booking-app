@@ -1,0 +1,14 @@
+<ion-header mode="ios">
+
+	<ion-navbar mode="ios">
+
+		<button *ngIf="showClose" ion-button clear icon-only right (click)="viewCtrl.dismiss()" class="close-btn">
+			<ion-icon name="ios-close-outline"></ion-icon>
+		</button>
+		<p>{{sec}}</p>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+</ion-content>

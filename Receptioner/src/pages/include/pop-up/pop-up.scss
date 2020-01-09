@@ -1,0 +1,1051 @@
+page-pop-up {
+    font-family: "Foxsans";
+    font-weight: bold;
+    color: map-get($colors, main_txt);
+
+    ion-col {
+        &.col-full-height {
+            height: 100%;
+        }
+    }
+
+    .baldaquin-img-div {
+        text-align: center;
+
+        img {
+            max-height: 14vw;
+        }
+    }
+
+    div.cont_wrapper {
+        padding: 0 1vw;
+        /* height: calc(90vw / 1.78); */
+        height: 100%;
+        overflow: hidden;
+
+        ion-row.row.main.scroll {
+            overflow: scroll;
+        }
+    }
+
+    .protocol,
+    .discount {
+        min-height: 4.5vw;
+        max-height: 4.5vw;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    button.close_btn {
+        position: absolute;
+        top: -2.5vw;
+        right: -2.5vw;
+        z-index: 20;
+        max-width: 5vw;
+        max-height: 5vw;
+        width: 5vw;
+        height: 5vw;
+        border-radius: 50%;
+
+        ion-icon {
+            color: map-get($colors, main_txt);
+            font-size: 2.6vw;
+        }
+    }
+
+    .price-item-protocol,
+    .price-item-discount {
+        padding: 0;
+        color: black;
+        font-size: 1.6vw;
+        min-height: 1.6rem;
+        font-weight: bold;
+        font-family: Foxsans;
+
+        input {
+            margin: 0;
+        }
+    }
+
+    ion-row.main {
+        height: 100%;
+        width: 100%;
+
+        // transition: width .2s;
+        // transition: height .2s;
+        .middle {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        ion-col:first-child {
+            .vertical_line {
+                right: .6vw;
+            }
+
+            @media screen and (orientation:landscape) {
+                padding-right: 2vw;
+            }
+
+            ion-label[floating] {
+                color: map-get($colors, main_txt);
+            }
+        }
+
+        ion-col:last-child {
+            .vertical_line {
+                left: .6vw;
+            }
+
+            @media screen and (orientation:landscape) {
+                padding-left: 2vw;
+            }
+        }
+
+        ion-col[col-12] {
+            padding: 5px 1.5rem 1.5rem;
+
+            // h2 {
+            //     text-transform: capitalize !important;
+            // }
+            .header_part {
+                button[small] {
+                    border-radius: 0;
+                    margin-bottom: 1rem;
+                    margin-right: 0;
+                    min-height: 3.6rem;
+                    // min-width: 8rem;
+                    width: 8vw;
+                    padding: 2vw;
+                    position: relative;
+
+                    .button-inner {
+                        color: black;
+                        font-size: 2.3vw;
+                    }
+
+                    clear: both;
+                }
+            }
+
+            .scroll_cont {
+                overflow: hidden;
+                padding-bottom: 0 !important;
+                height: 100%;
+                width: 100%;
+            }
+
+            .scroll_cont .reserve_list {
+                .protocol-flag {
+                    color: red;
+                }
+
+                .discount-flag {
+                    color: blue;
+                }
+
+                ion-item {
+                    background-color: #cfb17a;
+                    // min-height: 8.4rem;
+                    height: max-content;
+                    margin-bottom: .5vw;
+
+                    h3 {
+                        font-size: 1.9rem;
+                        font-size: 2.3vw;
+                        font-weight: 600;
+                    }
+
+                    ion-label {
+                        position: absolute;
+                        right: 30vw;
+                        width: 24vw;
+                    }
+
+                    h3.red {
+                        color: red;
+                    }
+
+                    h4 {
+                        font-size: 1.5rem;
+                        font-size: 1.7vw;
+
+                        span {
+                            color: white;
+                        }
+                    }
+
+                    p {
+                        color: black;
+                        font-size: 1.7rem;
+                        font-size: 1.7vw;
+                    }
+
+                    [item-start] {
+                        width: 25%;
+                        margin: 1vh 1vh 1vh 0;
+                    }
+
+                    .item-inner .label {
+                        margin: 1vh 1vh 1vh 0;
+                        // min-height: 7rem;
+                    }
+
+                    [item-end] {
+                        // width: 20%;
+                        min-height: 7rem;
+                        margin-left: 0;
+                        text-align: right;
+
+                        h3 {
+                            margin-top: 2rem;
+                        }
+                    }
+                }
+
+                ion-item div.item-options-overlay {
+                    background-color: rgba(207, 177, 122, .9);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+
+        ion-col.col {
+            .vertical_line {
+                width: .1rem;
+                height: calc(100% - 1rem);
+                position: absolute;
+                background-color: map-get($colors, main_txt);
+            }
+
+            .horizontal_line {
+                width: calc(100% - 2rem);
+                height: .1rem;
+                position: absolute;
+                background-color: map-get($colors, main_txt);
+            }
+
+            h2 {
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 2.2vw;
+                margin: 1vw auto;
+                font-weight: bold;
+                color: map-get($colors, main_txt);
+                margin-top: calc(1vw - 5px);
+            }
+
+            .mid_cont {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+
+                .release_cont {
+                    flex: 1;
+                    overflow: auto;
+
+                    button {
+                        .button-inner {
+                            color: black;
+                            size: 1.8rem;
+                        }
+                    }
+                }
+
+                p.reservation-p {
+                    margin-block-start: 1vw;
+                    margin-block-end: 1vw;
+                    font-size: 1.6vw;
+                }
+
+                .scroll_cont {
+                    overflow: hidden;
+                    overflow-y: auto;
+                    height: 100%;
+                }
+            }
+
+            .bottom_cont {
+                color: black;
+                font-size: 1.8vw;
+                max-height: 4.5vw;
+                padding: 0 3rem 0 2rem;
+                height: 6vw;
+                min-height: 6vw;
+                padding-left: 0vw;
+
+                button {
+                    font-size: 1.7vw;
+                    min-height: 4.5vw;
+                    max-height: 4.5vw;
+                }
+            }
+
+            single-toggle {
+                width: 50%;
+                margin: auto;
+            }
+        }
+
+        ion-col:first-child {
+            .mid_cont {
+                height: calc(100% - 10vw);
+            }
+
+            .bottom_cont {
+                text-align: left;
+
+                button {
+                    border-radius: 1rem;
+
+                    .button-inner {
+                        font-size: 1.8rem;
+                        color: black;
+                    }
+                }
+            }
+        }
+
+        // Common for ion-item
+        ion-item.item-block .item-inner {
+            border-bottom: 0 !important;
+        }
+
+        ion-item:last-child {
+            border-bottom: unset !important;
+        }
+
+        ion-item.item_static {
+            padding-left: 0;
+            position: relative;
+
+            ion-input {
+                font-size: 1.7vw;
+
+                .text-input::-moz-placeholder {
+                    color: map-get($colors, main_txt);
+                }
+
+                .text-input:-ms-input-placeholder {
+                    color: map-get($colors, main_txt);
+                }
+
+                .text-input::-webkit-input-placeholder {
+                    text-indent: 0;
+                    color: map-get($colors, main_txt);
+                }
+            }
+
+            ion-label.u_phone {
+                margin-right: .2rem !important;
+
+                ion-icon[name='ios-add-outline'] {
+                    margin-left: 1rem;
+                }
+            }
+        }
+
+        // Umbrella part -----------
+        .mid_cont.seats {
+
+            // height: calc(100% - 4.4vw - 5px) !important;
+            button[block] {
+                color: black;
+                font-size: 1.8vw;
+                min-height: 4.5vw;
+                max-height: 4.5vw;
+            }
+
+            button[block].baldaquin {
+                margin-top: 93.5%;
+            }
+
+            button[block].umbrella {
+                margin-top: 63.5%;
+            }
+
+            .sel_seat_cont {
+                background-color: #f9e6c2;
+                border-radius: 2vw;
+                padding: 1vw;
+                min-height: 13.1vw;
+                max-height: 13.1vw;
+
+                p {
+                    margin-top: .2vw;
+                    font-size: 1.2vw;
+                    margin-bottom: .5vw;
+                }
+
+                select-umbrella {
+                    .wrapper {
+                        width: 75%;
+                        margin: 0 auto;
+                    }
+                }
+
+                .sunbed {
+                    text-align: center;
+
+                    img {
+                        width: 45%;
+                        margin-top: -2vw
+                    }
+                }
+
+                .baldaquin_img {
+                    width: 30%;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+
+            // .extra_sunbeds_cont {
+            //     display: none;
+            // }
+            .release_cont {
+                p {
+                    color: #111;
+                    font-size: 1.6vw !important;
+                    margin-top: 0;
+                }
+
+                .check_for {
+                    width: 100%;
+                    margin: 1vw 0;
+                    text-align: center;
+                    display: table;
+
+                    h3 {
+                        margin-top: 0;
+                        margin-bottom: .5vw;
+                    }
+
+                    button {
+                        /*border: 0.1rem solid #a18a5f;*/
+                        padding: 0.25vw 1.2vw;
+                        border-radius: 1.2vw;
+                        color: black;
+                        font-size: 1rem;
+                        /* margin: 5px; */
+                        height: 2.8rem;
+                        width: 22%;
+                    }
+
+                    button.active {
+                        background-color: map-get($colors, main_bg);
+                    }
+
+                    button.day-already-released {
+                        background-color: #92a5dc !important;
+                        border: none !important;
+                    }
+
+                    button.day-already-released span.button-inner {
+                        color: white !important;
+                    }
+                }
+            }
+
+            .release_btns {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                button {
+                    width: 12vw;
+                    margin-left: 1vw;
+                    padding: 2vh;
+                }
+
+                button span.button-inner {
+                    color: white !important;
+                    font-size: 1.8vw;
+                }
+            }
+
+            h3 {
+                font-size: 1.8vw;
+                font-weight: bold;
+                margin-top: .5vw;
+            }
+
+            ion-row {
+                &.row.main.scroll {
+                    overflow: scroll;
+                }
+            }
+
+            ion-row ion-col.col {
+                display: flex;
+                justify-content: space-around;
+                padding-top: .1vw;
+                padding-bottom: .1vw;
+                padding-right: 0;
+                padding-left: 0;
+
+                // text-align: center;
+                button {
+                    width: 100%;
+                    max-width: 3vw;
+                    border-radius: 0;
+                    min-height: 3vw;
+                    max-height: 3vw;
+
+                    .button-inner {
+                        font-size: 2vw;
+                    }
+                }
+
+                button.active {
+                    background-color: map-get($colors, primary);
+
+                    .button-inner {
+                        color: white;
+                    }
+                }
+
+                button.blocked-black {
+                    background-color: map-get($colors, occupied);
+
+                    .button-inner {
+                        color: white;
+                    }
+                }
+
+                button.blocked-magent {
+                    background-color: map-get($colors, booked);
+
+                    .button-inner {
+                        color: white;
+                    }
+                }
+
+                button.blocked-red {
+                    background-color: map-get($colors, paid);
+
+                    .button-inner {
+                        color: white;
+                    }
+                }
+            }
+
+            .btn_cont {
+                margin-top: 1vw;
+
+                span {
+                    color: black;
+                    font-weight: 100;
+                }
+
+                button {
+                    margin: 1vw auto;
+                    width: 85%;
+                    min-height: 4.5vw;
+                    max-height: 4.5vw;
+
+                    .button-inner {
+                        color: black;
+                        font-size: 1.8vw;
+                    }
+                }
+            }
+
+            .remain {
+                text-align: center;
+
+                span {
+                    font-size: 3vw;
+                    font-weight: bolder;
+                    color: map-get($colors, secondary);
+                }
+            }
+
+            @media screen and (orientation:landscape) and (max-width: 767px) {}
+        }
+
+        // Status part ----
+        .mid_cont.status {
+            height: calc(100% - 26vw) !important;
+
+            h3 {
+                font-size: 1.8vw;
+                font-weight: bold;
+                margin: .5vw 0;
+                color: map-get($colors, main_txt);
+            }
+
+            p {
+                color: black;
+                font-size: 1.6vw;
+                margin-left: 1vw;
+            }
+
+            span {
+                color: black;
+                font-size: 1.5vw;
+                margin-left: 1vw;
+            }
+        }
+
+        .mid_cont.status.booked {
+            height: calc(100% - 26vw) !important;
+        }
+
+        .bottom_cont.status {
+            button {
+                color: rgb(8, 5, 5);
+                font-size: 1.8vw;
+                min-height: 4.5vw;
+                max-height: 4.5vw;
+
+                .button-inner {
+                    font-weight: 200;
+                }
+            }
+        }
+
+        .bottom_cont.status.booked {
+            .button-ios-danger {
+                color: #f9e6c2;
+            }
+        }
+    }
+
+    ion-row.main.close {
+        overflow: hidden;
+        width: 0 !important;
+        height: 0 !important;
+        // transition: width .2s;
+        // transition: height .2s;
+    }
+
+    @media screen and (orientation:portrait) {
+        ion-row ion-col[col-4] {
+            flex: 0 0 100%;
+            width: 100% !important;
+            max-width: 100% !important;
+
+            .vertical_line {
+                display: none;
+            }
+
+            .horizontal_line {
+                display: block;
+            }
+
+            @media screen and (min-width: 768px) {
+                .bottom_cont {
+                    button[block] {
+                        width: 45%;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (orientation:landscape) {
+        ion-row ion-col[col-4] {
+            width: 33.3% !important;
+            max-width: 33.3% !important;
+
+            .vertical_line {
+                display: block;
+            }
+
+            .horizontal_line {
+                display: none;
+            }
+        }
+    }
+}
+
+.umbrella-container-div {
+    .clear-both {
+        clear: both;
+    }
+
+    .interactiveSelect {
+        margin: initial !important;
+        width: 100% !important;
+    }
+
+    .selection-div {
+        width: 100%;
+        position: relative;
+    }
+
+    .umbrella-div {
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        opacity: 0.3;
+        height: 100%;
+        max-height: 125px;
+    }
+
+    .umbrella-inner-div {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        text-align: center;
+        padding-top: 35px;
+        padding-bottom: 3px;
+    }
+
+    .umbrella-img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .sunbed-div {
+        width: 100%;
+        padding: 25px 0px;
+    }
+
+    .sunbed-inner-div {
+        max-width: 296px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .sunbed-div-center,
+    .sunbed-div-left,
+    .sunbed-div-right {
+        height: 100%;
+    }
+
+    .sunbed-div-center {
+        float: left;
+        width: 50%;
+        height: 76px;
+        margin-left: 25%;
+    }
+
+    .sunbed-div-left {
+        float: left;
+        width: 50%;
+        padding-right: 2.5%;
+    }
+
+    .sunbed-div-right {
+        float: right;
+        padding-left: 2.5%;
+        width: 50%;
+    }
+
+    .sunbed {
+        /*  width: 33.33%;
+    height: 100%;
+    padding: 10% 3px;
+    box-sizing: border-box; */
+        width: 21.33%;
+        height: 100%;
+        padding: 0% 2px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .booked-false {
+        .sunbed {
+            cursor: pointer;
+        }
+    }
+
+    .sunbed-center {
+        margin: 0 auto;
+        width: 21.33%;
+        height: 100%;
+        padding: 0% 2px;
+    }
+
+    .sunbed-seat-2.sunbed-center {
+        width: 30%;
+        margin-left: 40%;
+    }
+
+    .sunbed-seat-4.sunbed-center {
+        width: 50%;
+        margin-left: 33%;
+    }
+
+    .sunbed-left {
+        float: right;
+    }
+
+    .sunbed-right {
+        float: left;
+    }
+
+    .sunbed-img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.9;
+    }
+
+    .sunbed-img.disabled {
+        opacity: 0.3;
+    }
+}
+
+.popup-sucd {
+    .popup-sucd-loading {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        padding: 4vw;
+        left: 0px;
+        background: #f8e7be;
+        text-align: center;
+        color: #d0c194;
+    }
+
+    padding: 1vw;
+    padding-top: 0;
+    padding-bottom: 0;
+    background: #f8e7be;
+    border-radius: 1.5vw;
+    position: relative;
+    overflow: hidden;
+
+    p {
+        margin-block-start: 1vw;
+        margin-block-end: 1vw;
+    }
+}
+
+.sunbed-umbrella-comb-div {
+    width: 100%;
+    height: calc(17vw);
+
+    .sunbed-list-div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .umbrella-comb-div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            padding: 13%;
+            opacity: 0.3;
+            text-align: center;
+
+            .umbrella-comb-img {
+                //width: 100%;
+                height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        .sunbed-list-group {
+            height: 70%;
+            margin-top: 10.5%;
+
+            .sunbed-div {
+                height: 100%;
+                width: 29%;
+                background: white;
+                border: 1px solid #a59163;
+                margin: 0px 2%;
+                opacity: 0.8;
+                box-shadow: 0px 2px 2px;
+                border-radius: 3px;
+                padding: 0px;
+
+                &.cursor-pointer {
+                    cursor: pointer;
+                }
+
+                &.cursor-disabled {
+                    cursor: disabled;
+                }
+
+                &.occupied {
+                    background: #333333;
+                }
+
+                &.pending {
+                    background: #ea58c1;
+                }
+
+                &.booked {
+                    background: #CD70F4;
+                }
+
+                &.available {
+                    background: #ffffff;
+                }
+
+                &.paid {
+                    background: #ff0000;
+                }
+
+                &.locked {
+                    background: #24cc12;
+                }
+
+                &:not(.selected) {
+                    .status-occupied {
+                        background: #333333;
+                    }
+
+                    .status-pending {
+                        background: #ea58c1;
+                    }
+
+                    .status-booked {
+                        background: #CD70F4;
+                    }
+
+                    .status-available {
+                        background: #ffffff;
+                    }
+
+                    .status-paid {
+                        background: #ff0000;
+                    }
+
+                    .status-locked {
+                        background: #24cc12;
+                    }
+                }
+
+                &.selected {
+                    background: linear-gradient(90deg, #a5c2ff, #467ef3, #698fe4);
+                    box-shadow: 0px 5px 12px #1c1f25;
+                    transform: scale(1.05);
+                    border: 0px;
+                }
+            }
+
+            &.not-avail {
+                opacity: 0.3;
+            }
+
+            &.left {
+                float: left;
+                width: 45%;
+
+                .sunbed-div {
+                    float: left;
+                }
+            }
+
+            &.right {
+                float: right;
+                width: 45%;
+
+                .sunbed-div {
+                    float: left;
+                }
+            }
+
+            &.center {
+                float: none;
+
+                .sunbed-div {
+                    float: none;
+                    width: 14.5%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+.red-color {
+    color: red !important;
+}
+
+.discount-selection-panel {
+    ion-input {
+        background: #f3f3f3;
+        border: 1px solid silver;
+        font-size: 11px;
+        border-radius: 3px;
+        padding: 1vw;
+        overflow: hidden;
+    }
+
+    input {
+        padding: 0px 0px 0px 0px;
+        margin: 0 0;
+    }
+
+    .discount-selection-buttons {
+        margin-top: 1vw;
+    }
+
+    .discount-fixed-button {
+        border: 1px solid silver;
+        padding: 1vw 0px;
+        width: 20%;
+        box-sizing: border-box;
+
+        &.active {
+            background: #f8e7be;
+        }
+    }
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+ion-label {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 2.2vw !important
+}
+
+h3.total-price-label {
+    font-size: 2.2vw !important;
+}
+
+span.total-price-val {
+    font-size: 2.0vw !important;
+}
+
+.guest-code-cont {
+    .guest-code-chip {
+        float: left;
+        float: left;
+        width: 47%;
+        background: #f4f4f4;
+        margin: 0.3vw;
+        border: 1px solid #e8e7e7;
+        border-radius: 1vw;
+
+        span.chip-text {
+            padding: 0.9vw 0.8vw;
+            font-size: 2vw;
+        }
+
+        span.chip-close {
+            float: right;
+            font-size: 2.3vw;
+            margin: 0vw 0vw 0vw 0.5vw;
+            padding: 0vw 0.72vw;
+            /* padding: 0vw 0.42vw; */
+            color: red;
+            border-radius: 50%;
+            background: white;
+        }
+    }
+}

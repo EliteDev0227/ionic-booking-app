@@ -1,0 +1,25 @@
+place-map {
+  ion-content{
+    background:white !important;
+
+  }
+  ion-fab{
+    top:1rem !important;
+  }
+  .scroll-content{ 
+
+    overflow-y:auto;
+
+  }
+  .back-button {
+    display: inline-block;
+  }
+
+  ion-content.scroll-content {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+}

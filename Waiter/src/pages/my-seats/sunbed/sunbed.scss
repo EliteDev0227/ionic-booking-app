@@ -1,0 +1,93 @@
+page-sunbed {
+    .scroll-content {
+        // overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding: 0 !important;
+        font-family: "Foxsans" !important;
+        background-color: map-get($colors, bg-subview);
+    }
+    .single_cont {
+        padding: 1.6rem;
+        text-align: center;
+        button {
+            text-transform: uppercase;
+            height: 5rem;
+            box-shadow: unset;
+            border: 0.1rem solid white;
+            margin: 1rem auto 0.5rem;
+            font-size: 1.7rem !important;
+        }
+    }
+
+    .add_cont {
+        .img {
+            height: 42%;
+            img {
+                margin-top: 7%;
+                // width: 42%;
+                height: auto;
+                h2 {
+                    font-family: "Foxsans";
+                    font-weight: bolder;
+                    font-size: 3rem !important;
+                }
+            }
+            img:nth-of-type(1) {
+                width: 42%;
+                margin-right: -0.2rem;
+            }
+            img:nth-of-type(2) {
+                width: 21%;
+                margin-left: -0.2rem;
+            }
+            img:nth-of-type(3) {
+                width: 21%;
+                margin-left: -0.2rem;
+            }
+        }
+        .tool_bar {
+            height: 17%;
+            .remain_num {
+                font-size: 1.6rem;
+            }
+        }
+        .ctrl_bar {
+            button[small] {
+                height: 4rem;
+            }
+        }
+        .btn_bar {
+            button {
+                height: 9.5vw;
+                width: 9.5vw;
+            }
+            button.active {
+                background-color: map-get($colors, primary);
+            }
+        }
+    }
+
+    .container {
+        display: inline-block;
+        padding: 1vw 2.4vw;
+        width: 100vw;
+        height: 100%;
+        text-align: center;
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5vw;
+            margin-top: 1vw;
+            font-weight: bolder;
+            padding: 0 0.2rem;
+        }
+        button {
+            text-transform: uppercase;
+            height: 5rem;
+            box-shadow: unset;
+            border: 0.1rem solid white;
+            margin: 1rem auto 0.5rem;
+            font-size: 1.7rem !important;
+        }
+    }
+}

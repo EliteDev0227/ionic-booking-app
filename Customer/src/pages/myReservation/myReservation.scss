@@ -1,0 +1,364 @@
+myReservation {
+
+  .keyboard-open .has-footer{
+    bottom:0;
+    }
+    .toolbar-title{
+      font-weight: 500;
+    }
+
+  .reservation-container {
+    max-width: 96vw;
+    margin: 16px auto !important;
+
+    form {
+      position: relative;
+    }
+
+    .add-phone {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      &.lowercase {
+        text-transform: none;
+      }
+    }
+  }
+
+  ion-card {
+    @include border-radius(20px);
+
+    &.inactive {
+      background: #fbfbfb;
+      overflow: hidden;
+    }
+  }
+
+  .card {
+    .col {
+      &.blured p {
+        filter: blur(5px);
+      }
+
+    }
+
+    margin-bottom:1rem;
+
+    p {
+
+      font-weight: 400;
+      font-size: 1.2rem;
+
+      span {
+        font-weight: 600;
+      }
+
+      &.isBold {
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+
+      &[color='primary'] {
+        font-size: 1.5rem;
+      }
+    }
+
+    .button {
+      float: right;
+      @include border-radius(50px);
+      max-height: 25px;
+      padding: .5rem 1rem;
+      margin-bottom: 2rem;
+
+      span {
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      &.active {
+        background: map_get($colors, primary);
+      }
+
+      &.plain {
+        background: none;
+        color: map_get($colors, primary);
+        border: 1px solid map_get($colors, primary);
+        position: absolute;
+        bottom: .5rem;
+        right: .5rem;
+      }
+
+      &.inactive {
+        background: map_get($colors, grey);
+        color: map_get($colors, white);
+
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    position:relative;
+
+    div[actions] {
+      display: none;
+      visibility: hidden;
+      left: 0;
+
+      &:before {
+        background: white;
+        @include border-radius(5px);
+        left: 0;
+      }
+
+      &.active {
+        visibility: visible;
+        display: block;
+        -webkit-transition: display 0s, visibility .3s;
+        -moz-transition: display 0s, visibility .3s;
+        -ms-transition: display 0s, visibility .3s;
+        -o-transition: display 0s, visibility .3s;
+        transition: display 0s, visibility .3s;
+        width: 100%;
+        height: 100%;
+
+        .row {
+          width: 80%;
+          -webkit-transform: translate(10%, 60%);
+          -moz-transform: translate(10%, 60%);
+          -ms-transform: translate(10%, 60%);
+          -o-transform: translate(10%, 60%);
+          transform: translate(10%, 60%);
+
+          .col {
+
+            button {
+              width: 100%;
+              margin: 0 auto;
+            }
+          }
+        }
+
+        &:before {
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background: rgba(map_get($colors, dark), 0.8);
+          -webkit-transition: background .5s;
+          -moz-transition: background .5s;
+          -ms-transition: background .5s;
+          -o-transition: background .5s;
+          transition: background .5s;
+        }
+      }
+
+      position:absolute;
+
+    }
+
+  }
+
+  .close_overlay {
+    position: absolute;
+    right: -1rem;
+    top: 0rem;
+  }
+
+  .intro_txt {
+    font-size: 1rem;
+    color: gray;
+  }
+
+  .slow-spin {
+    -webkit-animation: fa-spin 6s infinite linear;
+    animation: fa-spin 6s infinite linear;
+  }
+
+  .gray-border {
+    color: gray;
+    border-color: gray !important;
+  }
+
+
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    .info-button {
+      margin-left: 10px;
+      font-size: 18px;
+      background: none;
+      color: grey;
+
+      tooltip-box {
+        display: none !important;
+      }
+
+    }
+  }
+}
+.phone-number{
+  position: absolute;
+  left: 11%;
+  top: 35%;
+
+  @media (max-width: 320px){
+    left: 12%;
+  }
+}
+body {
+  background-color: #1976D2;
+}
+
+// .clock{
+// 	border-radius: 70px;
+// 	border: 3px solid black;
+	
+//   display: block;
+//   width: 25px;
+//   height: 25px;
+// }
+
+// .clock:after{
+// 	content: "";
+// 	position: absolute;
+// 	background-color: black;
+// 	height: 11px;
+//     width: 4px;
+//     left: 4%;
+//     top: 13px;
+// 	border-radius: 5px;
+// 	-webkit-transform-origin: 50% 97%;
+// 			transform-origin: 50% 97%;
+// 	-webkit-animation: grdAiguille 2s linear infinite;
+// 			animation: grdAiguille 2s linear infinite;
+// }
+
+// @-webkit-keyframes grdAiguille{
+//     0%{-webkit-transform:rotate(0deg);}
+//     100%{-webkit-transform:rotate(360deg);}
+// }
+
+// @keyframes grdAiguille{
+//     0%{transform:rotate(0deg);}
+//     100%{transform:rotate(360deg);}
+// }
+
+// .clock:before{
+// 	content: "";
+// 	position: absolute;
+// 	background-color:black;
+// 	height: 13px;
+//   width: 4px;
+//   left: 4%;
+//     top: 11px;
+// 	border-radius: 5px;
+// 	-webkit-transform-origin: 50% 94%;
+// 			transform-origin: 50% 94%;
+// 	-webkit-animation: ptAiguille 12s linear infinite;
+// 			animation: ptAiguille 12s linear infinite;
+// }
+
+// @-webkit-keyframes ptAiguille{
+//     0%{-webkit-transform:rotate(0deg);}
+//     100%{-webkit-transform:rotate(360deg);}
+// }
+
+// @keyframes ptAiguille{
+//     0%{transform:rotate(0deg);}
+//     100%{transform:rotate(360deg);}
+// }
+
+.clock{
+	border-radius: 70px;
+	border: 3px solid #6b6868;
+	// position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin-left: -50px;
+  // margin-top: -50px;
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+.clock:after{
+	content: "";
+	position: absolute;
+	background-color: #6b6868;
+  top: 13px;
+  left: 11px;
+  height: 11px;
+	width: 4px;
+	border-radius: 5px;
+	-webkit-transform-origin: 50% 97%;
+			transform-origin: 50% 97%;
+	-webkit-animation: grdAiguille 2s linear infinite;
+			animation: grdAiguille 2s linear infinite;
+}
+
+@-webkit-keyframes grdAiguille{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+@keyframes grdAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+.clock:before{
+	content: "";
+	position: absolute;
+	background-color: #6b6868;
+  top: 13px;
+  left: 11px;
+  height: 11px;
+	width: 4px;
+	border-radius: 5px;
+	-webkit-transform-origin: 50% 94%;
+			transform-origin: 50% 94%;
+	-webkit-animation: ptAiguille 12s linear infinite;
+			animation: ptAiguille 12s linear infinite;
+}
+
+@-webkit-keyframes ptAiguille{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+@keyframes ptAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+
+@media only screen and (max-width: 320px) {
+       
+  .toolbar-title{
+    font-size: 14px !important;
+  }
+  ion-navbar{
+    .back-button,.bar-button,.back-button-ios,.back-button-md{
+        font-size: 14px !important;
+        padding: 0px !important;
+    }
+    button{
+        font-size: 14px !important;
+    }
+}
+  
+}

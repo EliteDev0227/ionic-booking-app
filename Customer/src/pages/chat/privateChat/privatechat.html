@@ -1,0 +1,100 @@
+<ion-header>
+
+    <ion-navbar>
+        <!-- <ion-buttons left>
+            <button ion-button icon-only class="back-button" (click)="closeChat()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+        </ion-buttons> -->
+      <ion-title>{{toUser.name}}</ion-title>
+
+		<!-- <ion-buttons right>
+			<button ion-button icon-only (click)="showFilter()">
+				<ion-icon name="options"></ion-icon>
+			</button>
+		</ion-buttons> -->
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content>
+  
+    <div class="message-wrap">
+  
+      <div *ngFor="let msg of msgList"
+           class="message"
+           [class.left]=" msg.userId === toUser.id "
+           [class.right]=" msg.userId === user.id ">
+        <img class="user-img" [src]="msg.userAvatar" alt="" src="">
+        <ion-spinner name="dots" *ngIf="msg.status === 'pending'"></ion-spinner>
+        <div class="msg-detail">
+          <div class="msg-content">
+            <span class="triangle"></span>
+            <p class="line-breaker ">{{msg.message}}</p>
+          </div>
+        </div>
+        
+        <!-- <div class="msg-info">
+            <p>
+              4:20</p>
+          </div> -->
+      </div>
+      
+  
+    </div>
+  
+  </ion-content>
+  
+  <ion-footer no-border [style.height]="showEmojiPicker ? '255px' : '45px'">
+    <!-- <div class="input-wrap">
+      <button ion-button clear icon-only item-left (click)="switchEmojiPicker()">
+        <ion-icon name="md-happy"></ion-icon>
+      </button>
+      <textarea #chat_input
+                placeholder="Text Input"
+                [(ngModel)]="editorMsg"
+                (keyup.enter)="sendMsg()"
+                (focusin)="onFocus()">
+      </textarea>
+      <button ion-button clear icon-only item-right (click)="sendMsg()">
+        <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>
+      </button>
+    </div> -->
+    <div style="display:flex;">
+        <div class="footer-body">
+        <ion-col style="display:flex;">
+          <button style="max-width: 30px;color: grey !important;" ion-button clear icon-only item-left (click)="switchEmojiPicker()">
+              <ion-icon name="happy"></ion-icon>
+            </button>
+      <ion-col><textarea #chat_input style="display: flex;height: 38px;"
+          placeholder="Type a message"
+          [(ngModel)]="editorMsg"
+          (keyup.enter)="sendMsg()"
+          (focusin)="onFocus()">
+</textarea>
+      </ion-col>
+      <ion-col style="max-width: 64px;color: grey !important;display: contents;">
+        <button  style="max-width: 38px;color: grey !important;" ion-button clear icon-only (click)="switchEmojiPicker()">
+          <ion-icon name="attach"></ion-icon>
+        </button>
+          <button style="max-width: 38px;color: grey !important;" ion-button clear icon-only (click)="switchEmojiPicker()">
+              <ion-icon name="camera"></ion-icon>
+            </button>
+      </ion-col>
+    </ion-col>
+  </div>
+  <div><ion-col style="max-width: 46px;">
+      <button ion-button clear color="primary" class="send-btn" icon-only (click)="switchEmojiPicker()">
+          <ion-icon name="arrow-round-forward"></ion-icon>
+        </button>
+  </ion-col></div>
+    
+      
+        
+         
+          
+
+    </div>
+    <!-- <emoji-picker [(ngModel)]="editorMsg"></emoji-picker> -->
+  </ion-footer>
+  

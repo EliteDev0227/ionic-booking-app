@@ -1,0 +1,73 @@
+<div class="agreement">
+
+    <div class="header">
+        <h1 margined ion-text text-center>{{ data.type }} #{{ index }} {{ data.section }}</h1>
+
+        <h3>
+            <span ion-text>{{"PERIOD" | translate}}:</span>
+            <span ion-text color="primary">{{ startEndDate.start }}</span>
+            <span ion-text>{{" - "}}</span>
+            <span ion-text color="primary">{{ startEndDate.end }}</span>
+
+        </h3>
+
+        <h3 *ngIf="data.type != 'baldaquin'">{{"NUMBER_OF_SEATS" | translate}}:
+            <span ion-text color="primary">{{ selected+extra }}</span>
+        </h3>
+        <h3>
+            <span ion-text>{{('WORKING_HOURS' | translate) + ": "}}</span>
+            <span ion-text color="primary">{{getBeachWorkingHours().start}}</span>
+            <span ion-text>{{" - "}}</span>
+            <span ion-text color="primary">{{getBeachWorkingHours().end}}</span>
+        </h3>
+
+    </div>
+    <div class="contents" *ngIf="contents.length">
+        
+            <div *ngFor="let content of contentArray ; let ind = index">
+                <p>
+                    <span ion-text color="primary">{{"INFO" | translate}} {{ind}}:</span>
+                    
+                        <span>{{contents[ind]}}</span>
+                    
+                </p>
+                
+            </div>
+      
+    </div>
+    <div class="contents" *ngIf="!contents.length">
+        <p>
+            <span ion-text color="primary">{{"INFO1" | translate}}</span>
+            <span>{{
+                configuration.translate.translate.instant('INFO1_1_CONTENT',{number:settings.booking_time_limit})}}</span>
+            <span>{{
+                configuration.translate.translate.instant('INFO1_2_CONTENT',{number:settings.cancel_daily_limit})}}</span>
+            <span>{{"INFO1_3_CONTENT" | translate}}</span>
+        </p>
+        <p>
+            <span ion-text color="primary">{{"INFO2" | translate}}</span> {{"INFO2_1_CONTENT" | translate}} </p>
+        <p>
+            <span ion-text color="primary">{{"INFO3" | translate}}</span> {{"INFO3_1_CONTENT" | translate}} </p>
+        <p>
+            <span ion-text color="primary">{{"INFO4" | translate}}</span> {{"INFO4_1_CONTENT" | translate}} </p>
+        <p>
+            <span ion-text color="primary">{{"INFO5" | translate}}</span>
+            {{ configuration.translate.translate.instant('INFO5_1_CONTENT',{value1:settings.hour_release_points,
+            value2:settings.partial_day_release_percent_to_points, value3:settings.day_release_percent_to_points}) }}
+        </p>
+    </div>
+
+    <div class="footer">
+        <ion-row>
+            <ion-col>
+                <button ion-button color="primary" dark block outline small round (click)="decline()">{{ 'CLOSE' |
+                    translate }}</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button color="primary" dark block outline small round (click)="agree()">{{ 'I_AGREE' |
+                    translate }}</button>
+            </ion-col>
+        </ion-row>
+    </div>
+
+</div>

@@ -1,0 +1,90 @@
+<ng-template #SunBed let-sunbedData>
+    <div class="sunbed sunbed-{{sunbedData.side}}">
+        <img class="sunbed-img {{(sunbedData.data)?sunbedData.data.status:''}}" [src]="sunbedData.data.src">
+    </div>
+</ng-template>
+
+<ng-template #SunbedContainer let-data>
+    <div class="grid-sunbed-group-container">
+        <div class="grid-sunbed-group-list">
+            <ng-container *ngFor="let side of ['left','center','right']">
+
+                <ng-container *ngIf="isValidSideList(data,side)">
+                    <div class="grid-sunbed-list-inner grid-sunbed-list-{{side}}">
+                        <div class="grid-sunbed-group">
+                            <ng-container *ngFor="let li of data.list[side];let liIndex = index">
+                                <div class="grid-sunbed-div {{(data.item.style)?'style-avail':'style-not-avail'}}" *ngIf="true || data.item.style || getItemStyle(data.item)" [ngStyle]="{width: data.item.style.sunbedWidth, minWidth:data.item.style.sunbedMinWidth}">
+                                    <div class="grid-sunbed-inner">
+                                        <ng-container *ngIf="li.status_color && li.status_color.length || setStatusColor(data,side,liIndex,li)">
+                                            <div class="grid-inner-status bg{{status}}" *ngFor="let status of li.status_color" [ngStyle]="{background:status, height:(100/li.status_color.length)+'%'}">
+                                            </div>
+                                        </ng-container>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                </ng-container>
+
+            </ng-container>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-container *ngIf="isModal">
+    <ion-header mode="ios">
+        <ion-navbar mode="ios" color="item_bg">
+            <ion-buttons>
+                <button ion-button icon-only (click)="viewCtrl.dismiss()">
+                    <ion-icon name="md-arrow-round-back"></ion-icon>
+                </button>
+            </ion-buttons>
+            <ion-title>{{'Components.SELECT_NEW_POSTION' | translate}}</ion-title>
+        </ion-navbar>
+    </ion-header>
+</ng-container>
+
+<div *ngIf="!hasGridData" class="noGridData">
+    <div>
+        <p translate>Components.NO_GRID</p>
+        <span text-center translate>Components.NO_GRID_DESCRIPTION</span>
+    </div>
+</div>
+
+<ion-content *ngIf="hasGridData" [ngClass]="isOriChanged ? 'hasMenu ggrid' : 'hasMenu ggrid loading'">
+    <div class="seat_cont" [ngClass]="{ 'free': isFreeShowState }">
+        <!-- Grid Element-->
+        <ng-container *ngFor="let grid_side of grid_sides">
+            <ng-container *ngFor="let item of _grid[grid_side]">
+                <div data-id="{{item.image}}" *ngIf="item.type!='static' && (item.style || getItemStyle(item))" class="side grid-seat content-type-{{item.type}} can-seat-{{item.can_seat && item.number!=changePosNumber}} sno-{{item.number}} seatGridWidth-{{item.info.mapElement.seatGridWidth}}"
+                    (click)="(isFreeShowState && (item.can_seat && item.number!=changePosNumber) && showSeatDetail(item, grid_side) || !isFreeShowState && showSeatDetail(item, grid_side))" [ngStyle]="item.style">
+                    <div class="grid-sunbed-container" *ngIf="item.info || getItemInfo(item)" [ngStyle]="item.styleSunbedDiv">
+                        <ng-container *ngTemplateOutlet="SunbedContainer; context:{$implicit:{item:item, list:item.info.mapElement.list}}">
+                        </ng-container>
+
+                    </div>
+
+                    <div class="grid-text">
+                        {{item.number}}
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+
+
+    </div>
+    <div #dump class="dump" (click)="toggleDump">{{dump}}</div>
+</ion-content>
+
+
+<div *ngIf="!(loading || isLoading)" class="loading-bar">
+    <div class="loading-msg">
+        <div class="loading-spinner">&nbsp;</div>
+        Loading..
+    </div>
+</div>
+
+<ng-container *ngIf="date_passed_alert && dpAlert()">&nbsp;</ng-container>

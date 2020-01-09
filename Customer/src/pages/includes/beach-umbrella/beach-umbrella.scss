@@ -1,0 +1,159 @@
+beach-umbrella {
+  @include umbrella();
+}
+
+.clear-both {
+  clear: both;
+}
+
+.interactiveSelect {
+  margin: initial !important;
+  width: 100% !important;
+}
+
+.selection-div {
+  width: 100%;
+  position: relative;
+}
+
+.umbrella-div {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  opacity: 0.3;
+  height: 100%;
+  max-height: 125px;
+}
+
+.umbrella-inner-div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  padding-top: 35px;
+  padding-bottom: 3px;
+}
+
+.umbrella-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.sunbed-div {
+  width: 100%;
+  padding: 25px 0px;
+}
+
+.sunbed-inner-div {
+  max-width: 296px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sunbed-div-center,
+.sunbed-div-left,
+.sunbed-div-right {
+  height: 100%;
+}
+
+.sunbed-div-center {
+  float: left;
+  width: 50%;
+  height: 76px;
+  margin-left: 25%;
+}
+
+.sunbed-div-left {
+  float: left;
+  width: 50%;
+  padding-right: 2.5%;
+}
+
+.sunbed-div-right {
+  float: right;
+  padding-left: 2.5%;
+  width: 50%;
+}
+
+.sunbed {
+  /*  width: 33.33%;
+  height: 100%;
+  padding: 10% 3px;
+  box-sizing: border-box; */
+  width: 21.33%;
+  height: 100%;
+  padding: 0% 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.booked-false{
+  .sunbed{
+    cursor: pointer;
+  }
+}
+.sunbed-center {
+  margin: 0 auto;
+  width: 21.33%;
+  height: 100%;
+  padding: 0% 2px;
+}
+
+.sunbed-seat-2.sunbed-center {
+  width: 30%;
+  margin-left: 40%;
+}
+
+.sunbed-seat-4.sunbed-center {
+  width: 50%;
+  margin-left: 33%;
+}
+
+.sunbed-left {
+  float: right;
+}
+
+.sunbed-right {
+  float: left;
+}
+
+.sunbed-img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.sunbed-img.disabled {
+  opacity: 0.3;
+}
+
+/*
+
+.sunbed{
+  width: 20.33%;
+    height: 100%;
+    padding: 0% 3px;
+    padding-top: 20%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .umbrella-div{
+    width: 50%;
+    position: relative;
+    height: 128px;
+    margin: 0 auto;
+    opacity: 0.3;
+  }
+
+  .umbrella-img{bottom: 0px;
+    width: 50%;
+    left: 25%;
+    position: absolute;}
+*/
+
+.sunbed-img.selected {
+  filter: sepia(1) brightness(0.7) hue-rotate(197deg);
+}
+
+.booked-true {
+  opacity: 0.3;
+}

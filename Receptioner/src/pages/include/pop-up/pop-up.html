@@ -1,0 +1,766 @@
+<ng-template #UmbrellaContainer let-uc>
+
+    <ng-template #SunBed let-sunbedData>
+        <div (click)="clickSunbed(sunbedData.data)" class="sunbed sunbed-{{sunbedData.side}} sunbed-seat-{{seatCount}}">
+            <img class="sunbed-img {{sunbedData.data.status}}" [src]="sunbedData.data.src">
+        </div>
+    </ng-template>
+
+    <div class="interactiveSelect">
+        <div class="selection-div">
+            <div class="umbrella-div" *ngIf="umbrella">
+                <div class="umbrella-inner-div">
+                    <img [src]="umbrella.src" class="umbrella-img">
+                </div>
+            </div>
+
+            <div class="sunbed-div">
+                <div class="sunbed-inner-div">
+                    <ng-container *ngFor="let side of sides;">
+                        <div class="sunbed-div-{{side}} {{'booked-'+bookingStatus[side]}}" *ngIf="eleList[side] && eleList[side].length">
+                            <ng-container *ngFor="let item of eleList[side];let ind=index;">
+                                <ng-container *ngTemplateOutlet="SunBed; context:{$implicit:{side:side, data: item, index: ind}}">
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                </div>
+
+            </div>
+            <div class="clear-both"></div>
+        </div>
+    </div>
+
+</ng-template>
+
+
+
+<button mode="ios" ion-button icon-only color="light_w" class="close_btn" (click)="close()">
+    <ion-icon name="md-close"></ion-icon>
+</button>
+
+<div class="cont_wrapper">
+
+    <!-- 1ST MODAL - RESERVATION LISTING -->
+    <ion-row [ngClass]="!pageState.isDetail ? 'main scroll' : 'main close'">
+
+        <ion-col col-12 class="{{pageState.isDetail}}">
+
+            <!-- NEW BUTTON -->
+            <div class="header_part">
+
+                <ng-container *ngIf="pageState.kind == 'umbrella'">
+                    <h2>{{ 'Components.UMBRELLA' | translate }} #{{ seatInfo?.number }} ({{seatInfo?.zone}})</h2>
+                    <button ion-button color="item_bg" small mode="ios" *ngIf="seatInfo?.can_seat" (click)="addNew()" float-right>{{ 'Components.NEW' | translate }}</button>
+                </ng-container>
+
+                <ng-container *ngIf="pageState.kind == 'sunbed'">
+                    <h2>{{ 'Components.SUNBEDS_NO_UMBRELLA' | translate }}</h2>
+                    <button ion-button color="item_bg" small mode="ios" (click)="addNew()" float-right>{{
+                        'Components.NEW' | translate }}</button>
+                </ng-container>
+
+                <ng-container *ngIf="pageState.kind == 'baldaquin'">
+                    <h2>{{ 'Components.BALDAQUIN' | translate }} #{{ seatInfo?.number }} ({{seatInfo?.zone}})</h2>
+                    <button ion-button color="item_bg" small mode="ios" *ngIf="seatInfo?.can_seat" (click)="addNew()" float-right>{{ 'Components.NEW' | translate }}</button>
+                </ng-container>
+
+            </div>
+
+            <!-- LISTING PART -->
+            <div class="scroll_cont">
+
+                <ion-list class="reserve_list">
+
+                    <ion-item *ngFor="let item of reservationAry" (click)="itemClick(item)">
+
+                        <div *ngIf="item.clicked && item.broker_id!=item.created_by" class="item-options-overlay">
+                            <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'change_request_confirm', $event)">{{
+                                'Buttons.CONFIRM' | translate }}</button>
+                            <button ion-button margin color="over_btn" class="font-red" (click)="confirmPosition(item, 'change_request_reject', $event)">{{
+                                'Buttons.REJECT' | translate }}</button>
+                        </div>
+                        <div *ngIf="item.broker_id!=item.created_by && item.status=='pending'" class="item-options-overlay">
+                            <button ion-button margin color="over_btn" (click)="accept(item)">{{ 'Buttons.ACCEPT' |
+                                translate }}</button>
+                            <button ion-button margin color="over_btn" (click)="cancel(item)">{{
+                                'Buttons.CANCEL_REQUEST' | translate }}</button>
+                        </div>
+                        <div item-start>
+                            <h3 [style.color]="item.status_color">{{ item.status_text }}</h3>
+                            <h4>&nbsp;{{ 'Components.LISTING_BY_TEXT' | translate }}:
+                                <span>{{ item.by_name }}</span><br>
+                                <span>{{ item.by_number}}</span>
+                            </h4>
+                            <h4 *ngIf="item.for != 'null'">{{ 'Components.LISTING_FOR_TEXT' | translate }}:
+                                <span>{{ item.for }}</span>
+                            </h4>
+                        </div>
+
+                        <p>{{ 'Components.LISTING_PERIOD_TEXT' | translate }}:
+                            <span>{{ item.period.start }} - {{ item.period.end }}</span>
+                        </p>
+                        <p *ngIf="item.status == 'change-request' && pageState.kind == 'baldaquin'">
+                            <span>{{ 'Components.LISTING_NEW_NUMBER_TEXT' | translate }}: {{item.seat.new_number}} / {{
+                                'Components.LISTING_NEW_ZONE_TEXT'
+                                | translate }}: {{item.seat.new_zone}}</span>
+                            <br>
+                            <span style="color: #ffffff;">{{ 'Components.CHANGE_REQUEST_CONFIRMATION_TEXT' | translate
+                                }}</span>
+                        </p>
+                        <p *ngIf="pageState.kind == 'umbrella'">{{ 'Components.LISTING_POSITION_TEXT' | translate }}:
+                            <span>{{ item.seat.sunbeds+(item.seat.extra_seats?item.seat.extra_seats:0)}} {{
+                                'Components.SUNBEDS'
+                                | translate }} ( {{ item.seat.sides }} )</span>
+                        </p>
+                        <p *ngIf="item.status == 'change-request' && pageState.kind == 'umbrella'">
+                            <span style="color: #54fe62;">{{ 'Components.LISTING_NEW_TEXT' | translate }}:</span>
+                            <span>{{ 'Components.LISTING_UMBRELLA_TEXT' | translate }} {{item.seat.new_sides}} - {{
+                                item.seat.new_sunbeds
+                                + (item.seat.new_extra_sunbeds ? item.seat.new_extra_sunbeds : 0) }} {{
+                                'Components.LISTING_SUNBEDS_TEXT'
+                                | translate }} - {{item.seat.new_zone}}</span>
+                            <br>
+                            <span style="color: #ffffff;">{{ 'Components.CHANGE_REQUEST_CONFIRMATION_TEXT' | translate
+                                }}</span>
+                        </p>
+                        <p *ngIf="pageState.kind == 'sunbed'">
+                            <span>{{ item.seat.count }} {{ 'Components.SUNBED_OR_SUNBEDS' | translate }}</span>
+                        </p>
+                        <p *ngIf="item.status == 'change-request' && pageState.kind == 'sunbed'">
+                            <span style="color: #54fe62;">{{ 'Components.LISTING_NEW_TEXT' | translate }}:</span>
+                            <span>{{item.seat.new_count}} {{ 'Components.SUNBED_OR_SUNBEDS' | translate }}</span>
+                            <br>
+                            <span style="color: #ffffff;">{{ 'Components.CHANGE_REQUEST_CONFIRMATION_TEXT' | translate
+                                }}</span>
+                        </p>
+                        <p *ngIf="item.released_days.length">{{ 'Components.LISTING_DAYS_RELEASED_TEXT' | translate }}:
+                            <span>{{ item.released_days.join(', ') }}</span>
+                        </p>
+
+                        <div item-end>
+                            <p>{{ 'Components.LISTING_ORDER_NUMBER_TEXT' | translate }}
+                                <span>#{{ item.number }}</span>
+                            </p>
+                            <p class="protocol-flag" *ngIf="item.protocol">protocol</p>
+                            <p class="protocol-flag" *ngIf="item.discount" >discount <span>{{item.discount_per}}%</span></p>
+                            <p class="protocol-flag" *ngIf="!item.protocol && !item.discount">&nbsp;</p>
+                            <h3>{{ getDispTotal(item) }}</h3>
+                        </div>
+
+                    </ion-item>
+
+                </ion-list>
+
+            </div>
+
+        </ion-col>
+
+    </ion-row>
+
+    <!-- 2ND MODAL - DETAIL VIEW -->
+    <ion-row [ngClass]="pageState.isDetail ? 'main' : 'main close'">
+
+        <!-- LEFT SIDE -->
+        <ion-col col-4 class="col-full-height">
+
+            <div class="vertical_line"></div>
+            <h2>
+                <ng-container *ngIf="true || pageState.isNew">{{ 'Components.ADD' | translate }}</ng-container>
+                <ng-container *ngIf="true || !pageState.isNew">{{ 'Components.RESERVATION' | translate }}</ng-container>
+            </h2>
+
+            <!-- <h2 *ngIf="!isFreeSunbed">{{ 'Components.RESERVATION' | translate }}</h2>  && pageState.kind != 'sunbed' -->
+
+            <div class="mid_cont reservation">
+
+                <ion-item class="item_static">
+                    <ion-label class="u_phone">
+                        <ion-icon name="ios-add-outline"></ion-icon>
+                    </ion-label>
+                    <ion-input #phoneInputRef type="number"
+                     (ionBlur)="lookUpPhone($event,phoneInputRef, nameInputRef)"
+                      (keyup.enter)="removeFocus($event, phoneInputRef)" [disabled]="singleReserve.created_by === 'customer'" placeholder="Phone Number" [(ngModel)]="singleReserve.created_for_phone"
+                        (input)="changePhoneNumber($event.target.value)">
+                    </ion-input>
+                </ion-item>
+
+                <ion-item class="item_static">
+
+                    <ion-input #nameInputRef placeholder="Name" (keyup.enter)="removeFocus($event, nameInputRef)" type="text" [disabled]="singleReserve.created_by === 'customer' || phoneNameFound" [(ngModel)]="singleReserve.created_for_name"></ion-input>
+
+                </ion-item>
+                <!-- protocol btn -->
+                <ion-item *ngIf="pageState.isNew || isFreeSunbed || protocol" class="item_static">
+                    <button class="protocol" *ngIf="!isProtocolModeOn && !noprice" mode="ios" 
+                        ion-button round block color="modal_btn" (click)="onClickProtocol(nameInputRef)">{{ 'Buttons.PROTOCOL' | translate }}</button>
+                    <button class="protocol" *ngIf="isProtocolModeOn" mode="ios" ion-button round block color="danger" (click)="onClickProtocol(nameInputRef)">{{ 'Buttons.PROTOCOL' | translate }}</button>
+                </ion-item>
+                
+                <ion-item *ngIf="!pageState.isNew && isProtocolSelectedReservation && selectedReserveStatus.status != 'active'">                   
+                    <button class="protocol" mode="ios" ion-button round block color="danger">{{ 'Buttons.PROTOCOL' |
+                        translate }}</button>
+                </ion-item>
+
+                <ion-item *ngIf="pageState.isNew || isFreeSunbed || discount" class="item_static">
+                    <button class="discount" *ngIf="!isDiscountModeOn && !noprice" mode="ios" ion-button round block color="modal_btn" (click)="onClickDiscount(nameInputRef)">{{ 'Buttons.DISCOUNT' | translate }}</button>
+                    <button class="discount" *ngIf="isDiscountModeOn" mode="ios" ion-button round block color="danger" (click)="onClickDiscount(nameInputRef)">{{ 'Buttons.DISCOUNT' | translate }}</button>
+                </ion-item>
+                <ion-item *ngIf="!pageState.isNew && isDiscountSelectedReservation && selectedReserveStatus.status != 'active'">
+                    <button class="discount" mode="ios" ion-button round block color="danger">{{ 'Buttons.DISCOUNT' |
+                        translate }}</button>
+                </ion-item>
+                
+                <ng-container *ngIf="selectedReserveStatus.status == 'active'">
+                    <ion-item *ngIf="guestCodes.length<6">
+                        <button (click)="onClickGetCode()" class="discount" mode="ios" ion-button round block color="danger">{{
+                                    'Buttons.GETCODE' | translate }}</button>
+                    </ion-item>
+                    <div class="guest-code-cont">
+                        <div class="guest-code-chip" *ngFor="let guestCode of guestCodes;">
+                            <span class="chip-text">{{guestCode.code}}</span> <span class="chip-close float-right" (click)="onClickDeleteGuestCode(guestCode)">x</span>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedReserveStatus.status == 'active'">
+                    <ion-item *ngIf="guestCodes.length>0">
+                        <button (click)="onClickPrint()" class="discount" mode="ios" ion-button round block color="primary">{{
+                                    'Buttons.PRINT' | translate }}</button>
+                    </ion-item>
+                </ng-container>
+            </div>
+
+            <div class="bottom_cont">
+                <!-- <single-toggle firstLabel="{{ 'Components.EXISTING' | translate }}" secondLabel="{{ 'Components.NEW' | translate }}" [checked]="reserve.status" [enabled]="true" (toggleChange)="filterState($event)"></single-toggle> -->
+                <button ion-button mode="ios" color="back_btn" *ngIf="(pageState.action != 'pos-change' || seatInfo.reservations && seatInfo.reservations.length) && reservationAry.length" icon-left (click)="onClickBackBtn()">
+                    <ion-icon name="md-arrow-dropleft"></ion-icon>
+                    {{ 'Buttons.BACK' | translate }}
+                </button>
+            </div>
+        </ion-col>
+
+        <!-- MIDDLE SIDE -->
+        <ion-col col-4 class="middle col-full-height">
+
+            <!-- Edit Seat for Umbrella -->
+            <div class="horizontal_line"></div>
+
+            <ng-container *ngIf="pageState.kind == 'umbrella'">
+
+                <h2>{{ 'Components.UMBRELLA' | translate }} #{{navParams.data.seatInfo.number }}</h2>
+
+                <div class="mid_cont seats umbrella-container-div">
+                    <ng-container *ngIf="false && umbrella">
+                        <ng-container *ngTemplateOutlet="UmbrellaContainer; context:{$implicit:{}}"></ng-container>
+                    </ng-container>
+                    <ng-container>
+                        <div *ngIf="!isReleaseShown" class="popup-sucd" id="reservation-{{singleReserve.id}}">
+                            <div class="sucd-top-div">
+                                <p>{{ 'Components.AVERGAGE_PRICE' | translate }}
+                                    <span float-right>{{ rountItUp(averagePrice) }}{{ currency }}</span>
+                                </p>
+                            </div>
+                            <div class="sunbed-umbrella-comb-div">
+
+                                <div class="sunbed-list-div">
+                                    <div *ngIf="umbrella" class="umbrella-comb-div">
+                                        <img [src]="umbrella.src" class="umbrella-comb-img">
+                                    </div>
+
+                                    <ng-container *ngFor="let side of sides">
+                                        <ng-container *ngIf="eleList[side] && eleList[side].length">
+                                            <div class="sunbed-list-group {{side}} {{canSeatSide(side)?'avail':'not-avail'}} {{(isNew)?'new':'old'}}">
+                                                <ng-container *ngFor="let li of eleList[side];let ind=index;">
+                                                    <div class="sunbed-div li-{{ind}} {{(li.locked || !canSeatSide(side))?'cursor-disabled':'cursor-pointer'}} {{(li.selected)?'selected':'not-selected'}} {{(li.locked)?'locked':'not-locked'}}" (click)="li.locked || (!canSeatSide(side)) ||selectSunbed(li)">
+                                                        <ng-container *ngIf="li.statusList">
+                                                            <div class="{{(isNew)?'new':'status'}}-{{statusValue}}" [ngStyle]="{height:(100/li.statusList.length)+'%'}" *ngFor="let statusValue of li.statusList">
+
+                                                            </div>
+                                                        </ng-container>
+                                                    </div>
+                                                </ng-container>
+                                            </div>
+                                        </ng-container>
+                                    </ng-container>
+
+
+
+
+                                    <div *ngIf="false" class="sunbed-list-group right">
+                                        <div class="sunbed-div pending">
+                                        </div>
+                                        <div class="sunbed-div pending">
+                                        </div>
+                                        <div class="sunbed-div available">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <diV *ngIf="isLoading" class="popup-sucd-loading">
+                                &nbsp;
+                            </diV>
+                        </div>
+                    </ng-container>
+
+
+                    <!--div class="sel_seat_cont">
+                        <p>{{ 'Components.AVERGAGE_PRICE' | translate }}
+                            <span float-right>{{ rountItUp(averagePrice) }}{{ currency }}</span>
+                        </p>
+                        <select-umbrella *ngIf="pageState.isDetail" (seatChange)="onSelectSeat($event)" [isEditable]="availableSeat"
+                            [seatStatus]="selectedReserveStatus" [setSeats]="seatInfo.seats" [setSeatData]="singleReserve.seat.slots"
+                            [setReservationNumber]="reservationAry" [setReservation]="reservationEdit"></select-umbrella>
+                    </div-->
+
+                    <div class="extra_sunbeds_cont SAMPLE-1" *ngIf="!isReleaseShown">
+
+                        <ng-container *ngIf="uSeatNum.length && (pageState.kind!='baldaquin' || settings.sunbeds_at_baldaquin)">
+                            <h3 class="extra-sunbeds-{{settings.sunbeds_at_baldaquin}}">{{ 'Components.EXTRA_SUNBEDS_QUESTION' | translate }}</h3>
+
+                            <ion-row>
+                                <ion-col col-3 *ngFor="let item of uSeatNum">
+                                    <button mode="ios" [disabled]="false && isExtraSeatsDisabled" ion-button color="light" [ngClass]="isCheckedExtra(item)" (click)="selectExtraSeats(item)">{{item}}</button>
+                                </ion-col>
+                            </ion-row>
+                        </ng-container>
+
+                        <div *ngIf="pageState.action != 'pos-change' && (selectedReserveStatus.status == 'active' || selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'online')">
+
+                            <h3>{{ 'Components.RELEASE_DAYS' | translate }}</h3>
+                            <button ion-button round block mode="ios" color="item_bg" (click)="toggleRelease()">{{
+                                'Buttons.RELEASE_TOGGLE' | translate }}</button>
+
+                        </div>
+
+                    </div>
+
+                    <ng-container *ngIf="isReleaseShown">
+                        <h3>{{ 'Components.RESERV_DAYS' | translate }}</h3>
+                        <p class="reservation-p">{{ 'Messages.RESERVE_DAYS_HINT' | translate }}</p>
+                        <div class="release_cont">
+                            <ion-item>
+                                <ion-label>Select all</ion-label>
+                                <ion-checkbox [checked]="isAllReleaseSelected()" (ionChange)="onClickCheck($event)">
+                                </ion-checkbox>
+                            </ion-item>
+
+                            <div class="check_for">
+                                <button ion-button small mode="ios" [color]="isReleaseChecked(date) ? 'item_bg' : 'light'" [ngClass]="alreadyReleased(date) ? 'day-already-released': ''" *ngFor="let date of singleReserve.period" (click)="checkReleaseDay(date)">{{ date.day }}</button>
+                            </div>
+
+                        </div>
+                        <div class="release_btns">
+                            <button ion-button round small mode="ios" color="danger" (click)="toggleRelease()">{{
+                                'Buttons.RELEASE_DAYS_CANCEL' | translate }}</button>
+                            <button ion-button round small mode="ios" color="secondary" [disabled]="isReleaseCalendarDirty()" (click)="onRelease()">{{ 'Buttons.RELEASE_DAYS' | translate }}</button>
+                        </div>
+
+                    </ng-container>
+
+                </div>
+                <div class="bottom_cont status" *ngIf="!isReleaseShown" [ngClass]="selectedReserveStatus.status">
+                    <ng-container *ngIf="isFreeSunbed && selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'offline'">
+                        <button mode="ios" ion-button block round color="danger" (click)="onCancelReservation()">{{
+                            'Buttons.CANCEL_RESERVE' | translate }}</button>
+                    </ng-container>
+
+                    <ng-container *ngIf="selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'offline'">
+                        <button mode="ios" ion-button block round color="danger" (click)="onCancelReservation()">{{
+                            'Buttons.CANCEL_RESERVE' | translate }}</button>
+                    </ng-container>
+                </div>
+
+            </ng-container>
+
+            <!-- Baldaquin setting -->
+            <ng-container *ngIf="pageState.kind == 'baldaquin'">
+
+                <h2>{{ 'Components.BALDAQUIN' | translate }} #{{ seatInfo?.number }}</h2>
+
+                <div class="mid_cont seats">
+                    <ng-container *ngIf="baldaquin && !isReleaseShown">
+                        <div class="baldaquin-img-div">
+                            <img [src]="baldaquin.img" [ngClass]="'type_'+baldaquin.itemClass">
+                        </div>
+                    </ng-container>
+
+                    <!--div class="sel_seat_cont">
+                        <p>{{ 'Components.AVERGAGE_PRICE' | translate }}
+                            <span float-right>{{ rountItUp(averagePrice) }}{{ currency }}</span>
+                        </p>
+                        <img class="baldaquin_img" src="assets/imgs/baldaquin/normal.png" />
+                    </div-->
+
+                    <div class="extra_sunbeds_cont">
+                        <div class="extra_sunbeds_cont SAMPLE-1" *ngIf="!isReleaseShown">
+
+                            <ng-container *ngIf="uSeatNum.length && (pageState.kind!='baldaquin' || settings.sunbeds_at_baldaquin)">
+                                <h3 class="extra-sunbeds-{{settings.sunbeds_at_baldaquin}}">{{ 'Components.EXTRA_SUNBEDS_QUESTION' | translate }}</h3>
+
+                                <ion-row>
+                                    <ion-col col-3 *ngFor="let item of uSeatNum">
+                                        <button mode="ios" [disabled]="false && isExtraSeatsDisabled" ion-button color="light" [ngClass]="isCheckedExtra(item)" (click)="selectExtraSeats(item)">{{item}}</button>
+                                    </ion-col>
+                                </ion-row>
+                            </ng-container>
+
+                            <div *ngIf="pageState.action != 'pos-change' && (selectedReserveStatus.status == 'active' || selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'online')">
+
+                                <h3>{{ 'Components.RELEASE_DAYS' | translate }}</h3>
+                                <button ion-button round block mode="ios" color="item_bg" (click)="toggleRelease()">{{
+                                    'Buttons.RELEASE_TOGGLE' | translate }}</button>
+
+                            </div>
+
+                        </div>
+                        <div *ngIf="isReleaseShown && pageState.action != 'pos-change' && (selectedReserveStatus.status == 'active' || selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'online')">
+
+
+
+                            <h3>{{ 'Components.RESERV_DAYS' | translate }}</h3>
+                            <p class="reservation-p">{{ 'Messages.RESERVE_DAYS_HINT' | translate }}</p>
+
+                            <ng-container>
+                                <div class="release_cont">
+                                    <ion-item>
+                                        <ion-label>Select all2</ion-label>
+                                        <ion-checkbox [checked]="isAllReleaseSelected()" (ionChange)="onClickCheck($event)">
+                                        </ion-checkbox>
+                                    </ion-item>
+                                    <div class="check_for">
+                                        <button ion-button small mode="ios" [color]="isReleaseChecked(date) ? 'item_bg' : 'light'" [ngClass]="alreadyReleased(date) ? 'day-already-released': ''" *ngFor="let date of singleReserve.period" (click)="checkReleaseDay(date)">{{ date.day }}</button>
+                                    </div>
+                                </div>
+
+                                <div class="release_btns">
+                                    <button ion-button round small mode="ios" color="danger" (click)="toggleRelease()">{{
+                                            'Buttons.RELEASE_DAYS_CANCEL' | translate }}</button>
+                                    <button ion-button round small mode="ios" color="secondary" [disabled]="isReleaseCalendarDirty()" (click)="onRelease()">{{ 'Buttons.RELEASE_DAYS' | translate }}</button>
+                                </div>
+
+
+
+                            </ng-container>
+
+
+
+                        </div>
+
+                    </div>
+                    <!--div class="extra_sunbeds_cont">
+
+
+
+                        <div
+                            *ngIf="!isReleaseShown && pageState.action != 'pos-change' && (selectedReserveStatus.status == 'active' || selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'online')">
+
+                            <h3>{{ 'Components.RELEASE_DAYS' | translate }}</h3>2
+                            <button ion-button round block mode="ios" color="item_bg" (click)="toggleRelease()">{{
+                                'Buttons.RELEASE_TOGGLE' | translate }}</button>
+
+                        </div>
+
+                    </div-->
+
+                </div>
+                <div class="bottom_cont status" *ngIf="!isReleaseShown" [ngClass]="selectedReserveStatus.status">
+                    <ng-container *ngIf="selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'offline'">
+                        <button mode="ios" ion-button block round color="danger" (click)="onCancelReservation()">{{
+                            'Buttons.CANCEL_RESERVE' | translate }}</button>
+                    </ng-container>
+                </div>
+
+            </ng-container>
+
+            <!-- Add and Edit for Free Sunbeds -->
+            <ng-container *ngIf="pageState.kind == 'sunbed'">
+
+                <h2>{{ 'Components.SUNBEDS' | translate }}</h2>
+
+                <div class="mid_cont seats">
+
+                    <div class="sel_seat_cont">
+                        <p>{{ 'Components.AVERGAGE_PRICE' | translate }}
+                            <span float-right>{{freeSunbedsData.price}} {{ currency }}</span>
+                        </p>
+                        <div class="sunbed">
+                            <img src="assets/imgs/sunbed.png">
+                        </div>
+                    </div>
+
+                    <div class="extra_sunbeds_cont extra_sunbeds_cont-1" *ngIf="!isReleaseShown">
+
+                        <h3>{{ 'Components.HOW_MANY_SUNBEDS' | translate }}</h3>
+                        <h3 *ngIf="!bedNum.length && !singleReserve.id" style="color: #222222;">{{ 'Components.NO_EXTRA_SUNBEDS_AVAILABLE' | translate }}</h3>
+
+                        <ion-row *ngIf="bedNum.length">
+                            <ion-col col-3 *ngFor="let item of bedNum">
+                                <button mode="ios" ion-button color="light" [ngClass]="isCheckedExtra(item)" (click)="selectExtraSeats(item)">{{item}}</button>
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row *ngIf="!bedNum.length && singleReserve && singleReserve.id && singleReserve.id !== ''">
+                            <ion-col col-3>
+                                <button mode="ios" ion-button color="light" class="active">{{checkedExtraSeat}}</button>
+                            </ion-col>
+                        </ion-row>
+
+                        <!--div
+                            *ngIf="pageState.action != 'pos-change' && (selectedReserveStatus.status == 'active' || selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'online')">
+
+                            <h3>{{ 'Components.RELEASE_DAYS' | translate }}</h3>
+                            <button ion-button round block mode="ios" color="item_bg" (click)="toggleRelease()">{{
+                                'Buttons.RELEASE_TOGGLE' | translate }}</button>
+
+                        </div-->
+
+                    </div>
+
+                    <div *ngIf="isReleaseShown" class="release_cont">
+
+                        <h3>{{ 'Components.RESERV_DAYS' | translate }}</h3>
+                        <p>{{ 'Messages.RESERVE_DAYS_HINT' | translate }}</p>
+
+                        <ng-container>
+                            <ion-item>
+                                <ion-label>Select all3</ion-label>
+                                <ion-checkbox [checked]="isAllReleaseSelected()" (ionChange)="onClickCheck($event)">
+                                </ion-checkbox>
+                            </ion-item>
+                            <div class="check_for">
+                                <button ion-button small mode="ios" [color]="isReleaseChecked(date) ? 'item_bg' : 'light'" [ngClass]="alreadyReleased(date) ? 'day-already-released': ''" *ngFor="let date of singleReserve.period" (click)="checkReleaseDay(date)">{{ date.day }}</button>
+                            </div>
+
+                            <div class="release_btns">
+                                <button ion-button round small mode="ios" color="danger" (click)="toggleRelease()">{{
+                                    'Buttons.RELEASE_DAYS_CANCEL' | translate }}</button>
+                                <button ion-button round small mode="ios" color="secondary" [disabled]="isReleaseCalendarDirty()" (click)="onRelease()">{{ 'Buttons.RELEASE_DAYS' | translate }}</button>
+                            </div>
+
+                        </ng-container>
+
+                    </div>
+
+                </div>
+
+                <div class="bottom_cont status" *ngIf="!isReleaseShown" [ngClass]="selectedReserveStatus.status">
+                    <ng-container *ngIf="selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'offline'">
+                        <button mode="ios" ion-button block round color="danger" (click)="onCancelReservation()">{{
+                            'Buttons.CANCEL_RESERVE' | translate }}</button>
+                    </ng-container>
+                </div>
+
+            </ng-container>
+
+        </ion-col>
+
+        <!-- RIGHT SIDE -->
+        <ion-col col-4 class="col-full-height">
+
+            <div class="vertical_line"></div>
+            <div class="horizontal_line"></div>
+
+            <h2>{{ 'Components.STATUS' | translate }} </h2>
+
+            <ion-item text-wrap>
+                <ion-label>{{ 'Buttons.NOPRICE' | translate }}</ion-label>
+                <ion-toggle [(ngModel)]="noprice" [checked]="noprice" (ngModelChange)="enableDisablePrice($event)"></ion-toggle>
+            </ion-item>
+            
+
+            <!-- STATUS -->
+            <div class="mid_cont status" [ngClass]="selectedReserveStatus.status">
+
+                <!-- Selected Seat -->
+                <ng-container *ngIf="false && seatInfo?.type == 'umbrella'">
+                    <h3 class="total-price-label">{{ 'Components.SELECTED' | translate }}</h3>
+                    <span class="total-price-val">{{ selectedSeatCount()
+                        }}</span>
+                </ng-container>
+
+                <!-- Total price -->
+                <h3 class="total-price-label">{{ 'Components.TOTAL_PRICE' | translate }}</h3>
+                <!-- Edit Total Price for Protocol reservation-->
+                <span *ngIf="!isNew && (isProtocolSelectedReservation || isDiscountSelectedReservation || noprice)">
+                    <ng-container *ngIf="isProtocolSelectedReservation && !noprice">
+                        {{currency}} 0 <span class="red-color">({{'Buttons.PROTOCOL' | translate}})</span>
+                </ng-container>
+                    <ng-container *ngIf="noprice && !isProtocolSelectedReservation">
+                        {{currency}} 0 <span class="red-color">(No Price)</span>
+                </ng-container>
+                <ng-container *ngIf="isDiscountSelectedReservation && !isProtocolSelectedReservation && !noprice">
+
+                    {{ currency }} {{calcDiscountPer()}}
+                    <ng-container *ngIf="singleReserve.old_amount">(Paid {{singleReserve.old_amount}} {{ currency }})</ng-container> - <span class="red-color">Discount
+                            {{singleReserve.discount_per}}%</span>
+
+                </ng-container>
+                </span>
+
+                <ng-container *ngIf="!pageState.isNew && !isFreeSunbed && !isProtocolSelectedReservation && !isDiscountSelectedReservation && !noprice">
+                    
+                    <span class="total-price-val" *ngIf="selectedReserveStatus.status=='active' || selectedReserveStatus.status=='change'">
+                        {{singleReserve.seat.type === 'baldaquin' && selectedReserveStatus.status === 'active' ? getPrice() :
+                        getPrice() }}{{ currency }} 
+                        <ng-container *ngIf="singleReserve.old_amount">(paid {{
+                        singleReserve.old_amount }} {{ currency }})</ng-container>
+                    </span>
+                        
+                    <span class="total-price-val" *ngIf="selectedReserveStatus.status=='booked' && singleReserve.payment_method=='online'">
+                        {{ getPrice() }} {{ currency }} <ng-container *ngIf="singleReserve.old_amount">(paid {{
+                            singleReserve.old_amount }} {{ currency }}})</ng-container>
+                    </span>
+
+                    <span class="total-price-val" *ngIf="selectedReserveStatus.status=='booked' && singleReserve.payment_method=='offline'">
+                        {{ getPrice() }} {{ currency }}
+                    </span>
+
+                </ng-container>
+
+                <!-- Free Sunbeds State -->
+                <ng-container *ngIf="isFreeSunbed">
+                    <p *ngIf="!pageState.isNew && selectedReserveStatus.status=='active'">{{ getSunbedTotal() }} {{ currency }}
+                        <ng-container *ngIf="singleReserve.old_amount">(paid {{ singleReserve.old_amount }} {{ currency }})</ng-container>
+                    </p>
+                    <p *ngIf="!pageState.isNew && selectedReserveStatus.status=='booked' && singleReserve.payment_method=='online'">{{ getSunbedTotal() }} {{ currency }}
+                        <ng-container *ngIf="singleReserve.old_amount">(paid {{ singleReserve.old_amount }} {{ currency }})</ng-container>
+                    </p>
+                    <p *ngIf="!pageState.isNew && selectedReserveStatus.status=='booked' && singleReserve.payment_method=='offline'">{{ getSunbedTotal() }} {{ currency }}</p>
+                    <p *ngIf="pageState.isNew">
+                        <span *ngIf="!isProtocolModeOn || !noprice">{{ getSunbedTotal() }} {{ currency }}</span>
+                        <ion-item class="price-item-protocol" *ngIf="isProtocolModeOn || noprice">
+                            <ion-label color="occupied">{{ currency }} 0</ion-label>
+                        </ion-item>
+                        <ion-item class="price-item-protocol discount-mode" *ngIf="isDiscountModeOn">
+                            {{ currency }} {{customValue}}
+
+                        </ion-item>
+                    </p>
+                    <!-- <p *ngIf="selectedReserveStatus.status=='active'">{{ getSunbedTotal() }} {{ currency }} (paid {{ singleReserve.old_amount }} {{ currency }})</p>
+              <p *ngIf="selectedReserveStatus.status!='active'">{{ getSunbedTotal() }} {{ currency }}</p> -->
+                </ng-container>
+
+                <ng-container *ngIf="pageState.isNew && !isFreeSunbed">
+                    <p>
+                        <span *ngIf="!isProtocolModeOn && !isDiscountModeOn && !noprice">{{ getPrice() + singleReserve.amount }} {{
+                            currency }}</span>
+                        <ion-item class="price-item-protocol" *ngIf="isProtocolModeOn">
+                            <ion-label color="occupied">{{ currency }} 0</ion-label>
+                        </ion-item>
+                        <ion-item class="price-item-protocol" *ngIf="noprice">
+                                <ion-label color="occupied">{{ currency }} 0</ion-label>
+                            </ion-item>
+                        <ion-item class="price-item-protocol" *ngIf="isDiscountModeOn">
+                            {{currency}} {{customValue}}
+                        </ion-item>
+                    </p>
+
+                    <!-- New Selected Days -->
+                    <!-- <h3>{{ 'Components.DAYS_SELECTED' | translate }}</h3>
+              <span *ngFor="let day of releaseAry">{{ day }}{{ getComma(day) }}</span> -->
+                </ng-container>
+
+                <h3 *ngIf="isFreeSunbed">{{ 'Components.REMAIN_SUNBED' | translate }}</h3>
+                <ng-container *ngIf="isFreeSunbed">
+                    <p class="remain">{{ freeSunbedsData.count }}</p>
+                </ng-container>
+
+                <!-- Released Days -->
+                <h3 *ngIf="!pageState.isNew && oldReleaseAry.length">{{ 'Components.DAYS_RELEASED' | translate }}</h3>
+                <span *ngIf="oldReleaseAry.length">{{ oldReleaseAry.join(', ') }}</span>
+
+                <div class="discount-selection-panel" *ngIf="isDiscountModeOn && !singleReserve.id">
+                    <span>Discount Percentage</span>
+                    <ion-input type="number" (input)="calcDiscountPer()" [(ngModel)]="discountPer"></ion-input>
+                    <div *ngIf="!((discountPer+'').length>0)" class="discount-selection-buttons">
+                        <button *ngFor="let disVal of discountPerList" class="discount-fixed-button {{(disVal==discountPer)?'active':'inactive'}}" (click)="setDiscountPer(disVal)">{{disVal}}%</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="bottom_cont status" *ngIf="!isReleaseShown" [ngClass]="selectedReserveStatus.status">
+
+                <ng-container>
+                    <button class="free-avail" mode="ios" ion-button round block color="modal_btn" [disabled]="(!selectedSeatCount() || !isDiscountModeOn && !getPrice() || isDiscountModeOn && !customValue || !singleReserve.created_for_name && (isDiscountModeOn || isProtocolModeOn))"
+                        *ngIf="!singleReserve.id" (click)="onClickReserve()">{{ 'Buttons.CREATE' | translate }}</button>
+                </ng-container>
+
+                <ng-container *ngIf="false && isNew && !atLeastOneUmbrella()">
+                    <button class="free-avail" mode="ios" ion-button round block color="modal_btn" [disabled]="((isProtocolModeOn || isDiscountModeOn) && !singleReserve.created_for_name) || !pageState.canCreate" *ngIf="pageState.compState" (click)="onClickReserve()">{{ 'Buttons.CREATE' | translate }}</button>
+                    <!-- <button mode="ios" ion-button round block color="modal_btn" [disabled]="!pageState.canCreate" *ngIf="!pageState.compState"
+                        (click)="onClickPayOff()">{{ 'Buttons.PAY_OFF' | translate }}</button> -->
+                </ng-container>
+
+                <ng-container *ngIf="false && atLeastOneUmbrella()">
+
+                    <ng-container *ngIf="selectedReserveStatus.status != 'active'">
+                        <button class="free-not-avail" mode="ios" ion-button round block color="modal_btn" [disabled]="((isProtocolModeOn || isDiscountModeOn) && !singleReserve.created_for_name) || !pageState.canCreate" *ngIf="pageState.isNew && pageState.compState" (click)="onClickReserve()">{{
+                            'Buttons.CREATE' | translate }}</button>
+                        <button mode="ios" ion-button round block color="modal_btn" *ngIf="!pageState.compState && !newReservation" [disabled]="!atLeastOneSeat()" (click)="onClickPayOff()">{{ (singleReserve.payment_method
+                            == 'offline' ? 'Buttons.PAY_OFF' : 'Buttons.CONFIRM') | translate
+                            }}</button>
+                        <button class="update-btn-1" mode="ios" *ngIf="selectedReserveStatus.status == 'booked'" [disabled]="atLeastOneSeat()" ion-button round block color="modal_btn" (click)="onClickConfirm()"> {{
+                            'Buttons.UPDATE' |
+                            translate }}</button>
+                            
+                        <button mode="ios" ion-button round block color="modal_btn" *ngIf="newReservation" (click)="onClickPayOff()">{{
+                            'Buttons.CONFIRM_PAY_OFF' | translate }}</button>
+                    </ng-container>
+
+                    <ng-container *ngIf="selectedReserveStatus.status == 'active'">
+                        <button class="update-btn-2" mode="ios" ion-button round block color="modal_btn" [disabled]="!bedNum.length || atLeastOneSeat()" (click)="onClickConfirm()">2 - {{ 'Buttons.UPDATE' | translate }}</button>
+                    </ng-container>
+
+                </ng-container>
+
+                <ng-container *ngIf="!pageState.isNew && !isFreeSunbed">
+
+                    <ng-container *ngIf="pageState.action != 'pos-change'">
+
+                        <button mode="ios" ion-button round block color="modal_btn" [disabled]="(isSelectionChanged() || !getCustomPriceChanges() || removedExtraSunbeds) || !selectedSeatCount(false)" (click)="onClickChangePos()">{{ 'Buttons.CHANGE_POSITION' | translate }}</button>
+
+                        <button class="update-btn-3" *ngIf="selectedReserveStatus.status == 'active' || selectedReserveStatus.status == 'booked'" mode="ios" [disabled]="(!isFormValid() || !isSelectionChanged()) && (getCustomPriceChanges() || !selectedSeatCount(false))" ion-button
+                            round block color="modal_btn" (click)="onClickConfirm()"> 3- {{ 'Buttons.UPDATE' |
+                            translate }}</button>
+
+                        <!-- <button *ngIf="getUpdateAvailable() && selectedReserveStatus.status == 'active'" mode="ios" [disabled]="getPrice() <= 0" ion-button round block color="modal_btn" (click)="onClickConfirm()">{{ 'Buttons.UPDATE' | translate }}</button> -->
+
+                        <button *ngIf="selectedReserveStatus.status == 'booked'" mode="ios" ion-button round block color="modal_btn" [disabled]="isSelectionChanged() || !getCustomPriceChanges() || removedExtraSunbeds|| !selectedSeatCount(false)" (click)="onClickPayOff()">{{ (singleReserve.payment_method == 'offline' ? 'Buttons.PAY_OFF'
+                            : 'Buttons.CONFIRM') | translate
+                            }}</button>
+
+                    </ng-container>
+
+                    <ng-container *ngIf="pageState.action == 'pos-change'">
+
+                        <button class="update-btn-4" *ngIf="singleReserve.status == 'booked'" mode="ios" ion-button round 
+                        block color="modal_btn" (click)="onClickConfirm()" [disabled]="!selectedSeatCount()">
+                          4- {{'Buttons.UPDATE' | translate }}</button>
+
+                        <button *ngIf="singleReserve.status == 'booked' && singleReserve.payment_method == 'offline'" mode="ios" ion-button round block color="modal_btn" (click)="onClickPayOff()" [disabled]="!stateChangePosition.changed">{{
+                            'Buttons.PAY_OFF' | translate }}</button>
+
+                        <button *ngIf="singleReserve.status == 'booked' && singleReserve.payment_method == 'online'" mode="ios" ion-button round block color="modal_btn" (click)="onClickPayOff()" [disabled]="!stateChangePosition.changed">{{
+                            'Buttons.CONFIRM_PAY_OFF' | translate }}</button>
+
+                        <button class="update-btn-5" *ngIf="singleReserve.status == 'active'" [disabled]="!selectedSeatCount()" mode="ios" ion-button round block color="modal_btn" (click)="onClickConfirm()">{{
+                            'Buttons.UPDATE' |
+                            translate }}</button>
+
+                    </ng-container>
+
+                    <ng-container *ngIf="singleReserve.seat.type != 'baldaquin' && selectedReserveStatus.status == 'booked' && singleReserve.payment_method == 'online'">
+                        <button class="update-btn-6" mode="ios" ion-button block round color="modal_btn" [disabled]="!getUpdateAvailable()" (click)="onClickConfirm()">{{ 'Buttons.UPDATE' | translate }}</button>
+                    </ng-container>
+
+                </ng-container>
+
+            </div>
+
+        </ion-col>
+
+    </ion-row>
+
+</div>

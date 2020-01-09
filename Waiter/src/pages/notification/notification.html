@@ -1,0 +1,54 @@
+<!--
+  Generated template for the NotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar class="nav_background">
+        <ion-title class="sub-page-title">{{'LABELS.TAB3' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ng-container *ngFor="let order of orders; let index = index">
+            <ion-item-sliding *ngIf="order.reservation">
+                <ion-item [ngClass]="order.status == 'sent' ? 'active' : ''" (click)="onClickItem(order)">
+                    <p item-start>{{order?.reservation?.seat_number_sides}}</p>
+                    <div class="mid-wrapper">
+                        <h2>{{ order.status == 'sent' ? 'new order' : 'ordered' }}</h2>
+                        <p>{{ order.before }}</p>
+                    </div>
+                    <div clear item-end><span class="running" [ngClass]="{need: order.confirm}"></span></div>
+                </ion-item>
+                <ion-item-options side="right" *ngIf="order.status == 'sent'">
+                    <button ion-button color="danger" (click)="onDelete(index)">
+                        <ion-icon name="ios-trash"></ion-icon>
+                        {{ 'ACTIONS.DELETE' | translate }}
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ng-container>
+        <ng-container *ngFor="let call of calls; let index = index">
+            <ion-item-sliding *ngIf="call.reservation">
+                <ion-item [ngClass]="call.status == 'sent' ? 'active' : ''" (click)="onClickItem(call)">
+                    <p *ngIf = "!call.reservation.seat.slots.a&&!call.reservation.seat.slots.b" item-start>{{call?.reservation?.seat_number}}</p>
+                    <p *ngIf = "call.reservation.seat.slots.a||call.reservation.seat.slots.b" item-start>{{call?.reservation?.seat_number_sides}}</p>
+                    <div class="mid-wrapper">
+                        <h2>{{'LABELS.CALLED' | translate}}</h2>
+                        <p>{{ call.before}}</p>
+                    </div>
+                    <!-- <div clear item-end><span class="running"></span></div> -->
+                </ion-item>
+                <ion-item-options side="right">
+                    <button ion-button color="danger" (click)="onDelete(index)">
+                        <ion-icon name="ios-trash"></ion-icon>
+                        {{ 'ACTIONS.DELETE' | translate }}
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ng-container>        
+    </ion-list>
+</ion-content>

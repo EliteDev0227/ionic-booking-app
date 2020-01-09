@@ -1,0 +1,38 @@
+page-terms {
+    ion-header {
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    ion-content .scroll-content {
+        padding: 1rem 3rem !important;
+        p {
+            white-space: normal;
+            margin: 0;
+            /*font-size: 1.5rem;*/
+            line-height: 1.6;
+            text-align: justify;
+            h1 {
+                font-family: unset;
+                text-align: center;
+                padding-bottom: 2vh;
+            }
+            h2 {
+                font-size: 2rem !important;
+                text-align: center;
+            }
+            p.item {
+                text-indent: 10pt;
+                margin-bottom: 10px;
+            }
+            div.item {
+                margin-bottom: 10px;
+                p {
+                    margin-left: 10pt;
+                }
+                p.inside {
+                    text-indent: -10pt;
+                    margin-left: 25pt;
+                }
+            }
+        }
+    }
+}

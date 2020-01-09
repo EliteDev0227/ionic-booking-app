@@ -1,0 +1,59 @@
+<ion-toolbar>
+	<ion-navbar>
+		<ion-title>
+			<button ion-button clear icon-left class="clear-button" (click)="ClearSelection()">
+				<ion-icon name="ios-arrow-back"></ion-icon> {{ 'DESELECT_ALL' | translate }}
+			</button>
+		</ion-title>
+	</ion-navbar>
+</ion-toolbar>
+
+<div padding>
+
+	<h3>{{ 'FILTER_BY' |translate }}</h3>
+	<div class="buttons">
+		<button ion-button clear *ngFor="let option of options; let i=index;" (click)="check('filter',i,false,'filter',option.fullName)"
+		 [ngClass]="selected.filter[i]?'active':''">
+			<div text-capitalize>
+				<div class="icon-div">
+					<ion-icon name="option-{{option.name}}" [ngClass]="selected.filter[i]?'active':''" large></ion-icon>
+				</div>
+				{{this.configuration.translate.translate.instant(option.fullName)}}
+			</div>
+		</button>
+		<button ion-button clear [disabled]="true"></button>
+		<button ion-button clear [disabled]="true"></button>
+	</div>
+
+	<h3>{{ 'SORT_BY' | translate }}</h3>
+	<div class="buttons alignLeft">
+		<button ion-button clear (click)="check('sort',0,true,'order','reset')" [ngClass]="selected.sort[0]?'active':''" *ngIf="search_by != 'near'">
+			<div text-capitalize>
+				<div class="icon-div">
+					<ion-icon name="list" large [ngClass]="selected.sort[0]?'active':''"></ion-icon>
+				</div>
+				{{ 'NORMAL' | translate }}
+			</div>
+		</button>
+		<button ion-button clear (click)="check('sort',1,true,'order','rating')" [ngClass]="selected.sort[1]?'active':''">
+			<div text-capitalize>
+				<div class="icon-div">
+					<ion-icon name="star" large [ngClass]="selected.sort[1]?'active':''"></ion-icon>
+				</div>
+				{{ 'RATING' | translate }}
+			</div>
+		</button>
+		<button ion-button clear (click)="check('sort',2,true,'order','distance')" [ngClass]="selected.sort[2]?'active':''">
+			<div text-capitalize>
+				<div class="icon-div">
+					<ion-icon name="pin" large [ngClass]="selected.sort[2]?'active':''"></ion-icon>
+				</div>
+				{{ 'DISTANCE' | translate }}
+			</div>
+		</button>
+		<button ion-button clear [disabled]="true"></button>
+	</div>
+</div>
+
+<button ion-button full pink-gradient class="bottom-button" (click)="doClose()">{{ 'SEE_RESULT' | translate }} <span
+	 class="littleInfo">({{ transform() }} {{ 'BEACHES'|translate }})</span></button>

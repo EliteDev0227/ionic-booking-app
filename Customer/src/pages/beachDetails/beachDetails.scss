@@ -1,0 +1,162 @@
+beachDetails {
+
+  .toolbar.segments-toolbar {
+    min-height: 4.2rem;
+  }
+
+  .beach-overview {
+    height: 100%;
+    background-image: url('../assets/imgs/beach-page-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .beach-menu {
+    height: 100%;
+    background-color: #fafafa;
+
+    .card {
+      padding: 1.5rem;
+      background-color: #fff;
+      transition: max-height 1s ease-in-out;
+
+      &.itemsShown {
+        position: static !important;
+
+      }
+
+      .category {
+        font-size: 1.6rem;
+        display: flex;
+        font-weight:600;
+        justify-content: space-between;
+
+        .category-name {
+          vertical-align: middle;
+          line-height: 2rem;
+          width:100%;
+        }
+        .category-description{
+          clear:both;
+          margin-top:.5rem;
+          font-size:1.2rem;
+          width:50%;
+        }
+        .category-price{
+          width:100%;
+          text-align:right;
+        }
+        .category-main{
+          width:90%;
+          .category-label{
+            font-size:1.4rem;
+          }
+        }
+        .category-comment{
+          ion-input{
+            font-size:1.4rem;
+            input{
+              &::placeholder{
+                font-weight:400;
+              }
+            }
+
+          }
+        }
+        .category-quantity{
+          width:100%;
+          overflow:hidden;
+          text-align:center;
+         @include border-radius(50px);
+          border:1px solid map_get($colors,light);
+          margin:2rem auto 0;
+          .minus,.plus,.screen{
+            display:inline-block;
+            margin:0;
+            padding:0;
+          }
+          .button{
+            width:14%;
+            padding:0 2rem;
+            margin:0;
+            &.minus{
+              border-right:1px solid map_get($colors,light);
+              span{
+                position:relative;
+                left:-.5rem;
+              }
+
+            }
+            &.plus{
+              border-left:1px solid map_get($colors,light);
+            span{
+              position:relative;
+              right:-.5rem;
+            }
+
+            }
+
+            .icon{
+              font-size:2.5rem;
+          }
+          }
+          .screen{
+            width:60%;
+            text-align:center;
+
+            span{
+              position:relative;
+              top:.5rem;
+
+            }
+
+
+          }
+        }
+      }
+
+    }
+    .addToCart{
+      width:100%;
+      text-align:center;
+      .button{
+        background: linear-gradient(to right, #fe5295, #f86d67);
+        @include border-radius(50px);
+        width:60%;
+        font-weight:600;
+      }
+    }
+  }
+ /*.Cart{
+    right:-80px;
+    position:relative;
+    .text{
+      width:100%;
+      position:absolute;
+      text-align:center;
+      color:map_get($colors,primary);
+      font-weight:bold;
+      bottom:.7rem;
+      font-size:1.2rem;
+    }
+    &.activated{
+      right:0px;
+      -webkit-transition: right .5s;
+      -moz-transition: right .5s;
+      -ms-transition: right .5s;
+      -o-transition: right .5s;
+      transition: right .5s;
+    }
+    .fa{
+      &.fa-shopping-bag{
+        background:url('../assets/icon/bag.png') no-repeat center;
+        background-size:2.4rem 2.4rem;
+        width:5rem;
+        height:5rem;
+        &:before{
+          content:'';
+        }
+      }
+    }
+  }*/
+}

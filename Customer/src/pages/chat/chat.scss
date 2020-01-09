@@ -1,0 +1,163 @@
+page-chat {
+
+  ion-navbar{
+    border-bottom: 2px solid #f22b68;
+    height: 55px;
+    margin: 0px !important;
+    padding: 0px !important;
+    ion-row{
+      margin: 0px !important;
+      padding: 0px !important;
+    }
+    ion-col{
+      margin: 0px !important;
+      padding: 0px !important;
+      text-align: center;
+      &.active{
+        background-color: #e6e6e6;
+      }
+    }
+    button{
+      background-color: white !important;
+      color: black !important;
+      &.active{
+        background-color: #e6e6e6 !important;
+      }
+    }
+    .toggle .toggle-icon{
+      height: 34px !important;
+    width: 54px !important;
+    }
+    .chat-list{
+      border-right: 1px solid #bababa;
+    }
+  }
+  .scroll-content{
+    margin-top: 55px !important;
+  }
+
+  .list .item-block .item-inner {
+    border-bottom: 0px !important;
+  }
+
+  .list>.item-block:last-child,
+  .list-ios>.item-wrapper:last-child .item-block {
+    border-bottom: 0px !important;
+  }
+
+  .list ion-item-sliding {
+    border-bottom: 1px solid #c8c7cc !important;
+    ion-item-options{
+      justify-content: flex-start !important;
+        border-bottom: 0px solid #c8c7cc !important;
+        height: 32px;
+        position: absolute;
+        left: 22px;
+        z-index: 999;
+        transform: scaleX(0);
+        transform-origin: 150% 0%;
+        transition: transform .5s ease-out;
+        &.active{
+          transform: scaleX(1);
+        }
+        .action-btns{
+          height: 32px !important;
+          border-radius: 17px !important;
+        }
+        button{
+          margin-right: 26px !important;
+          display: flex;
+          height: 13px !important;  
+          margin-top: 27px !important;
+        }
+        button[icon-only]{
+          margin-top: 6px !important;  
+          //width: 21px !important;
+          font-size: 14px;
+          border-radius: 20px !important;
+        }
+        
+        [icon-only] ion-icon {
+          width: 100%;
+      }
+      .close-btn-chat{
+        width: 52px !important;
+        margin-left : -20px;
+        min-height: 25px !important;
+        //height: 20px !important;
+      }
+      .close-btn-list{
+        width: 23px !important;
+        min-height: 23px !important;
+      }
+      .block-btn{
+        width: 100%;
+        text-align: center;    
+        margin-right: -44px;
+        button{
+          width: 115px;
+        }
+      }
+    
+    }
+  }
+
+  .item ion-avatar img {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #fe5295;
+  }
+  .item p:last-child{
+    margin-bottom : 0 !important;
+  }
+
+  .content {
+    background-color: #fafafa;
+  }
+
+  .scroll-content {
+    overflow-y: auto;
+  }
+
+
+  .toolbar-title {
+    color: map_get($colors, primary);
+  }
+
+  ion-list {
+    padding: 10px !important;
+    button{
+      height: 85px !important;
+    }
+
+    h2 {
+      color: black !important;
+    }
+
+    p {
+      color: black !important;
+     margin: inherit !important;
+      //font-size: 12px !important;
+      .dot {
+        height: 7px;
+        width: 7px;
+        background-color: green;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .red-dot {
+        height: 7px;
+        width: 7px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+      }
+    }
+    .badge{
+      position: initial !important;
+    }
+  }
+
+
+
+}

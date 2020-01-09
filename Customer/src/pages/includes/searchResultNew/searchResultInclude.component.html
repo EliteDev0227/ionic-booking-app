@@ -1,0 +1,76 @@
+<p text-center *ngIf="(!SearchResult || !SearchResult.length)  && noResponse">{{ 'NO_BEACH_FOUND_ON_YOUR_SEARCH' |
+    translate }}</p>
+
+<div *ngIf="SearchResult" class="main-container">
+
+    <ion-card *ngFor="let beach of (SearchResult)| slice:0:infiniteCount  let i =index " (click)="next(beach.id,beach,beach.name,$event)">
+
+        <div class="has-closed" *ngIf="beach.closed">
+            <div class="inner-closed">
+                {{'BEACH_CLOSED_LABLE' | translate}}
+                <div class="hours"> 
+                    <!-- {{'WORKING_HOURS' | translate}} : {{beach.settings.working_hours.start}} - {{beach.settings.working_hours.end}} -->
+                </div>
+            </div>
+        </div>
+
+        <div class="result-header">
+            <h3>{{beach.name}}</h3>
+        </div>
+        <div class="result-body">
+            <div class="has-promotion" *ngIf="beach.promoted">
+                <div class="inner-promotion">
+                    Promoted
+                </div>
+            </div>
+
+            <div class="image-holder">
+                <ngx-carousel class="banner" [inputs]="carouselTile">
+                    <ngx-item NgxCarouselItem *ngFor="let tile of beach.images; let i = index;">
+                        <div class="ngx-img-div" [ngStyle]="{height:_169+'px', 'background-image':'url('+tile.url+')'}">
+                        </div>
+                    </ngx-item>
+                    <button NgxCarouselPrev class="leftRs arrow">
+                        <ion-icon name="ios-arrow-back"></ion-icon>
+                    </button>
+                    <button NgxCarouselNext class="rightRs arrow">
+                        <ion-icon name="ios-arrow-forward"></ion-icon>
+                    </button>
+                </ngx-carousel>
+            </div>
+        </div>
+
+        <div class="result-footer">
+            <ion-row>
+                <ion-col col-8>
+
+                    <div class="star-rating" (click)="rating(beach.id)">
+                        <p text-center class="reviews" (click)="rating(beach.id)">({{beach.rating_count}})</p>
+
+                        <ion-icon [name]="getRating(beach.rating,1)" [class.full]="beach.rating>0"></ion-icon>
+                        <ion-icon [name]="getRating(beach.rating,2)" [class.full]="beach.rating>1"></ion-icon>
+                        <ion-icon [name]="getRating(beach.rating,3)" [class.full]="beach.rating>2"></ion-icon>
+                        <ion-icon [name]="getRating(beach.rating,4)" [class.full]="beach.rating>3"></ion-icon>
+                        <ion-icon [name]="getRating(beach.rating,5)" [class.full]="beach.rating>4"></ion-icon>
+                    </div>
+
+                    <div class="features">
+                        <ion-icon *ngFor="let option of beach.features" name="option-{{option}}"></ion-icon>
+
+                    </div>
+                </ion-col>
+                <ion-col col-4>
+                    <div class="direction-btn-holder" *ngIf="beach.geometrical_data && beach.geometrical_data.driving">
+                        <button ion-button round (click)="openNavigator(beach,'driving')"><img class="direction-image"
+                                src="./assets/imgs/direction.png"><span class="direction-text">{{ 'GET_DIRECTION'
+                                |translate }}</span></button>
+                    </div>
+                    <div class="direction-location-text" *ngIf="beach.geometrical_data && beach.geometrical_data.driving">
+                        {{ beach.geometrical_data.driving.duration }} ({{ beach.geometrical_data.driving.distance}})
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+
+    </ion-card>
+</div>

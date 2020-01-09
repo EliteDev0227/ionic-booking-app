@@ -1,0 +1,349 @@
+page-menu {
+    ion-navbar.toolbar button[icon-only].back_btn {
+        font-size: 1.6rem;
+        height: 3.2rem;
+    }
+    ion-header{
+        position: fixed;
+    }
+
+    .toolbar-ios ion-title {
+        //padding-left: 5rem;
+    }
+
+    .beach-menu {
+        height: 100%;
+        background-color: #fafafa;
+        position: relative;
+        overflow-y: scroll;
+        min-height: 90vh;
+
+        .card {
+            padding: 1.5rem;
+            background-color: #fff;
+            transition: max-height 1s ease-in-out;
+
+            &.itemsShown {
+                position: static !important;
+
+                &.parentCard {
+                    padding-bottom: 0px;
+                }
+            }
+
+            .category {
+                font-size: 1.9rem;
+                display: flex;
+                justify-content: space-between;
+
+                .category-name {
+                    vertical-align: middle;
+                    line-height: 2.1rem;
+                }
+            }
+
+            .mainContent {
+                .ItemContents {
+                    position: relative !important;
+                    margin: 2rem auto;
+                    border-bottom: 1px solid map_get($colors, light);
+                    padding-bottom: 2rem;
+                    min-height: 10rem;
+
+                    &:last-child {
+                        border-bottom: none;
+                        padding-bottom: 0;
+                    }
+
+                    .col {
+                        padding-right: 1rem;
+
+                        &:last-child {
+                            padding-right: 0;
+                        }
+                    }
+
+                    img {
+                        min-height: 8vh;
+                        width: 100%; //border:2px solid map_get($colors,grey);
+                    }
+
+                    .name {
+                        color: #7d0031;
+                        font-weight: 600;
+                        font-size: 1.8rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+
+                    .description {
+                        font-weight: 600;
+                        font-size: 1.5rem;
+                    }
+
+                    .add-amount {
+                        position: absolute;
+                        bottom: 1px;
+
+                        .price {
+                            //position: absolute;
+                            //top: 1px;
+                            font-weight: bold;
+                            font-size: 2rem;
+                            right: 0;
+                            left: 0;
+                            text-align: center;
+                            width: 100%;
+                        }
+
+                        .addBtn {
+                            //position: absolute;
+                            bottom: 1px;
+
+                            .button {
+                                -webkit-border-radius: 50px;
+                                -moz-border-radius: 50px;
+                                border-radius: 50px;
+                                max-height: 3rem;
+                                width: 6rem;
+                                text-align: center;
+
+                                span {
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        .details {
+            .toppings {
+                div {
+                    width: 100%;
+                    margin-top: 1rem;
+
+                    .category-name {
+                        &:first-child {
+                            width: 20%;
+
+                            button {
+                                height: 20px;
+                                width: 20px;
+                                position: relative;
+                                top: -.7rem;
+                                background: map_get($colors, light);
+
+                                &.active {
+                                    background:#751138;
+                                    // background: map_get($colors, primary);
+                                }
+                            }
+                        }
+
+                        float:left;
+                        width:50%;
+                    }
+
+                    .category-price {
+                        float: left;
+                        width: 25%;
+                    }
+                }
+            }
+
+            .category {
+                font-size: 1.6rem;
+                display: flex;
+                font-weight: 600;
+                justify-content: space-between;
+
+                .top-image {
+                    img {
+                        width: 100%;
+                        min-height: 30vh; //border:2px solid map_get($colors,grey);
+                        margin: 1rem auto 2rem;
+                    }
+
+                    width:100vw;
+                    border-bottom:1px solid #eee;
+                    margin-bottom:1rem;
+                }
+
+                .category-name {
+                    vertical-align: middle;
+                    line-height: 2rem;
+                    width: 100%;
+                }
+
+                .category-description {
+                    clear: both;
+                    margin-top: .5rem;
+                    font-size: 1.2rem;
+                    width: 50%;
+                }
+
+                .category-price {
+                    width: 100%;
+                    text-align: right;
+                }
+
+                .category-main {
+                    width: 90%;
+
+                    .category-label {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .category-comment {
+                    ion-input {
+                        font-size: 1.4rem;
+
+                        input {
+                            &::placeholder {
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+
+                .category-quantity {
+                    width: 100%;
+                    overflow: hidden;
+                    text-align: center;
+                    @include border-radius(50px);
+                    border: 1px solid map_get($colors, light);
+                    margin: 2rem auto 0;
+
+                    .minus,
+                    .plus,
+                    .screen {
+                        display: inline-block;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .button {
+                        width: 14%;
+                        height: 36px !important;
+                        padding: 0 2rem;
+                        margin: 0;
+
+                        &.minus {
+                            border-right: 1px solid map_get($colors, light);
+
+                            span {
+                                position: relative;
+                                left: -.5rem;
+                            }
+                        }
+
+                        &.plus {
+                            border-left: 1px solid map_get($colors, light);
+
+                            span {
+                                position: relative;
+                                right: -.5rem;
+                            }
+                        }
+
+                        .icon {
+                            font-size: 2.5rem;
+                        }
+                    }
+
+                    .screen {
+                        width: 60%;
+                        text-align: center;
+
+                        span {
+                            position: relative;
+                            top: .5rem;
+                        }
+                    }
+                }
+            }
+
+            .addToCart {
+                width: 100%;
+                text-align: center;
+
+                .button {
+                    height: 35px !important;
+                    background: linear-gradient(to right, #fe5295, #f86d67);
+                    @include border-radius(50px);
+                    width: 60%;
+                    font-weight: 600;
+                    font-size: 16px !important
+                }
+            }
+        }
+    }
+
+    #notification-button {
+        position: relative;
+        width: 42px;
+        top: 1px;
+        right: 1px;
+        overflow: visible !important;
+    }
+
+    #notifications-badge {
+        background-color: #62646d;
+        position: absolute;
+        top: -.2rem;
+        right: -.2rem;
+        border-radius: 100%;
+        min-width: 1.55rem;
+        padding: .3rem;
+    }
+
+    @media only screen and (max-width: 320px) {
+
+        .beach-menu {
+            .card {
+                .category {
+                    font-size: 14px !important;
+
+                    .category-quantity {
+                        .button {
+                            padding: 0 !important;
+                        }
+                    }
+                }
+
+                .mainContent {
+                    .ItemContents {
+                        .name {
+                            font-size: 14px !important;
+                        }
+
+                        .description {
+                            font-size: 12px !important;
+                        }
+
+                        .add-amount {
+                            .addBtn {
+                                .button {
+                                    height: 25px !important;
+                                    font-size: 11px !important;
+
+                                    span {
+                                        font-size: 11px !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,19 @@
+<ion-header class="has-shadow" #header>
+    <ion-navbar>
+        <ion-title>{{ 'EVENTSE' | translate }}</ion-title>
+        <ion-buttons end>
+            <button ion-button clear icon-only right (click)='onClose()'>
+                <ion-icon name="ios-close-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="events">
+    <ion-item *ngFor="let item of items;" (click)="openEvents(item)" no-lines>
+        <div class="badge" *ngIf="item.unread"></div>
+        <h2>{{item.title}}</h2>
+        <p>{{item.contents}}</p>
+        <h1>{{item.location}} ({{item.date}})</h1>
+    </ion-item>
+</ion-content>

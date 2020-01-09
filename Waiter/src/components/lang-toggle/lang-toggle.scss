@@ -1,0 +1,74 @@
+lang-toggle {
+    .back_drop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.403);
+    }
+    .wrapper {
+        // display: inline-block;
+        .lang_toggle {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            margin-left: 10rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 .3rem .4rem rgba(0, 0, 0, 0.219);
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .drop_down {
+            position: absolute;
+            width: 15rem;
+            padding: 1rem .5rem;
+            background-color: white;
+            border-radius: 1rem;
+            .drop_wrapper {
+                overflow: hidden;
+                overflow-y: scroll;
+                max-height: 18rem;
+                min-height: 10rem;
+                ion-item.item {
+                    padding-left: .5rem;
+                    [item-start] {
+                        width: 1rem;
+                        height: auto;
+                    }
+                    .item-inner {
+                        padding-right: .2rem;
+                    }
+                    h2 {
+                        color: black;
+                        word-wrap: break-word;
+                        white-space: pre-wrap;
+                    }
+                    [item-end] {
+                        margin: 0;
+                        img {
+                            width: 3.5rem;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+            box-shadow: 0 .5rem .5rem rgba(0, 0, 0, 0.342);
+        }
+        .drop_down:before {
+            content: '';
+            position: absolute;
+            top: .2rem;
+            left: 80%;
+            width: 0;
+            height: 0;
+            border: 12px solid transparent;
+            border-bottom-color: white;
+            border-top: 0;
+            margin-left: -12px;
+            margin-top: -12px;
+        }
+    }
+}

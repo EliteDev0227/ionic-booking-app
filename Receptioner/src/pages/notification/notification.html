@@ -1,0 +1,168 @@
+<ion-header mode="ios">
+    <!-- <ion-toolbar> -->
+    <div class="filter_cont">
+        <button class="reset" ion-button mode="ios" (click)="searchReset()">{{ 'Components.RESET_SEARCH' | translate }}</button>
+        <div class="check" [style.color]="colorMap.pending">
+            <ion-checkbox mode="md" [(ngModel)]="sFilter.pending" [disabled]="sFilter.pending" (ionChange)="filterCheck($event, 'pending')"></ion-checkbox>
+            <p>{{ 'Components.PENDING' | translate }}</p>
+        </div>
+        <div class="check" [style.color]="colorMap.booked">
+            <ion-checkbox mode="md" [(ngModel)]="sFilter.booked" [disabled]="sFilter.booked" (ionChange)="filterCheck($event, 'booked')"></ion-checkbox>
+            <p>{{ 'Components.BOOKED' | translate }}</p>
+        </div>
+        <!-- <div class="check">
+      <ion-checkbox mode="md" [(ngModel)]="sFilter.request" [disabled]="sFilter.request" (ionChange)="filterCheck($event, 'request')"></ion-checkbox>
+      <p>{{ 'Components.REQUEST' | translate }}</p>
+    </div> -->
+        <div class="check" [style.color]="colorMap.paid">
+            <ion-checkbox mode="md" [(ngModel)]="sFilter.paid_online" [disabled]="sFilter.paid_online" (ionChange)="filterCheck($event, 'paid_online')"></ion-checkbox>
+            <p>{{ 'Components.PAID' | translate }} {{ 'Components.ONLINE' | translate }}</p>
+        </div>
+        <div class="check" [style.color]="colorMap.occupied">
+            <ion-checkbox mode="md" [(ngModel)]="sFilter.occupied" [disabled]="sFilter.occupied" (ionChange)="filterCheck($event, 'occupied')"></ion-checkbox>
+            <p>{{ 'Components.OCCUPIED' | translate }}</p>
+        </div>
+        <div class="check" [style.color]="colorMap.unread">
+            <ion-checkbox mode="md" [(ngModel)]="sFilter.unread" [disabled]="sFilter.unread" (ionChange)="filterCheck($event, 'unread')"></ion-checkbox>
+            <p>{{ 'Components.UNREAD' | translate }}</p>
+        </div>
+        <div class="search_bar">
+            <ion-label class="u_phone">
+                <ion-icon name="ios-add-outline"></ion-icon>
+            </ion-label>
+            <ion-input type="number" placeholder="{{ 'Components.PHONE_NUMBER' | translate }}" (keyup.enter)="onPhoneSearch()" clearInput [(ngModel)]="sFilter.phone" type="number"></ion-input>
+            <button ion-button mode="ios" (click)="onPhoneSearch()">{{ 'Components.SEARCH' | translate }}</button>
+        </div>
+    </div>
+    <!-- <button class="reset-scroll-button" [ngClass]="{'visible':showScrollButton, 'hidden': !showScrollButton}" ion-button icon-only (click)="onNavigateTop()">
+      <ion-icon name="ios-arrow-up"></ion-icon>
+  </button> -->
+    <!-- </ion-toolbar> -->
+</ion-header>
+<!-- <ion-content padding class="hasMenu" (ionScrollStart)="startScroll($event)"> -->
+<ion-content padding class="hasMenu not">
+
+    <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="pull to refresh" refreshingSpinner="circles" refreshingText="Loading...">
+    </ion-refresher-content>
+  </ion-refresher> -->
+
+    <ion-list>
+
+        <div class="item_wrapper" *ngFor="let item of getNotificData();let ind = index">
+
+            <ion-item (swipe)="onSwipeItem(item)" (click)="itemClick(item)">
+                <!-- <div>{{ind}}</div> -->
+                <div *ngIf="item.clicked && item.status=='pending'" class="item-options-overlay">
+                    <!-- <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'view_change', $event)">{{ 'Buttons.VIEW_CHANGE' | translate }}</button> -->
+                    <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'accept', $event)">{{
+                        'Buttons.ACCEPT' | translate }}</button>
+                    <button ion-button margin class="font-red" color="over_btn" (click)="confirmPosition(item, 'cancel', $event)">{{
+                        'Buttons.CANCEL_REQUEST' | translate }}</button>
+                    <button *ngIf="!item.accepted" ion-button margin color="over_btn" (click)="checkPhoto(item, $event)">{{
+                        'Buttons.CHECK_CUSTOMER' | translate }}</button>
+                </div>
+
+                <div *ngIf="item.clicked && item.status=='change-request'" class="item-options-overlay">
+                    <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'change_request_confirm', $event)">{{
+                        'Buttons.CONFIRM' | translate }}</button>
+                    <button ion-button margin color="over_btn" class="font-red" (click)="confirmPosition(item, 'change_request_reject', $event)">{{
+                        'Buttons.REJECT' | translate }}</button>
+                </div>
+
+                <div *ngIf="item.clicked && item.status=='booked' && item.payment_method == 'offline'" class="item-options-overlay">
+                    <!-- <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'view_change', $event)">{{ 'Buttons.VIEW_CHANGE' | translate }}</button> -->
+                    <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'payoff', $event)">{{
+                        'Buttons.PAY_OFF' | translate }}</button>
+                    <button ion-button margin class="font-red" color="over_btn" (click)="confirmPosition(item, 'cancel', $event)">{{
+                        'Buttons.CANCEL_REQUEST' | translate }}</button>
+                    <button *ngIf="!item.accepted" ion-button margin color="over_btn" (click)="checkPhoto(item, $event)">{{
+                        'Buttons.CHECK_CUSTOMER' | translate }}</button>
+                </div>
+                <div *ngIf="item.clicked && item.status=='active'" class="item-options-overlay">
+                    <!-- <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'view_change', $event)">{{ 'Buttons.VIEW_CHANGE' | translate }}</button> -->
+                    <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'release_all', $event)">{{
+                        'Buttons.RELEASE_ALL' | translate }}</button>
+                </div>
+                <div *ngIf="item.clicked && item.status=='booked' && item.payment_method == 'online'" class="item-options-overlay">
+                    <!-- <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'view_change', $event)">{{ 'Buttons.VIEW_CHANGE' | translate }}</button> -->
+                    <button ion-button margin color="over_btn" (click)="confirmPosition(item, 'confirm', $event)">{{
+                        'Buttons.CONFIRM' | translate }}</button>
+                    <button ion-button margin color="over_btn" class="font-red" (click)="confirmPosition(item, 'cancel', $event)">{{
+                        'Buttons.CANCEL_REQUEST' | translate }}</button>
+                </div>
+
+                <div item-start class="notification-card">
+                    <h3 [style.color]="item.status_color">{{ item.status_text }}
+                        <span>({{ item.time }})</span>
+                    </h3>
+                    <h4>&nbsp;{{ 'Components.LISTING_BY_TEXT' | translate }}:
+                        <span>{{ item.by=='null' ? '' : item.by }}</span>
+                    </h4>
+                    <h4>{{ 'Components.LISTING_FOR_TEXT' | translate }}:
+                        <span>{{ item.for=='null' ? '' : item.for }}</span>
+                    </h4>
+                </div>
+
+                <p class="middle">{{ 'Components.LISTING_PERIOD_TEXT' | translate }}:
+                    <span>{{ item.period.start }} - {{ item.period.end }}</span>
+                </p>
+                <p class="middle" *ngIf="item.seat.type == 'baldaquin'">{{ 'Components.LISTING_POSITION_TEXT' | translate }}:
+                    <span>{{ item.seat.number }}</span>
+                </p>
+                <p class="middle" *ngIf="item.status == 'change-request' && item.seat.type == 'baldaquin'">
+                    <span>{{ 'Components.LISTING_NEW_NUMBER_TEXT' | translate }}: {{item.seat.new_number}} / {{
+                        'Components.LISTING_NEW_ZONE_TEXT'
+                        | translate }}: {{item.seat.new_zone}}</span>
+                    <br>
+                    <span style="color: #ffffff;">{{ 'Components.CHANGE_REQUEST_CONFIRMATION_TEXT' | translate }}</span>
+                </p>
+                <p class="middle" *ngIf="item.seat.type == 'umbrella'">{{ 'Components.LISTING_POSITION_TEXT' | translate }}:
+                    <span>{{ item.seat.sunbeds + (item.seat.extra_sunbeds ? item.seat.extra_sunbeds : 0) }} {{
+                        'Components.SUNBEDS'
+                        | translate }} ( {{ item.seat.sides }} )</span>
+                </p>
+                <p class="middle" *ngIf="item.status == 'change-request' && item.seat.type == 'umbrella'">
+                    <span style="color: #54fe62;">{{ 'Components.LISTING_NEW_TEXT' | translate }}:</span>
+                    <span>{{ 'Components.LISTING_UMBRELLA_TEXT' | translate }} {{item.seat.new_sides}} - {{
+                        item.seat.new_sunbeds
+                        + (item.seat.new_extra_sunbeds ? item.seat.new_extra_sunbeds : 0) }} {{
+                        'Components.LISTING_SUNBEDS_TEXT'
+                        | translate }} - {{item.seat.new_zone}}</span>
+                    <br>
+                    <span style="color: #ffffff;">{{ 'Components.CHANGE_REQUEST_CONFIRMATION_TEXT' | translate }}</span>
+                </p>
+                <p class="middle" *ngIf="item.seat.type == 'sunbed'">
+                    <span>{{ item.seat.sunbeds }} {{ 'Components.SUNBED_OR_SUNBEDS' | translate }}</span>
+                </p>
+                <p class="middle" *ngIf="item.status == 'change-request' && item.seat.type == 'sunbed'">
+                    <span style="color: #54fe62;">{{ 'Components.LISTING_NEW_TEXT' | translate }}:</span>
+                    <span>{{item.seat.new_count}} {{ 'Components.SUNBED_OR_SUNBEDS' | translate }}</span>
+                    <br>
+                    <span style="color: #ffffff;">{{ 'Components.CHANGE_REQUEST_CONFIRMATION_TEXT' | translate }}</span>
+                </p>
+                <p class="middle" *ngIf="item.released_days.length">{{ 'Components.LISTING_DAYS_RELEASED_TEXT' | translate }}:
+                    <span>{{ item.released_days.join(', ') }}</span>
+                </p>
+
+                <div class="end" item-end>
+                    <p>{{ 'Components.LISTING_ORDER_NUMBER_TEXT' | translate }}
+                        <span>#{{ item.number }}</span>
+                    </p>
+                    <div class="protocol-flag" *ngIf="item.protocol">protocol</div>
+                    <div class="protocol-flag" *ngIf="item.discount">discount <span class="protocol-flag">{{item.discount_per}}%</span></div>
+                    <h3 item-end>{{ getDispTotal(item) }}</h3>
+                </div>
+
+            </ion-item>
+
+            <div [ngClass]="item.read ? 'bubble' : 'bubble active'"></div>
+
+        </div>
+
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="isInfinite">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

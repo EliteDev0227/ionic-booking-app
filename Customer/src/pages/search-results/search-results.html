@@ -1,0 +1,31 @@
+<ion-header class="has-shadow">
+
+	<ion-navbar>
+		<ion-title>{{ title }}</ion-title>
+
+		<!-- <ion-buttons right>
+			<button ion-button icon-only (click)="showFilter()">
+				<ion-icon name="options"></ion-icon>
+			</button>
+		</ion-buttons> -->
+
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<div *ngIf="filters.length > 0" padding id="filters">
+		<ion-chip *ngFor="let filter of filters" color="primary">
+			<ion-label>{{filter}}</ion-label>
+			<button ion-button clear color="dark" (click)="removeFilter(filter)">
+				<ion-icon name="close-circle"></ion-icon>
+			</button>
+		</ion-chip>
+	</div>
+
+	<app-search-result-include [noResponse]="noResponse" [SearchParam]="SearchInput" [searchInput]="SearchResult | ProductSort: dataFilter.filter: 'features': dataFilter.order"
+	 [Title]="title"></app-search-result-include>
+
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-row padding align-items-center id="top-buttons">
+	<ion-col>
+		<button ion-button round full pink-gradient [ngClass]="search_by == 'location' ? 'selected' : 'default'" (click)="byLocation()">{{
+			'BY_LOCATION' | translate}}</button>
+	</ion-col>
+	<ion-col col-1 text-center no-padding>{{'OR_LABLE' | translate}}</ion-col>
+	<ion-col>
+		<button ion-button round full pink-gradient [ngClass]="search_by == 'near' ? 'selected' : 'default'" (click)="nearBy()" >{{
+			'NEAR_BY' | translate}}</button>
+			<!-- <div class="text-center" *ngIf="beaches && beaches.length>1"> {{beaches.length}} {{(beaches && beaches.length>1)?'beaches':'beach'}} </div> -->
+	</ion-col>
+</ion-row>
+
+<ion-list margined inset no-lines no-top-margin>
+
+	<div class="content" *ngIf="search_by == 'location'">
+		<h2 text-center text-uppercase>{{ 'SELECT_YOUR_PLACE' | translate }}</h2>
+
+		<ion-item>
+			<ion-label floating>{{ 'COUNTRY' | translate }}</ion-label>
+			<ion-input type="text" readonly (ionBlur)="isFocused(false,false)" [(ngModel)]="SearchDetails.country" (ionFocus)="myKeyPress($event,'country')"
+			 data-name="country"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label floating>{{ 'PLACE' | translate }}</ion-label>
+			<ion-input type="text" readonly (ionBlur)="isFocused(false,false)" [(ngModel)]="SearchDetails.place" (ionFocus)="myKeyPress($event,'place')"
+			 data-name="place" #placeFocus></ion-input>
+		</ion-item>
+	</div>
+
+	<br />
+	<br />
+	<br />
+	<h3 text-capitalize no-margin style="text-align: center">{{ 'SELECT_PERIOD' | translate }}</h3>
+	<ion-row no-side-padding>
+
+		<ion-col col-6>
+			<ion-item (click)="presentCalendarStart()">
+				<ion-label stacked text-capitalize color="primary" style="font-weight: bold">{{ 'START_DATE' | translate }}</ion-label>
+				<ion-datetime displayFormat="MM/DD/YYYY" disabled type="text" placeholder="01/01/2018" [(ngModel)]="date.from"></ion-datetime>
+			</ion-item>
+		</ion-col>
+
+		<ion-col col-6 class="end_date">
+			<ion-item (click)="presentCalendar()">
+				<ion-label stacked text-capitalize color="primary" style="font-weight: bold">{{ 'END_DATE' | translate }}</ion-label>
+				<ion-datetime displayFormat="MM/DD/YYYY" disabled type="text" placeholder="01/01/2018" [(ngModel)]="date.to"></ion-datetime>
+			</ion-item>
+		</ion-col>
+	</ion-row>
+
+	<ion-label text-small text-center no-top-margin>
+		<span *ngIf="date.period > 1">{{ 'WITHIN_DAY_PERIOD_PLURAL' | translate | interpolate : ["period",date.period] }}</span>
+		<span *ngIf="date.period == 1">{{ 'WITHIN_DAY_PERIOD_SINGULAR' | translate | interpolate : ["period",date.period]
+			}}</span>
+
+	</ion-label>
+
+	<button ion-button round full pink-gradient class="next-btn" [disabled]="!shouldAllowSubmit()" (click)="next()">{{ 'NEXT' | translate
+		}}</button>
+
+</ion-list>

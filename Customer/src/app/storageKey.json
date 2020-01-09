@@ -1,0 +1,20 @@
+{
+  "login":"loginStore",
+  "register":"registerStore",
+  "AdditionalRegData":"LocationStore",
+  "smsValidation":"ValidationStore",
+  "lang":"LanguageStore",
+  "country":"CountriesStore",
+  "places":"placesStore",
+  "deviceInfo":"DeviceInfo",
+  "LangApi":"ApiLanguage",
+  "Filters":"FilterStore",
+  "beach_settings":"beach_settingsStore",
+  "weather":"WeatherStore",
+  "beach":"BeachStore",
+  "menu":"MenuStore",
+  "tab":"TabStore",
+  "reservation":"reserveStore",
+  "UserPhoneInfo":"phoneInfoStore",
+  "events":"events"
+}

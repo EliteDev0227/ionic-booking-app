@@ -1,0 +1,82 @@
+page-tabs {
+  .tabs {
+    .badge{
+      font-size:1rem;
+      right:-4vw;
+      top:0vw;
+      position:absolute;
+    }
+    #mask {
+      transition: visibility 0s, opacity 0.5s;
+      visibility: hidden;
+      background-color: #000;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .tabbar {
+      transition: 0.5s;
+      .tab-button .tab-button-text {
+        font-size: .8rem;
+        text-transform: uppercase;
+        line-height: 1rem;
+      }
+    }
+
+    .toolbar.menu {
+      position: absolute;
+      transition: 0.5s;
+      height: 90px;
+      bottom: -90px;
+
+      .bar-buttons {
+       display: flex;
+        justify-content: right;
+        padding:0 !important;
+
+        .bar-button {
+          font-size: 1.2rem;
+          color: #000;
+          height:auto !important;
+          .icon-div {
+
+            background-color: color($colors, light);
+            border-radius: 50%;
+            height: 4rem;
+            width: 4rem;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+
+            .icon {
+              color: #aaa;
+              vertical-align: middle;
+              line-height: 4rem;
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+
+    &.menu-shown {
+
+      #mask {
+        visibility: visible;
+        opacity: 0.5;
+      }
+
+      .tabbar {
+        bottom: 90px!important;
+      }
+
+      .toolbar.menu {
+        bottom: 0;
+      }
+    }
+  }
+
+}

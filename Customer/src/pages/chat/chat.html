@@ -1,0 +1,81 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-row>
+        <ion-col class="chat-list" [ngClass]="selected == 'chatlist'?'active':''">
+            <button ion-button icon-only (click)="selected = 'chatlist'" [ngClass]="selected == 'chatlist'?'active':''">
+                <ion-icon color="primary" name="list"></ion-icon>
+              </button>
+        </ion-col>
+        <ion-col class="chat-list" [ngClass]="selected == 'list'?'active':''">
+            <button ion-button icon-only (click)="selected = 'list'" [ngClass]="selected == 'list'?'active':''">
+                <ion-icon color="primary" name="chatbubbles"></ion-icon>
+              </button>
+        </ion-col>
+        <ion-col>
+          
+          
+            
+        </ion-col>
+        </ion-row>
+        
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="selected == 'list' ">
+
+  <ion-list >
+    <ion-item-sliding disabled=true #slidingItem *ngFor="let cus of currentItems; let i = index" >
+      
+      <button #item ion-item detail-none (click)="openItem(cus)" >
+        <ion-avatar item-left>
+          <img src="./assets/imgs/samples.jpg" #myImage (click)="presentImage(myImage)" />
+        </ion-avatar>
+        <h2>{{cus.name}}</h2>
+        <p><span class="dot"></span> {{cus.about}}</p>
+        <ion-badge item-end color="primary">11</ion-badge>
+        <div  (click)="openOption(slidingItem, item)" item-end><i class='fa fa-ellipsis-v'></i></div>
+      </button>
+        <ion-item-options [ngClass]= "class ? 'active' : ''" side="right" >
+          <button ion-button round full class="action-btns" (click)= "onclickBlock(cus)">
+            Block
+          </button>  
+          <button ion-button round full class="action-btns" (click)="deleteChat(cus, i)">  
+             Delete
+          </button>
+          <button ion-button icon-only class="close-btn-chat" (click)="closeOption(item)">
+              <ion-icon name="close"></ion-icon>
+            </button>  
+        </ion-item-options>
+      
+
+    </ion-item-sliding>
+    
+  </ion-list>
+</ion-content>
+<ion-content  *ngIf="selected == 'chatlist' ">
+
+  <ion-list>
+    <ion-item-sliding disabled=true #slidingItem *ngFor="let cus of currentItems">
+      <button #item ion-item detail-none (click)="openItem(cus)" [disabled] = "cus.blocked =='true' ">
+        <ion-avatar item-left>
+          <img src="./assets/imgs/beaches/beach1.png" #myImage (click)="presentImage(myImage)" />
+        </ion-avatar>
+        <h2>{{cus.name}}</h2>
+        <div (click)="openOption(slidingItem, item)" item-end><i class='fa fa-ellipsis-v'></i></div>
+      </button>
+      <ion-item-options  [ngClass]= "class ? 'active' : ''" side="right" >
+        <div class="block-btn">
+          <button ion-button round class="action-btns" (click)= "onclickBlock(cus)">
+            Block
+          </button>  
+        </div>
+          <button ion-button icon-only class="close-btn-list" (click)="closeOption(item)">
+              <ion-icon name="close"></ion-icon>
+            </button>  
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,88 @@
+<!--
+  Generated template for the MySeatsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar color="primary">
+        <!-- <three-pair-toggle float-left firstLabel="ALL" secondLabel="ORDERS" thirdLabel="OCCUPIED" forthLabel="FREE" [checked]="kindFilter" enabled="true" (clicked)="onClickOrderStatusFilter($event)"></three-pair-toggle> -->
+        <div class="check-item">
+            <double-toggle firstLabel="LABELS.ALL_CAPS" secondLabel="LABELS.ORDERS_CAPS" thirdLabel="LABELS.FREE_CAPS"
+                [checked]="orderStatus" enabled="true" (clicked)="onClickOrderStatusFilter($event)"></double-toggle>
+        </div>
+        <div class="check-item">
+            <double-toggle firstLabel="LABELS.ONLINE" secondLabel="LABELS.OFFLINE" thirdLabel="LABELS.ALL"
+                [checked]="connectionStatus" enabled="true" (clicked)="onClickConnectionStatusFilter($event)">
+            </double-toggle>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid no-padding>
+        <!-- Part of Beach Seat -->
+        <ion-row>
+            <ng-container *ngFor="let seat of seats">
+                <ion-col class="beach-wrapper" *ngIf="filterOrderStatusSeat(seat) && filterConnectionStatusSeat(seat)">
+                    <div class="beach-cell" (click)="onClickSeat(seat)" [style.background-color]="seat?.waiter?.color">
+                        <div [ngClass]="getShapeClass(seat)">
+                            <ng-container *ngIf="true || seat.type != 'baldaquin'">
+
+                                <!--div class="side" *ngIf="seat.status.a.length > 0">
+                                    <ng-container *ngFor="let status of seat.status.a">
+                                        <div class="status" [style.backgroundColor]="getStatusColorSeatA(seat, status)"
+                                            [ngStyle]="getStatusHeight(seat.status.a)"></div>
+                                    </ng-container>
+                                </div>
+                                <div class="side" *ngIf="seat.status?.b.length > 0">
+                                    <ng-container *ngFor="let status of seat.status.b">
+                                        <div class="status" [style.backgroundColor]="getStatusColorSeatB(seat, status)"
+                                            [ngStyle]="getStatusHeight(seat.status.b)"></div>
+                                    </ng-container>
+                                </div-->
+                                <ng-container *ngFor="let seatSide of seat.statusList">
+                                    <div class="side" *ngIf="seat.status[seatSide].length > 0">
+                                        <ng-container *ngFor="let status of seat.status[seatSide]">
+                                            <div class="status"
+                                                [style.backgroundColor]="getStatusColor(seat.status[seatSide])"
+                                                [ngStyle]="getStatusHeight(seat.status[seatSide])"></div>
+                                        </ng-container>
+                                    </div>
+
+                                </ng-container>
+                                <!--ng-container *ngFor="let seatName of seat.statusList, let ind=index;">
+                                    <div class="side" *ngIf="seat.status[seatName].length > 0">
+                                        <ng-container *ngFor="let status of seat.status[seatName]">
+                                            <div class="status"
+                                                [style.backgroundColor]="getStatusColorSeatAll(seat, seatName,ind)"
+                                                [ngStyle]="getStatusHeight(seat.status[seatName])"></div>
+                                        </ng-container>
+                                    </div>
+                                </ng-container-->
+                            </ng-container>
+                            <ng-container *ngIf="false && seat.type == 'baldaquin'">
+                                <div class="side">
+                                    <div class="status" [style.backgroundColor]="getStatusColorSeat(seat)"
+                                        [ngStyle]="getStatusHeight(seat.status)"></div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="number">{{ seat.number }}</div>
+                    </div>
+                </ion-col>
+            </ng-container>
+            <ng-container *ngFor="let sunbed of sunbeds">
+                <ion-col class="beach-wrapper"
+                    *ngIf="filterOrderStatusSunbed(sunbed) && filterConnectionStatusSunbed(sunbed)">
+                    <div class="beach-cell" (click)="onClickSeat(sunbed)"
+                        [style.background-color]="sunbed?.waiter?.color">
+                        <div class="trianglar"
+                            [ngClass]="sunbed.orders ? status_color.new_order : status_color.has_reservations"></div>
+                        <p class="number">{{ sunbed.number }}</p>
+                    </div>
+                </ion-col>
+            </ng-container>
+        </ion-row>
+    </ion-grid>
+</ion-content>

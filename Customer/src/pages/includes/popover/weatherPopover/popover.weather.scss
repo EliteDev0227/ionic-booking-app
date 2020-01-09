@@ -1,0 +1,156 @@
+popover_weather {
+  .scroll-content {
+    //height: 482px;
+    overflow: hidden ;
+    background: linear-gradient(#4e4eae, #45bcd4);
+    padding-top: 0;
+  }
+  .weather-img{
+    width:60px;
+    height:60px;
+    margin-right: 7%;
+  }
+  .main-content{
+    padding: initial !important;
+  }
+  .head-div{
+    display: flex;
+    p{
+      text-align: center;
+      margin: 0 auto;
+      color: white;    font-size: 19px;
+    }
+    .close-btn{
+      height: 26px !important;
+      border-radius: 50%;
+      width: 26px;
+      font-size: 14px;
+      color: white;    
+      margin-top: -6px;
+      position: absolute;
+      right: 8px;
+      background-color: #a9a6a7 !important;
+    }
+  }
+  .main-div{
+    display: flex;
+    border-bottom: 1px solid #85ade0;
+    h2{
+      text-align: center;
+      color: white;   
+      height: 55px;
+      margin: 0;
+      font-size: 55px;
+    }
+    .cloud-icon{
+      font-size: 22px;
+      color: white;
+      margin: 0;
+      height: 65px;
+      width: 64px;
+      background: transparent;
+    }
+
+    .sub-div{
+      margin: 0 auto;
+      display: flex;
+    }
+
+    
+  }
+  .main-title{
+    text-align: center;
+    font-size: 19px;
+    color: white;
+   // height: 35px;
+  }
+  .sub-title{
+    text-align: center;
+    font-size: 19px;
+    color: white;
+    margin-top: 10px;
+  }
+
+  .wind-det{
+    margin-top: 15px;
+    display: flex;    
+    height: 73vh;
+    .wind-cols{
+      border-right: 1px solid #b7b7b7;
+      
+      .wind-items{
+        text-align: center;
+        color: white;
+        .each-weather{
+          margin-top: 22px;
+          .image{
+            height: 25px;
+            width: 25px;   border-radius: 50%;
+          }
+          .weather-btns{
+            background: transparent;
+            height: 23px;
+            font-size: 15px;
+          }
+          .drop-btns{
+            background: transparent;
+            margin: 0;
+            font-size: 6px;
+          }
+          .wind{
+            color: black;
+          }
+        }
+        .dot {
+          height: 5px;
+          width: 5px;
+          background-color: white;
+          border-radius: 50%;
+          display: inline-block;
+        }
+        
+      }
+    }
+    .wind-cols:last-child{
+      border-right: 0px !important
+    }
+  }
+  
+
+  //background: linear-gradient(#4e4eae,#45bcd4);
+
+  .languageHolder {
+    background: transparent;
+
+    .item {
+      height: 40px;
+      margin: 10px auto;
+      color: white;
+
+      .tick,
+      .name {
+        display: inline-block;
+      }
+
+      .tick {
+        @include weather();
+        background-size: 20px 20px;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px !important;
+
+      }
+
+      .name {
+        width: 70px;
+        position: relative;
+        top: -1rem;
+        text-transform: capitalize;
+        color: map_get($colors, dark) !important;
+        font: $font-family-base 1.3rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

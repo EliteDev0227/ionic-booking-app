@@ -1,0 +1,15 @@
+<!-- Generated template for the DoubleToggleComponent component -->
+<div class="wrapper">
+    <div class="bar-cont">
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <button (click)="toggleClick(1)"> <div [className]="checked == 1 ? 'view-circle visible color-online' : 'view-circle invisible'"></div> </button>
+    <button (click)="toggleClick(2)"> <div [className]="checked == 2 ? 'view-circle visible color-offline' : 'view-circle invisible'"></div> </button>
+    <button (click)="toggleClick(3)"> <div [className]="checked == 3 ? 'view-circle visible' : 'view-circle invisible'"></div> </button>
+    <p>
+        <span [className]="checked == 1 ? 'selected' : ''" translate>{{ firstLabel }}</span>
+        <span [className]="checked == 2 ? 'selected' : ''" translate>{{ secondLabel }}</span>
+        <span [className]="checked == 3 ? 'selected' : ''" translate>{{ thirdLabel }}</span>
+    </p>
+</div>

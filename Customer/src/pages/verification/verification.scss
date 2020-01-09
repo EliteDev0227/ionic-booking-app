@@ -1,0 +1,81 @@
+verification{
+
+  .toolbar-title{
+    text-align:center;
+    font-size:1.7rem;
+    color:map_get($colors,primary);
+    font-weight:600;
+  }
+  .bar-button{
+      font-weight:600;
+    font-size:1.7rem;
+    }
+
+
+
+  .scroll-content{
+    background-image: url('../assets/imgs/login-page-background.png');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    height:100vh;
+  }
+
+
+  .textBody{
+    .paragraphMargined{
+      font-size:1.4rem;
+      text-align:center;
+      font-weight:400;
+      width:80%;
+      font-family:$font-family-base;
+      margin:2rem auto;
+
+    }
+  }
+
+  .margin{
+    &.top{
+      margin-top:4rem;
+      &.double{
+        margin-top:8rem;
+      }
+    }
+    &.bottom{
+      margin-bottom:4rem;
+      &.double{
+        margin-bottom:8rem;
+      }
+    }
+  }
+  .boxInput{
+    width:55%;
+    margin:0 auto;
+    .label{
+      padding:0;
+    }
+    input{
+      border-bottom:3px solid black;
+      width:18%;
+      text-align:center;
+      font-size:2rem;
+      float:left;
+      padding:0;
+      margin:0 3%;
+    }
+  }
+
+  .counterSection{
+    width:80%;
+    font-family:$font-family-base;
+    margin:4rem auto;
+    p{
+      color:map_get($colors,primary);
+    span{
+      font-weight:bold;
+    }
+
+    }
+  }
+}

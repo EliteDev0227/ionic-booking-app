@@ -1,0 +1,50 @@
+release{
+  .bar-button.back-button{
+    display:none;
+  }
+  .toolbar-title{
+    font-size:6vw;
+    color:map_get($colors,danger);
+    font-weight:bold;
+    text-transform:capitalize;
+  }
+
+  .list{
+    padding:3vh 3vw;
+
+    .row{
+      .col{
+        padding:0;
+        .button{
+          border:1.3px solid map_get($colors,danger);
+          width:90%;
+          padding:0;
+          margin:1vh auto;
+          height:7vw;
+          span{
+            color:map_get($colors,danger);
+            font-size:3.2vw;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .item{
+      margin-top:5vh;
+      .button{
+        width:40vw;
+        margin:0 auto;
+        display:block;
+        text-transform: uppercase;
+        font-weight:bold;
+        font-size:4vw;
+      }
+    }
+  }
+
+  .date-button
+  {
+    font-size: 45px;
+  }
+}

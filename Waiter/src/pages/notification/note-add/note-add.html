@@ -1,0 +1,80 @@
+<!--
+  Generated template for the NoteAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+    <ion-item class="top-item">
+        <p class="title">{{title}}</p>
+        <button ion-button color="secondary" mode="ios" icon-only item-right (click)="addOrderItem('open')"><ion-icon name="md-add"></ion-icon></button>
+    </ion-item>
+    <ion-list class="item-list">
+        <ng-container *ngIf="itemAddState">
+            <ion-item class="add_item_cont" mode="md">
+                <button ion-button ion-only item-start class="close_btn" mode="ios" color="danger" (click)="addOrderItem('close')"><ion-icon name="md-remove"></ion-icon></button>
+                <input float-left [(ngModel)]="newItem.name" (click)='showDropdown = true'/>
+                <button ion-button outline mode="ios" item-end color="secondary" (click)="addOrderItem('add')">ADD</button>
+                <button class="ctrl-cont" float-right>
+                    <button ion-button color="primary" mode="ios" icon-only float-left (click)="decNewItemQty()"><ion-icon name="md-remove"></ion-icon></button> x{{newItem.qty || 1}}
+                    <button ion-button color="primary" mode="ios" icon-only float-right (click)="incNewItemQty()"><ion-icon name="md-add"></ion-icon></button>
+                </button>
+            </ion-item>
+            <div class="drop" *ngIf="showDropdown && newItem.name">
+                <ng-container *ngFor="let item of products">
+                    <p class="clearfix" (click)="selectNewItem(item)" *ngIf="filterNewItem(item)">
+                        <span class="name">{{item.name}}</span>
+                        <span class="price">{{item.price}} {{currency}}</span>
+                    </p>
+                </ng-container>
+            </div>
+            <div class="add_mask"></div>
+        </ng-container>
+        <ng-container *ngFor="let item of items; let i = index">
+            <ion-item-sliding>
+                <ion-item [ngClass]="openItemNum == i ? 'item_edit' : ''">
+                    <button ion-button ion-only item-start class="close_btn" mode="ios" color="primary" *ngIf="openItemNum == i" (click)="completeItemEdit()"><ion-icon name="md-close"></ion-icon></button>
+                    <p [ngClass]="(item.mentions || item.toppings.length > 0) ? 'added' : ''" float-left (click)="openItem(i)" [ngClass]="item == 5 ? 'added' : ''">{{item.name}}</p>
+                    <p float-right>{{item.price}} {{currency}}</p>
+                    <button class="ctrl-cont" float-right>
+                        <button ion-button color="primary" mode="ios" icon-only float-left (click)="decItemQty(i)"><ion-icon name="md-remove"></ion-icon></button>
+                        x{{item.qty}}
+                        <button ion-button color="primary" mode="ios" icon-only float-right (click)="incItemQty(i)"><ion-icon name="md-add"></ion-icon></button>
+                    </button>
+                </ion-item>
+                <ion-item-options side="right">
+                    <button ion-button color="danger" (click)="removeItem(i)">
+                        <ion-icon name="ios-trash"></ion-icon>
+                        {{'ACTIONS.DELETE' | translate}}
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+
+            <ng-container *ngIf="openItemNum == i">
+                <ion-item class="item_edit">
+                    <div class="edit_filds">
+                        <p *ngFor="let topping of item.toppings">
+                            <span *ngIf="topping">{{topping.name}}:{{topping.price}} {{currency}}&nbsp; &nbsp;</span>
+                        </p>
+                        <p>{{'LABELS.MENTIONS' | translate}}: {{item.mentions}}&nbsp; &nbsp;</p>
+                    </div>
+                </ion-item>
+                <ion-item class="item_edit ctrl_btn">
+                    <button ion-button mode="ios" (click)='toggleToppings(i)'>{{'LABELS.TOPPINGS' | translate}}</button>
+                    <button ion-button mode="ios" (click)='onClickMentions(i)'>{{'LABELS.MENTIONS' | translate}}</button>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+    </ion-list>
+    <ion-item class="bottom-item">
+        <h1>Total : {{getAmount()}} {{currency}}</h1>
+        <button mode="ios" ion-button color="primary_light" (click)="closeModal()">{{'ACTIONS.CLOSE' | translate}}</button>
+        <button mode="ios" ion-button color="primary" (click)="onConfirm()">{{'ACTIONS.CONFIRM' | translate}}</button>
+    </ion-item>
+    <ion-item class="item_edit ctrl_btn" style="display: none;">
+        <ion-select [(ngModel)]="selected_toppings" multiple="true" #select_toppings (ionChange)="applyToppings()">
+            <ion-label translate>LABELS.TOPPINGS</ion-label>
+            <ion-option *ngFor="let topping of selected_topping_list" [value]="topping">{{topping}}</ion-option>
+        </ion-select>
+    </ion-item>
+</ion-content>

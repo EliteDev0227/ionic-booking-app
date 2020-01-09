@@ -1,0 +1,624 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+//----- App Custom fonts -------------------
+
+@font-face {
+    font-family: "Foxsans";
+    font-style: normal;
+    src: url("#{$font-path}/foxsanstrf-regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Foxsans-regular";
+    font-style: normal;
+    src: url("#{$font-path}/foxsanstrf-light.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Honeymoon";
+    font-style: normal;
+    font-weight: 300;
+    src: url("#{$font-path}/Honeymoon.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Wavehaus";
+    font-style: normal;
+    font-weight: 300;
+    src: url("#{$font-path}/Wavehaus-128Bold.otf") format("opentype");
+}
+
+// Define Custom Icons
+ion-icon {
+    &[class*="beach-"] {
+        // Instead of using the font-based icons
+        // We're applying SVG masks
+        mask-size: contain;
+        -webkit-mask-size: contain;
+        mask-position: 50% 50%;
+        -webkit-mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        background: currentColor;
+        width: 1em;
+        height: 1em;
+    }
+    // custom icons
+    &[class*="beach-all-seat"] {
+        mask-image: url(../assets/imgs/all-seat.png);
+        -webkit-mask-image: url(../assets/imgs/all-seat.png);
+    }
+    &[class*="beach-my-seat"] {
+        mask-image: url(../assets/imgs/my-seat.png);
+        -webkit-mask-image: url(../assets/imgs/my-seat.png);
+    }
+    &[class*="beach-current"] {
+        mask-image: url(../assets/imgs/current.png);
+        -webkit-mask-image: url(../assets/imgs/current.png);
+    }
+    &[class*="beach-reservation"] {
+        mask-image: url(../assets/imgs/reservation.png);
+        -webkit-mask-image: url(../assets/imgs/reservation.png);
+    }
+    &[class*="beach-menu"] {
+        mask-image: url(../assets/imgs/menu.png);
+        -webkit-mask-image: url(../assets/imgs/menu.png);
+    }
+    &[class*="beach-sort"] {
+        mask-image: url(../assets/imgs/icon_sort.png);
+        -webkit-mask-image: url(../assets/imgs/icon_sort.png);
+    }
+}
+
+ion-tabs .tab-button {
+    
+    ion-icon.ion-ios-log-out-outline {
+        font-size: 3.2rem;
+    }
+}
+
+//  Global CSS for APP
+
+.col-3 {
+    width: 32%;
+    display: inline-block;
+    text-align: center;
+}
+
+.col-2 {
+    width: 32%;
+    display: inline-block;
+    text-align: center;
+}
+
+.scroll-content {
+    overflow: auto;
+    padding: 1.4vw !important;
+}
+
+ion-content {
+    font-family: "Foxsans-regular" !important;
+    button {
+        font-family: "Foxsans";
+        font-weight: bold;
+    }
+}
+ion-tabs {
+    .tab-button {
+        min-height: 56px !important;
+    }
+    .tabbar {
+        bottom: 0 !important;
+        top: auto !important;
+    }
+    .tab-button-icon {
+        margin-top: 0.1rem !important;
+        margin-bottom: 0.1rem !important;
+        min-width: 3.5rem !important;
+        height: 3rem !important;
+    }
+}
+ion-badge.tab-badge {
+    border-radius: 50%;
+}
+ion-footer {
+    bottom: 56px !important;
+}
+ion-header {
+    ion-navbar {
+        min-height: 6.4rem !important;
+        height: 6.4rem !important;
+        button {
+            .button-inner {
+                color: white;
+            }
+        }
+    }
+    .sub-page-title {
+        font-family: "Foxsans";
+        font-weight: bolder;
+        text-align: center;
+        left: 0;
+        top: 0;
+        padding: 0 6rem 0.1rem;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        pointer-events: none;
+        text-transform: uppercase;
+        .toolbar-title {
+            color: white;
+            font-weight: 600;
+            font-size: 2.0rem;
+        }
+    }
+}
+.header-md::after {
+    background-image: unset !important;
+}
+.app_background {
+    background:         linear-gradient(0deg, #3bbefb, map-get($colors, primary));
+    background:    -moz-linear-gradient(0deg, #3bbefb, map-get($colors, primary));
+    background: -webkit-linear-gradient(0deg, #3bbefb, map-get($colors, primary));
+}
+.nav_background {
+    .toolbar-background{
+        background:         linear-gradient(0deg, #3bbefb, map-get($colors, primary));
+        background:    -moz-linear-gradient(0deg, #3bbefb, map-get($colors, primary));
+        background: -webkit-linear-gradient(0deg, #3bbefb, map-get($colors, primary));
+    }
+}
+// ::-webkit-scrollbar {
+//     width: 0.4rem;
+//     height: 2em;
+// }
+// ::-webkit-scrollbar-button {
+//     background: #ccc;
+// }
+// ::-webkit-scrollbar-track-piece {
+//     background: transparent;
+// }
+// ::-webkit-scrollbar-thumb {
+//     background: rgba(238, 238, 238, 0.664);
+//     border-radius: 1rem;
+// }​
+
+div {
+    display: block;
+}
+
+.op-hide {
+    opacity: 0.2;
+}
+.op-show {
+    opacity: 1;
+}
+// Define color Styles
+// -- Background Color
+.preColor {
+    background-color: map-get($colors, secondary) !important;
+}
+.unselected {
+    opacity: 0.1 !important;
+}
+.seat1-color {
+    background-color: map-get($colors, seat-green) !important;
+}
+.seat2-color {
+    background-color: map-get($colors, seat-magent) !important;
+}
+.seat3-color {
+    background-color: map-get($colors, seat-blue) !important;
+}
+.seat4-color {
+    background-color: map-get($colors, seat-yellow) !important;
+}
+.seat5-color {
+    background-color: map-get($colors, seat-red) !important;
+}
+// --- Border Color
+.seat1-border-color {
+    border: 0.2rem solid map-get($colors, seat-green) !important;
+}
+.seat2-border-color {
+    border: 0.2rem solid map-get($colors, seat-magent) !important;
+}
+.seat3-border-color {
+    border: 0.2rem solid map-get($colors, seat-blue) !important;
+}
+.seat4-border-color {
+    border: 0.2rem solid map-get($colors, seat-yellow) !important;
+}
+.seat5-border-color {
+    border: 0.2rem solid map-get($colors, seat-red) !important;
+}
+.filter-green {
+    filter: hue-rotate(72deg);
+}
+.filter-magent {
+    filter: hue-rotate(-120deg);
+}
+.filter-yellow {
+    filter: hue-rotate(20deg);
+}
+.filter-red {
+    filter: hue-rotate(-40deg) opacity(0.9) drop-shadow(0 0 0 red);
+}
+.filter-blue {
+    filter: hue-rotate(151deg) opacity(0.8) drop-shadow(0 0 0 blue) ;
+}
+.filter-brown {
+    filter: hue-rotate(-55deg) brightness(0.6) opacity(0.8) drop-shadow(0 0 0 rgb(158, 58, 0));
+}
+.color-online {
+    background-color: rgb(0, 155, 13);
+}
+.color-offline {
+    background-color: rgb(243, 0, 0);
+}
+.color-order {
+    background-color: rgb(233, 154, 6);
+    border-bottom-color: rgb(233, 154, 6);
+}
+.color-booked {
+    background-color: rgb(223, 0, 223);
+    border-bottom-color: rgb(223, 0, 223);
+}
+.color-busy {
+    background-color: black;
+    border-bottom-color: black;
+}
+.color-free {
+    background-color: white;
+    border-bottom-color: white;
+}
+.fcolor-black {
+    color: black;
+}
+.fcolor-white {
+    color: white;
+}
+.fcolor-order {
+    color: rgb(233, 154, 6);
+}
+.fcolor-booked {
+    color: rgb(223, 0, 223);
+}
+.fcolor-busy {
+    color: black;
+}
+.fcolor-free {
+    color: white;
+}
+
+// Manage Seats ----
+
+.top_arrow {
+    display: inline-block;
+    margin-top: 0.5vw;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-style: solid;
+    border-left-width: 1.2rem;
+    border-right-width: 1.2rem;
+    border-bottom-width: 1.4rem;
+    border-top-width: 0;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: map-get($colors, primary_sub);
+    border-top-color: transparent;
+    align-items: center;
+}
+.pop_cont {
+    margin-top: -0.45rem;
+    background-color: map-get($colors, primary_sub);
+    border-radius: 1.2rem;
+    overflow: hidden;
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    p {
+        color: white;
+    }
+    ion-item {
+        background-color: transparent;
+        padding-left: 0;
+        ion-label {
+            margin-bottom: 0.2rem;
+        }
+        .item-inner {
+            padding-left: 0.8rem;
+        }
+        button {
+            height: 4rem;
+            min-height: 4rem;
+            border-radius: 0;
+        }
+    }
+    ion-item.no-border {
+        .item-inner {
+            border-bottom: none;
+        }
+    }
+    ion-item.no-margin {
+        ion-label {
+            margin-top: 0;
+        }
+        button {
+            margin-top: 0;
+        }
+    }
+    .double-button {
+        width: 48%;
+    }
+    .inner_cont {
+        height: 34vh;
+        overflow: auto;
+    }
+    ion-item.right-btn {
+        ion-label {
+            margin: 0.3rem 0 0.6rem;
+        }
+        .item-inner {
+            padding-right: 0;
+            text-align: center;
+        }
+        button {
+            height: 3.2rem;
+            min-height: 3rem;
+            width: 24vw;
+        }
+    }
+}
+.reservation {
+    ion-item {
+        p {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+    }
+}
+.order {
+    // max-height: 52vh;
+    ion-item.border {
+        margin: 0.5rem auto;
+        .item-inner {
+            border: 0.1rem solid white;
+            p {
+                margin: 0.5rem auto;
+            }
+        }
+        ion-label {
+            margin: 0;
+        }
+    }
+    ion-item.order_cell.new {
+        background-color: orange;
+    }
+    ion-item.order_cell {
+        background-color: map-get($colors, primary);
+    }
+}
+.free {
+    .inner_cont {
+        height: 17vh;
+    }
+}
+
+// ===============================================
+
+.add_cont {
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    text-align: left;
+    height: 100%;
+    p {
+        color: map-get($colors, primary);
+        font-size: 1.2rem;
+        margin: 0.4rem auto;
+    }
+    .two-col {
+        display: inline-block;
+        width: 49%;
+        padding: 0.2vw 0 0.1rem 0.2rem;
+        ion-input {
+            background-color: rgb(230, 230, 230);
+            border: 0.1rem solid rgb(94, 94, 94);
+            font-size: 1.4rem;
+            input {
+                line-height: 1.2;
+                margin: 0.3rem 1rem;
+            }
+        }
+    }
+    .img {
+        height: 55%;
+        text-align: center;
+        img{
+            margin-top: 2.5vw; 
+            height: 100%;
+        }
+    }
+    .ctrl_bar {
+        .beach-radio {
+            float: left;
+            button.radio {
+                height: 3rem;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                margin-top: 0;
+                padding-left: 0;
+                span {
+                    color: black;
+                    ion-icon {
+                        color: map-get($colors, primary);
+                        margin-top: -0.2rem;
+                    }
+                }
+            }
+            p{
+                padding-left: .2rem;
+            }
+        }
+        button[small] {
+            height: 4rem;
+            font-size: 1.4rem;
+            width: 25vw;
+            float: right;
+        }
+    }
+}
+
+.cont_mask {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.582);
+    padding: 3vw;
+}
+.beach-wrapper {
+    text-align: center;
+    -webkit-box-flex: 0;
+    flex: 0 0 16.6vw;
+    width: 16.6vw;
+    max-width: 16.6vw;
+    margin: 1.4vw 1.4vw;
+    // Style for normal seat cell
+    .beach-cell {
+        background-color: rgb(209, 209, 209);
+        width: 16.6vw;
+        height: 16.6vw;
+        // margin: auto 1vw;
+        padding: 1vw;
+        p {
+            margin: 0;
+            margin-top: .5vw;
+            font-size: 2.2vw;
+            font-weight: bold;
+        }
+        .square {
+            width: map-get($constants, elementHeight);
+            height: map-get($constants, elementHeight);
+            margin: 0 auto;
+            background-color: white;
+            display: table;
+        }
+        .circle {
+            width: map-get($constants, elementHeight);
+            height: map-get($constants, elementHeight);
+            border-radius: 50%;
+            margin: 0 auto;
+            background-color: white;
+            display: table;
+            overflow: hidden;
+        }
+        .ellipse {
+            width: map-get($constants, elementWidth);
+            height: map-get($constants, elementHeight);
+            border-radius: 1.5vw;
+            margin: 0 auto;
+            background-color: white;
+            display: table;
+            overflow: hidden;
+        }
+        div.side {
+            height: 100%;
+            width: 50%;
+            display: table-cell;
+        }
+        @media screen and (orientation:portrait) { 
+            p {
+                font-size: 2.2vh;
+            }
+            .square {
+                width: map-get($constants, elementHeight_h);
+                height: map-get($constants, elementHeight_h);
+                margin: 0 auto;
+            }
+            .circle {
+                width: map-get($constants, elementHeight_h);
+                height: map-get($constants, elementHeight_h);
+                margin: 0 auto;
+            }
+            .ellipse {
+                width: map-get($constants, elementWidth_h);
+                height: map-get($constants, elementHeight_h);
+                border-radius: 1.5vh;
+                margin: 0 auto;
+            }
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border-style: solid;
+            border-left-width: 3.0vw;
+            border-right-width: 3.0vw;
+            border-bottom-width: 5.0vw;
+            border-top-width: 0;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            border-bottom-color: white;
+            align-items: center;
+        }
+        .number {
+            font-family: "Foxsans";
+            float: right;
+            margin-top: 2vw;
+            width: 100%;
+            height: 6vw;
+            font-size: 5vw;
+            font-weight: 600;
+            text-align: center;
+        }
+        .w-color {
+            color: white;
+        }
+    }
+}
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+@media only screen and (min-height: 768px) and (min-width: 768px){
+    .modal-wrapper {
+        left: 0 !important;
+        top: 0 !important;
+        position: absolute !important;
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+}
+
+.tab-button-logout{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    min-height: 56px !important;
+    width: calc(100vw / 4);
+    z-index: 1000;
+    color: rgba(60, 60, 60, 0.7);
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    padding: 0.2em 0 0 0;
+    ion-icon{
+        font-size: 3.2rem;
+    }
+}

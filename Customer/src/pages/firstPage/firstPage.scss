@@ -1,0 +1,18 @@
+firstPage{
+
+  .relative{
+    width:1200px;
+    height:1600px;
+    position:relative;
+    .absolute{
+      position:absolute;
+      height:40px;
+      width:40px;
+      img{
+        width:100%;
+        height:100%;
+      }
+    }
+  }
+
+}

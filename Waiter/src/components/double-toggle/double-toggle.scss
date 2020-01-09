@@ -1,0 +1,91 @@
+double-toggle {
+    font-family: "Foxsans" !important;
+    display: inline-block;
+    .wrapper {
+        display: block;
+        width: 10em;
+        height: 3em;
+        padding: 0.5em 0.5em;
+        text-align: center;
+        .bar-cont {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+        }
+        .bar {
+            display: inline-block;
+            position: relative;
+            margin-top: 0.74em;
+            height: 0.45em;
+            width: 48%;
+            background-color: white;
+            border-radius: 0.25em;
+        }
+        button {
+            position: relative;
+            width: 31%;
+            height: 1.9em;
+            top: -1.55em;
+            padding: 0;
+            background-color: transparent;
+            .view-circle {
+                width: 1.8em;
+                height: 1.8em;
+                border-radius: 50%;
+            }
+        }
+        button div {
+            display: inline-block;
+        }
+        button:nth-of-type(1) {
+            text-align: left;
+        }
+        button:nth-of-type(2) {
+            text-align: center;
+        }
+        button:nth-of-type(3) {
+            text-align: right;
+        }
+        .visible {
+            background-color: white;
+            box-shadow: 0 0 0.4em rgb(156, 156, 156);
+        }
+        .invisible {
+            background-color: transparent;
+            box-shadow: unset;
+        }
+        p {
+            font-size: 1rem;
+            color: white;
+            margin-top: -1.5em;
+            margin-bottom: 0 !important;
+            text-transform: uppercase;
+            span {
+                display: inline-block;
+                font-size: 0.8rem;
+                width: 31%;
+            }
+            span:nth-of-type(1) {
+                text-align: left;
+                margin-left: -0.4em;
+            }
+            span:nth-of-type(2) {
+                text-align: center;
+            }
+            span:nth-of-type(3) {
+                text-align: right;
+                padding-right: 0.6em;
+            }
+            span.selected {
+                color: black;
+                font-weight: bold;
+            }
+        }
+        .color-online {
+            background-color: rgb(0, 155, 13);
+        }
+        .color-offline {
+            background-color: rgb(243, 0, 0);
+        }
+    }
+}

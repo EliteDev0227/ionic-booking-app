@@ -1,0 +1,140 @@
+rating-page{
+
+  .card{
+      .rtHolder{
+        display:none;
+        opacity:0;
+
+      }
+      .active{
+         display:block;
+         opacity:1;
+         -webkit-transition: display 0s, opacity 1s;
+                 -moz-transition: display 0s, opacity 1s;
+                 -ms-transition: display 0s, opacity 1s;
+                 -o-transition: display 0s, opacity 1s;
+                 transition: display 0s, opacity 1s;
+               }
+
+    margin-top:2rem;
+    h2[margined] {
+      margin-top: 1.5rem;
+      font-weight:bold ;
+    }
+    h3[margined]{
+      margin-top:0;
+    }
+
+    .button{
+      margin:1rem auto;
+      display:block;
+      font-weight:bold;
+    }
+  }
+
+
+  .star-rating {
+    display: flex;
+    justify-content: center;
+
+    &.big{
+      margin:1rem;
+      .icon {
+
+        font-size: 4em;
+        color: color($colors, light);
+
+        &.full {
+          color: color($colors, primary);
+        }
+      }
+    }
+    &.small{
+
+      .icon {
+
+        font-size: 1em;
+        color: color($colors, light);
+
+        &.full {
+          color: color($colors, primary);
+        }
+      }
+    }
+  }
+
+  .SecondRatingHolder{
+    padding:2rem 1rem;
+    .NumberRating,.iconRating{
+      float:left;
+      margin:0;
+
+    }
+    .star-rating.small,.digit{
+
+      clear:both;
+      margin:.2rem 0;
+      margin-left:.2rem;
+      padding:.1rem .4rem;
+    }
+    .digit{
+      font-size:1rem;
+      font-weight:600;
+    }
+    .NumberRating{
+      font-size:3.5rem;
+      font-weight:bold;
+    }
+
+  }
+  .clearfix{
+    clear:both;
+    padding-bottom:1rem;
+  }
+  .review{
+    padding:2rem 1rem;
+    .name{
+      padding-top:0;
+      font-size:1.5rem;
+      font-weight:bold;
+    }
+
+    .star{
+      padding-top:0;
+      padding-bottom:1rem;
+      .col{
+        min-width:7rem;
+
+        flex-grow:0;
+        padding:0 1rem 0 0!important;
+        width:auto;
+        &:last-child{
+          flex-grow:1;
+          text-transform: capitalize;
+        }
+        .star-rating{
+          width:auto;
+          text-align:left;
+        }
+      }
+      .date{
+        font-size:1rem;
+        font-weight:bold;
+        position:relative;
+        top:.25rem;
+      }
+    }
+
+    .description{
+      color:map_get($colors,dark);
+      font-size:1.2rem;
+      font-weight:400;
+      line-height:1.8rem;
+    }
+
+  }
+
+  .reviewInput{
+    padding:1rem 2rem;
+  }
+}

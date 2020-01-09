@@ -1,0 +1,119 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+@font-face {
+    font-family: "ProximaNova";
+    font-style: normal;
+    font-weight: 400;
+    src: url($font-path + "/ProximaNova_Regular.otf") format("opentype");
+}
+
+;
+@font-face {
+    font-family: "ProximaNova";
+    font-style: normal;
+    font-weight: 600;
+    src: url($font-path + "/ProximaNova_Semibold.otf") format("opentype");
+}
+
+;
+@font-face {
+    font-family: "ProximaNova";
+    font-style: normal;
+    font-weight: 700;
+    src: url($font-path + "/ProximaNova_Bold.otf") format("opentype");
+}
+
+;
+@font-face {
+    font-family: "ProximaNova";
+    font-style: normal;
+    font-weight: 800;
+    src: url($font-path + "/ProximaNova_Extrabold.otf") format("opentype");
+}
+
+;
+@font-face {
+    font-family: "Honeymoon";
+    font-style: normal;
+    font-weight: 400;
+    src: url($font-path + "/Honeymoon.ttf") format("truetype");
+}
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+@import "ionic.globals";
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+$colors: ( primary : #fe5295, secondary : #32db64, danger : #f53d3d, light : #dedede, dark : #222, text : #000, grey : #999, lineColor:#e5e5e5, white : #fff, blued : #0B36EF);
+$font-family-base: "ProximaNova";
+$h1-font-size: 3rem;
+$h3-font-size: 1.6rem;
+$toolbar-background: #fff;
+$toolbar-border-color: #eee;
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+$font-family-ios-base: $font-family-base;
+$list-ios-background-color: transparent;
+$list-inset-ios-border-radius: 0;
+$list-ios-margin-bottom: 16px;
+$label-ios-text-color: color($colors, text);
+$label-ios-text-color-focused: color($colors, primary);
+$button-ios-font-size: 2rem;
+$button-ios-text-transform: none;
+$tabs-ios-tab-min-height: 6rem;
+$popover-ios-width: 300px;
+$popover-ios-border-radius: 10px;
+// $toolbar-ios-height: 42px;
+// $toolbar-md-title-font-size: 1.7rem;
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+$font-family-md-base: $font-family-base;
+$list-md-background-color: transparent;
+$list-inset-md-border-radius: 0;
+$list-md-margin-bottom: 16px;
+$label-md-text-color: color($colors, text);
+$label-md-text-color-focused: color($colors, primary);
+$button-md-font-size: 2rem;
+$button-md-text-transform: none;
+$tabs-md-tab-icon-size: 3rem;
+$popover-md-width: 300px;
+$popover-md-border-radius: 10px;
+// $toolbar-md-height: 42px;
+// $toolbar-md-title-font-size: 1.7rem;
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+@import "ionic.theme.default";
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com /docs/ionicons/
+@import "ionic.ionicons";
+// Fonts
+// --------------------------------------------------
+@import "roboto";
+@import "noto-sans";

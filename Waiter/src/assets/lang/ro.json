@@ -1,0 +1,46 @@
+{
+    "MAIN": {
+        "TITLE": "Smart Beach",
+        "WAITER": "Ospatar"
+    },
+    "ACTIONS": {
+        "CANCEL": "INCHIDE",
+        "CONFIRM": "CONFIRMA",
+        "NEXT": "URMATORUL",
+        "SIGN_IN": "LOGHEAZA-TE",
+        "SIGN_UP": "INREGISTREAZA-TE",
+        "LOGIN": "LOGARE",
+        "DELETE": "STERGE",
+        "CLOSE": "Inchis"
+    },
+    "LABELS": {
+        "ERROR": "Eroare",
+        "TAB1": "TOATE",
+        "TAB2": "ALE MELE",
+        "TAB3": "NOTIFICARI",
+        "ALL": "Toate",
+        "ALL_CAPS": "TOATE",
+        "ONLINE": "Online",
+        "OFFLINE": "Offline",
+        "ORDERS_CAPS": "COMENZI",
+        "FREE_CAPS": "LIBERE",
+        "FREE": "Libere",
+        "ORDER": "Comanda",
+        "ORDERS": "Comenzi",
+        "NEW": "Nou",
+        "OLD": "Vechi",
+        "TOTAL": "Total",
+        "TOPPINGS": "Topping",
+        "MENTIONS": "Mentiuni",
+        "CALLED" : "Called"
+    },
+    "MESSAGES": {
+        "VALIDATE_PASSWORD": "* Minim 6 caractere",
+        "PASSWORD_NOTMATCH": "* Parolele diferite!!",
+        "VALIDATE_PHONE": "* Numar invalid",
+        "NEW_ON_SMART_BEACH" : "Nou pe Smart Beach?",
+        "ALREADY_HAVE_ACCOUNT" : "Ai deja un cont?",
+        "PLEASE_WAIT" : "Astepta...",
+        "REACH_SERVER_ERROR": "Incearca dinou."
+    }
+}

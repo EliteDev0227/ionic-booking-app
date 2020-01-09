@@ -1,0 +1,650 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+// Side Bar Style -------------------
+@media screen and (orientation:landscape) {
+    ion-content.hasMenu .scroll-content {
+        padding-right: 8vw !important;
+    }
+
+    ion-content.hasMenu.ggrid .scroll-content {
+        padding-left: 8vw !important;
+    }
+
+    .recept_side_bar.horizontal {
+        display: none;
+    }
+
+    .recept_side_bar {
+        display: block;
+    }
+}
+
+@media screen and (orientation:portrait) {
+    ion-content.hasMenu .scroll-content {
+        padding-bottom: 8vh !important;
+    }
+
+    .recept_side_bar {
+        display: none;
+    }
+
+    .recept_side_bar.horizontal {
+        display: block;
+    }
+}
+
+div.recept_side_bar.horizontal {
+    height: 8vh;
+    width: 100%;
+    bottom: 0;
+    top: unset;
+
+    .period_cont {
+        width: 8vh;
+        height: 8vh;
+
+        p {
+            font-size: 1.5vh;
+        }
+
+        p:first-child {
+            margin-top: .5vh;
+            margin-bottom: .0vh;
+        }
+
+        p:last-child {
+            margin-top: .2vh;
+            margin-bottom: .5vh;
+        }
+    }
+   
+
+    .bar_wrapper {
+        display: flex;
+
+        button[icon-only].logout {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 7vh;
+            min-height: 8vh;
+        }
+
+        button[icon-only].setting {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 7vh;
+            min-height: 8vh;
+        }
+
+        button[icon-only] {
+            width: 8vh;
+            min-height: 8vh;
+        }
+
+        // button.active {
+        //     border-top: solid .5vh white;
+        //     border-left: unset;
+        // }
+        button {
+            .button-inner {
+                font-size: 1.9vh;
+                font-weight: bolder !important;
+            }
+
+            ion-icon {
+                font-size: 5vh;
+            }
+        }
+
+        button ion-badge {
+            text-align: center;
+            margin-left: -2vh;
+            margin-top: -2.5vh;
+            z-index: 10;
+            background-color: red;
+            border-radius: 50%;
+            font-size: 1.7vh;
+            min-width: 2.5vh;
+            height: 2.5vh;
+            padding: .4vh;
+        }
+
+        div.top_icon {
+            min-height: 8vh;
+            max-height: 8vh;
+
+            ion-icon {
+                font-size: 3vh !important;
+                margin-bottom: -.3vh;
+                margin-top: .6vh;
+            }
+
+            p {
+                font-size: 1.9vh;
+                margin: .2vh auto;
+            }
+        }
+
+        div.top_icon.active {
+            border-left: unset;
+            border-top: solid .5vh white;
+        }
+
+        button.show_free {
+            position: absolute;
+            bottom: 0;
+            height: 8vh;
+            right: 7.5vh;
+            width: 6.5vh;
+            border-radius: 0;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.25);
+            padding: 0 !important;
+
+            .button-inner {
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+        }
+
+    }
+}
+
+div.recept_side_bar.left {
+    left: 0;
+    right: auto !important;
+
+    button {
+        span.icon {
+            width: 4vw;
+            height: 4vw;
+            margin-bottom: 1rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        span.icon.today {
+            background-image: url('./../assets/img/today.png');
+        }
+
+        span.icon.tomorrow {
+            background-image: url('./../assets/img/tomorrow.png');
+        }
+
+        span.icon.calendar {
+            background-image: url('./../assets/img/calendar.png');
+        }
+    }
+
+    button.active {
+        span.icon.today {
+            background-image: url('./../assets/img/todayWhite.png');
+        }
+
+        span.icon.tomorrow {
+            background-image: url('./../assets/img/tomorrowWhite.png');
+        }
+
+        span.icon.calendar {
+            background-image: url('./../assets/img/calendarWhite.png');
+        }
+
+    }
+
+    .bar_wrapper {
+        button.active {
+            border-right: solid .5vw white;
+            border-left: 0;
+            color: white;
+        }
+    }
+}
+
+div.recept_side_bar {
+    position: fixed;
+    height: 100vh;
+    width: 8vw;
+    right: 0;
+    top: 0;
+    background-color: #a18a5f;
+
+    .period_cont.nobg {
+        background-color: transparent !important;
+    }
+
+    .period_cont {
+        font-weight: 500;
+        color: white;
+        background-color: #6d6a62;
+        height: 6.4vw;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+            font-size: 1.5vw;
+            margin: 0;
+        }
+    }
+
+    .bar_wrapper {
+        button[icon-only] {
+            margin: 0;
+            min-height: 6.4vw;
+            max-height: 6.4vw;
+            background-color: transparent;
+            width: 100%;
+            border-radius: 0;
+            color: black;
+        }
+
+        // button:hover {
+        //     background-color: rgba(146, 19, 19, 0.199);
+        // }
+        button.active {
+            border-left: solid .5vw white;
+            color: white;
+        }
+
+        button[icon-only].logout {
+            position: absolute;
+            background-color: black;
+            bottom: 0;
+            right: 0;
+            min-height: 6.4vw;
+            max-height: 6.4vw;
+            color: white !important;
+        }
+
+        button[icon-only].setting {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            min-height: 6.4vw;
+            max-height: 6.4vw;
+            
+        }
+
+        button[icon-only].free-sunbeds {
+            .button-inner {
+                flex-direction: column;
+                padding-bottom: .5vw;
+            }
+        }
+
+        button {
+            .button-inner {
+                font-size: 1.9vw;
+                font-weight: bolder !important;
+            }
+
+            ion-icon {
+                font-size: 5vw;
+            }
+        }
+
+        button ion-badge {
+            text-align: center;
+            margin-left: -2vw;
+            margin-top: -1vw;
+            z-index: 10;
+            background-color: red;
+            border-radius: 50%;
+            font-size: 1.7vw;
+            min-width: 2.5vw;
+            height: 2.5vw;
+            padding: .4vw .5vw .4vw .4vw;
+        }
+
+        div.top_icon {
+            min-height: 6.4vw;
+            max-height: 6.4vw;
+            text-align: center;
+            color: black;
+
+            ion-icon {
+                font-size: 3vw !important;
+                margin-bottom: -.3vw;
+                margin-top: .3vw;
+            }
+
+            p {
+                font-size: 1.9vw;
+                font-weight: bolder !important;
+                margin: .2vw auto;
+            }
+        }
+
+        // div.top_icon:hover {
+        //     background-color: rgba(146, 19, 19, 0.199);
+        // }
+        // div.top_icon.active {
+        //     border-left: solid .5vw white;
+        //     color: white;
+        // }
+        button.show_free {
+            position: absolute;
+            width: 100%;
+            bottom: 8vw;
+            height: 5vw;
+            border-radius: 0;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.25);
+            padding: 0 !important;
+
+            .button-inner {
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+        }
+        .percent{
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 13vw;
+            font-size: 3vw;
+            .text{
+                font-size: 1.8vw;
+            }
+        }
+    }
+}
+
+// End -------------------------------
+// Common Styles ---------------------
+@font-face {
+    font-family: "Foxsans";
+    font-style: normal;
+    src: url("#{$font-path}/foxsanstrf-regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Foxsans-regular";
+    font-style: normal;
+    src: url("#{$font-path}/foxsanstrf-light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Honeymoon";
+    font-style: normal;
+    font-weight: 300;
+    src: url("#{$font-path}/Honeymoon.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Wavehaus";
+    font-style: normal;
+    font-weight: 300;
+    src: url("#{$font-path}/Wavehaus-128Bold.otf") format("opentype");
+}
+
+ion-content.content {
+    background-color: map-get($colors, main_bg);
+}
+
+// End -------------------------------
+// -- Define Custom Icons ---------------
+ion-icon {
+    &[class*="beach-"] {
+        // Instead of using the font-based icons
+        // We're applying SVG masks
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        width: 1em;
+        height: 1em;
+    }
+
+    // custom icons
+    &[class*="beach-map"] {
+        mask-image: url(../assets/imgs/tab_map.png);
+    }
+
+    &[class*="beach-seat"] {
+        mask-image: url(../assets/imgs/tab_sunbed.png);
+    }
+
+    &[class*="beach-notic"] {
+        mask-image: url(../assets/imgs/tab_notic.png);
+    }
+
+    &[class*="beach-logout"] {
+        mask-image: url(../assets/imgs/log.png);
+    }
+}
+
+// ------ END ---------------------------
+ion-popover {
+    ion-backdrop {
+        visibility: visible;
+        opacity: .6 !important; // // transition: opacity 1s;
+        // transition-delay: 3s;
+        // transition-property: opacity;
+    }
+
+    .popover-content {
+        .popover-viewport {
+            height: 100%;
+            overflow: hidden;
+            padding-bottom: 0 !important;
+        }
+    }
+
+    &.Calendar {
+        .popover-content {
+            width: 30rem;
+
+            ion-buttons[start] {
+                order: 2;
+            }
+
+            .toolbar-title {
+                text-align: center;
+            }
+
+            -webkit-box-shadow: 1px 1px 9px map_get($colors,
+            grey);
+            -moz-box-shadow: 1px 1px 9px map_get($colors,
+            grey);
+            box-shadow: 1px 1px 9px map_get($colors,
+            grey);
+            overflow: auto;
+        }
+    }
+
+    &.SeatPopup {
+        .popover-content {
+            width: 90vw;
+            height: calc(90vw / 1.78);
+            //max-height: calc(90vw / 1.78);
+            max-height: 93%;
+            overflow: visible;
+            border-radius: 2vw;
+
+            @media screen and (orientation: landscape) {
+                // top: calc(50vh - (90vw / 1.78 / 2)) !important;
+                top: 4% !important;
+                left: calc(50vw - (90vw / 2)) !important;
+            }
+        }
+    }
+
+    &.languagePopOver {
+        .popover-content {
+            top: 20px !important;
+            right: 10px !important;
+            left: auto !important;
+            width: 180px;
+            height: auto !important;
+            max-height: 70vh;
+            -webkit-box-shadow: 1px 1px 9px map_get($colors, grey);
+            -moz-box-shadow: 1px 1px 9px map_get($colors, grey);
+            box-shadow: 1px 1px 9px map_get($colors, grey);
+            overflow: hidden;
+
+            * {
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+ion-modal {
+    &.gridModal {
+        .modal-wrapper {
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border-radius: 0;
+
+            ion-content.content {
+                .scroll-content {
+                    padding-right: 0 !important;
+                    overflow: hidden !important;
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+/**Calendar css **/
+
+ion-calendar {
+    padding: 0;
+
+    ion-calendar-month {
+        .days {
+            height: 3rem;
+        }
+    }
+
+    ion-calendar-week {
+        .week-toolbar {
+            padding: 0;
+        }
+    }
+
+    ion-calendar-month {
+        .days-box {
+            padding: 0;
+        }
+
+        .days {
+            margin-bottom: 0;
+        }
+
+        .primary {
+
+            .endSelection:after,
+            .startSelection:after {
+                height: 3rem;
+            }
+        }
+
+        button.days-btn {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 3rem;
+            line-height: 3rem;
+        }
+    }
+
+    ion-calendar-week {
+        .week-title.transparent {
+            padding: 10px 0;
+        }
+    }
+
+}
+
+
+// ion-calendar-week .week-title.transparent {
+//     height: 7vh;
+//     padding: 2vh 0;
+// }
+
+// page-calendar-popover {
+//     .button-clear-md {
+//         height: 7vh;
+//     }
+// }
+
+// ion-calendar .title {
+//     padding: 0 9vh 0 9vh;
+//     height: 10vh;
+// }
+
+// ion-calendar {
+//     padding: 0vw 2vw;
+// }
+
+// ion-calendar-month .days-box {
+//     padding: 0px;
+// }
+
+// ion-calendar-month .days {
+//     height: 9vh !important;
+//     max-height: 36px;
+//     margin-bottom: 0.01vh !important;
+// }
+
+// ion-calendar-month button.days-btn {
+//     height: 100%;
+//     max-height: 36px;
+// }
+
+// ion-calendar-month .primary .endSelection:after {
+//     height: 100%;
+//     max-height: 36px;
+// }
+
+// .popover-ios.Calendar {
+//     .popover-content {
+//         top: calc(50vh - (90vw / 1.78 / 2)) !important;
+//     }
+// }
+
+ion-popover.Calendar .popover-content {
+    // height: calc(99vh);
+    // max-height: 380px;
+    // max-height: 97%;
+    // height: calc(99vh);
+}
+
+// .popover-ios.Calendar .popover-content {
+//     //top: calc(47vh - (90vw / 1.78 / 2)) !important;
+//     top: 1% !important;
+// }
+
+// ion-calendar-month .primary .endSelection button.days-btn {
+//     border-radius: 50%;
+//     margin: 0;
+//     width: 100%;
+// }
+
+@media only screen 
+and (max-device-width : 920px) 
+and (orientation : landscape) { 
+    ion-toggle.toggle, .toggle-ios {
+        zoom: 0.8!important;
+    }
+}

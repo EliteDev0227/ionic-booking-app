@@ -1,0 +1,11 @@
+  <ion-content class="languageHolder">
+    <ion-item no-lines *ngFor="let item of languages|slice:0:infiniteCount let i=index;" (click)="select(item,true)">
+      <div class="tick"><div class="{{ item.code==selected?'active':'' }}"></div></div>
+      <div class="name">{{ item.name | slice:0:8}}</div>
+      <button ion-fab [ngStyle]="{'background-image': 'url(./assets/imgs/lang/'+ item.code +'.png)'}"  class="lang" lang="{{ item.code }}"></button>
+    </ion-item>
+    <ion-infinite-scroll (ionInfinite)="more($event)" *ngIf="languages && languages.length>30">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+

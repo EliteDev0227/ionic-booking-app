@@ -1,0 +1,74 @@
+page-search-details {
+  #type-block,#zone-block,#persons-block,#sunbeds-block,#same-sunbeds-block{
+    margin-bottom:.8rem;
+    h3{
+      margin-bottom:0.1rem;
+    }
+  }
+  .scroll-content{
+    overflow-y:auto;
+
+  }
+  #type-block{
+    margin-top:.1rem;
+  }
+
+  .vertical-buttons {
+    &:not(.persons){
+      .item{
+        .item-inner{
+          padding: 5px 1px!important;
+        }
+        .button{
+          .icon{
+              min-height:26px;
+              min-width:26px;
+          }
+        }
+      }
+    }
+    .item {
+
+      margin: 0;
+      .item-inner {
+        padding:5px !important;
+
+      }
+      .label {
+        margin: 0;
+
+      }
+      .button {
+        height: 3rem!important;
+        margin: 0;
+        padding-top:.2rem;
+        @include border-radius(20px);
+        .icon{
+          margin-right:.7rem;
+          padding-right:0 !important;
+
+        }
+        &[selected] {
+          background: linear-gradient(to right, #fe5295, #f86d67);
+          color: #fff;
+        }
+      }
+      .active{
+        background: linear-gradient(to right, #fe5295, #f86d67);
+        color: #fff;
+        -webkit-transition: background 1s;
+        -moz-transition: background 1s;
+        -ms-transition: background 1s;
+        -o-transition: background 1s;
+        transition: background 1s;
+      }
+      .checked{
+        color: color($colors, primary);
+        .icon {
+          background: linear-gradient(to right, #fe5295, #f86d67);
+        }
+      }
+    }
+  }
+
+}

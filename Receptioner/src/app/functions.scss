@@ -1,0 +1,220 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@mixin flags() {
+    &[lang="en"] {
+        background-image: url('../assets/imgs/lang/en.png');
+    }
+    &[lang="bg"] {
+        background-image: url('../assets/imgs/lang/bu.png');
+    }
+    &[lang="hr"] {
+        background-image: url('../assets/imgs/lang/cr.png');
+    }
+    &[lang="fr"] {
+        background-image: url('../assets/imgs/lang/fr.png');
+    }
+    &[lang="gr"] {
+        background-image: url('../assets/imgs/lang/gr.png');
+    }
+    &[lang="it"] {
+        background-image: url('../assets/imgs/lang/it.png');
+    }
+    &[lang="es"] {
+        background-image: url('../assets/imgs/lang/sp.png');
+    }
+    &[lang="ro"] {
+        background-image: url('../assets/imgs/lang/ro.png');
+    }
+}
+
+@mixin weather() {
+    &.air {
+        background-image: url('../assets/imgs/beaches/icons/air.png');
+    }
+    &.water {
+        background-image: url('../assets/imgs/beaches/icons/water.png');
+    }
+    &.shade {
+        background-image: url('../assets/imgs/beaches/icons/shades.png');
+    }
+    &.uv_index {
+        background-image: url('../assets/imgs/beaches/icons/index.png');
+    }
+    &.humidity {
+        background-image: url('../assets/imgs/beaches/icons/humidity.png');
+    }
+    &.wind {
+        background-image: url('../assets/imgs/beaches/icons/wind.png');
+    }
+    &.cloud {
+        background-image: url('../assets/imgs/beaches/icons/clouds.png');
+    }
+}
+
+@mixin border-radius($value) {
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    border-radius: $value;
+}
+
+@mixin makeIcon($name,
+$margin) {
+    $url: '../assets/imgs/beach-icons/combination/'+$name;
+    background: url($url) no-repeat center;
+    background-size: 100% 100%;
+    @if($margin) {
+        margin-left: 5vw;
+    }
+}
+
+@mixin umbrella() {
+    .interactiveSelect {
+        width: 55vw;
+        .umbrella {
+            width: 40vw;
+            height: 40vw;
+            margin: 1vw auto;
+            @include makeIcon('umbrellaFreeFree.png',
+            false);
+            &.selected1 {
+                &.free2 {
+                    @include makeIcon('umbrellaSelectedFree.png',
+                    false);
+                }
+                &.busy2 {
+                    @include makeIcon('umbrellaSelectedBusy.png',
+                    false);
+                }
+                &.selected2 {
+                    @include makeIcon('umbrellaSelectedSelected.png',
+                    false);
+                }
+            }
+            &.free1 {
+                &.free2 {
+                    @include makeIcon('umbrellaFreeFree.png',
+                    false);
+                }
+                &.busy2 {
+                    @include makeIcon('umbrellaFreeBusy.png',
+                    false);
+                }
+                &.selected2 {
+                    @include makeIcon('umbrellaFreeSelected.png',
+                    false);
+                }
+            }
+            &.busy1 {
+                &.free2 {
+                    @include makeIcon('umbrellaBusyFree.png',
+                    false);
+                }
+                &.busy2 {
+                    @include makeIcon('umbrellaBusyBusy.png',
+                    false);
+                }
+                &.selected2 {
+                    @include makeIcon('umbrellaBusySelected.png',
+                    false);
+                }
+            }
+            &.selected2 {
+                &.free1 {
+                    @include makeIcon('umbrellaFreeSelected.png',
+                    false);
+                }
+                &.busy1 {
+                    @include makeIcon('umbrellaBusySelected.png',
+                    false);
+                }
+                &.selected1 {
+                    @include makeIcon('umbrellaSelectedSelected.png',
+                    false);
+                }
+            }
+            &.free2 {
+                &.free1 {
+                    @include makeIcon('umbrellaFreeFree.png',
+                    false);
+                }
+                &.busy1 {
+                    @include makeIcon('umbrellaBusyFree.png',
+                    false);
+                }
+                &.selected1 {
+                    @include makeIcon('umbrellaSelectedFree.png',
+                    false);
+                }
+            }
+            &.busy2 {
+                &.free1 {
+                    @include makeIcon('umbrellaFreeBusy.png',
+                    false);
+                }
+                &.busy1 {
+                    @include makeIcon('umbrellaBusyBusy.png',
+                    false);
+                }
+                &.selected1 {
+                    @include makeIcon('umbrellaSelectedBusy.png',
+                    false);
+                }
+            }
+            .left,
+            .right {
+                width: 50%;
+                height: 100%;
+                float: left;
+            }
+        }
+        .seats {
+            padding: 0;
+            margin: 0 auto;
+            width: 50vw;
+            position: relative;
+            top: -8vw;
+            .column {
+                width: 10vw;
+                height: 10vw;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                float: left;
+                &.right {
+                    &.selected {
+                        @include makeIcon('sunbedRightSelected.png',
+                        true);
+                    }
+                    &.free {
+                        @include makeIcon('sunbedRightFree.png',
+                        true);
+                    }
+                    &.busy {
+                        @include makeIcon('sunbedRightBusy.png',
+                        true);
+                    }
+                }
+                &.left {
+                    margin-right: 5vw;
+                    &.selected {
+                        @include makeIcon('sunbedLeftSelected.png',
+                        false);
+                    }
+                    &.free {
+                        @include makeIcon('sunbedLeftFree.png',
+                        false);
+                    }
+                    &.busy {
+                        @include makeIcon('sunbedLeftBusy.png',
+                        false);
+                    }
+                }
+                &:first-child {
+                    margin: 0 !important;
+                }
+                &:last-child {
+                    margin: 0 !important;
+                }
+            }
+        }
+    }
+}

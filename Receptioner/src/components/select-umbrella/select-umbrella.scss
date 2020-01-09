@@ -1,0 +1,48 @@
+select-umbrella {
+    .wrapper {
+        display: table;
+        text-align: center;
+        img {
+            width: 20%;
+
+        }
+        img:nth-of-type(2) {
+            margin-right: -12%;
+        }
+        img:nth-of-type(5) {
+            margin-left: -12%;
+        }
+    }
+
+    .wrapper.two {
+        img:nth-of-type(2) {
+            margin-left: -12%;
+            margin-right: 0;
+        }
+        img:nth-of-type(3) {
+            margin-right: -12%;
+        }
+    }
+
+    .filter-green {
+        filter: hue-rotate(72deg);
+    }
+    .filter-magent {
+        filter: hue-rotate(-120deg);
+    }
+    .filter-black {
+        filter: grayscale(100%) brightness(5%) contrast(2);
+    }
+    .filter-red {
+        filter: hue-rotate(330deg) saturate(1000%);//hue-rotate(-40deg) opacity(0.9) drop-shadow(0 0 0 red);
+    }
+    .filter-blue {
+        filter: hue-rotate(151deg) opacity(0.8) drop-shadow(0 0 0 blue) ;
+    }
+    .filter-brown {
+        filter: hue-rotate(-55deg) brightness(0.6) opacity(0.8) drop-shadow(0 0 0 rgb(158, 58, 0));
+    }
+    .filter-disable {
+        filter: grayscale(100%) brightness(80%) contrast(1) invert(0.4) opacity(.5);
+    }
+}

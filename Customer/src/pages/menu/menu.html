@@ -1,0 +1,136 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="has-shadow" #header>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only clear (click)="backMenu()" class="back_btn" item-start *ngIf="isMenuDetails.status"><ion-icon name="arrow-back"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>{{ 'MENU' | translate }}</ion-title>
+    <ion-buttons end *ngIf="reservation_id&& !require_call">
+      <button id="notification-button" ion-button icon-only (click)="openCart()"><ion-icon name="cart"><ion-badge id="notifications-badge" color="danger">{{(cartAmount == 0)?'':cartAmount}}</ion-badge></ion-icon></button>
+    </ion-buttons>
+    <!-- <ion-buttons end *ngIf="(!reservation_id || require_call)&&(reservation.status=='active')"> -->
+      <ion-buttons end *ngIf="!reservation_id">
+        <!-- <button id="notification-button" ion-button icon-only ><ion-icon name="call"><ion-badge id="notifications-badge" color="danger"></ion-badge></ion-icon></button> -->
+        <!-- <button id="notification-button" ion-button icon-only ><ion-badge id="notifications-badge" color="danger"><i class="fas fa-concierge-bell" style="color:#fe5295;font-size:36px;"></i></ion-badge></button> -->
+        <div *ngIf="reservation && require_call">
+            <button *ngIf="reservation.status == 'active'" id="notification-button" ion-button icon-only (click)="wantCall()"><i class="fas fa-concierge-bell" style="color:#fe5295;font-size:22px;margin-right: 5px;"></i></button>
+        </div>
+        
+      </ion-buttons>
+    <ion-buttons end *ngIf="!reservation_id">
+      <button ion-button icon-only (click)="onClose()"><ion-icon name="ios-close-outline" style="margin-right: 5px;"></ion-icon></button>
+    </ion-buttons>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="beach-menu">
+
+  <div *ngIf="!isMenuDetails.status">
+    <ion-card *ngFor="let item of menu" class="parentCard" [class.itemsShown]="item.itemsShown">
+      <ion-row class="category" (click)="toggleItems(item)">
+        <span ion-text text-capitalize color="primary" class="category-name">{{item.name}}</span>
+        <ion-icon color="primary" [name]="item.itemsShown ? 'ios-arrow-up' : 'ios-arrow-down'"></ion-icon>
+      </ion-row>
+      <div *ngIf="item.itemsShown" class="mainContent">
+        <ion-row *ngFor="let content of item.products" class="ItemContents">
+          <ion-col col-12>
+              <div class="name topSection">{{ content.name | slice:0:100 }}</div>
+          </ion-col>
+            
+          <ng-container *ngIf="content.image">
+              <ion-col col-3>
+                  <img *ngIf="!showImgFullscreen" [src]="content.image" (click)="gotoSelection(content);" />
+                  <img *ngIf="showImgFullscreen" [src]="content.image" imageViewer />
+                </ion-col>
+                <ion-col col-6 (click)="gotoSelection(content);">
+                  <!-- <div class="name topSection">{{ content.name | slice:0:100 }}</div> -->
+                  <div class="description bottomSection">{{ content.description | slice:0:200}}</div>
+                </ion-col>
+          </ng-container>
+          <ng-container *ngIf="!content.image">
+              <ion-col col-9 (click)="gotoSelection(content);">
+                  <!-- <div class="name topSection">{{ content.name | slice:0:100 }}</div> -->
+                  <div class="description bottomSection">{{ content.description | slice:0:200}}</div>
+                </ion-col>
+          </ng-container>
+          <ion-col col-3>
+            <div class="add-amount"><div class="price topSection">{{ content.price}} {{currency}}</div>
+            <div class="addBtn bottomSection" *ngIf="reservation_id&&!require_call"><button ion-button color="primary" (click)="add(content);" rounded>{{ 'ADD' | translate }}</button> </div>
+          </div>
+            
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+
+  </div>
+
+  <div *ngIf="isMenuDetails.status" class="details">
+    <ion-card>
+      <ion-row *ngIf='isMenuDetails.data.image' class="category">
+        <div class="top-image"><img [src]="isMenuDetails.data.image" /> </div>
+      </ion-row>
+      <ion-row class="category">
+        <div ion-text text-capitalize color="primary" class="category-name">{{ isMenuDetails.data.name }}</div>
+        <div ion-text text-capitalize color="dark" class="category-description">{{ isMenuDetails.data.description }}</div>
+        <div ion-text text-capitalize color="primary" class="category-price" text-right>{{ isMenuDetails.data.price }}{{currency}}</div>
+      </ion-row>
+    </ion-card>
+    <ion-card>
+      <ion-row class="category" (click)="itemsShown = !itemsShown">
+        <div class="category-main">
+          <span ion-text text-capitalize color="primary" class="category-title">{{ 'TOPPINGS' | translate }} </span>
+          <span ion-text color="dark" class="category-label">({{ 'OPTIONAL' | translate }})</span>
+        </div>
+
+        <ion-icon color="primary" [name]="itemsShown ? 'ios-arrow-up' : 'ios-arrow-down'"></ion-icon>
+      </ion-row>
+      <ion-row class="category toppings" *ngIf="isMenuDetails.data.toppings && itemsShown">
+        <div *ngFor="let items of isMenuDetails.data.toppings; let i =index">
+          <div ion-text text-capitalize color="primary" class="category-name"><button ion-button class="toppingCheckbox" (click)="selectTopping(items,i)" [ngClass]="selectedToppings[i]?'active':''"></button></div>
+          <div ion-text text-capitalize color="primary" class="category-name">{{ items.name }}</div>
+          <div ion-text text-capitalize color="primary" class="category-price" text-right>{{ items.price }}{{currency}}</div>
+        </div>
+
+      </ion-row>
+    </ion-card>
+    <ion-card>
+      <ion-row class="category">
+        <div class="category-main">
+          <span ion-text text-capitalize color="primary" class="category-title">{{ 'COMMENT' | translate }} </span>
+          <span ion-text color="dark" class="category-label">({{ 'OPTIONAL' | translate }})</span>
+        </div>
+        <div class="category-comment">
+          <ion-input placeholder="{{ 'MENTION_PLACEHOLDER' | translate }}" name="mentions" [(ngModel)]="mention"></ion-input>
+        </div>
+      </ion-row>
+    </ion-card>
+    <ion-card>
+      <ion-row class="category">
+        <div class="category-main">
+          <span ion-text text-capitalize color="primary" class="category-title">{{ 'QUANTITY' | translate }} </span>
+          <span ion-text color="dark" class="category-label">({{ 'OPTIONAL' | translate }})</span>
+        </div>
+        <div class="category-quantity">
+          <button ion-button icon-only clear class="minus" (click)="counter(-1)"><ion-icon name="remove"></ion-icon></button>
+          <div class="screen"><span text-capitalize ion-text color="primary">{{ quantity }}</span></div>
+          <button ion-button icon-only clear class="plus" (click)="counter(+1)"><ion-icon name="add"></ion-icon></button>
+        </div>
+      </ion-row>
+    </ion-card>
+
+    <div class="addToCart">
+      <button ion-button [disabled]="quantity<=0" (click)="add(isMenuDetails.data)">{{ 'ADD_TO_CART' | translate }}</button>
+    </div>
+  </div>
+
+</ion-content>

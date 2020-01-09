@@ -1,0 +1,177 @@
+beachBookSunbed{
+  .scroll-content {
+    background-image: url('../assets/imgs/beach_book_background.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height:auto;
+
+    h2{
+      &[margined]{
+        &[color='white']{
+          padding: 0.8vh 1.5vh;
+          width: 88vw;
+          background: rgba(255, 255, 255, 0.7);
+          border-radius: 5px;
+          margin: 1.5vh auto !important;
+          font-weight: 900;
+          font-size: 1.8vh;
+          text-align: center;
+          color: black;
+        }
+      }
+    }
+
+
+
+    .row{
+      .col{
+        h2{
+          margin:0;
+          width:100%;
+          text-align:left;
+        }
+        h3{
+          padding:0!important;
+          margin:0!important;
+          width:100%;
+          text-align:left;
+        }
+      }
+    }
+    .list{
+      padding-bottom:0 !important;
+      margin-bottom:0 !important;
+    }
+    .sunbedContainer{
+      margin:0 auto;
+      padding:1.5vh;
+      width:88vw;
+      height:43vh;
+      position:relative;
+      .sunbedHeading {
+        .col {
+          text-align: right;
+          font-size: 2.4vh;
+          font-weight:Bold;          
+        }
+        [margined] {
+          color: map_get($colors, dark);
+          margin: 0 !important;
+          font-size: 2.4vh;
+          font-weight:Bold;          
+
+          &[blackdark] {
+            font-weight: Bold;
+            padding: 0;
+            text-align: left;
+            font-size: 2.4vh;
+
+          }
+        }
+      }
+      .sunbedBg{
+        background: url('../assets/imgs/beaches/individual_sunbed_without_umbrella.png') no-repeat center;
+        background-size:contain;
+        width:100%;
+        margin-top:5vw;
+        height:30vw;
+
+
+        .remaining{
+          position:absolute;
+          text-align:center;
+          bottom:1rem;
+          font-size:2vh;
+          font-weight:bold;
+          left:0;
+          right:0;
+        }
+        .bottom{
+          position:absolute;
+          bottom:5vh;
+          left:0;
+          right:0;
+          display:flex;
+          flex-direction:row;
+          justify-content:center;
+
+          .lotsButton{
+
+            .button{
+              max-height:2.5rem;
+              width:2.5rem;
+              padding:1rem;
+              font-size:1.2rem;
+              font-weight:bold;
+              background:map_get($colors,secondary);
+              color:map_get($colors,light);
+              @include border-radius(5px);
+              &.active{
+                background:map_get($colors,primary);
+              }
+
+            }
+          }
+
+
+        }
+      }
+
+      background:rgba(map_get($colors,white),0.7);
+      @include border-radius(5px);
+
+    }
+
+    .TextContainers{
+      margin:1vw auto;
+      width:88vw;
+      height:calc(calc( 100vh - 76)/3);
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:1vh;
+      .col{
+          padding:0;
+
+
+        .button{
+          margin-top:.5rem;
+          width:95%;
+          height:9vw;
+          font-size:1.8vh;;
+          @include border-radius(5vw);
+          font-weight:600;
+          margin-left:0;
+          text-transform: uppercase;
+          float:right;
+
+          &.reserve{
+            margin-right:1rem;
+            text-transform:none;
+            color:map_get($colors,primary);
+            float:left;
+          }
+        }
+          h2[margined]{
+            padding:0 !important;
+            text-align:left;
+            margin:0 !important;
+            &[blackDark]{
+              font-size:2.2vh;
+              font-weight:bold;
+              color:map_get($colors,dark);
+              margin:0;
+              padding:0;
+            }
+
+        }
+
+
+
+
+
+
+    }
+  }
+}
+}

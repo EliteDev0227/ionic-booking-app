@@ -1,0 +1,195 @@
+page-auth {
+    ion-navbar.toolbar {
+        min-height: 6.5rem;
+    }
+    .scroll-content {
+        overflow: hidden !important;
+        padding: 3vw 12vw !important;
+    }
+    .app-logo {
+        margin: 12vh auto 4vh;
+        max-width: 60vw;
+        text-align: center;
+        color: white;
+        p {
+            font-family: "Honeymoon";
+            font-size: 7vh;
+            margin: 0;
+        }
+        span {
+            font-family: "Wavehaus";
+            font-size: 3vh;
+            display: block;
+            text-align: right;
+            padding-right: 10vw;
+            margin-top: -0.5vh;
+        }
+    }
+    ion-item.has-valid-error {
+        box-shadow: 0 0.2rem red;
+    }
+    div.has-valid-error {
+        text-align: left;
+        color: map-get($colors, danger);
+        margin-top: -0.5em;
+        margin-bottom: 0.4em;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    ion-content {
+        background-color: map-get($colors, main_bg);
+        ion-list {
+            text-align: center;
+        }
+        ion-item {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            border: none !important;
+            border-radius: 0.2em !important;
+            min-height: 4.9rem;
+            color: white !important;
+            margin-bottom: 0.5em !important;
+            
+            ion-label {
+                margin: 11px 8px 11px 0 !important;
+                color: white !important;
+            }
+            input {
+                margin-left: 0.1em !important;
+                letter-spacing: 0.1rem;
+            }
+            .text-input::-moz-placeholder {
+                color: white;
+            }
+            .text-input:-ms-input-placeholder {
+                color: white;
+            }
+            .text-input::-webkit-input-placeholder {
+                text-indent: 0;
+                color: white;
+            }
+
+            .text-input-wp {
+                margin: unset !important;
+                padding-left: 0 !important;
+                border: none !important;
+            }
+        }
+        .item-inner {
+            border-bottom: none !important;
+        }
+        .search-bar {
+            
+            ion-icon {
+                font-size: 2.6rem;
+            }
+        }
+        @media screen and (orientation:portrait) { 
+            .search-results {
+                max-height: calc(100vh - 60vh);
+                min-height: 12vh;
+            }
+        }
+        @media screen and (orientation:landscape) { 
+            .search-results {
+                max-height: 30vh;
+                // min-height: 12vw;
+            }
+        }
+        .search-results {
+            // max-height: calc(100vh - 40vh);
+            background-color: rgba(255, 255, 255, 0.288);
+            border: none;
+            border-radius: 0.2em;
+            overflow: auto;
+            // .item-ios[detail-push] .item-inner, button.item-ios:not([detail-none]) .item-inner, a.item-ios:not([detail-none]) .item-inner {
+            //     background-image: none !important;
+            // }
+        }
+
+        .search-results ion-item {
+            background-color: transparent !important;
+            color: white !important;
+            margin-bottom: 0 !important;
+            font-size: 1.5rem;
+            .item-inner {
+                ion-label {
+                    word-wrap: break-word;
+                    overflow: unset;
+                    white-space: unset;
+                }
+            }
+        }
+        .search-results ion-item:active {
+            background-color: #ffffff31 !important;
+        }
+        .triangle {
+            margin-left: 1rem;
+            margin-top: 0.5rem;
+            width: 0.1em;
+            height: 0.1em;
+            border-left: 1rem solid transparent !important;
+            border-right: 1rem solid transparent !important;
+            border-bottom: 1.2rem solid #ffffff48 !important;
+        }
+        .unlock-inp {
+            margin-top: 0.4em;
+            
+            input {
+                text-align: center;
+                letter-spacing: 0.1rem;
+                -webkit-text-security: square !important;
+            }
+            margin-bottom: 1em;
+        }
+        
+    }
+    ion-navbar {
+        .toolbar-background {
+            background-color: transparent !important;
+            border: none !important;
+        }
+    }
+    ion-title .toolbar-title {
+        color: white !important;
+        text-transform: uppercase;
+        font-family: "Foxsans"; 
+        text-align: center;
+        font-size: 2rem !important;
+        font-weight: 500 !important;
+    }
+
+    .title_cont {
+        position: fixed;
+        width: 100%;
+        bottom: 1vh;
+        left: 0;
+        text-align: center;
+
+        button:first-child {
+            .button-inner {
+                color: black;
+                font-weight: bold;
+                font-size: 1.4rem;
+            }
+        }
+        button:last-child {
+            padding-left: 0;
+            .button-inner {
+                text-transform: uppercase;
+                text-align: left;
+                color: white;
+                font-weight: bold;
+                font-size: 1.6rem;
+            }
+        }
+    }
+    .title_cont.hide {
+        display: none;
+    }
+    ion-label.u_phone {
+        margin-right: .2rem !important;
+        ion-icon[name='ios-add-outline'] {
+            margin-left: 1rem;
+        }
+    }
+}
